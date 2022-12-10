@@ -2,7 +2,7 @@
 title: little oberon bay 3
 date: 2005-08-01 16:16
 author: Andrew Matthews
-tags: misc, photography
+ignored-tags: misc, photography
 slug: little-oberon-bay-3
 status: published
 ---

@@ -2,7 +2,7 @@
 title: Well, here goes nothing...
 date: 2005-05-21 17:20
 author: Andrew Matthews
-tags: gadgets, misc
+ignored-tags: gadgets, misc
 slug: well-here-goes-nothing
 status: published
 ---

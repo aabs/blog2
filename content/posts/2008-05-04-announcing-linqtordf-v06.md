@@ -3,7 +3,7 @@ title: Announcing LinqToRdf v0.6
 date: 2008-05-04 22:54
 author: aabs
 category: .NET, programming, Semantic Web
-tags: .NET, C#, LinqToRdf
+ignored-tags: .NET, C#, LinqToRdf
 slug: announcing-linqtordf-v06
 status: published
 attachments: 2008/05/clip-image0019-thumb.png, 2008/05/clip-image0017.png, 2008/05/clip-image0017-thumb.png, 2008/05/clip-image0015.png, 2008/05/clip-image0015-thumb.png, 2008/05/clip-image0019.png, 2008/05/image.png, 2008/05/image-thumb.png

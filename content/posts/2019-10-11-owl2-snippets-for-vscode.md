@@ -3,7 +3,7 @@ title: OWL2 Snippets for VSCode
 date: 2019-10-11 10:00
 author: aabs
 category: Semantic Web
-tags: owl, RDF, snippets, vscode
+ignored-tags: owl, RDF, snippets, vscode
 slug: owl2-snippets-for-vscode
 status: published
 attachments: 2019/10/juan-gomez-kt-wa0gdfq8-unsplash.jpg

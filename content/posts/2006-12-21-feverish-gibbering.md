@@ -2,7 +2,7 @@
 title: Feverish Gibbering
 date: 2006-12-21 08:22
 author: Andrew Matthews
-tags: humour, psychology
+ignored-tags: humour, psychology
 slug: feverish-gibbering
 status: published
 ---

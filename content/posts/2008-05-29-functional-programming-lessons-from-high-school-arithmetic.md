@@ -3,7 +3,7 @@ title: Functional Programming - lessons from high-school arithmetic
 date: 2008-05-29 21:49
 author: aabs
 category: .NET, functional programming, programming
-tags: LINQ
+ignored-tags: LINQ
 slug: functional-programming-lessons-from-high-school-arithmetic
 status: published
 attachments: 2008/05/math.png

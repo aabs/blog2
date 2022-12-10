@@ -2,7 +2,7 @@
 title: More on the Agile Debate
 date: 2007-01-23 15:52
 author: Andrew Matthews
-tags: programming
+ignored-tags: programming
 slug: more-on-the-agile-debate
 status: published
 ---

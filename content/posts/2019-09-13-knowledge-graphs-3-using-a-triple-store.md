@@ -1,9 +1,9 @@
 ---
 title: Knowledge Graphs 3 - Using a Triple Store
-date: 2019-09-13 15:22
+date: 2019-09-13 
 author: aabs
 category: programming
-tags: blazegraph, knowledge graphs, RDF, Semantic Web, sparql
+ignored-tags: blazegraph, knowledge graphs, RDF, Semantic Web, sparql
 slug: knowledge-graphs-3-using-a-triple-store
 status: published
 attachments: 2019/09/joao-tzanno-1nacmxqfpza-unsplash.jpg

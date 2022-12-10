@@ -2,7 +2,7 @@
 title: A nocturnal visitor
 date: 2005-10-14 03:09
 author: Andrew Matthews
-tags: photography, wildlife
+ignored-tags: photography, wildlife
 slug: a-nocturnal-visitor
 status: published
 ---

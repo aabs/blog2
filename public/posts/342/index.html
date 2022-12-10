@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Nondeterministic Finite Automaton (NDFA) in C# | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Attachments: 2007/01/ndfa.pdf
+Download the source: Example 1.
+Sad to say, but my holidays are over, and I’m back to work. I tried pretty hard to keep my hands away from the laptop while I was off, but I got itchy fingers towards the end so I had a stab at implementing a non-deterministic finite automaton (NDFA). I implemented it to give me an excuse to play with the C5 collections library.">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Nondeterministic Finite Automaton (NDFA) in C#" />
+<meta property="og:description" content="Attachments: 2007/01/ndfa.pdf
+Download the source: Example 1.
+Sad to say, but my holidays are over, and I’m back to work. I tried pretty hard to keep my hands away from the laptop while I was off, but I got itchy fingers towards the end so I had a stab at implementing a non-deterministic finite automaton (NDFA). I implemented it to give me an excuse to play with the C5 collections library." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/342/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="Nondeterministic Finite Automaton (NDFA) in C#">
+<meta itemprop="description" content="Attachments: 2007/01/ndfa.pdf
+Download the source: Example 1.
+Sad to say, but my holidays are over, and I’m back to work. I tried pretty hard to keep my hands away from the laptop while I was off, but I got itchy fingers towards the end so I had a stab at implementing a non-deterministic finite automaton (NDFA). I implemented it to give me an excuse to play with the C5 collections library.">
+
+<meta itemprop="wordCount" content="651">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Nondeterministic Finite Automaton (NDFA) in C#"/>
+<meta name="twitter:description" content="Attachments: 2007/01/ndfa.pdf
+Download the source: Example 1.
+Sad to say, but my holidays are over, and I’m back to work. I tried pretty hard to keep my hands away from the laptop while I was off, but I got itchy fingers towards the end so I had a stab at implementing a non-deterministic finite automaton (NDFA). I implemented it to give me an excuse to play with the C5 collections library."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Nondeterministic Finite Automaton (NDFA) in C#</h1>
+      
+      <p class="tracked">
+        By <strong>Andrew Matthews</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>Attachments: 2007/01/ndfa.pdf</p>
+<p>Download the source: <a href="%7Bstatic%7D2007/01/ndfa.pdf">Example 1.</a></p>
+<p>Sad to say, but my holidays are over, and I’m back to work. I tried pretty hard to keep my hands away from the laptop while I was off, but I got itchy fingers towards the end so I had a stab at implementing a non-deterministic finite automaton (NDFA). I implemented it to give me an excuse to play with the <a href="http://www.itu.dk/research/c5/">C5 collections library</a>. As it turned out the class was relatively easy to implement as a deterministic finite automaton (DFA) but required a bit more finesse to extend it to the general case of the NDFA. Anyhow I got it working OK. Here&rsquo;s how you might use it:</p>
+<p>::: {.csharpcode}</p>
+<p>::: {.csharpcode}
+1:  NDFA&lt;QState, char, string&gt; ndfa = new NDFA&lt;QState, char, string&gt;();</p>
+<pre><code>   2:  ndfa.AllStates.AddAll(new QState[] { QState.err, QState.q0, QState.q1, QState.q2 });
+
+   3:  ndfa.AcceptStates.AddAll(new QState[] { QState.q2});
+
+   4:  ndfa.StartState = QState.q0;
+
+   5:  ndfa.ErrorState = QState.err;
+
+   6:  ndfa.SetStateComparer(new QStateComparer&lt;QState&gt;());
+
+   7:  ndfa.SetErrorHandler(delegate { Debug.WriteLine(&quot;Error State Entered&quot;); });
+
+   8:
+
+   9:  ndfa.TransitionTable.Add(new Rec&lt;QState, char&gt;(QState.q0, 'a'), QState.q1);
+
+  10:  ndfa.TransitionTable.Add(new Rec&lt;QState, char&gt;(QState.q0, 'a'), QState.q2);
+
+  11:  ndfa.TransitionTable.Add(new Rec&lt;QState, char&gt;(QState.q1, 'b'), QState.q3);
+
+  12:  ndfa.TransitionTable.Add(new Rec&lt;QState, char&gt;(QState.q2, 'b'), QState.q3);
+
+  13:
+
+  14:  TransitionFunction&lt;QState, char, string&gt; func =
+
+  15:      delegate(INdfa&lt;QState, char, string&gt; idfa, QState q, QState qn, char i)
+
+  16:      {
+
+  17:          if (idfa.IsErrorState)
+
+  18:              return &quot;Error Occurred.&quot;;
+
+  19:          return
+
+  20:              string.Format(&quot;Transitioned from {0} to {1} because of input '{2}' ({3})&quot;, q,
+
+  21:                            qn, i, idfa.IsInAcceptState ? &quot;Accept State&quot; : &quot;Non-Accept State&quot;);
+
+  22:      };
+
+  23:
+
+  24:  ndfa.TransitionFunctions.Add(new Rec&lt;QState, QState&gt;(QState.q0, QState.q1), func);
+
+  25:  ndfa.TransitionFunctions.Add(new Rec&lt;QState, QState&gt;(QState.q0, QState.q2), func);
+
+  26:  ndfa.TransitionFunctions.Add(new Rec&lt;QState, QState&gt;(QState.q1, QState.q3), func);
+
+  27:  ndfa.TransitionFunctions.Add(new Rec&lt;QState, QState&gt;(QState.q2, QState.q3), func);
+
+  28:
+
+  29:  foreach (string output in ndfa.ProcessInput(&quot;ab&quot;.ToCharArray()))
+
+  30:  {
+
+  31:      Debug.WriteLine(output);
+
+  32:  }
+</code></pre>
+<p>:::
+:::</p>
+<p>Example 1: Using the NDFA</p>
+<p>This sample implements a simple state machine that diverges into two states and then converges back into a single accepting state:</p>
+<p><img src="http://farm1.static.flickr.com/150/358981593_c4c694cc70_o_d.png" alt=""></p>
+<p>being a generic class it can work as well with chars, ints or enums for the state. My example above uses a simple enum called QState, plus a comparator to allow states to be stored in an ordered tree collection to allow quick state transitions:</p>
+<p>::: {.csharpcode}
+1:  public enum QState : int
+:::</p>
+<p>::: {.csharpcode}
+2:  {
+:::</p>
+<p>::: {.csharpcode}
+3:      err,
+:::</p>
+<p>::: {.csharpcode}
+4:      q0,
+:::</p>
+<p>::: {.csharpcode}
+5:      q1,
+:::</p>
+<p>::: {.csharpcode}
+6:      q2,
+:::</p>
+<p>::: {.csharpcode}
+7:      q3
+:::</p>
+<p>::: {.csharpcode}
+8:  }
+:::</p>
+<p>::: {.csharpcode}
+9:
+:::</p>
+<p>::: {.csharpcode}
+Example 2. The states used by the NDFA
+:::</p>
+<p>::: {.csharpcode}</p>
+<p>:::</p>
+<p>::: {.csharpcode}
+The Rec&lt;A,B&gt; class is a record class (tuple) that is defined in C5 for associative containers such as dictionaries. I based my comparer on Rec&lt;Q,Q&gt; because I needed it to order the transition table which stores the one to many mappings from state to state.
+:::</p>
+<p>::: {.csharpcode}</p>
+<p>:::</p>
+<p>::: {.csharpcode}
+10:  public class QStateComparer<!-- raw HTML omitted --> : IComparer&lt;Rec&lt;Q, Q&raquo;
+:::</p>
+<p>::: {.csharpcode}
+11:  {
+:::</p>
+<p>::: {.csharpcode}
+12:      public int Compare(Rec&lt;Q, Q&gt; x, Rec&lt;Q, Q&gt; y)
+:::</p>
+<p>::: {.csharpcode}
+13:      {
+:::</p>
+<p>::: {.csharpcode}
+14:          int a = (13 * Convert.ToInt32(x.X1)) + Convert.ToInt32(x.X2);
+:::</p>
+<p>::: {.csharpcode}
+15:          int b = (13 * Convert.ToInt32(y.X1)) + Convert.ToInt32(y.X2);
+:::</p>
+<p>::: {.csharpcode}
+16:          return a - b;
+:::</p>
+<p>::: {.csharpcode}
+17:      }
+:::</p>
+<p>::: {.csharpcode}
+18:  }
+:::</p>
+<p>Example 3. A comparer to allow QState to be used with the C5 TreeSet, HashBag and HashDictionary collections.</p>
+<p>In example 1, line 14, I use an anonymous delegate to create a <em>&lsquo;transition function&rsquo;</em>. Sorry to use contradictory terminology - transition function is a term used to describe the function that is used to find the next state to be transitioned to. In my case though I have augmented the NDFA to allow a delegate to be invoked as each transition is made. This allows the NDFA to do useful work as it goes. In the case of the function on line 14, it just says what happened to cause the transition, without doing anything.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

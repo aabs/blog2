@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Not another mapping markup language! | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Kingsley Idehen has again graciously given LinqToRdf some much needed link-love. He mentioned it in a post that was primarily concerned with the issues of mapping between the ontology, relational and object domains. His assertion is that LinqtoRdf, being an offshoot of an ORM related initiative, is reversing the natural order of mappings. He believes that in the world of ORM systems, the emphasis should be in mapping from the relational to the object domain.">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Not another mapping markup language!" />
+<meta property="og:description" content="Kingsley Idehen has again graciously given LinqToRdf some much needed link-love. He mentioned it in a post that was primarily concerned with the issues of mapping between the ontology, relational and object domains. His assertion is that LinqtoRdf, being an offshoot of an ORM related initiative, is reversing the natural order of mappings. He believes that in the world of ORM systems, the emphasis should be in mapping from the relational to the object domain." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/not-another-mapping-markup-language/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="Not another mapping markup language!">
+<meta itemprop="description" content="Kingsley Idehen has again graciously given LinqToRdf some much needed link-love. He mentioned it in a post that was primarily concerned with the issues of mapping between the ontology, relational and object domains. His assertion is that LinqtoRdf, being an offshoot of an ORM related initiative, is reversing the natural order of mappings. He believes that in the world of ORM systems, the emphasis should be in mapping from the relational to the object domain.">
+
+<meta itemprop="wordCount" content="590">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Not another mapping markup language!"/>
+<meta name="twitter:description" content="Kingsley Idehen has again graciously given LinqToRdf some much needed link-love. He mentioned it in a post that was primarily concerned with the issues of mapping between the ontology, relational and object domains. His assertion is that LinqtoRdf, being an offshoot of an ORM related initiative, is reversing the natural order of mappings. He believes that in the world of ORM systems, the emphasis should be in mapping from the relational to the object domain."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Not another mapping markup language!</h1>
+      
+      <p class="tracked">
+        By <strong>aabs</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>Kingsley Idehen has again graciously given LinqToRdf some much needed <a href="http://kidehen.typepad.com/kingsley_idehens_typepad/2008/08/virtuoso-linked.html">link-love</a>. He mentioned it in a post that was primarily concerned with the issues of mapping between the ontology, relational and object domains. His assertion is that LinqtoRdf, being an offshoot of an ORM related initiative, is reversing the natural order of mappings. He believes that in the world of ORM systems, the emphasis should be in mapping from the relational to the object domain.</p>
+<p>I think that he has a point, but not for the reason he&rsquo;s putting forward. I think that the natural direction of mapping stems from the relative richness of the domains being mapped. The impedence mismatch between the relational and object domains stems from (1) the implicitness of meaning in the relationships of relational systems and (2) the representation of relationships and (3) type mismatches.</p>
+<p>If the object domain has great expressiveness and explicit meaning in relationships it has a &lsquo;larger&rsquo; language than that expressible using relational databases. Relationships are still representable, but their meaning is implicit. For that reason you would have to confine your mappings to those that can be represented in the target (relational) domain. In that sense you get a priority inversion that forces the lowest common denominator language to control what gets mapped.</p>
+<p>The same form of inversion occurs between the ontological and object domains, only this time it is the object domain that is the lowest common denominator. OWL is able to represent such things as restriction classes and multiple inheritance and sub-properties that are hard or impossible to represent in languages like C# or Java. When I heard of the RDF2RDB working group at the W3C, I suggested (to thunderous silence) that they direct their attentions to coming up with a general purpose mapping ontology that could be used for performing any kind of mapping.</p>
+<p>I felt that it would have been extremely valuable to have a standard language for defining mappings. Just off the top of my head I can think of the following places where it would be useful:</p>
+<ol>
+<li>Object/Relational Mapping Systems (O/R or ORM)</li>
+<li>Ontology/Object Mappings (such as in LinqToRdf)</li>
+<li>Mashups (merging disparate data sources)</li>
+<li>Ontology Reconciliation - finding intersects between two sets of concepts</li>
+<li>Data cleansing</li>
+<li>General purpose data access layer automation</li>
+<li>Data export systems</li>
+<li>Synchronization Systems (i.e. keeping systems like CRM and AD in sync)</li>
+<li>mapping objects/tables onto UIs</li>
+<li>etc</li>
+</ol>
+<p>You can see that most of these are perennial real-world problems that programmers are ALWAYS having to contend with. Having a standard language (and API?) would really help with all of these cases.</p>
+<p>I think such an ontology would be a nice addition to OWL or RDF Schema, allowing a much richer definition of equivalence between classes (or groups or parts of classes). Right now one can define a one-to-one relationship using the owl:equivalentClass property. It&rsquo;s easy to imagine that two ontology designers might approach a domain from such orthogonal directions that they find it hard to define any conceptual overlap between entities in their ontologies. A much more complex language is required to allow the reconciliation of widely divergent models.</p>
+<p>I understand that by focusing their attentions on a single domain they increase their chances of success, but what the world needs from an organization like the W3C is the kind of abstract thinking that gave rise to RDF, not another mapping markup language!</p>
+<hr>
+<p>Here&rsquo;s a nice picture of how LinqToRdf interacts with Virtuoso (thanks to Kingsley&rsquo;s blog).</p>
+<p>[caption id=&quot;&quot; align=&ldquo;aligncenter&rdquo; width=&ldquo;770&rdquo; caption=&ldquo;How LINQ uses LinqToRdf to talk to SPARQL stores&rdquo;]<a href="http://kidehen.typepad.com/kingsley_idehens_typepad/2008/08/virtuoso-linked.html"><img src="http://virtuoso.openlinksw.com/Whitepapers/html/linqtordf/linqtordf2.png" alt="How LINQ uses LinqToRdf to talk to SPARQL stores">{width=&ldquo;770&rdquo; height=&ldquo;709&rdquo;}</a>[/caption]</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

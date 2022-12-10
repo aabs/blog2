@@ -2,7 +2,7 @@
 title: LINQ & Reflection in C# 3.0
 date: 2006-11-13 18:33
 author: Andrew Matthews
-tags: C#, Code Generation
+ignored-tags: C#, Code Generation
 slug: linq-reflection-in-c-30
 status: published
 ---

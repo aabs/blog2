@@ -2,7 +2,7 @@
 title: Typoglycemia
 date: 2006-01-05 11:48
 author: Andrew Matthews
-tags: science
+ignored-tags: science
 slug: typoglycemia-2
 status: published
 ---

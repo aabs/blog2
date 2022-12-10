@@ -2,7 +2,7 @@
 title: Meta-evolution - evolving the capacity to learn
 date: 2005-07-19 09:48
 author: Andrew Matthews
-tags: artificial intelligence, linguistics
+ignored-tags: artificial intelligence, linguistics
 slug: meta-evolution-evolving-the-capacity-to-learn
 status: published
 ---

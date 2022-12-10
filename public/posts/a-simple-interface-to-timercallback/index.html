@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>A Simple Interface to TimerCallback | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="It&rsquo;s been a while since I last blogged. I moved to Readify, and have been burning the midnight oil ever since! But I wrote some code the other day that I thought might come in handy in future, so I thought I&rsquo;d blog it.
+What I needed to do was kick off a few activities that run periodically in their own thread. As ever, I started out by writing code to manage signaling to between the main thread and the worker thread with sleep periods when there was nothing to do, till it was time to start again.">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="A Simple Interface to TimerCallback" />
+<meta property="og:description" content="It&rsquo;s been a while since I last blogged. I moved to Readify, and have been burning the midnight oil ever since! But I wrote some code the other day that I thought might come in handy in future, so I thought I&rsquo;d blog it.
+What I needed to do was kick off a few activities that run periodically in their own thread. As ever, I started out by writing code to manage signaling to between the main thread and the worker thread with sleep periods when there was nothing to do, till it was time to start again." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/a-simple-interface-to-timercallback/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="A Simple Interface to TimerCallback">
+<meta itemprop="description" content="It&rsquo;s been a while since I last blogged. I moved to Readify, and have been burning the midnight oil ever since! But I wrote some code the other day that I thought might come in handy in future, so I thought I&rsquo;d blog it.
+What I needed to do was kick off a few activities that run periodically in their own thread. As ever, I started out by writing code to manage signaling to between the main thread and the worker thread with sleep periods when there was nothing to do, till it was time to start again.">
+
+<meta itemprop="wordCount" content="561">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="A Simple Interface to TimerCallback"/>
+<meta name="twitter:description" content="It&rsquo;s been a while since I last blogged. I moved to Readify, and have been burning the midnight oil ever since! But I wrote some code the other day that I thought might come in handy in future, so I thought I&rsquo;d blog it.
+What I needed to do was kick off a few activities that run periodically in their own thread. As ever, I started out by writing code to manage signaling to between the main thread and the worker thread with sleep periods when there was nothing to do, till it was time to start again."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">A Simple Interface to TimerCallback</h1>
+      
+      <p class="tracked">
+        By <strong>Andrew Matthews</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>It&rsquo;s been a while since I last blogged. I moved to <a href="http://www.readify.net">Readify</a>, and have been burning the midnight oil ever since! But I wrote some code the other day that I thought might come in handy in future, so I thought I&rsquo;d blog it.</p>
+<p>What I needed to do was kick off a few activities that run periodically in their own thread. As ever, I started out by writing code to manage signaling to between the main thread and the worker thread with sleep periods when there was nothing to do, till it was time to start again. Needless to say, it all got very repetitive and messy. So I rewrote it focusing on making the developer work as simple as possible, with no repetitions.</p>
+<p>Here&rsquo;s how it works. I define an interface called ITimerActivity which has a single method returning a void and taking an object. The TaskHandler method matches the delegate expected by the TimerCallback constructor. Your worker function implements this method, to perform the activity you want run, and the TimerHandler class passes your TaskHandler method as a delegate to the TimerCallback method. It then manages the timer using a simpler mechanism of Start and Stop. So, all you need to do to make use of timers is to implement thus ITimerActivity interface and use it inside a TimerHandler.</p>
+<p>public interface ITimerActivity
+{</p>
+<p>void TaskHandler( object obj );</p>
+<p>}</p>
+<p>Here is a test class that will periodically write out a debug string</p>
+<p>public class TestActivity : ITimerActivity</p>
+<p>{</p>
+<p>private readonly string msg;</p>
+<p>public TestActivity(string msg)</p>
+<p>{</p>
+<p>this.msg = msg;</p>
+<p>}</p>
+<p>public void TaskHandler( object obj )</p>
+<p>{</p>
+<p>Debug.WriteLine( &ldquo;Timer called: &quot; + msg );</p>
+<p>}</p>
+<p>}</p>
+<p>To handle starting and stopping the timer, and to control how often it is run I defined the TimerHandler class, which is a generic class that takes objects implementing the ITimerActivity interface. A simple constructor function with the task, the time to start and the frequency of invocation allows the timer to be initiated without recourse to any grizzly details</p>
+<p>public class TimerHandler&lt;Task&gt; where Task : ITimerActivity {</p>
+<p>#region properties</p>
+<p>public Timer Timer {</p>
+<p>get { return theTimer; }</p>
+<p>set { theTimer = value; }</p>
+<p>}</p>
+<p>public Task TheTask  {</p>
+<p>get { return theTaskField; }</p>
+<p>set { theTaskField = value; }</p>
+<p>}</p>
+<p>public bool IsRunning {</p>
+<p>get { return taskIsRunning; }</p>
+<p>set { taskIsRunning = value; }</p>
+<p>}</p>
+<p>public long MillisecondsTillInitialActivation {</p>
+<p>get { return taskMillisecondsTillInitialActivation; }</p>
+<p>set { taskMillisecondsTillInitialActivation = value; }</p>
+<p>}</p>
+<p>public long MillisecondsBetweenInvocations {</p>
+<p>get { return taskMillisecondsBetweenInvocations; }</p>
+<p>set { taskMillisecondsBetweenInvocations = value; }</p>
+<p>}</p>
+<p>#endregion</p>
+<p>#region fields</p>
+<p>protected Timer theTimer;</p>
+<p>protected Task theTaskField;</p>
+<p>protected bool taskIsRunning = false;</p>
+<p>protected long taskMillisecondsTillInitialActivation = 0;</p>
+<p>protected long taskMillisecondsBetweenInvocations = 0;</p>
+<p>#endregion</p>
+<p>public TimerHandler( Task task, long millisecondsTillInitialActivation,
+                          long millisecondsBetweenInvocations ) {</p>
+<p>this.theTaskField = task;</p>
+<p>this.taskMillisecondsTillInitialActivation = millisecondsTillInitialActivation;</p>
+<p>this.taskMillisecondsBetweenInvocations = millisecondsBetweenInvocations;</p>
+<p>theTimer = CreateTimer();</p>
+<p>}</p>
+<p>public void Start() {</p>
+<p>theTimer.Change( taskMillisecondsTillInitialActivation, taskMillisecondsBetweenInvocations );</p>
+<p>taskIsRunning = true;</p>
+<p>}</p>
+<p>private Timer CreateTimer() {</p>
+<p>return new Timer( new TimerCallback( theTaskField.TaskHandler ), this,
+          Timeout.Infinite, taskMillisecondsBetweenInvocations );</p>
+<p>}</p>
+<p>public void Stop()  {</p>
+<p>theTimer.Change( Timeout.Infinite, taskMillisecondsBetweenInvocations );</p>
+<p>taskIsRunning = false;</p>
+<p>}</p>
+<p>}</p>
+<p>So a typical invocation might look like this:</p>
+<p>// start at midnight tonight
+long start = DateTime.Today.AddDays(1)
+    .Subtract(DateTime.Now).Milliseconds;</p>
+<p>// run every thirty minutes
+long freq = TimeSpan.FromMinutes( 30 ).Milliseconds;</p>
+<p>TimerHandler&lt;TestActivity&gt; Test =
+    new TimerHandler&lt;TestActivity&gt;(new TestActivity (&ldquo;Hello World&rdquo;), start, freq);</p>
+<p>SpellChecker.Start();</p>
+<p>// &hellip;</p>
+<p>SpellChecker.Stop();</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

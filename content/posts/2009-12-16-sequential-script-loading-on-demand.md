@@ -3,7 +3,7 @@ title: Sequential script loading on demand
 date: 2009-12-16 10:26
 author: aabs
 category: functional programming, programming
-tags: functional programming, javascript, jquery
+ignored-tags: functional programming, javascript, jquery
 slug: sequential-script-loading-on-demand
 status: published
 ---

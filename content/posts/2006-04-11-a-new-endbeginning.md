@@ -2,7 +2,7 @@
 title: A new end/beginning
 date: 2006-04-11 00:40
 author: Andrew Matthews
-tags: misc
+ignored-tags: misc
 slug: a-new-endbeginning
 status: published
 ---

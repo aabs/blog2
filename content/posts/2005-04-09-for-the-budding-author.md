@@ -2,7 +2,7 @@
 title: For the budding author...
 date: 2005-04-09 21:44
 author: Andrew Matthews
-tags: humour, poetry
+ignored-tags: humour, poetry
 slug: for-the-budding-author
 status: published
 ---

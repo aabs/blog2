@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Knowledge Graphs 6 - Semantics | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="With this installment we finally get to the part of knowledge graphs that I personally find really exciting: Semantics. In this installment, I will introduce some of the simple rules of entailment that are a part of the RDFS standard.
+This is part 6 of an ongoing series providing a little background on ‘knowledge graphs‘. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history.">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Knowledge Graphs 6 - Semantics" />
+<meta property="og:description" content="With this installment we finally get to the part of knowledge graphs that I personally find really exciting: Semantics. In this installment, I will introduce some of the simple rules of entailment that are a part of the RDFS standard.
+This is part 6 of an ongoing series providing a little background on ‘knowledge graphs‘. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/knowledge-graphs-6-semantics/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="Knowledge Graphs 6 - Semantics">
+<meta itemprop="description" content="With this installment we finally get to the part of knowledge graphs that I personally find really exciting: Semantics. In this installment, I will introduce some of the simple rules of entailment that are a part of the RDFS standard.
+This is part 6 of an ongoing series providing a little background on ‘knowledge graphs‘. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history.">
+
+<meta itemprop="wordCount" content="1503">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Knowledge Graphs 6 - Semantics"/>
+<meta name="twitter:description" content="With this installment we finally get to the part of knowledge graphs that I personally find really exciting: Semantics. In this installment, I will introduce some of the simple rules of entailment that are a part of the RDFS standard.
+This is part 6 of an ongoing series providing a little background on ‘knowledge graphs‘. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Knowledge Graphs 6 - Semantics</h1>
+      
+      <p class="tracked">
+        By <strong>aabs</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>With this installment we finally get to the part of knowledge graphs that I
+personally find really exciting: Semantics. In this installment, I will
+introduce some of the simple rules of entailment that are a part of the RDFS
+standard.</p>
+<p>This is part 6 of an ongoing series providing a little background on ‘<em>knowledge graphs</em>‘. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history. Just practical knowledge.</p>
+<ul>
+<li><a href="https://andrewmatthews.blog/2019/09/12/knowledge-graphs-101/">Knowledge Graphs 101</a></li>
+<li><a href="https://andrewmatthews.blog/2019/09/13/knowledge-graphs-2-playing-on-the-cli/">Knowledge Graphs 2 – Playing on the CLI</a></li>
+<li><a href="https://andrewmatthews.blog/2019/09/13/knowledge-graphs-3-using-a-triple-store/">Knowledge Graphs 3 – Using a Triple Store</a></li>
+<li><a href="https://andrewmatthews.blog/2019/09/16/knowledge-graphs-4-querying-your-knowledge-graph-using-net/">Knowledge Graphs 4 – Querying your knowledge graph using .NET</a></li>
+<li><a href="https://andrewmatthews.blog/2019/10/03/knowledge-graphs-5-modelling-with-rdfs/">Knowledge Graphs 5 – Modelling with RDFS</a></li>
+<li><a href="https://andrewmatthews.blog/2019/10/03/knowledge-graphs-6-semantics/">Knowledge Graphs 6 - Semantics</a></li>
+<li><a href="https://aabs.wordpress.com/2019/11/06/knowledge-graphs-7-named-graphs/">Knowledge Graphs 7 - Named graphs</a></li>
+</ul>
+<p>This is the barest tip of the iceberg of reasoning about data that is possible with RDF. I hope to be able to convey some of the power possible in this technology that are so hard to find anywhere else. I describe how this secret sauce allows us to incrementally build meaning into our data, as our understanding of it grows - another thing that is hard to do with many other popular technologies.</p>
+<h2 id="properties-redux">Properties Redux</h2>
+<p>Remember from last time how to define a class and some properties on it:</p>
+<pre tabindex="0"><code>:Player a rdfs:Class .
+:Team a rdfs:Class .
+
+:playsFor a rdf:Property;
+    rdfs:domain :Player;
+    rdfs:range  :Team .
+</code></pre><p>And how we can define property hierarchies if we want to:</p>
+<pre tabindex="0"><code>:worksFor rdfs:domain :Person;
+    rdfs:range :Organisation .
+:playsFor rdfs:subClassOf :worksFor .
+</code></pre><p>And how to define instances of those classes and properties:</p>
+<pre tabindex="0"><code>&lt;http://dbpedia.org/resource/George_Best&gt; :playsFor &lt;http://dbpedia.org/page/Manchester_United_F.C.&gt; .
+</code></pre><p>Let&rsquo;s unpack some of what I said. There are two classes in the default namespace,  <code>:Player</code> and  <code>:Team </code>, that can be related using the  <code>:playsFor</code> property.</p>
+<p>I then defined a new property called  <code>:worksFor</code> that just links people to organisations. I then said that if a player plays for a team, then they work for the team. Yes, I know there are exceptions to this in the real world, but you get the idea, right? There are people who work for the team that don&rsquo;t play for it, like coaches and medics etc, so  <code>:worksFor</code> is a super-property to  <code>:playsFor </code>.</p>
+<p>I then used the  <code>:playsFor</code> property to link two new resources in our graph;  <code>http://dbpedia.org/resource/George_Best</code> and  <code>http://dbpedia.org/page/Manchester_United_F.C.</code> both taken from the RDF graph that comes from wikipedia, called <em>dbpedia.</em></p>
+<h2 id="rdfs-entailment">RDFS Entailment</h2>
+<p>While I was able to capture a little microcosm of the world of soccer, I&rsquo;m sure you can see that there is <strong>more in there</strong> if we only had to means to get at it. RDFS provides some of the means to do that. It defines an <em><a href="https://www.w3.org/TR/rdf11-mt/#rdfs-entailment">Entailment Regime</a></em> for the new property and class building blocks. See <a href="https://www.w3.org/TR/sparql11-entailment/#RDFSEntRegime">here</a> also.</p>
+<p>An entailment regime is, in essence, a set of rules for what additional conclusions are valid given some basic initial statements. Often those rules follow one of the familiar syllogism structures:  <code>All A are B, x is A, therefore x is B </code>.</p>
+<p>Here&rsquo;s an example of one of the rules, called  <code>rdfs11 </code>, that describes the transitivity of subclass relationships:</p>
+<pre tabindex="0"><code>if ( xxx rdfs:subClassOf yyy &amp;&amp; yyy rdfs:subClassOf zzz)
+then (xxx rdfs:subClassOf zzz)
+</code></pre><p>Which is another way of saying that it is logically correct to add  <code>xxx rdfs:subClassOf zzz</code> to your graph whenever you see  <code>xxx rdfs:subClassOf yyy and yyy rdfs:subClassOf zzz</code> in your triple store.</p>
+<p>Conveniently, these rules can be converted to SPARQL update statements:</p>
+<pre tabindex="0"><code>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+INSERT
+{
+    GRAPH &lt;http://industrialinference.com/inferred/&gt; {
+    ?xxx rdfs:subClassOf ?zzz .
+    }
+}
+WHERE
+{
+    ?xxx rdfs:subClassOf ?yyy .
+    ?yyy rdfs:subClassOf ?zzz .
+}
+</code></pre><p>The beauty of this is that, you can query for data that you never anticipated. Here&rsquo;s a trivial little example to demonstrate. Imagine on day one of your project, you stored data matching the simple schema above.</p>
+<pre tabindex="0"><code>:bob a :Player .
+</code></pre><p>Initially, you can&rsquo;t do much with the data other than store and retrieve it. But once you start to annotate your data with further relationships, things can get interesting. Imagine we say later on that a Player is a kind of Person. We don&rsquo;t need to modify any of our data, just add another triple:</p>
+<pre tabindex="0"><code>:Player rdfs:subClassOf :Person .
+</code></pre><p>Now, whenever we query for all people, we get back the players as well. I can&rsquo;t overstate how important this is! Suddenly, we are getting different fuller results because entailment allowed us to deduce new facts from our data.</p>
+<pre tabindex="0"><code class="language-{.wp-block-verse}" data-lang="{.wp-block-verse}">We didn't change our data, nor our applications or data access code to get this.  All we had to do was supply more details about our types and their relationships.
+</code></pre><p>There is a similar rule to  <code>rdfs11</code> called  <code>rdfs5</code> that applies the same transitive reasoning to property relationships:</p>
+<pre tabindex="0"><code>if (xxx rdfs:subPropertyOf yyy &amp;&amp; yyy rdfs:subPropertyOf zzz )
+then (xxx rdfs:subPropertyOf zzz)
+</code></pre><p>which translates in SPARQL like so:</p>
+<pre tabindex="0"><code>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+INSERT
+{
+    GRAPH &lt;http://industrialinference.com/inferred/&gt; {
+        ?xxx rdfs:subPropertyOf ?zzz .
+    }
+}
+WHERE
+{
+    ?xxx rdfs:subPropertyOf ?yyy .
+    ?yyy rdfs:subPropertyOf ?zzz .
+}
+</code></pre><p>When we have  <code>rdfs5</code> in place, and we query who  <code>:worksFor</code> Manchester United, we will also get back the players like George Best, in addition to the coaching, management and medical staff.</p>
+<p>Another vital pair of rules are  <code>rdfs2</code> and  <code>rdfs3 </code>. They look like this:</p>
+<pre tabindex="0"><code>if (aaa rdfs:domain xxx &amp;&amp; yyy aaa zzz )
+then (yyy rdf:type xxx)
+
+if (aaa rdfs:range xxx &amp;&amp; yyy aaa zzz )
+then (zzz rdf:type xxx)
+</code></pre><p>Which means that if you know the definitions of the types of resources at either end of a property, you can assign them to the resources mentioned in actual instance data. Remember where I said:</p>
+<pre tabindex="0"><code>&lt;http://dbpedia.org/resource/George_Best&gt; :playsFor &lt;http://dbpedia.org/page/Manchester_United_F.C.&gt; .
+</code></pre><p>since I defined the property  <code>:playsFor</code> like this:</p>
+<pre tabindex="0"><code>:playsFor a rdf:Property;
+    rdfs:domain :Player;
+    rdfs:range  :Team .
+</code></pre><p>Then  <code>rdfs2/3</code> allows me to add the following triples to my store:</p>
+<pre tabindex="0"><code>&lt;http://dbpedia.org/resource/George_Best&gt; a :Player .
+&lt;http://dbpedia.org/page/Manchester_United_F.C.&gt; a :Team .
+</code></pre><p>Not only that, but because we defined the  <code>:subPropertyOf</code> rule for  <code>:worksFor</code> then  <code>rdfs5</code> allows me to add these triples as well:</p>
+<pre tabindex="0"><code>&lt;http://dbpedia.org/resource/George_Best&gt; :worksFor
+    &lt;http://dbpedia.org/page/Manchester_United_F.C.&gt; .
+&lt;http://dbpedia.org/resource/George_Best&gt; a :Person .
+&lt;http://dbpedia.org/page/Manchester_United_F.C.&gt; a :Organisation .
+</code></pre><p>So, you see there is a lot we can deduce from a bit of schema and a little bit of data. More importantly, you might choose to just store the raw triple saying, george best plays for man united, without any other metadata about what it means.</p>
+<p>Later on, you can incrementally add this extra information. As you go, you will find more and more insights start to come out of your data, and you can answer more and more questions. For example, with just the initial raw data, I couldn&rsquo;t say that George Best was a Person and not a Car or Engine. After defining the <em>meaning</em> of  <code>:playsFor</code> I will know all this and more.</p>
+<h2 id="summary">Summary</h2>
+<p>This is the briefest possible introduction to <em>Entailment</em> I could provide. I hope it has shown you that the rules provide <em>meaning</em> to relationships, and that those rules if applied judiciously allow you to get data out that you didn&rsquo;t put in. They allow you to answer questions that were unanticipated when you put your data in. They allow you to declaratively adorn your raw data with metadata later on, and use that metadata with entailment rules to enrich your data in unforeseen ways.</p>
+<p>As I mentioned, this is but the merest whiff of what is possible, and as this series progresses I hope to cover some of the awesomeness that is OWL2, as well as introduce you to inference engines - the systems that can sit in the background applying the rules of entailment for you.</p>
+<p>For now, if you want to understand the rules and see how they might be applied, take a look at <a href="https://github.com/aabs/inference-engine">this little project</a> I knocked up in my spare time. It&rsquo;s a poor man&rsquo;s inference engine, but hopefully it shows how you might periodically materialise entailments in your database.</p>
+<h4 id="appendix-a---rdfs-entailment-ruleshttpswwww3orgtrrdf11-mtrdfs-entailment">Appendix A - <a href="https://www.w3.org/TR/rdf11-mt/#rdfs-entailment">RDFS Entailment Rules</a></h4>
+<p>Here&rsquo;s the <a href="https://www.w3.org/TR/rdf11-mt/#rdfs-entailment">full list</a> of entailments for RDFS.</p>
+<hr>
+<p><strong>ID</strong>                  <strong>If S contains:</strong>                                  <strong>then S RDFS entails recognizing D:</strong></p>
+<hr>
+<p><strong>rdfs1</strong>               any IRI aaa in D                                    aaa  <code>rdf:type rdfs:Datatype . </code></p>
+<p><strong>rdfs2</strong>               aaa  <code>rdfs:domain </code> xxx  <code>. </code>\                          yyy  <code>rdf:type </code> xxx  <code>. </code>
+yyy aaa zzz  <code>. </code></p>
+<p><strong>rdfs3</strong>               aaa  <code>rdfs:range </code> xxx  <code>. </code>\                           zzz  <code>rdf:type </code> xxx  <code>. </code>
+yyy aaa zzz  <code>. </code></p>
+<p><strong>rdfs4a</strong>              xxx aaa yyy  <code>.</code>                                     xxx  <code>rdf:type rdfs:Resource . </code></p>
+<p><strong>rdfs4b</strong>              xxx aaa yyy <code>.</code>                                      yyy  <code>rdf:type rdfs:Resource . </code></p>
+<p><strong>rdfs5</strong>               xxx  <code>rdfs:subPropertyOf </code> yyy  <code>. </code>\                   xxx  <code>rdfs:subPropertyOf </code> zzz  <code>. </code>
+yyy  <code>rdfs:subPropertyOf </code> zzz  <code>. </code></p>
+<p><strong>rdfs6</strong>               xxx  <code>rdf:type rdf:Property .</code>                       xxx  <code>rdfs:subPropertyOf </code> xxx  <code>. </code></p>
+<p><strong>rdfs7</strong>               aaa  <code>rdfs:subPropertyOf </code> bbb  <code>. </code>\                   xxx bbb yyy  <code>. </code>
+xxx aaa yyy  <code>. </code></p>
+<p><strong>rdfs8</strong>               xxx  <code>rdf:type rdfs:Class .</code>                         xxx  <code>rdfs:subClassOf rdfs:Resource . </code></p>
+<p><strong>rdfs9</strong>               xxx  <code>rdfs:subClassOf </code> yyy  <code>. </code>\                      zzz  <code>rdf:type </code> yyy  <code>. </code>
+zzz  <code>rdf:type </code> xxx  <code>. </code></p>
+<p><strong>rdfs10</strong>              xxx  <code>rdf:type rdfs:Class .</code>                         xxx  <code>rdfs:subClassOf </code> xxx  <code>. </code></p>
+<p><strong>rdfs11</strong>              xxx  <code>rdfs:subClassOf </code> yyy  <code>. </code>\                      xxx  <code>rdfs:subClassOf </code> zzz  <code>. </code>
+yyy  <code>rdfs:subClassOf </code> zzz  <code>. </code></p>
+<p><strong>rdfs12</strong>              xxx  <code>rdf:type rdfs:ContainerMembershipProperty .</code>   xxx  <code>rdfs:subPropertyOf rdfs:member . </code></p>
+<h2 id="rdfs13--------------xxx-rdftype-rdfsdatatype-----------------------xxx-rdfssubclassof-rdfsliteral--"><strong>rdfs13</strong>              xxx  <code>rdf:type rdfs:Datatype .</code>                      xxx  <code>rdfs:subClassOf rdfs:Literal . </code></h2>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

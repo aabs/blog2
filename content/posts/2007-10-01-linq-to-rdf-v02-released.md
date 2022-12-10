@@ -2,7 +2,7 @@
 title: LinqToRdf 0.2 Released
 date: 2007-10-01 22:14
 author: aabs
-tags: .NET, LinqToRdf, projects, SemanticWeb
+ignored-tags: .NET, LinqToRdf, projects, SemanticWeb
 slug: linq-to-rdf-v02-released
 status: published
 ---

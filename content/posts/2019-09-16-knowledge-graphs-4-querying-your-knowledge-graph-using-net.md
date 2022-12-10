@@ -3,7 +3,7 @@ title: Knowledge Graphs 4 - Querying your knowledge graph using .NET
 date: 2019-09-16 12:54
 author: aabs
 category: .NET, programming, Semantic Web
-tags: .NET, knowledge graphs, RDF
+ignored-tags: .NET, knowledge graphs, RDF
 slug: knowledge-graphs-4-querying-your-knowledge-graph-using-net
 status: published
 attachments: 2019/09/jonas-jacobsson-hdjeq7-a-yq-unsplash.jpg

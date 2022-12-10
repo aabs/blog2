@@ -2,7 +2,7 @@
 title: What I'm gonna cover
 date: 2005-03-15 13:51
 author: aabs
-tags: DBC
+ignored-tags: DBC
 slug: what-im-gonna-cover-2
 status: published
 ---

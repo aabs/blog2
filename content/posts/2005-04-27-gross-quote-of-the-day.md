@@ -2,7 +2,7 @@
 title: Gross quote of the day
 date: 2005-04-27 08:59
 author: Andrew Matthews
-tags: humour
+ignored-tags: humour
 slug: gross-quote-of-the-day
 status: published
 ---

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Creating A LINQ Query Provider | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="As promised last time, I have extended the query mechanism of my little application with a LINQ Query Provider. I based my initial design on the method published by Bart De Smet, but have extended that framework, cleaned it up and tied it in with the original object deserialiser for SemWeb (a semantic web library by Joshua Tauberer).
+In this post I&rsquo;ll give you some edited highlights of what was involved.">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Creating A LINQ Query Provider" />
+<meta property="og:description" content="As promised last time, I have extended the query mechanism of my little application with a LINQ Query Provider. I based my initial design on the method published by Bart De Smet, but have extended that framework, cleaned it up and tied it in with the original object deserialiser for SemWeb (a semantic web library by Joshua Tauberer).
+In this post I&rsquo;ll give you some edited highlights of what was involved." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/creating-a-linq-query-provider/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="Creating A LINQ Query Provider">
+<meta itemprop="description" content="As promised last time, I have extended the query mechanism of my little application with a LINQ Query Provider. I based my initial design on the method published by Bart De Smet, but have extended that framework, cleaned it up and tied it in with the original object deserialiser for SemWeb (a semantic web library by Joshua Tauberer).
+In this post I&rsquo;ll give you some edited highlights of what was involved.">
+
+<meta itemprop="wordCount" content="1916">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Creating A LINQ Query Provider"/>
+<meta name="twitter:description" content="As promised last time, I have extended the query mechanism of my little application with a LINQ Query Provider. I based my initial design on the method published by Bart De Smet, but have extended that framework, cleaned it up and tied it in with the original object deserialiser for SemWeb (a semantic web library by Joshua Tauberer).
+In this post I&rsquo;ll give you some edited highlights of what was involved."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Creating A LINQ Query Provider</h1>
+      
+      <p class="tracked">
+        By <strong>Andrew Matthews</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>As promised last time, I have extended the query mechanism of my little
+application with a LINQ Query Provider. I based my initial design on the method
+published by
+<a href="http://community.bartdesmet.net/blogs/bart/archive/2007/04/05/the-iqueryable-tales-linq-to-ldap-part-0.aspx">Bart De Smet</a>,
+but have extended that framework, cleaned it up and tied it in with the original
+object deserialiser for <a href="http://razor.occams.info/code/semweb/">SemWeb</a> (a
+semantic web library by <a href="http://razor.occams.info/blog">Joshua Tauberer</a>).</p>
+<p>In this post I&rsquo;ll give you some edited highlights of what was involved. You may
+recal that last post I provided some unit tests that i was working with. For the
+sake of initial simplicity (and to make it easy to produce queries with SemWeb&rsquo;s
+GraphMatch algorithm) I restricted my query language to make use of Conjunction,
+and Equality. here&rsquo;s the unit test that I worked with to drive the development
+process. What I produced last time was a simple scanner that went through my
+podcasts extracting metadata and creating objects of type Track.</p>
+<pre><code>[TestMethod] public void QueryWithProjection() { CreateMemoryStore(); IRdfQuery&lt;Track&gt; qry = new RdfContext(store).ForType&lt;Track&gt;(); var q = from t in qry where t.Year == 2006 &amp;&amp; t.GenreName == &quot;History 5 | Fall 2006 | UC Berkeley&quot; select new {t.Title, t.FileLocation}; foreach(var track in q){ Trace.WriteLine(track.Title + &quot;: &quot; + track.FileLocation); } }
+</code></pre>
+<p>This method queries the Tracks collection in an in-memory triple store loaded
+from a file in N3 format. It searches for any UC Berkley pod-casts produced in
+2006, and performs a projection to create a new anonymous type containing the
+title and location of the files.</p>
+<p>I took a leaf from the book of LINQ to SQL to crate the query object. In LINQ to
+SQL you indicate the type you are working with using a Table&lt;T&gt; class. In my
+query context class, you identify the type you are working with using a
+ForType&lt;T&gt;() method. this method instantiates a query object for you, and (in
+future) will act as an object registry to keep track of object updates.</p>
+<p>The RDFContext class is very simple:</p>
+<pre><code>public class RdfContext : IRdfContext { public Store Store { get { return store; } set { store = value; } } protected Store store; public RdfContext(Store store) { this.store = store; } public void AcceptChanges() { throw new NotImplementedException(); } public IRdfQuery&lt;T&gt; ForType&lt;T&gt;() { return new RdfN3Query&lt;T&gt;(store); } }
+</code></pre>
+<p>As you can see, it is pretty bare at the moment. It maintains a reference to the
+store, and instantiates query objects for you. But in future this would be the
+place to create transactional support, and perhaps maintain connections to
+triple stores. By and large, though, this class will be pretty simple in
+comparison to the query class that is to follow.</p>
+<p>I won&rsquo;t repeat all of what Bart De Smet said in his excellent series of articles
+on the production of LINQ to LDAP. I&rsquo;ll confine myself to this implementation,
+and how it works. So we have to start by creating our Query Object:</p>
+<pre><code>public class RdfN3Query&lt;T&gt; : IRdfQuery&lt;T&gt; { public RdfN3Query(Store store) { this.store = store; this.originalType = typeof (T); parser = new ExpressionNodeParser&lt;T&gt;(); }
+</code></pre>
+<p>First it stores a reference to the triple store for later use. In a more real
+world implementation this might be a URL or connection string. But for the sake
+of this implementation, we can be happy with the Memory Store that is used in
+the unit test. next we keep a record of the original type that is being queried
+against. this is important because later on you may also be dealing with a new
+anonymous type that will be created by the projection. This will not have any of
+the Owl*Attribute classes with which to work out URLs for properties and to
+perform deserialisation.</p>
+<p>The two most important methods in IQueryable&lt;T&gt; are CreateQuery and
+GetEnumerable. CreateQuery is the place where LINQ feeds you the expression tree
+that it has built from your initial query. You must parse this expression tree
+and store the resultant query somewhere for later use. I created a string called
+query to keep that in, and created a class called ExpressionNodeParser to walk
+the expression tree to build tyhe query string. This is equivalent to the stage
+where the SQL SELECT query gets created in DLINQ. My CreateQuery looks like
+this:</p>
+<pre><code>public IQueryable&lt;TElement&gt; CreateQuery&lt;TElement&gt;(Expression expression) { RdfN3Query&lt;TElement&gt; newQuery = new RdfN3Query&lt;TElement&gt;(store); newQuery.OriginalType = originalType; newQuery.Project = project; newQuery.Properties = properties; newQuery.Query = Query; newQuery.Logger = logger; newQuery.Parser = new ExpressionNodeParser&lt;TElement&gt;(new StringBuilder(parser.StringBuilder.ToString())); MethodCallExpression call = expression as MethodCallExpression; if (call != null) { switch (call.Method.Name) { case &quot;Where&quot;: Log(&quot;Processing the where expression&quot;); newQuery.BuildQuery(call.Parameters[1]); break; case &quot;Select&quot;: Log(&quot;Processing the select expression&quot;); newQuery.BuildProjection(call); break; } } return newQuery; }
+</code></pre>
+<p>You create new query because you may be doing a projection, in which case the
+type you are enumerating over will not be the original type that you put into
+ForType&lt;T&gt;(). Instead it may be the anonymous type from the projection. You
+transfer the vital information over to the new Query object, and then handle the
+expression that has been passed in. I am handling two methods here: Where and
+Select. There are others I could handle, such as OrderBy or Take, but that will
+have to be for a future post.</p>
+<p>Where is the part where the expression representing the query is passed in.
+Select is passed the tree representing the projection (if there is one). The
+work is passed off to BuildQuery and BuildProjection accordingly. these names
+were gratefully stolen from LINQ to LDAP.</p>
+<p>BuildQuery in LINQ to LDAP is a fairly complicated affair, but in LINQ to RDF I
+have paired it right downb to the bone.</p>
+<pre><code>private void BuildQuery(Expression q) { StringBuilder sb = new StringBuilder(); ParseQuery(q, sb); Query = Parser.StringBuilder.ToString(); Trace.WriteLine(Query); }
+</code></pre>
+<p>We create a StringBuilder that can be passed down into the recursive descent
+tree walker to gather the fragments of the query as each expression gets parsed.
+the result is then stored in the Query property of the Query object.
+BuildProjection looks like this:</p>
+<pre><code>private void BuildProjection(Expression expression) { LambdaExpression le = ((MethodCallExpression)expression).Parameters[1] as LambdaExpression; if (le == null) throw new ApplicationException(&quot;Incompatible expression type found when building a projection&quot;); project = le.Compile(); MemberInitExpression mie = le.Body as MemberInitExpression; if (mie != null) foreach (Binding b in mie.Bindings) FindProperties(b); else foreach (PropertyInfo i in originalType.GetProperties()) properties.Add(i.Name, null); }
+</code></pre>
+<p>Much of it is taken directly from LINQ to LDAP. I have adapted it slightly
+because I am targeting the May 2007 CTP of LINQ. I&rsquo;ve done this only because I
+have to use VS 2005 during the day, so I can&rsquo;t use the March 2007 version of
+Orcas.</p>
+<p>ParseQuery is used by BuildQuery to handle the walking of the expression tree.
+Again that is very simple since most of the work is now done in
+ExpressionNodeParser. It looks like this:</p>
+<pre><code>private void ParseQuery(Expression expression, StringBuilder sb) { Parser.Dispatch(expression); }
+</code></pre>
+<p>Parser.Dispatch is a gigantic switch statement that passes off the expression
+tree to handler methods:</p>
+<pre><code>public void Dispatch(Expression expression) { switch (expression.NodeType) { case ExpressionType.Add: Add(expression); break; case ExpressionType.AddChecked: AddChecked(expression); break; case ExpressionType.And: And(expression); break; case ExpressionType.AndAlso: AndAlso(expression); //...
+</code></pre>
+<p>Each handler method then handles the root of the expression tree, breaking it up
+and passing on what it can&rsquo;t handle itself. For example, the method AndAlso just
+takes the left and right side of the operator and recursively dispatches them:</p>
+<pre><code>public void AndAlso(Expression e) { BinaryExpression be = e as BinaryExpression; if (be != null) { Dispatch(be.Left); Dispatch(be.Right); } }
+</code></pre>
+<p>The equality operator is the only operator that currently gets any special
+effort.</p>
+<pre><code>public void EQ(Expression e) { BinaryExpression be = e as BinaryExpression; if (be != null) { MemberExpression me = be.Left as MemberExpression; ConstantExpression ce = be.Right as ConstantExpression; QueryAppend(tripleFormatStringLiteral, InstancePlaceholderName, OwlClassSupertype.GetPropertyUri(typeof(T), me.Member.Name), ce.Value.ToString()); } MethodCallExpression mce = e as MethodCallExpression; if (mce != null &amp;&amp; mce.Method.Name == &quot;op_Equality&quot;) { MemberExpression me = mce.Parameters[0] as MemberExpression; ConstantExpression ce = mce.Parameters[1] as ConstantExpression; QueryAppend(tripleFormatStringLiteral, InstancePlaceholderName, OwlClassSupertype.GetPropertyUri(typeof(T), me.Member.Name), ce.Value.ToString()); } }
+</code></pre>
+<p>The equality expression can be formed either through the use of a binary
+expression with NodeType.EQ or as a MethodCallExpression on op_Equality for
+type string. If the handler for the MethodCallExpression spots op_Equality it
+passes the expression off to the EQ method for it to render instead. EQ
+therefore needs to spot which type of Node it&rsquo;s dealing with to know how to get
+the left and right sides of the operation. In a BinaryExpression there are Right
+and Left properties, whereas in a MethodCallExpression these will be found in a
+Parameters collection. In our example they get the same treatment.</p>
+<p>You&rsquo;ll note that we assume that the left operand is a MemberExpression and the
+right is a ConstantExpression. That allows us to form clauses like this:</p>
+<pre><code>where t.Year == 2006
+</code></pre>
+<p>but it would fail on all of the following:</p>
+<pre><code>where t.Name.ToUpper() == &quot;SOME STRING&quot; where t.Name == t.Other where t.Year.ToString() == &quot;2006&quot;
+</code></pre>
+<p>Each of these cases will have to be handled individually, so the number of cases
+we need to handle can grow. As Bart De Smet pointed out, some of the operations
+might have to be performed after retrieval of the results since semantic web
+query languages are unlikely to have complex string manipulation and arithmetic
+functions. Or at least, not yet.</p>
+<p>The QueryAppend forms an N3 Triple out of its parameters and appends it to the
+StringBuilder that was passed to the Parser initially. At the end of the
+recursive tree walk, this string builder is harvested and preprocessed to make
+it ready to pass to the triple store. In my previous post I described an
+ObjectDeserialisationsSink that was passed to SemWeb during the query process to
+harvest the results. This has been reused to gather the results of the query
+from within our query.</p>
+<p>I mentioned earlier that the GetEnumerator method was important to IQueryable.
+An IQueryable is a class that can defer execution of its query till someone
+attempts to enumerate its results. Since that&rsquo;s done using GetEnumerator the
+query must be performed in GetEnumerator. My implementation of GetEnumerator
+looks like this:</p>
+<pre><code>IEnumerator&lt;T&gt; IEnumerable&lt;T&gt;.GetEnumerator() { if (result != null) return result.GetEnumerator(); query = ConstructQuery(); PrepareQueryAndConnection(); PresentQuery(query); return result.GetEnumerator(); }
+</code></pre>
+<p>result is the List&lt;TElement&gt; variable where I cache the results for later use.
+What that means is that the query only gets run once. Next time the
+GetEnumerator gets called, result is returned directly. This reduces the cost of
+repeatedly enumerating the same query. Currently the methods ConstructQuery,
+PrepareQueryAndConnection, and PresentQuery are all fairly simple affairs that
+exist more as placeholders so that I can reuse much of this code for a LINQ to
+SPARQL implementation that is to follow.</p>
+<p>As you&rsquo;ve probably worked out, there is a huge amount of detail that has to be
+attended to, but the basic concepts are simple. the reason why more people
+haven&rsquo;t written LINQ query providers before now is simply that fact that there
+is no documentation about how to do it. When you try though, you may find it
+easier than you thought.</p>
+<p>There is a great deal more to do to LINQ to RDF before something it is ready for
+production use, but as a proof of concept that semantic web technologies can be
+brought into the mainstream it serves well. Thereason why we use ORM systems
+such as LINQ to SQL is to help us overcome the Impedance Mismatch that exists
+between the object and relational domains. An equally large mismatch exists
+between the Object and Semantic domains. tools like LINQ to RDF will have to
+overcome the mismatch in order for them to be used outside of basic domain
+models.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

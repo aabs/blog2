@@ -2,7 +2,7 @@
 title: Derek's Picture of the day
 date: 2006-03-22 23:32
 author: Andrew Matthews
-tags: art, photography
+ignored-tags: art, photography
 slug: dereks-picture-of-the-day
 status: published
 ---

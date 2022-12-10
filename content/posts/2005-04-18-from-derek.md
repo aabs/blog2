@@ -2,7 +2,7 @@
 title: From Derek...
 date: 2005-04-18 21:34
 author: Andrew Matthews
-tags: froth, misc
+ignored-tags: froth, misc
 slug: from-derek
 status: published
 ---

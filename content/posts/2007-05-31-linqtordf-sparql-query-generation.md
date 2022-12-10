@@ -2,7 +2,7 @@
 title: LinqToRdf - SPARQL Query Generation
 date: 2007-05-31 16:11
 author: Andrew Matthews
-tags: C#, LINQ, programming
+ignored-tags: C#, LINQ, programming
 slug: linqtordf-sparql-query-generation
 status: published
 ---

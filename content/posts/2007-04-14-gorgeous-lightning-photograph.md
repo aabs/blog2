@@ -2,7 +2,7 @@
 title: Gorgeous Lightning Photograph
 date: 2007-04-14 23:27
 author: Andrew Matthews
-tags: art, cool, photography
+ignored-tags: art, cool, photography
 slug: gorgeous-lightning-photograph
 status: published
 ---

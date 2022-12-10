@@ -2,7 +2,7 @@
 title: Current Lyric
 date: 2005-04-06 14:10
 author: Andrew Matthews
-tags: misc
+ignored-tags: misc
 slug: current-lyric
 status: published
 ---

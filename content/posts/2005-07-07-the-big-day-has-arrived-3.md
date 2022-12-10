@@ -2,7 +2,7 @@
 title: The big day has arrived
 date: 2005-07-07 20:44
 author: Andrew Matthews
-tags: DBC
+ignored-tags: DBC
 slug: the-big-day-has-arrived-3
 status: published
 ---

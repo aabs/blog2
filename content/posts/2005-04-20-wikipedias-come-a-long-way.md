@@ -2,7 +2,7 @@
 title: Wikipedia's come a long way
 date: 2005-04-20 09:58
 author: Andrew Matthews
-tags: cool, misc, Web2.0
+ignored-tags: cool, misc, Web2.0
 slug: wikipedias-come-a-long-way
 status: published
 ---

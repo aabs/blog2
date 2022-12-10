@@ -2,7 +2,7 @@
 title: First round results are in...
 date: 2005-04-09 21:49
 author: Andrew Matthews
-tags: humour
+ignored-tags: humour
 slug: first-round-results-are-in
 status: published
 ---

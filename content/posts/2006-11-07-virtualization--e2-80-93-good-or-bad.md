@@ -2,7 +2,7 @@
 title: Virtualization – Good or Bad?
 date: 2006-11-07 09:59
 author: Andrew Matthews
-tags: programming, software
+ignored-tags: programming, software
 slug: virtualization-%e2%80%93-good-or-bad
 status: published
 ---

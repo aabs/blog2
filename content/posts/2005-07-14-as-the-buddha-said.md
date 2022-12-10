@@ -2,7 +2,7 @@
 title: As the Buddha said...
 date: 2005-07-14 09:39
 author: Andrew Matthews
-tags: medicine, misc
+ignored-tags: medicine, misc
 slug: as-the-buddha-said
 status: published
 ---

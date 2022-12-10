@@ -2,7 +2,7 @@
 title: A gaping hole in my education - Dimensional Databases
 date: 2005-05-13 10:54
 author: Andrew Matthews
-tags: databases, misc, software
+ignored-tags: databases, misc, software
 slug: a-gaping-hole-in-my-education-dimensional-databases
 status: published
 ---

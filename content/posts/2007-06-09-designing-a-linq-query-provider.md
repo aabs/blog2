@@ -2,7 +2,7 @@
 title: Designing a LINQ Query Provider
 date: 2007-06-09 13:09
 author: Andrew Matthews
-tags: LINQ
+ignored-tags: LINQ
 slug: designing-a-linq-query-provider
 status: published
 ---

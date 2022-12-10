@@ -2,7 +2,7 @@
 title: Configuration considered harmful
 date: 2006-05-10 11:00
 author: Andrew Matthews
-tags: Computer Science, programming
+ignored-tags: Computer Science, programming
 slug: configuration-considered-harmful
 status: published
 ---

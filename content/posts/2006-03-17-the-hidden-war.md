@@ -2,7 +2,7 @@
 title: The Hidden War
 date: 2006-03-17 05:32
 author: Andrew Matthews
-tags: conspiracies, humour, philosophy
+ignored-tags: conspiracies, humour, philosophy
 slug: the-hidden-war
 status: published
 ---

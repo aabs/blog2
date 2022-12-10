@@ -2,7 +2,7 @@
 title: I saw a wombat...
 date: 2005-04-09 21:08
 author: Andrew Matthews
-tags: humour, poetry
+ignored-tags: humour, poetry
 slug: i-saw-a-wombat
 status: published
 ---

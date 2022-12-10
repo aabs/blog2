@@ -2,7 +2,7 @@
 title: Some new themes.
 date: 2006-03-30 04:55
 author: Andrew Matthews
-tags: misc
+ignored-tags: misc
 slug: some-new-themes
 status: published
 ---

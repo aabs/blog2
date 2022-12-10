@@ -2,7 +2,7 @@
 title: A Nocturnal Visitor - Saturday
 date: 2005-04-06 15:45
 author: Andrew Matthews
-tags: misc, photography, wildlife
+ignored-tags: misc, photography, wildlife
 slug: a-nocturnal-visitor-saturday
 status: published
 ---

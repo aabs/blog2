@@ -2,7 +2,7 @@
 title: The Wandering Glitch is Moving
 date: 2006-03-23 10:35
 author: Andrew Matthews
-tags: Web2.0
+ignored-tags: Web2.0
 slug: the-wandering-glitch-is-moving
 status: published
 ---

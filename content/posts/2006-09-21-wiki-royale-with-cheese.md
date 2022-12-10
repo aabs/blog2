@@ -2,7 +2,7 @@
 title: Wiki Royale with Cheese
 date: 2006-09-21 23:36
 author: Andrew Matthews
-tags: froth, humour, Web2.0
+ignored-tags: froth, humour, Web2.0
 slug: wiki-royale-with-cheese
 status: published
 ---

@@ -2,7 +2,7 @@
 title: Programming Gem of the day
 date: 2005-07-07 13:00
 author: Andrew Matthews
-tags: humour, programming, Work
+ignored-tags: humour, programming, Work
 slug: programming-gem-of-the-day
 status: published
 ---

@@ -2,7 +2,7 @@
 title: I am a Kinda Dorky Nerd God!!
 date: 2007-09-17 21:07
 author: aabs
-tags: calculations, humour
+ignored-tags: calculations, humour
 slug: i-am-a-kinda-dorky-nerd-god
 status: published
 ---

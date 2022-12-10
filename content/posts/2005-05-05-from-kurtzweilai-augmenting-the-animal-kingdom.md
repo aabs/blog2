@@ -2,7 +2,7 @@
 title: "From KurtzweilAI: Augmenting the Animal Kingdom"
 date: 2005-05-05 09:54
 author: Andrew Matthews
-tags: cool, gadgets, science
+ignored-tags: cool, gadgets, science
 slug: from-kurtzweilai-augmenting-the-animal-kingdom
 status: published
 ---

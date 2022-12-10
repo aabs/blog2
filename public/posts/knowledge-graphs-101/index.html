@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Knowledge Graphs 101 | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="This is the first in a short series introducing Knowledge Graphs. It covers just the basics, showing how to write, store, query and work with graph data using RDF (short for Resource Description Format). I will keep it free of theory and interesting but unnecessary digressions. Let me know in the comments if you find it useful, and also tell me what other Knowledge Graph topics you would like to know more about.">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Knowledge Graphs 101" />
+<meta property="og:description" content="This is the first in a short series introducing Knowledge Graphs. It covers just the basics, showing how to write, store, query and work with graph data using RDF (short for Resource Description Format). I will keep it free of theory and interesting but unnecessary digressions. Let me know in the comments if you find it useful, and also tell me what other Knowledge Graph topics you would like to know more about." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/knowledge-graphs-101/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-09-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-09-12T00:00:00+00:00" />
+
+<meta itemprop="name" content="Knowledge Graphs 101">
+<meta itemprop="description" content="This is the first in a short series introducing Knowledge Graphs. It covers just the basics, showing how to write, store, query and work with graph data using RDF (short for Resource Description Format). I will keep it free of theory and interesting but unnecessary digressions. Let me know in the comments if you find it useful, and also tell me what other Knowledge Graph topics you would like to know more about."><meta itemprop="datePublished" content="2019-09-12T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-09-12T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1318">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Knowledge Graphs 101"/>
+<meta name="twitter:description" content="This is the first in a short series introducing Knowledge Graphs. It covers just the basics, showing how to write, store, query and work with graph data using RDF (short for Resource Description Format). I will keep it free of theory and interesting but unnecessary digressions. Let me know in the comments if you find it useful, and also tell me what other Knowledge Graph topics you would like to know more about."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Knowledge Graphs 101</h1>
+      
+      <p class="tracked">
+        By <strong>aabs</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-09-12T00:00:00Z">September 12, 2019</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>This is the first in a short series introducing Knowledge Graphs. It covers just the basics, showing how to write, store, query and work with graph data using RDF (short for <em>Resource Description Format</em>). I will keep it free of theory and interesting but unnecessary digressions. Let me know in the comments if you find it useful, and also tell me what other Knowledge Graph topics you would like to know more about.</p>
+<p>This post shows some of the basics of RDF and knowledge graphs. It introduces the simple idea of the <em>triple</em>, how you make statements with them, and piece them together into graphs. I show how you can neatly write RDF using the <em>Turtle</em> language as well as how to use the elegant query language <em>SPARQL</em> to explore your knowledge graph.</p>
+<ul>
+<li><a href="https://andrewmatthews.blog/2019/09/12/knowledge-graphs-101/">Knowledge Graphs 101</a></li>
+<li><a href="https://andrewmatthews.blog/2019/09/13/knowledge-graphs-2-playing-on-the-cli/">Knowledge Graphs 2 – Playing on the CLI</a></li>
+<li><a href="https://andrewmatthews.blog/2019/09/13/knowledge-graphs-3-using-a-triple-store/">Knowledge Graphs 3 – Using a Triple Store</a></li>
+<li><a href="https://andrewmatthews.blog/2019/09/16/knowledge-graphs-4-querying-your-knowledge-graph-using-net/">Knowledge Graphs 4 – Querying your knowledge graph using .NET</a></li>
+<li><a href="https://andrewmatthews.blog/2019/10/03/knowledge-graphs-5-modelling-with-rdfs/">Knowledge Graphs 5 – Modelling with RDFS</a></li>
+<li><a href="https://andrewmatthews.blog/2019/10/03/knowledge-graphs-6-semantics/">Knowledge Graphs 6 - Semantics</a></li>
+<li><a href="https://aabs.wordpress.com/2019/11/06/knowledge-graphs-7-named-graphs/">Knowledge Graphs 7 - Named graphs</a></li>
+</ul>
+<h2 id="rdf-triples---the-lego-blocks">RDF Triples - The Lego Blocks</h2>
+<p>RDF is a way to represent graphs using triples made up of Uris for both vertice and edges. A triple consists of three parts: Subject, Predicate and Object. The subject is the primary <em>thing</em> that you are making a statement about. The Object is something that you are <em>relating</em> to the Subject, and the Predicate is <em>how</em> you are relating the Subject and Object.</p>
+<p>Let&rsquo;s take some concrete examples.</p>
+<p>&ldquo;<em>The cat sat on the mat</em>&rdquo;</p>
+<p>In triple form, this might be represented as:</p>
+<pre tabindex="0"><code>(the cat, sat on, the mat) .
+</code></pre><p>Let&rsquo;s try another:</p>
+<p>&ldquo;<em>Alice likes Bob</em>&rdquo;</p>
+<pre tabindex="0"><code class="language-{.wp-block-code}" data-lang="{.wp-block-code}">(Alice, like, Bob)
+</code></pre><p>When you want to say something quantitative, you can still use triples:</p>
+<p>&ldquo;<em>Alice is age 25</em>&rdquo;</p>
+<p>Which we say like this:</p>
+<pre tabindex="0"><code>(Alice, age, 25) .
+</code></pre><p><img src="https://aabs.files.wordpress.com/2019/09/image.png?w=292" alt="Two assertions in graph form">{.wp-image-7345}</p>
+<p>I changed the colour of <code>25</code> to highlight that it is a &ldquo;<em>Literal</em>&rdquo; which means an item of data rather than a resource. Typically, it cannot be the subject of a triple, the way URIs can.</p>
+<p>Because we can keep adding vertices and edges to this graph, there&rsquo;s really no limit to what we can store or represent. In fact, there&rsquo;s a well known principle of knowledge graphs, called the &ldquo;<em>AAA Principle</em>&rdquo;, that says Anyone can say Anything about Any topic. Obviously, when we are working within a bounded domain, we restrict ourselves to a specific subset of the data. But over time we will encounter more and more data sources. And those data sources can also be integrated with our data to allow us to enrich our data without limits.</p>
+<p>For now, it just means you can store anything in a triple store, and probably will given enough time. <em>And that&rsquo;s a good thing!</em></p>
+<p>Conventionally, we represent the contents of the graph DB as a table of Subject, Predicate and Object triples:</p>
+<p>Subject   Predicate   Object</p>
+<hr>
+<p>Alice     like        Bob
+Alice     age         25</p>
+<p>So long as we break down our knowledge into triples like this, we can represent pretty much anything in the graph DB.</p>
+<p>In practice, as with relational databases, the way data is actually stored varies widely between vendors and is often a closely guarded secret. These days, it&rsquo;s reported that the performance of triple stores and graph databases generally is approaching that of relational databases.</p>
+<p>I mentioned earlier that the main components of a triple in W3C Knowledge Graphs are URIs. So our triple is more likely to look like this:</p>
+<pre tabindex="0"><code class="language-{.wp-block-code}" data-lang="{.wp-block-code}">&lt;http://tempuri.com/people/Alice&gt; &lt;http://example.com/relationships/likes&gt; &lt;http://tempuri.com/people/Bob&gt; .
+</code></pre><p>Just like with XML documents, you can define a set of URI abbreviations - called <em>Namespace Prefixes</em> - that allow a more readable format:</p>
+<pre tabindex="0"><code>@prefix p: &lt;http://tempuri.com/people/&gt; .
+@prefix r: &lt;http://example.com/relationships/&gt; .
+
+p:Alice r:like p:Bob .
+</code></pre><p>I&rsquo;m trying to avoid theory, so let&rsquo;s just say that using URIs helps when you need to link to other people&rsquo;s data, and integrate data without various kinds of clashes.</p>
+<p>A a knowledge capture platform, RDF would not be very interesting, if you could only say one thing about a subject. Here&rsquo;s how you can say a bunch of things together:</p>
+<pre tabindex="0"><code>p:Alice rdf:type p:Person;
+    r:like p:Bob;
+    r:givenName &quot;Alice&quot;;
+    r:familyName &quot;Brown&quot;;
+    r:age 25 .
+</code></pre><p>Using a semicolon, means we are going to follow on with another statement about this Subject, providing only the Predicate and Object parts of the triple. So we just made 5 different statements about <code>p:Alice</code> there.</p>
+<p>We might also want to reuse the Subject and the Predicate for later assertions:</p>
+<pre tabindex="0"><code>p:Alice r:like p:Bob, p:Charlie, p:David, p:Eddie, p:Fred .
+</code></pre><p>Again, another 5 statements of the form <code>p:Alice r:like ?someone .</code> Where <code>?someone</code> comes from the list of people at the end.</p>
+<p>This language I&rsquo;ve been describing is called <a href="https://www.w3.org/TR/turtle/">Turtle</a> - short for <em>Terse RDF Triple Language</em>. It&rsquo;s a nice clean way to write RDF, and a good place to start. It&rsquo;s not the only one though - there are others that suit different use cases - and we&rsquo;ll visit them another time.</p>
+<p>Putting data into a database is all very cool, but only if you can get it back out again. The query language for W3C Knowledge Graphs is called <a href="https://www.w3.org/TR/sparql11-overview/">SPARQL</a>. It&rsquo;s designed to look a lot like SQL, but to me it&rsquo;s so much better - a thing of beauty and power.</p>
+<p>Here&rsquo;s how we find out who Alice likes.</p>
+<pre tabindex="0"><code>SELECT ?person
+WHERE {
+    p:Alice r:like ?person .
+}
+</code></pre><p>This query uses pattern matching to find all the triples matching that Graph Pattern. Just like Prolog, it searches for triples that fit the slots in the Graph Pattern.</p>
+<pre><code>?person
+-------------
+p:Bob
+p:Charlie
+p:David
+p:Eddie
+p:Fred
+</code></pre>
+<p>The thing I love about SPARQL is that the format you query with is the same as the data you put in a get back. You just describe the shape of the data you want out, filling in what you know, and creating blanks - variables - for what you don&rsquo;t. This scales nicely above and beyond what would be hairy in SQL.</p>
+<p>Here&rsquo;s a query that shows how a graph pattern acts as a kind of rich filter - <em>show me the people who are liked by other people who are 25 years old.</em></p>
+<pre tabindex="0"><code>SELECT ?person
+WHERE {
+    _:liker r:like ?person ;
+         r:age 25 .
+}
+</code></pre><p>Laughably simple, huh? Let&rsquo;s make our graph a bit richer.</p>
+<pre tabindex="0"><code>p:Alice r:like p:Bob, p:Charlie, p:David;
+    r:givenName &quot;Alice&quot;;
+    r:familyName &quot;Brown&quot;;
+    r:age 25 .
+p:Bob r:like p:Alice, p:Charlie, p:Eddie;
+    r:givenName &quot;Bob&quot;;
+    r:familyName &quot;Carter&quot;;
+    r:age 31 .
+p:Charlie r:like p:Alice, p:Bob, p:Eddie, p:Fred;
+    r:givenName &quot;Charles&quot;;
+    r:familyName &quot;David&quot;;
+    r:age 27 .
+p:David r:like p:Alice, p:Bob, p:Eddie, p:Fred;
+    r:givenName &quot;David&quot;;
+    r:familyName &quot;Eddings&quot;;
+    r:age 28 .
+p:Eddie r:like p:Alice, p:Bob, p:Eddie, p:Fred;
+    r:givenName &quot;Edward&quot;;
+    r:familyName &quot;Foster&quot;;
+    r:age 28 .
+p:Fred r:like p:Alice, p:Bob, p:Eddie, p:Fred;
+    r:givenName &quot;Frederick&quot;;
+    r:familyName &quot;Groves&quot;;
+    r:age 25 .
+</code></pre><p><em>Show me the people who are 27, who are liked by a person that is 25.</em></p>
+<pre tabindex="0"><code>SELECT DISTINCT ?person
+WHERE {
+   ?person r:age 27 .
+   ?x r:like ?person;
+      r:age 25.
+}
+
+&gt; p:Charlie
+</code></pre><p>Just state in the graph pattern what <em>must be true</em> about the results, and leave the rest blank (by adding variables that begin with &lsquo;<code>?</code>'). It pretty much is as simple as that. So much easier to build up a complex query.</p>
+<h2 id="summary">Summary</h2>
+<p>This post showed just the basics of RDF and knowledge graphs. It introduce the simple idea of the triple, how you make statements with them, and piece them together. I showed how you can neatly write RDF using the Turtle language and how to query using SPARQL to explore your knowledge graph.</p>
+<p>Next time, I will show how to play with RDF on the command line, and also how to call out to AWS Neptune using .NET. Please let me know if you found this helpful. This is a work in progress, so please let me know what would help to make your journey into knowledge graphs easier and I&rsquo;ll try to include it in a post.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

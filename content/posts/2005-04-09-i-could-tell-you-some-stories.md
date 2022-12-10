@@ -2,7 +2,7 @@
 title: I could tell you some stories
 date: 2005-04-09 21:05
 author: Andrew Matthews
-tags: humour
+ignored-tags: humour
 slug: i-could-tell-you-some-stories
 status: published
 ---

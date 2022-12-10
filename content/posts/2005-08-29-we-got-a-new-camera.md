@@ -2,7 +2,7 @@
 title: We got a new camera
 date: 2005-08-29 09:37
 author: Andrew Matthews
-tags: gadgets, photography
+ignored-tags: gadgets, photography
 slug: we-got-a-new-camera
 status: published
 ---

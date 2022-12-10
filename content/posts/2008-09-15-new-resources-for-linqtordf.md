@@ -3,7 +3,7 @@ title: New Resources for LinqToRdf
 date: 2008-09-15 13:10
 author: aabs
 category: .NET, programming, Semantic Web
-tags: articles, LinqToRdf, RDF, SemanticWeb, semweb
+ignored-tags: articles, LinqToRdf, RDF, SemanticWeb, semweb
 slug: new-resources-for-linqtordf
 status: published
 ---

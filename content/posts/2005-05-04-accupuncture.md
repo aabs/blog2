@@ -2,7 +2,7 @@
 title: Accupuncture
 date: 2005-05-04 10:25
 author: Andrew Matthews
-tags: humour, medicine
+ignored-tags: humour, medicine
 slug: accupuncture
 status: published
 ---

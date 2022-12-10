@@ -2,7 +2,7 @@
 title: A sign of things to come...
 date: 2005-07-29 21:39
 author: Andrew Matthews
-tags: humour, misc, photography
+ignored-tags: humour, misc, photography
 slug: a-sign-of-things-to-come-2
 status: published
 ---

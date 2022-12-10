@@ -2,7 +2,7 @@
 title: Straw Poll
 date: 2005-04-28 14:07
 author: Andrew Matthews
-tags: gadgets, misc
+ignored-tags: gadgets, misc
 slug: straw-poll
 status: published
 ---

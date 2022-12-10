@@ -2,7 +2,7 @@
 title: From Kurtzweil AI - Refocusable pictures
 date: 2005-11-23 03:04
 author: Andrew Matthews
-tags: photography, science
+ignored-tags: photography, science
 slug: from-kurtzweil-ai-refocusable-pictures
 status: published
 ---

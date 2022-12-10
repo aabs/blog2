@@ -2,7 +2,7 @@
 title: Do I say anything worthwhile in this blog? « Alec the Geek
 date: 2007-03-15 12:34
 author: Andrew Matthews
-tags: Web2.0
+ignored-tags: Web2.0
 slug: do-i-say-anything-worthwhile-in-this-blog-%c2%ab-alec-the-geek
 status: published
 ---

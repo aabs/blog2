@@ -2,7 +2,7 @@
 title: grammatical ponderings
 date: 2005-06-24 18:37
 author: Andrew Matthews
-tags: linguistics
+ignored-tags: linguistics
 slug: grammatical-ponderings
 status: published
 ---

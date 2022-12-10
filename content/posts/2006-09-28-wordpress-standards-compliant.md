@@ -2,7 +2,7 @@
 title: WordPress Standards Compliant
 date: 2006-09-28 14:50
 author: Andrew Matthews
-tags: Web2.0
+ignored-tags: Web2.0
 slug: wordpress-standards-compliant
 status: published
 ---

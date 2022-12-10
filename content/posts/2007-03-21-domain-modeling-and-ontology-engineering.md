@@ -2,7 +2,7 @@
 title: Domain Modeling and Ontology Engineering
 date: 2007-03-21 13:59
 author: Andrew Matthews
-tags: artificial intelligence, Computer Science, cool, philosophy, psychology, Web2.0
+ignored-tags: artificial intelligence, Computer Science, cool, philosophy, psychology, Web2.0
 slug: domain-modeling-and-ontology-engineering
 status: published
 ---

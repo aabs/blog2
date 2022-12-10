@@ -2,7 +2,7 @@
 title: I Hope Nathaniel Webster is Turning in his Grave
 date: 2007-01-22 13:29
 author: Andrew Matthews
-tags: humour
+ignored-tags: humour
 slug: i-hope-nathaniel-webster-is-turning-in-his-grave
 status: published
 ---

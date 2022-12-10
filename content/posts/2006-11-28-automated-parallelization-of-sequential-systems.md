@@ -2,7 +2,7 @@
 title: Automated parallelization of Sequential Systems
 date: 2006-11-28 11:41
 author: Andrew Matthews
-tags: C#, Computer Science, LINQ
+ignored-tags: C#, Computer Science, LINQ
 slug: automated-parallelization-of-sequential-systems
 status: published
 ---

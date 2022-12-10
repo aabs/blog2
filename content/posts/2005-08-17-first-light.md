@@ -2,7 +2,7 @@
 title: First Light!!!!!!!!
 date: 2005-08-17 20:07
 author: Andrew Matthews
-tags: ORM
+ignored-tags: ORM
 slug: first-light
 status: published
 ---

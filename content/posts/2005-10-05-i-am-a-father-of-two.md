@@ -2,7 +2,7 @@
 title: I am a father - of two.
 date: 2005-10-05 17:37
 author: Andrew Matthews
-tags: family, misc
+ignored-tags: family, misc
 slug: i-am-a-father-of-two
 status: published
 ---

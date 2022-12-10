@@ -2,7 +2,7 @@
 title: Flat-earth Society
 date: 2005-08-04 11:39
 author: Andrew Matthews
-tags: conspiracies, humour
+ignored-tags: conspiracies, humour
 slug: flat-earth-society
 status: published
 ---

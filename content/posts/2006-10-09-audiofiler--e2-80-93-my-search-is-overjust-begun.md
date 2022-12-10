@@ -2,7 +2,7 @@
 title: AudioFiler – My Search is {over/just begun}*
 date: 2006-10-09 14:02
 author: Andrew Matthews
-tags: cool, databases, software
+ignored-tags: cool, databases, software
 slug: audiofiler-%e2%80%93-my-search-is-overjust-begun
 status: published
 ---

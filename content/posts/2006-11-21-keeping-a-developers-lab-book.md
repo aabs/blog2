@@ -2,7 +2,7 @@
 title: Keeping a Developer's Lab Book
 date: 2006-11-21 05:14
 author: Andrew Matthews
-tags: programming, Work
+ignored-tags: programming, Work
 slug: keeping-a-developers-lab-book
 status: published
 ---

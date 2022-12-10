@@ -2,7 +2,7 @@
 title: From a phone somewhere in Australia
 date: 2005-05-09 13:51
 author: Andrew Matthews
-tags: photography, Web2.0, wildlife
+ignored-tags: photography, Web2.0, wildlife
 slug: from-a-phone-somewhere-in-australia
 status: published
 ---

@@ -3,7 +3,7 @@ title: Announcing LinqToRdf v0.8
 date: 2008-08-01 23:04
 author: aabs
 category: .NET, programming, Semantic Web
-tags: .NET, C#, LinqToRdf, RDF, SemanticWeb, semweb, web3, web3.0
+ignored-tags: .NET, C#, LinqToRdf, RDF, SemanticWeb, semweb, web3, web3.0
 slug: announcing-linqtordf-v08
 status: published
 ---

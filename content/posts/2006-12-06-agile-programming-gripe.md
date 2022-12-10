@@ -2,7 +2,7 @@
 title: Agile Programming Gripe
 date: 2006-12-06 13:05
 author: Andrew Matthews
-tags: programming, Work
+ignored-tags: programming, Work
 slug: agile-programming-gripe
 status: published
 ---

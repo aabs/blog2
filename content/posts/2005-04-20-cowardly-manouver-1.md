@@ -2,7 +2,7 @@
 title: Cowardly Manouver #1
 date: 2005-04-20 12:16
 author: Andrew Matthews
-tags: misc, programming
+ignored-tags: misc, programming
 slug: cowardly-manouver-1
 status: published
 ---

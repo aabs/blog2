@@ -2,7 +2,7 @@
 title: The latest inspiring hard-AI quote from Kurzweil
 date: 2005-08-11 12:28
 author: Andrew Matthews
-tags: Computer Science
+ignored-tags: Computer Science
 slug: the-latest-inspiring-hard-ai-quote-from-kurzweil
 status: published
 ---

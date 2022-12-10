@@ -2,7 +2,7 @@
 title: Burn-out self-test
 date: 2005-06-28 16:56
 author: Andrew Matthews
-tags: cool, humour, misc
+ignored-tags: cool, humour, misc
 slug: burn-out-self-test
 status: published
 ---

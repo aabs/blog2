@@ -2,7 +2,7 @@
 title: Flickr Photo Site
 date: 2005-08-13 13:01
 author: Andrew Matthews
-tags: cool, Web2.0
+ignored-tags: cool, Web2.0
 slug: flickr-photo-site
 status: published
 ---

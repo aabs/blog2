@@ -2,7 +2,7 @@
 title: Contractual Contraction
 date: 2005-04-09 20:31
 author: Andrew Matthews
-tags: Work
+ignored-tags: Work
 slug: contractual-contraction
 status: published
 ---

@@ -2,7 +2,7 @@
 title: I gotta git me some of this!
 date: 2006-03-21 23:41
 author: Andrew Matthews
-tags: cool, gadgets
+ignored-tags: cool, gadgets
 slug: i-gotta-git-me-some-of-this
 status: published
 ---

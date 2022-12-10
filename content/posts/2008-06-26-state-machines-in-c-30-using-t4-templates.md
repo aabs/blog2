@@ -3,7 +3,7 @@ title: State Machines in C# 3.0 using T4 Templates
 date: 2008-06-26 00:07
 author: aabs
 category: .NET, functional programming, programming
-tags: .NET, C#, DFT, FSA, lambda, NDFA, partial classes, partial methods, T4, VS2008
+ignored-tags: .NET, C#, DFT, FSA, lambda, NDFA, partial classes, partial methods, T4, VS2008
 slug: state-machines-in-c-30-using-t4-templates
 status: published
 ---

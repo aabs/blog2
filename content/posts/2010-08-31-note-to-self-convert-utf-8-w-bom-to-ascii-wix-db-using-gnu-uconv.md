@@ -3,7 +3,7 @@ title: "Note to Self: Convert UTF-8 w/ BOM to ASCII (WIX + DB) using GNU uconv"
 date: 2010-08-31 10:02
 author: aabs
 category: SemanticWeb
-tags: BOM, encoding, uconv, WIX
+ignored-tags: BOM, encoding, uconv, WIX
 slug: note-to-self-convert-utf-8-w-bom-to-ascii-wix-db-using-gnu-uconv
 status: published
 ---

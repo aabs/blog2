@@ -2,7 +2,7 @@
 title: Continue if not null operator? Yes please!
 date: 2007-09-11 14:55
 author: aabs
-tags: C#
+ignored-tags: C#
 slug: continue-if-not-null-operator-yes-please
 status: published
 ---

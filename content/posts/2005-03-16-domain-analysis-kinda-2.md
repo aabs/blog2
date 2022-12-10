@@ -2,7 +2,7 @@
 title: Domain Analysis (kinda)
 date: 2005-03-16 13:55
 author: Andrew Matthews
-tags: DBC
+ignored-tags: DBC
 slug: domain-analysis-kinda-2
 status: published
 ---

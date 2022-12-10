@@ -2,7 +2,7 @@
 title: The power of advertising
 date: 2005-07-29 21:19
 author: Andrew Matthews
-tags: humour, photography
+ignored-tags: humour, photography
 slug: the-power-of-advertising
 status: published
 ---

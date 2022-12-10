@@ -2,7 +2,7 @@
 title: Welcome to the latest Froth/Forth site/blog
 date: 2005-04-18 20:55
 author: Andrew Matthews
-tags: froth, Web2.0
+ignored-tags: froth, Web2.0
 slug: welcome-to-the-latest-frothforth-siteblog
 status: published
 ---

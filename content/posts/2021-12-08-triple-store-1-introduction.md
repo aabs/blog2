@@ -1,5 +1,6 @@
 ---
 title: Implementing a Triple Store from the Ground Up - Part 1
+author: Andrew Matthews
 date: 2021-12-08
 ---
 

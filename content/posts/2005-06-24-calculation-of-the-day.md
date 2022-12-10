@@ -2,7 +2,7 @@
 title: Calculation of the day
 date: 2005-06-24 18:34
 author: Andrew Matthews
-tags: calculations, humour
+ignored-tags: calculations, humour
 slug: calculation-of-the-day
 status: published
 ---

@@ -2,7 +2,7 @@
 title: Are You Sublime or Ridiculous?
 date: 2007-03-22 21:54
 author: Andrew Matthews
-tags: calculations, humour, psychology
+ignored-tags: calculations, humour, psychology
 slug: are-you-a-meaty-algorithm
 status: published
 ---

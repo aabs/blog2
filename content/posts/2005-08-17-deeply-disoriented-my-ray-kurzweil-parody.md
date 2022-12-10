@@ -2,7 +2,7 @@
 title: Deeply disoriented - my Ray Kurzweil parody
 date: 2005-08-17 20:54
 author: Andrew Matthews
-tags: humour
+ignored-tags: humour
 slug: deeply-disoriented-my-ray-kurzweil-parody
 status: published
 ---

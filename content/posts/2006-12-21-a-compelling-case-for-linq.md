@@ -2,7 +2,7 @@
 title: A compelling case for LINQ
 date: 2006-12-21 14:47
 author: Andrew Matthews
-tags: LINQ
+ignored-tags: LINQ
 slug: a-compelling-case-for-linq
 status: published
 ---

@@ -2,7 +2,7 @@
 title: Self Modeling Robots
 date: 2006-11-19 19:34
 author: Andrew Matthews
-tags: science
+ignored-tags: science
 slug: self-modeling-robots
 status: published
 ---

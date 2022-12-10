@@ -2,7 +2,7 @@
 title: Polymorphism in C#/.NET Makes Code Incomprehensible
 date: 2006-12-06 10:14
 author: Andrew Matthews
-tags: Code Generation, LINQ, programming
+ignored-tags: Code Generation, LINQ, programming
 slug: polymorphism-in-cnet-makes-code-incomprehensible
 status: published
 ---

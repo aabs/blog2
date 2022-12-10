@@ -2,7 +2,7 @@
 title: Which codegen technique?
 date: 2005-03-18 15:53
 author: Andrew Matthews
-tags: DBC
+ignored-tags: DBC
 slug: which-codegen-technique-2
 status: published
 ---

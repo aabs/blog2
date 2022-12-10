@@ -2,7 +2,7 @@
 title: Note to self
 date: 2005-04-21 13:14
 author: Andrew Matthews
-tags: gadgets, misc
+ignored-tags: gadgets, misc
 slug: note-to-self
 status: published
 ---

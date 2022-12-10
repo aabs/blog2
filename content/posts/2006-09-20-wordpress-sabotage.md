@@ -2,7 +2,7 @@
 title: WordPress Sabotage?
 date: 2006-09-20 10:13
 author: Andrew Matthews
-tags: Web2.0
+ignored-tags: Web2.0
 slug: wordpress-sabotage
 status: published
 ---

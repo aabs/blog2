@@ -2,7 +2,7 @@
 title: Wanky statement of the day
 date: 2005-04-01 14:27
 author: Andrew Matthews
-tags: humour, programming
+ignored-tags: humour, programming
 slug: wanky-statement-of-the-day
 status: published
 ---

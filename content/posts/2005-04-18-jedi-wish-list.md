@@ -2,7 +2,7 @@
 title: Jedi Wish List
 date: 2005-04-18 22:35
 author: Andrew Matthews
-tags: Computer Science
+ignored-tags: Computer Science
 slug: jedi-wish-list
 status: published
 ---

@@ -2,7 +2,7 @@
 title: Bush a Holocaust Denier?
 date: 2007-10-10 19:25
 author: aabs
-tags: armenian massacre, george w. bush, holocaust, iraq, politics
+ignored-tags: armenian massacre, george w. bush, holocaust, iraq, politics
 slug: bush-a-holocaust-denier
 status: published
 ---

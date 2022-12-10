@@ -2,7 +2,7 @@
 title: More photographic family history
 date: 2005-04-21 20:32
 author: Andrew Matthews
-tags: misc, photography
+ignored-tags: misc, photography
 slug: more-photographic-family-history
 status: published
 ---

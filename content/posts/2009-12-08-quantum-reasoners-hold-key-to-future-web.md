@@ -3,7 +3,7 @@ title: Quantum Reasoners Hold Key to Future Web
 date: 2009-12-08 00:09
 author: aabs
 category: Semantic Web
-tags: artificial intelligence, RDF, science, SemanticWeb, semweb, software, web3.0
+ignored-tags: artificial intelligence, RDF, science, SemanticWeb, semweb, software, web3.0
 slug: quantum-reasoners-hold-key-to-future-web
 status: published
 ---

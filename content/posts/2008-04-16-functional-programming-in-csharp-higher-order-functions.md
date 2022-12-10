@@ -3,7 +3,7 @@ title: Functional Programming in C# - Higher-Order Functions
 date: 2008-04-16 20:58
 author: aabs
 category: .NET, functional programming, programming
-tags: .NET 3.5, C#, Computer Science, functional programming
+ignored-tags: .NET 3.5, C#, Computer Science, functional programming
 slug: functional-programming-in-csharp-higher-order-functions
 status: published
 attachments: 2008/04/clip-image001-thumb.png, 2008/04/clip-image0015.png, 2008/04/clip-image0015-thumb.png, 2008/04/clip-image001.png

@@ -2,7 +2,7 @@
 title: An interesting proposition
 date: 2005-04-20 03:04
 author: Andrew Matthews
-tags: Code Generation, DBC
+ignored-tags: Code Generation, DBC
 slug: an-interesting-proposition-3
 status: published
 ---

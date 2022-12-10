@@ -2,7 +2,7 @@
 title: Traumatizing the Kids
 date: 2006-09-27 16:54
 author: Andrew Matthews
-tags: family, humour
+ignored-tags: family, humour
 slug: traumatizing-the-kids
 status: published
 ---

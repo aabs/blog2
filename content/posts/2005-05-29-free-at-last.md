@@ -2,7 +2,7 @@
 title: Free at last...
 date: 2005-05-29 14:10
 author: Andrew Matthews
-tags: misc, programming
+ignored-tags: misc, programming
 slug: free-at-last
 status: published
 ---

@@ -2,7 +2,7 @@
 title: A Speculative Notation
 date: 2006-11-21 17:58
 author: Andrew Matthews
-tags: philosophy
+ignored-tags: philosophy
 slug: a-speculative-notation
 status: published
 ---

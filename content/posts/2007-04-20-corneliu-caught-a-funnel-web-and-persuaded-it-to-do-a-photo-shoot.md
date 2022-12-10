@@ -2,7 +2,7 @@
 title: Corneliu caught a funnel-web, and persuaded it to do a photo shoot
 date: 2007-04-20 09:23
 author: Andrew Matthews
-tags: photography, wildlife
+ignored-tags: photography, wildlife
 slug: corneliu-caught-a-funnel-web-and-persuaded-it-to-do-a-photo-shoot
 status: published
 ---

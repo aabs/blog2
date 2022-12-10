@@ -2,7 +2,7 @@
 title: Brain modeling - first steps
 date: 2005-07-27 09:11
 author: Andrew Matthews
-tags: artificial intelligence, Computer Science, medicine
+ignored-tags: artificial intelligence, Computer Science, medicine
 slug: brain-modeling-first-steps
 status: published
 ---

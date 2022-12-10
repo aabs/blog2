@@ -2,7 +2,7 @@
 title: From KurzweilAI – First General Purpose Quantum Computer
 date: 2007-02-11 08:28
 author: Andrew Matthews
-tags: Computer Science, cool, science
+ignored-tags: Computer Science, cool, science
 slug: from-kurzweilai-%e2%80%93-first-general-purpose-quantum-computer
 status: published
 ---

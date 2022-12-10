@@ -2,7 +2,7 @@
 title: del.icio.us links not a good idea for a blog
 date: 2006-05-10 10:44
 author: Andrew Matthews
-tags: misc
+ignored-tags: misc
 slug: delicious-links-not-a-good-idea-for-a-blog
 status: published
 ---

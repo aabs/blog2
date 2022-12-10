@@ -2,7 +2,7 @@
 title: Gorgeous Work
 date: 2006-04-04 01:40
 author: Andrew Matthews
-tags: art, cool, misc
+ignored-tags: art, cool, misc
 slug: gorgeous-work
 status: published
 ---

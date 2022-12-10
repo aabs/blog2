@@ -2,7 +2,7 @@
 title: I am a charitable NGO and I didn't know - it.
 date: 2005-07-22 09:42
 author: Andrew Matthews
-tags: humour
+ignored-tags: humour
 slug: i-am-a-charitable-ngo-and-i-didnt-know-it
 status: published
 ---

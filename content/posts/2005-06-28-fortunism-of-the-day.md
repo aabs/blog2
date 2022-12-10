@@ -2,7 +2,7 @@
 title: Fortunism of the day
 date: 2005-06-28 15:07
 author: Andrew Matthews
-tags: humour
+ignored-tags: humour
 slug: fortunism-of-the-day
 status: published
 ---

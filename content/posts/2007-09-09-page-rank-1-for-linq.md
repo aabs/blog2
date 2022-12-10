@@ -2,7 +2,7 @@
 title: Page Rank 1 for LINQ
 date: 2007-09-09 21:00
 author: aabs
-tags: LINQ
+ignored-tags: LINQ
 slug: page-rank-1-for-linq
 status: published
 attachments: 2007/09/pagerankone.png, 2007/09/pagerankone-thumb.png

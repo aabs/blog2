@@ -2,7 +2,7 @@
 title: May was a quiet month
 date: 2005-06-12 01:06
 author: Andrew Matthews
-tags: Code Generation, DBC
+ignored-tags: Code Generation, DBC
 slug: may-was-a-quiet-month-3
 status: published
 ---

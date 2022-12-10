@@ -2,7 +2,7 @@
 title: Welcome to nORM
 date: 2005-07-14 04:50
 author: Andrew Matthews
-tags: ORM, Web2.0
+ignored-tags: ORM, Web2.0
 slug: welcome-to-norm-2
 status: published
 ---

@@ -3,7 +3,7 @@ title: Knowledge Graphs 5 - Modelling with RDFS
 date: 2019-10-03 12:02
 author: aabs
 category: programming
-tags: knowledge graphs, modelling, RDF, Semantic Web
+ignored-tags: knowledge graphs, modelling, RDF, Semantic Web
 slug: knowledge-graphs-5-modelling-with-rdfs
 status: published
 attachments: 2019/10/edvard-alexander-rolvaag-e75zuaipczo-unsplash.jpg

@@ -2,7 +2,7 @@
 title: An extension to the family seat
 date: 2005-05-08 17:58
 author: Andrew Matthews
-tags: misc
+ignored-tags: misc
 slug: an-extension-to-the-family-seat
 status: published
 ---

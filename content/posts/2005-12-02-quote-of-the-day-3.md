@@ -2,7 +2,7 @@
 title: Quote of the day
 date: 2005-12-02 13:47
 author: Andrew Matthews
-tags: humour
+ignored-tags: humour
 slug: quote-of-the-day-3
 status: published
 ---

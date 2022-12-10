@@ -2,7 +2,7 @@
 title: "[drool] Nanotube Muscle Fibres Create Superhuman Strength"
 date: 2006-12-11 13:12
 author: Andrew Matthews
-tags: cool, medicine, science
+ignored-tags: cool, medicine, science
 slug: drool-nanotube-muscle-fibres-create-superhuman-strength
 status: published
 ---

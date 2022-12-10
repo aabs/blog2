@@ -2,7 +2,7 @@
 title: My favourite site today
 date: 2006-03-30 00:44
 author: Andrew Matthews
-tags: misc
+ignored-tags: misc
 slug: my-favourite-site-today
 status: published
 ---

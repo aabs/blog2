@@ -2,7 +2,7 @@
 title: DBC & AOP don't mix
 date: 2005-05-10 19:44
 author: Andrew Matthews
-tags: Code Generation, DBC
+ignored-tags: Code Generation, DBC
 slug: dbc-aop-dont-mix-2
 status: published
 ---

@@ -2,7 +2,7 @@
 title: The highlight of my week
 date: 2005-04-01 13:12
 author: Andrew Matthews
-tags: humour
+ignored-tags: humour
 slug: the-highlight-of-my-week
 status: published
 ---

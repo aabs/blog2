@@ -2,7 +2,7 @@
 title: So much froth
 date: 2005-04-18 21:28
 author: Andrew Matthews
-tags: froth, misc
+ignored-tags: froth, misc
 slug: so-much-froth
 status: published
 ---

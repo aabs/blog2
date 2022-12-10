@@ -2,7 +2,7 @@
 title: After two weeks of processing time
 date: 2005-05-09 14:39
 author: Andrew Matthews
-tags: gadgets, misc
+ignored-tags: gadgets, misc
 slug: after-two-weeks-of-processing-time
 status: published
 ---

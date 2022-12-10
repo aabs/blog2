@@ -2,7 +2,7 @@
 title: Intrusive Technology
 date: 2006-11-01 08:55
 author: Andrew Matthews
-tags: Computer Science
+ignored-tags: Computer Science
 slug: intrusive-technology
 status: published
 ---

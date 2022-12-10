@@ -2,7 +2,7 @@
 title: Linguistic Development
 date: 2005-04-14 09:27
 author: Andrew Matthews
-tags: linguistics
+ignored-tags: linguistics
 slug: linguistic-development
 status: published
 ---

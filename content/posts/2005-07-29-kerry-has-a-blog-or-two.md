@@ -2,7 +2,7 @@
 title: Kerry has a blog (or two)
 date: 2005-07-29 21:06
 author: Andrew Matthews
-tags: misc, Web2.0
+ignored-tags: misc, Web2.0
 slug: kerry-has-a-blog-or-two
 status: published
 ---

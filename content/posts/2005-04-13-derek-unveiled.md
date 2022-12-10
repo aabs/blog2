@@ -2,7 +2,7 @@
 title: Derek Unveiled
 date: 2005-04-13 12:18
 author: Andrew Matthews
-tags: humour, photography
+ignored-tags: humour, photography
 slug: derek-unveiled
 status: published
 ---

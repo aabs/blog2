@@ -2,7 +2,7 @@
 title: A sign of things to come?
 date: 2005-04-29 09:26
 author: Andrew Matthews
-tags: misc, philosophy
+ignored-tags: misc, philosophy
 slug: a-sign-of-things-to-come
 status: published
 ---

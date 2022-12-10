@@ -2,7 +2,7 @@
 title: Not Exactly Whacked
 date: 2005-04-06 14:27
 author: Andrew Matthews
-tags: humour, Web2.0
+ignored-tags: humour, Web2.0
 slug: not-exactly-whacked
 status: published
 ---

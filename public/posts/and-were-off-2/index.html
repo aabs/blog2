@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>And we&#39;re off | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="I have set up the sourceforge project. You can find it here. I&rsquo;ve also classified all of the work, and split it up into releases.
+Here&rsquo;s what will go into release one:
+ Configuration Use native .NET configuration Configuration Remove existing config assembly Installers WIX installers Runtime Control Add transactional support from COM&#43; Runtime Control Extend reverse engineering to examine SPs and create wrappers for them. Runtime Control Configurable ID strategy Runtime Control Configurable transaction isolation policy Templates Move core templates into resource assembly Testing Create a proper test database Runtime Control Divide system between runtime and development projects Runtime Control Standardise all names to CamelCase">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="And we&#39;re off" />
+<meta property="og:description" content="I have set up the sourceforge project. You can find it here. I&rsquo;ve also classified all of the work, and split it up into releases.
+Here&rsquo;s what will go into release one:
+ Configuration Use native .NET configuration Configuration Remove existing config assembly Installers WIX installers Runtime Control Add transactional support from COM&#43; Runtime Control Extend reverse engineering to examine SPs and create wrappers for them. Runtime Control Configurable ID strategy Runtime Control Configurable transaction isolation policy Templates Move core templates into resource assembly Testing Create a proper test database Runtime Control Divide system between runtime and development projects Runtime Control Standardise all names to CamelCase" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/and-were-off-2/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="And we&#39;re off">
+<meta itemprop="description" content="I have set up the sourceforge project. You can find it here. I&rsquo;ve also classified all of the work, and split it up into releases.
+Here&rsquo;s what will go into release one:
+ Configuration Use native .NET configuration Configuration Remove existing config assembly Installers WIX installers Runtime Control Add transactional support from COM&#43; Runtime Control Extend reverse engineering to examine SPs and create wrappers for them. Runtime Control Configurable ID strategy Runtime Control Configurable transaction isolation policy Templates Move core templates into resource assembly Testing Create a proper test database Runtime Control Divide system between runtime and development projects Runtime Control Standardise all names to CamelCase">
+
+<meta itemprop="wordCount" content="241">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="And we&#39;re off"/>
+<meta name="twitter:description" content="I have set up the sourceforge project. You can find it here. I&rsquo;ve also classified all of the work, and split it up into releases.
+Here&rsquo;s what will go into release one:
+ Configuration Use native .NET configuration Configuration Remove existing config assembly Installers WIX installers Runtime Control Add transactional support from COM&#43; Runtime Control Extend reverse engineering to examine SPs and create wrappers for them. Runtime Control Configurable ID strategy Runtime Control Configurable transaction isolation policy Templates Move core templates into resource assembly Testing Create a proper test database Runtime Control Divide system between runtime and development projects Runtime Control Standardise all names to CamelCase"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">And we&#39;re off</h1>
+      
+      <p class="tracked">
+        By <strong>Andrew Matthews</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>I have set up the sourceforge project. You can find it <a href="http://sourceforge.net/projects/aabsnorm/">here</a>. I&rsquo;ve also classified all of the work, and split it up into releases.</p>
+<p>Here&rsquo;s what will go into release one:</p>
+<hr>
+<p>Configuration     Use native .NET configuration
+Configuration     Remove existing config assembly
+Installers        WIX installers
+Runtime Control   Add transactional support from COM+
+Runtime Control   Extend reverse engineering to examine SPs and create wrappers for them.
+Runtime Control   Configurable ID strategy
+Runtime Control   Configurable transaction isolation policy
+Templates         Move core templates into resource assembly
+Testing           Create a proper test database
+Runtime Control   Divide system between runtime and development projects
+Runtime Control   Standardise all names to CamelCase</p>
+<hr>
+<p>I think the highest priority is the configuration rework. Configuration in the previous system was way too complicated. What we need is a very simple, very reliable system that can easily be expanded to accommodate something like the config app block at a later date. As soon as that is done, the key task will be converting it from its current broken state to a working state, and then splitting the system up into runtime and development arms. I will also do some work towards creating WIX installers for the runtime and development systems, including an installer for packaging source releases, that will allow the easy setup of a development environment for new volunteers on the project.</p>
+<p>This is of course based on the &ldquo;<em>if you build it, they will come</em>&rdquo; model of open source development.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

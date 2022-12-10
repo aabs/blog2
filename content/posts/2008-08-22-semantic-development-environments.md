@@ -3,7 +3,7 @@ title: Semantic Development Environments
 date: 2008-08-22 21:06
 author: aabs
 category: .NET, Semantic Web
-tags: GGG, ideas, lintordf, programming, SemanticWeb, venture altruism, web3.0
+ignored-tags: GGG, ideas, lintordf, programming, SemanticWeb, venture altruism, web3.0
 slug: semantic-development-environments
 status: published
 ---

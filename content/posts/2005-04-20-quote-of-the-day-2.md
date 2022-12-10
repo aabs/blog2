@@ -2,7 +2,7 @@
 title: Quote of the day
 date: 2005-04-20 13:00
 author: Andrew Matthews
-tags: Computer Science
+ignored-tags: Computer Science
 slug: quote-of-the-day-2
 status: published
 ---

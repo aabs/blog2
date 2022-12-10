@@ -3,7 +3,7 @@ title: Semantic Overflow Highlights I
 date: 2009-11-13 07:47
 author: aabs
 category: Semantic Web
-tags: semantic-overflow, SemanticWeb, web3.0
+ignored-tags: semantic-overflow, SemanticWeb, web3.0
 slug: semantic-overflow-highlights-i
 status: published
 ---

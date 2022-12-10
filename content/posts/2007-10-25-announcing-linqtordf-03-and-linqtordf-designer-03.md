@@ -3,7 +3,7 @@ title: Announcing LinqToRdf 0.3 and LinqToRdf Designer 0.3
 date: 2007-10-25 20:36
 author: aabs
 category: .NET, Semantic Web
-tags: .NET, C#, DSL, LINQ, LinqToRdf, N3, SemanticWeb, semweb
+ignored-tags: .NET, C#, DSL, LINQ, LinqToRdf, N3, SemanticWeb, semweb
 slug: announcing-linqtordf-03-and-linqtordf-designer-03
 status: published
 ---

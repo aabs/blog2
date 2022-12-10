@@ -2,7 +2,7 @@
 title: Post-modernist left-wing feminist lesbian analysis, step aside!
 date: 2006-01-12 10:47
 author: Andrew Matthews
-tags: humour, Web2.0
+ignored-tags: humour, Web2.0
 slug: post-modernist-left-wing-feminist-lesbian-analysis-step-aside-2
 status: published
 ---

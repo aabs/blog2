@@ -2,7 +2,7 @@
 title: Mulder and Sculley
 date: 2005-04-18 21:25
 author: Andrew Matthews
-tags: froth, misc
+ignored-tags: froth, misc
 slug: mulder-and-sculley
 status: published
 ---

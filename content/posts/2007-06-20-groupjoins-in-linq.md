@@ -2,7 +2,7 @@
 title: GroupJoins in LINQ
 date: 2007-06-20 23:07
 author: Andrew Matthews
-tags: C#, LINQ, programming, software
+ignored-tags: C#, LINQ, programming, software
 slug: groupjoins-in-linq
 status: published
 ---

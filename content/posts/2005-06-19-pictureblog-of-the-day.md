@@ -2,7 +2,7 @@
 title: Picture/Blog of the day
 date: 2005-06-19 08:23
 author: Andrew Matthews
-tags: art, humour
+ignored-tags: art, humour
 slug: pictureblog-of-the-day
 status: published
 ---

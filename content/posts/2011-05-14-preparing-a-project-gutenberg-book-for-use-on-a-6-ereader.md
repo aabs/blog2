@@ -3,7 +3,7 @@ title: Preparing a Project Gutenberg ebook for use on a 6" ereader
 date: 2011-05-14 16:49
 author: aabs
 category: SemanticWeb
-tags: bebook, gutenberg, gutenmark, LaTeX
+ignored-tags: bebook, gutenberg, gutenmark, LaTeX
 slug: preparing-a-project-gutenberg-book-for-use-on-a-6-ereader
 status: published
 attachments: 2011/05/photo_71194a6e-bfd5-cb24-6596-08771504c330.jpg

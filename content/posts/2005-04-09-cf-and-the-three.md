@@ -2,7 +2,7 @@
 title: CF and The Three
 date: 2005-04-09 21:15
 author: Andrew Matthews
-tags: medicine, misc
+ignored-tags: medicine, misc
 slug: cf-and-the-three
 status: published
 ---

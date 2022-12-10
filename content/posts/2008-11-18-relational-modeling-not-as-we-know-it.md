@@ -3,7 +3,7 @@ title: Relational Modeling? Not as we know it!
 date: 2008-11-18 21:11
 author: aabs
 category: programming, Semantic Web
-tags: databases, SemanticWeb, semweb
+ignored-tags: databases, SemanticWeb, semweb
 slug: relational-modeling-not-as-we-know-it
 status: published
 ---

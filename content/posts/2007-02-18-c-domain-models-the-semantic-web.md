@@ -2,7 +2,7 @@
 title: C#, Domain Models & the Semantic Web
 date: 2007-02-18 06:54
 author: Andrew Matthews
-tags: artificial intelligence, C#, Computer Science, LINQ, ORM, philosophy
+ignored-tags: artificial intelligence, C#, Computer Science, LINQ, ORM, philosophy
 slug: c-domain-models-the-semantic-web
 status: published
 ---

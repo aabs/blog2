@@ -2,7 +2,7 @@
 title: Kerry at 24 weeks
 date: 2005-08-01 16:31
 author: Andrew Matthews
-tags: family, photography
+ignored-tags: family, photography
 slug: kerry-at-24-weeks
 status: published
 ---

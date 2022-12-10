@@ -2,7 +2,7 @@
 title: Dig (in My Pictures) for Victory
 date: 2005-04-14 09:17
 author: Andrew Matthews
-tags: humour, photography
+ignored-tags: humour, photography
 slug: dig-in-my-pictures-for-victory
 status: published
 ---

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Polymorphism in C#/.NET Makes Code Incomprehensible | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="I&rsquo;ve recently been working on a series of blog posts that require me to reverse engineer the contents of the LINQ assembly System.Query. My experience has largely been very positive, but I have one problem that has slowed my progress – navigating beyond polymorphic method calls. This isn&rsquo;t a problem with LINQ (it uses polymorphism in a number of key places) it&rsquo;s a problem with code reading generally.
+I find that while abstraction frameworks are essential to allow clean factoring and decoupling of object models, they make interpretation of runtime behaviour very hard – the more fully encapsulated a framework is, the harder it is to read it&rsquo;s code and deduce how it works.">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Polymorphism in C#/.NET Makes Code Incomprehensible" />
+<meta property="og:description" content="I&rsquo;ve recently been working on a series of blog posts that require me to reverse engineer the contents of the LINQ assembly System.Query. My experience has largely been very positive, but I have one problem that has slowed my progress – navigating beyond polymorphic method calls. This isn&rsquo;t a problem with LINQ (it uses polymorphism in a number of key places) it&rsquo;s a problem with code reading generally.
+I find that while abstraction frameworks are essential to allow clean factoring and decoupling of object models, they make interpretation of runtime behaviour very hard – the more fully encapsulated a framework is, the harder it is to read it&rsquo;s code and deduce how it works." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/polymorphism-in-cnet-makes-code-incomprehensible/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="Polymorphism in C#/.NET Makes Code Incomprehensible">
+<meta itemprop="description" content="I&rsquo;ve recently been working on a series of blog posts that require me to reverse engineer the contents of the LINQ assembly System.Query. My experience has largely been very positive, but I have one problem that has slowed my progress – navigating beyond polymorphic method calls. This isn&rsquo;t a problem with LINQ (it uses polymorphism in a number of key places) it&rsquo;s a problem with code reading generally.
+I find that while abstraction frameworks are essential to allow clean factoring and decoupling of object models, they make interpretation of runtime behaviour very hard – the more fully encapsulated a framework is, the harder it is to read it&rsquo;s code and deduce how it works.">
+
+<meta itemprop="wordCount" content="336">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Polymorphism in C#/.NET Makes Code Incomprehensible"/>
+<meta name="twitter:description" content="I&rsquo;ve recently been working on a series of blog posts that require me to reverse engineer the contents of the LINQ assembly System.Query. My experience has largely been very positive, but I have one problem that has slowed my progress – navigating beyond polymorphic method calls. This isn&rsquo;t a problem with LINQ (it uses polymorphism in a number of key places) it&rsquo;s a problem with code reading generally.
+I find that while abstraction frameworks are essential to allow clean factoring and decoupling of object models, they make interpretation of runtime behaviour very hard – the more fully encapsulated a framework is, the harder it is to read it&rsquo;s code and deduce how it works."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Polymorphism in C#/.NET Makes Code Incomprehensible</h1>
+      
+      <p class="tracked">
+        By <strong>Andrew Matthews</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>I&rsquo;ve recently been working on a series of blog posts that require me to reverse engineer the contents of the LINQ assembly System.Query. My experience has largely been very positive, but I have one problem that has slowed my progress – navigating beyond polymorphic method calls. This isn&rsquo;t a problem with LINQ (it uses polymorphism in a number of key places) it&rsquo;s a problem with code reading generally.</p>
+<p>I find that while abstraction frameworks are essential to allow clean factoring and decoupling of object models, they make interpretation of runtime behaviour <em><strong>very hard</strong></em> – the more fully encapsulated a framework is, the harder it is to read it&rsquo;s code and deduce how it works.</p>
+<p>I don&rsquo;t have a problem with polymorphism as a rule, well I do, but it&rsquo;s a price I am more than willing to pay. But I really have struggled to get through the LINQ code base – it is complex enough, without me being hindered at every step by the fact that I have to guess what is going on at runtime for a specific combination of parameters. The struggle for me was keeping it all in my head – the structure of the LINQ expression tree (specifically the Type of each node in the tree), the call stack, the type parameters passed to generic methods, and the progress in iterating collections of those types. It&rsquo;s hard, and it&rsquo;s not using everyday idioms so you can&rsquo;t guess with very much confidence what it ought to be doing. I wonder whether there might be some tool support that I can exploit to ease the code reading process.</p>
+<p>If you know of a tool (or some way to augment the debugger) that will allow me to profile the LINQ expression creation and compilation at runtime, please let me know. I&rsquo;ve tried combinations of <a href="http://www.aisto.com/roeder/dotnet/">Reflector</a>, <a href="http://www.acorns.com.au/hawkeye/">Hawkeye</a> and <a href="http://www.jetbrains.com/profiler/">dotTrace</a>. None of them were able to penetrate the fog individually, and were impossible to use in combination. Perhaps you know of a way to tackle these issues?</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -3,7 +3,7 @@ title: Søren on DBC
 date: 2008-05-05 21:27
 author: aabs
 category: .NET, functional programming, programming
-tags: .NET, DBC
+ignored-tags: .NET, DBC
 slug: s%c3%b8ren-on-dbc
 status: published
 ---

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>What I&#39;m gonna cover | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="When I get the time I intend to start off this blog by exploring the following ideas:
+ Developing a design by contract system for C# History of Design by Contract Code Generation Systems XSLT vs NVelocity  I&rsquo;m producing a Design by contract system that&rsquo;s in early alpha. It uses NVelocity, and declarative programming. It lets you write code like this:
+[Dbc, Invariant(&quot;Prop1 &gt;= 1&quot;)] public class MyTestClass { public MyTestClass() { Prop1 = 10; } #region property Prop1 int prop1 = 0; [Requires(&quot;value !">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="What I&#39;m gonna cover" />
+<meta property="og:description" content="When I get the time I intend to start off this blog by exploring the following ideas:
+ Developing a design by contract system for C# History of Design by Contract Code Generation Systems XSLT vs NVelocity  I&rsquo;m producing a Design by contract system that&rsquo;s in early alpha. It uses NVelocity, and declarative programming. It lets you write code like this:
+[Dbc, Invariant(&quot;Prop1 &gt;= 1&quot;)] public class MyTestClass { public MyTestClass() { Prop1 = 10; } #region property Prop1 int prop1 = 0; [Requires(&quot;value !" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/what-im-gonna-cover-2/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="What I&#39;m gonna cover">
+<meta itemprop="description" content="When I get the time I intend to start off this blog by exploring the following ideas:
+ Developing a design by contract system for C# History of Design by Contract Code Generation Systems XSLT vs NVelocity  I&rsquo;m producing a Design by contract system that&rsquo;s in early alpha. It uses NVelocity, and declarative programming. It lets you write code like this:
+[Dbc, Invariant(&quot;Prop1 &gt;= 1&quot;)] public class MyTestClass { public MyTestClass() { Prop1 = 10; } #region property Prop1 int prop1 = 0; [Requires(&quot;value !">
+
+<meta itemprop="wordCount" content="189">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="What I&#39;m gonna cover"/>
+<meta name="twitter:description" content="When I get the time I intend to start off this blog by exploring the following ideas:
+ Developing a design by contract system for C# History of Design by Contract Code Generation Systems XSLT vs NVelocity  I&rsquo;m producing a Design by contract system that&rsquo;s in early alpha. It uses NVelocity, and declarative programming. It lets you write code like this:
+[Dbc, Invariant(&quot;Prop1 &gt;= 1&quot;)] public class MyTestClass { public MyTestClass() { Prop1 = 10; } #region property Prop1 int prop1 = 0; [Requires(&quot;value !"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">What I&#39;m gonna cover</h1>
+      
+      <p class="tracked">
+        By <strong>aabs</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>When I get the time I intend to start off this blog by exploring the following ideas:</p>
+<ul>
+<li>Developing a design by contract system for C#</li>
+<li>History of Design by Contract</li>
+<li>Code Generation Systems XSLT vs NVelocity</li>
+</ul>
+<p>I&rsquo;m producing a Design by contract system that&rsquo;s in early alpha. It uses NVelocity, and declarative programming. It lets you write code like this:</p>
+<pre><code>[Dbc, Invariant(&quot;Prop1 &gt;= 1&quot;)]
+public class MyTestClass
+{
+  public MyTestClass()
+  {
+    Prop1 = 10;
+  }
+
+  #region property Prop1
+  int prop1 = 0;
+  [Requires(&quot;value != 1561&quot;)]
+  public int Prop1
+  {
+    get
+    {
+      return prop1;
+    }
+    set
+    {
+      prop1 = value;
+    }
+  }
+
+  #endregion
+
+  [Requires(&quot;arg1 &gt; 10&quot;)]
+  [Requires(&quot;arg2 &lt; 100&quot;)]
+  [Ensures(&quot;$after(Prop1) == $before(Prop1) + 1&quot;)]
+  public void TestMethod(int arg1, int arg2, string arg3)
+  {
+    Prop1 = Prop1 + 1;
+    System.Diagnostics.Debug.WriteLine( &quot;MyTestClass.TestMethod.Prop1 == &quot; + prop1.ToString());
+  }
+}
+</code></pre>
+<p>During the rest of the project I&rsquo;ll show you how I expand this system to work with Aspect Oriented Programming, and Static and Dynamic Proxies. I&rsquo;ll also explore the best ways of implementing the control logic under the hood.
+Till then, I guess we&rsquo;re stuck with Asserts or ifs at the beginning of methods.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

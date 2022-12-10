@@ -2,7 +2,7 @@
 title: Electroconvulsive Therapy
 date: 2006-01-29 09:08
 author: Andrew Matthews
-tags: humour
+ignored-tags: humour
 slug: electroconvulsive-therapy-2
 status: published
 ---

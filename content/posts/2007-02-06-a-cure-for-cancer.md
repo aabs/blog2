@@ -2,7 +2,7 @@
 title: A Cure for Cancer
 date: 2007-02-06 06:34
 author: Andrew Matthews
-tags: cool, medicine, science
+ignored-tags: cool, medicine, science
 slug: a-cure-for-cancer
 status: published
 ---

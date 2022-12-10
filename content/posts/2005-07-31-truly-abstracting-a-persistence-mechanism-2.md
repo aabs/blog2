@@ -2,7 +2,7 @@
 title: Truly abstracting a persistence mechanism
 date: 2005-07-31 18:46
 author: Andrew Matthews
-tags: ORM
+ignored-tags: ORM
 slug: truly-abstracting-a-persistence-mechanism-2
 status: published
 ---

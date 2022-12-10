@@ -2,7 +2,7 @@
 title: New section of the DBC blog uploaded
 date: 2005-04-13 10:49
 author: Andrew Matthews
-tags: DBC, Web2.0
+ignored-tags: DBC, Web2.0
 slug: new-section-of-the-dbc-blog-uploaded
 status: published
 ---

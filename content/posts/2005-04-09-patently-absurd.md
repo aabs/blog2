@@ -2,7 +2,7 @@
 title: Patently Absurd!
 date: 2005-04-09 18:46
 author: Andrew Matthews
-tags: misc, science
+ignored-tags: misc, science
 slug: patently-absurd
 status: published
 ---

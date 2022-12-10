@@ -2,7 +2,7 @@
 title: A Jedi Fly-through
 date: 2005-04-18 22:04
 author: Andrew Matthews
-tags: cool, misc, programming
+ignored-tags: cool, misc, programming
 slug: a-jedi-fly-through
 status: published
 ---

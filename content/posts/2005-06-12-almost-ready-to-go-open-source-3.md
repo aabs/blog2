@@ -2,7 +2,7 @@
 title: Almost ready to go open source
 date: 2005-06-12 02:13
 author: Andrew Matthews
-tags: DBC
+ignored-tags: DBC
 slug: almost-ready-to-go-open-source-3
 status: published
 ---

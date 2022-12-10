@@ -2,7 +2,7 @@
 title: The Future of Search
 date: 2007-09-04 23:40
 author: aabs
-tags: Computer Science
+ignored-tags: Computer Science
 slug: the-future-of-search
 status: published
 ---

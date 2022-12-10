@@ -2,7 +2,7 @@
 title: Just Plain Wrong!
 date: 2005-05-06 11:03
 author: Andrew Matthews
-tags: Web2.0
+ignored-tags: Web2.0
 slug: just-plain-wrong
 status: published
 ---

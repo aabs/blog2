@@ -2,7 +2,7 @@
 title: How LINQ Works - IQueryable
 date: 2006-11-18 23:07
 author: Andrew Matthews
-tags: C#
+ignored-tags: C#
 slug: how-linq-works-iqueryable
 status: published
 ---

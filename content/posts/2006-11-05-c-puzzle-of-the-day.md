@@ -2,7 +2,7 @@
 title: C# puzzle of the day
 date: 2006-11-05 07:50
 author: Andrew Matthews
-tags: Computer Science
+ignored-tags: Computer Science
 slug: c-puzzle-of-the-day
 status: published
 ---

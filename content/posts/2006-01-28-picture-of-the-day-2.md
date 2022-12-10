@@ -2,7 +2,7 @@
 title: Picture of the day
 date: 2006-01-28 18:57
 author: Andrew Matthews
-tags: art, photography
+ignored-tags: art, photography
 slug: picture-of-the-day-2
 status: published
 ---

@@ -2,7 +2,7 @@
 title: Tax on British Stupidity gets Hiked
 date: 2006-11-26 13:57
 author: Andrew Matthews
-tags: conspiracies, humour
+ignored-tags: conspiracies, humour
 slug: tax-on-british-stupidity-gets-hiked
 status: published
 ---

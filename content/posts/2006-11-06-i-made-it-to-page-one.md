@@ -2,7 +2,7 @@
 title: I made it to page one!
 date: 2006-11-06 09:26
 author: Andrew Matthews
-tags: Computer Science
+ignored-tags: Computer Science
 slug: i-made-it-to-page-one
 status: published
 ---

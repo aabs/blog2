@@ -2,7 +2,7 @@
 title: Behold - my firstborn (both of them)
 date: 2005-04-21 20:21
 author: Andrew Matthews
-tags: misc, photography
+ignored-tags: misc, photography
 slug: behold-my-firstborn-both-of-them
 status: published
 ---

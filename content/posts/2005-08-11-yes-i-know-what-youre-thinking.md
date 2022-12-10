@@ -2,7 +2,7 @@
 title: Yes I know what you're thinking...
 date: 2005-08-11 13:19
 author: Andrew Matthews
-tags: humour, misc, Web2.0
+ignored-tags: humour, misc, Web2.0
 slug: yes-i-know-what-youre-thinking
 status: published
 ---

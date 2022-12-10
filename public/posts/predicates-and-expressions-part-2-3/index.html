@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Predicates and Expressions - Part 2 | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Last time I started discussing the expression language used to define predicates on types and members. My conclusions were:
+ C# expression syntax used since code must be transformed to that in the end, and the more similar the syntaxes of the expression language - the easier the transformation will be. No side-effects. Side effect within the predicates complicate the tasks of determining whether a temporal comparison is actually effective. If the snapshots can&rsquo;t be guaranteed to be faithful representations of the state before and after the test, then you can&rsquo;t trust the tests, and you might as well not have bothered with them in the first place.">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Predicates and Expressions - Part 2" />
+<meta property="og:description" content="Last time I started discussing the expression language used to define predicates on types and members. My conclusions were:
+ C# expression syntax used since code must be transformed to that in the end, and the more similar the syntaxes of the expression language - the easier the transformation will be. No side-effects. Side effect within the predicates complicate the tasks of determining whether a temporal comparison is actually effective. If the snapshots can&rsquo;t be guaranteed to be faithful representations of the state before and after the test, then you can&rsquo;t trust the tests, and you might as well not have bothered with them in the first place." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/predicates-and-expressions-part-2-3/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="Predicates and Expressions - Part 2">
+<meta itemprop="description" content="Last time I started discussing the expression language used to define predicates on types and members. My conclusions were:
+ C# expression syntax used since code must be transformed to that in the end, and the more similar the syntaxes of the expression language - the easier the transformation will be. No side-effects. Side effect within the predicates complicate the tasks of determining whether a temporal comparison is actually effective. If the snapshots can&rsquo;t be guaranteed to be faithful representations of the state before and after the test, then you can&rsquo;t trust the tests, and you might as well not have bothered with them in the first place.">
+
+<meta itemprop="wordCount" content="493">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Predicates and Expressions - Part 2"/>
+<meta name="twitter:description" content="Last time I started discussing the expression language used to define predicates on types and members. My conclusions were:
+ C# expression syntax used since code must be transformed to that in the end, and the more similar the syntaxes of the expression language - the easier the transformation will be. No side-effects. Side effect within the predicates complicate the tasks of determining whether a temporal comparison is actually effective. If the snapshots can&rsquo;t be guaranteed to be faithful representations of the state before and after the test, then you can&rsquo;t trust the tests, and you might as well not have bothered with them in the first place."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Predicates and Expressions - Part 2</h1>
+      
+      <p class="tracked">
+        By <strong>Andrew Matthews</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>Last time I started discussing the expression language used to define predicates on types and members. My conclusions were:</p>
+<ul>
+<li>C# expression syntax used since code must be transformed to that in the end, and the more similar the syntaxes of the expression language - the easier the transformation will be.</li>
+<li>No side-effects. Side effect within the predicates complicate the tasks of determining whether a temporal comparison is actually effective. If the snapshots can&rsquo;t be guaranteed to be faithful representations of the state before and after the test, then you can&rsquo;t trust the tests, and you might as well not have bothered with them in the first place.</li>
+<li>Pragmas, or pre-processor messages, are used in expressions to add a temporal ability to the predicates. $before(foo) allows a snapshot of the variable foo to be taken for later comparison with the exit state.</li>
+<li>Pragmas may map to identity in some circumstances. Entry states can have no $after() since we haven&rsquo;t reached the exit state yet. Likewise, there is no notion $before() state since this is the before state, and we can&rsquo;t take a snapshot of the state before the before state (unless it&rsquo;s on some other superior method). Therefore, in a precondition it should be illegal to insert pragmas into predicate expressions. In some cases such as $before(foo) in a precondition, and $after(bar) in a post condition the pragmas map onto the current value of the variable. i.e. in a post condition $after(bar) can be transformed into bar.</li>
+</ul>
+<p>The algorithm for converting predicates to guard code is shown below.</p>
+<pre><code>foreach assembly in assembly list
+  foreach type in assembly
+    clear list of invariance predicates
+    clear list of processed methods
+    foreach invariant attribute on type
+      transform pragmas on predicate
+      add pre/post analysis objs to list
+      generate code for predicate
+      append code to processedInvariants list
+    end foreach invariant
+    foreach member in type
+      clear list of requires attrs
+      foreach requires attr on member
+        transform pragmas on predicate
+        add pre/post analysis objs to list
+        generate code for predicate
+        append code to processedRequires list
+      end foreach requires attr
+      clear list of ensures attrs
+      foreach ensures attr on member
+        transform pragmas on predicate
+        extract list of vars to be snapshot
+        add to list processedSnapshots
+        add pre/post analysis objs to list
+        generate code for predicate
+        append code to processedEnsures list
+      end foreach ensures attr
+      insert snapshots into code template
+      insert pre/post analysis objs to template
+      insert code for requires guards into template
+      insert code for ensures guards into template
+      generate code
+      add generated code to processed methods list
+    end foreach member
+    insert code for members into type template
+    clear list of invariance predicates
+    generate code for type
+    append code to processed types list
+  end foreach type
+  setup c# compiler with config params
+  compile all types in processed types list
+  store assembly as per instructions
+end foreach assembly
+</code></pre>
+<p>This algorithm conveniently glosses over the complexities of the depth first search event propagation mechanism described in previous posts, but the outcome is the same ultimately.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

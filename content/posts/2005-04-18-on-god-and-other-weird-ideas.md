@@ -2,7 +2,7 @@
 title: On God and other weird ideas
 date: 2005-04-18 21:29
 author: Andrew Matthews
-tags: froth, misc, philosophy
+ignored-tags: froth, misc, philosophy
 slug: on-god-and-other-weird-ideas
 status: published
 ---

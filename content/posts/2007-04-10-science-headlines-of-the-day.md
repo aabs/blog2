@@ -2,7 +2,7 @@
 title: Science Headlines of the Day
 date: 2007-04-10 22:06
 author: Andrew Matthews
-tags: science
+ignored-tags: science
 slug: science-headlines-of-the-day
 status: published
 ---

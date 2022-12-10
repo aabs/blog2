@@ -3,7 +3,7 @@ title: Knowledge Graphs 7 - Named Graphs
 date: 2019-11-06 14:08
 author: aabs
 category: Semantic Web
-tags: knowledge graphs, RDF
+ignored-tags: knowledge graphs, RDF
 slug: knowledge-graphs-7-named-graphs
 status: published
 attachments: 2019/11/kamen-atanassov-xhqhvakoazg-unsplash.jpg

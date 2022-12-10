@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>GroupJoins in LINQ | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Attachments: 2007/06/img.06-20-2007.3.png, 2007/06/img.06-20-2007.3-thumb.png
+OWL defines two types of property: DatatypeProperty and ObjectProperty. An object property links instances from two Classes, just like a reference in .NET between two objects. In OWL you define it like this:
+&lt;owl:ObjectProperty rdf:ID=&ldquo;isOnAlbum&rdquo;&gt; &lt;rdfs:domain rdf:resource=&quot;#Track&quot;/&gt; &lt;rdfs:range rdf:resource=&quot;#Album&quot;/&gt; &lt;/owl:ObjectProperty&gt;
+A DatatypeProperty is similar to a .NET property that stores some kind of primitive type like a string or an int. In OWL it looks like this:">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="GroupJoins in LINQ" />
+<meta property="og:description" content="Attachments: 2007/06/img.06-20-2007.3.png, 2007/06/img.06-20-2007.3-thumb.png
+OWL defines two types of property: DatatypeProperty and ObjectProperty. An object property links instances from two Classes, just like a reference in .NET between two objects. In OWL you define it like this:
+&lt;owl:ObjectProperty rdf:ID=&ldquo;isOnAlbum&rdquo;&gt; &lt;rdfs:domain rdf:resource=&quot;#Track&quot;/&gt; &lt;rdfs:range rdf:resource=&quot;#Album&quot;/&gt; &lt;/owl:ObjectProperty&gt;
+A DatatypeProperty is similar to a .NET property that stores some kind of primitive type like a string or an int. In OWL it looks like this:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/groupjoins-in-linq/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="GroupJoins in LINQ">
+<meta itemprop="description" content="Attachments: 2007/06/img.06-20-2007.3.png, 2007/06/img.06-20-2007.3-thumb.png
+OWL defines two types of property: DatatypeProperty and ObjectProperty. An object property links instances from two Classes, just like a reference in .NET between two objects. In OWL you define it like this:
+&lt;owl:ObjectProperty rdf:ID=&ldquo;isOnAlbum&rdquo;&gt; &lt;rdfs:domain rdf:resource=&quot;#Track&quot;/&gt; &lt;rdfs:range rdf:resource=&quot;#Album&quot;/&gt; &lt;/owl:ObjectProperty&gt;
+A DatatypeProperty is similar to a .NET property that stores some kind of primitive type like a string or an int. In OWL it looks like this:">
+
+<meta itemprop="wordCount" content="777">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GroupJoins in LINQ"/>
+<meta name="twitter:description" content="Attachments: 2007/06/img.06-20-2007.3.png, 2007/06/img.06-20-2007.3-thumb.png
+OWL defines two types of property: DatatypeProperty and ObjectProperty. An object property links instances from two Classes, just like a reference in .NET between two objects. In OWL you define it like this:
+&lt;owl:ObjectProperty rdf:ID=&ldquo;isOnAlbum&rdquo;&gt; &lt;rdfs:domain rdf:resource=&quot;#Track&quot;/&gt; &lt;rdfs:range rdf:resource=&quot;#Album&quot;/&gt; &lt;/owl:ObjectProperty&gt;
+A DatatypeProperty is similar to a .NET property that stores some kind of primitive type like a string or an int. In OWL it looks like this:"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">GroupJoins in LINQ</h1>
+      
+      <p class="tracked">
+        By <strong>Andrew Matthews</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>Attachments: 2007/06/img.06-20-2007.3.png, 2007/06/img.06-20-2007.3-thumb.png</p>
+<p>OWL defines two types of property: DatatypeProperty and ObjectProperty. An object property links instances from two Classes, just like a reference in .NET between two objects. In OWL you define it like this:</p>
+<p>&lt;owl:ObjectProperty rdf:ID=&ldquo;isOnAlbum&rdquo;&gt;
+  &lt;rdfs:domain rdf:resource=&quot;#Track&quot;/&gt;
+  &lt;rdfs:range rdf:resource=&quot;#Album&quot;/&gt;
+&lt;/owl:ObjectProperty&gt;</p>
+<p>A DatatypeProperty is similar to a .NET property that stores some kind of primitive type like a string or an int. In OWL it looks like this:</p>
+<p>&lt;owl:DatatypeProperty rdf:ID=&ldquo;fileLocation&rdquo;&gt;
+  &lt;rdfs:domain rdf:resource=&quot;#Track&quot; /&gt;
+  &lt;rdfs:range  rdf:resource=&quot;&amp;xsd;string&quot;/&gt;
+&lt;/owl:DatatypeProperty&gt;</p>
+<p>The format is very much the same, but the task of querying for primitive types in LINQ and SPARQL is easy compared to performing a one to many query like a SQL Join. So far, I have confined my efforts to DatatypeProperties, and tried not to think about ObjectProperties too much. But the time of reckoning has come - I&rsquo;ve not got much else left to do on LinqToRdf except ObjectProperties.</p>
+<p>Here&rsquo;s the kind of LINQ join I plan to implement:</p>
+<pre><code>[TestMethod]
+public void TestJoin()
+{
+    TestContext db = new TestContext(CreateSparqlTripleStore());
+    var q = from a in db.Album
+            join t in db.Track on a.Name equals t.AlbumName into tracks
+            select new Album{Name = a.Name, Tracks = tracks};
+    foreach(var album in q){
+        Console.WriteLine(album.Name);
+        foreach (Track track in album.Tracks)
+        {
+            Console.WriteLine(track.Title);
+        }
+    }
+}
+</code></pre>
+<p>This uses a GroupJoin to let me collect matching tracks and store them in a temporary variable called tracks. I then insert the tracks into the Tracks property on the album I&rsquo;m newing up in the projection. I need to come up with a SPARQL equivalent syntax, and convert the expression passed for the join into that. SPARQL is a graph based query language, so I am going to be converting my requests into the usual SPARQL triple format, and then using the details from the NewExpression on the query to work out where to put the data when I get it back.</p>
+<p>With the non-join queries I have been testing my query provider on, I have observed that for each syntactical component of the query I was passed an Expression tree, representing its contents. With a GroupJoin, you get one, and it contains everything you need to perform the query. My first quandary is over the process of converting this new expression structure into a format that my existing framework can understand. Below is a snapshot of the expression tree created for the join I showed above.</p>
+<p><a href="%7Bstatic%7D2007/06/img.06-20-2007.3.png"><img src="%7Bstatic%7D2007/06/img.06-20-2007.3-thumb.png" alt="GroupJoin Expression contents">{width=&ldquo;932&rdquo; height=&ldquo;191&rdquo;}</a></p>
+<p>There are five parameters in the expression:</p>
+<ol>
+<li>The query object on the Album. That&rsquo;s the &ldquo;<em>a in db.Album</em>&rdquo; part.</li>
+<li>The query object on the Track. The &ldquo;<em>t in db.Track</em>&rdquo; part.</li>
+<li>A lambda function from an album to its Name.</li>
+<li>A lambda function from a track to its AlbumName.</li>
+<li>A projection creating a new Album, and assigning the tracks collected to the Tracks collection on the newly created Album.</li>
+</ol>
+<p>Parameters 1 &amp; 2 are LinqToRdf queries that don&rsquo;t need to be parsed and converted. I can&rsquo;t just ask them to render a query for me, since they don&rsquo;t have any information of value to offer me other than the OriginalType that they were created with. They have received no expressions filtering the kind of data that they return, and they&rsquo;ll never have their results enumerated. These query objects are just a kind of clue for the GroupJoin about how to compose the query. They can tell it where the data that it&rsquo;s looking for is to be found.</p>
+<p>Here&rsquo;s how I would guess the SPARQL query would look:</p>
+<pre><code>SELECT ?Name ?Title ?GenreName &lt;snip&gt;
+WHERE {
+    _:a a a:Album .
+    _:t a a:Track .
+    _:a a:name ?Name.
+    _:t a:albumName ?Name .
+    OPTIONAL {_:t a: ?Title}
+    OPTIONAL {_:t a: ?GenreName}
+    &lt;snip&gt;
+}
+</code></pre>
+<p>We can get the names for blank nodes _:a and _:t from the parameter collections of the GroupJoins parameters 3 and 4 respectively. We know that we will be equating ?Name on _:a and ?Name on _:t since those are the lambda functions provided and that&rsquo;s the format of the join. The rest of the properties are included in optional sections so that if they are not present it won&rsquo;t stop the details of the OWL instance coming back. By using</p>
+<pre><code>    _:a a:name ?Name.
+    _:t a:albumName ?Name .
+</code></pre>
+<p>We achieve the same as equality, since two things that are equal to the same are equal to each other. That restricts the tracks to those that are part of an album at the same time.</p>
+<p>I&rsquo;m not sure yet what I will do about the projection, since there is an intermediate task that needs to be performed: to insert the temporary variable &lsquo;tracks&rsquo; into the Album object after it has been instantiated. More on that once I&rsquo;ve found out more.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

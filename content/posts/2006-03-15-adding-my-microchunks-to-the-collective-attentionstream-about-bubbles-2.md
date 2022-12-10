@@ -2,7 +2,7 @@
 title: Adding my microchunks to the collective attentionstream - about bubbles.
 date: 2006-03-15 14:40
 author: Andrew Matthews
-tags: Web2.0
+ignored-tags: Web2.0
 slug: adding-my-microchunks-to-the-collective-attentionstream-about-bubbles-2
 status: published
 ---

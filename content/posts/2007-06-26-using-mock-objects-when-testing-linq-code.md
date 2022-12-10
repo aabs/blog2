@@ -2,7 +2,7 @@
 title: Using Mock Objects When Testing LINQ Code
 date: 2007-06-26 12:56
 author: aabs
-tags: C#, LINQ, programming
+ignored-tags: C#, LINQ, programming
 slug: using-mock-objects-when-testing-linq-code
 status: published
 ---

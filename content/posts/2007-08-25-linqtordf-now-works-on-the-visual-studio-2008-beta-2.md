@@ -2,7 +2,7 @@
 title: LinqToRdf now works on the Visual Studio 2008 Beta 2
 date: 2007-08-25 08:54
 author: aabs
-tags: C#, LINQ
+ignored-tags: C#, LINQ
 slug: linqtordf-now-works-on-the-visual-studio-2008-beta-2
 status: published
 ---

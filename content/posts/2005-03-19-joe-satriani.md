@@ -2,7 +2,7 @@
 title: Joe Satriani
 date: 2005-03-19 10:09
 author: Andrew Matthews
-tags: art
+ignored-tags: art
 slug: joe-satriani
 status: published
 ---

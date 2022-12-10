@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>OWL2 Snippets for VSCode | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="I put together a list of OWL2 snippets for Visual Studio Code, for use with Turtle ( *.ttl ) files.
+https://github.com/aabs/owl-2-turtle-snippets
+The shortcuts cover most of the OWL2 Reference Card. Enjoy.
+command shortcut
+ class /c  add label rlab  add comment rcom  object property ropr  time value rtime  intersect class rintersect  class intersection /ci  class union /cu  class complement /cc  class enumeration /ce  subclass /csub  equivalent classes /cequ  disjoint classes /cd  pairwise disjoint classes /cda  disjoint union /cdu  universal /pru  existential /pre  individual value /pri  local reflexivity /prx  exact cardinality /prc  qualified exact cardinality /prcqxc  maximum cardinality /prcmax  qualified maximum cardinality /prcqmax  minimum cardinality /prcmin  qualified minimum cardinality /prcqmin  n-ary universal /prdu  n-ary existential /prde  inverse property /pv  data range complement /drc  data range intersection /dri  data range union /dru  literal enumeration /denum  datatype restriction /drs  subproperty /ppsub  chain inclusion /ppch  domain /ppdom  range /ppran  equivalent properties /ppequ  disjoint properties /ppd  all disjoint properties /ppdd  inverse properties /ppinv  functional property /ppfun  inverse functional property /ppinfu  reflexive property /ppref  irreflexive property /ppirref  symmetric property /ppsym  Asymmetric Property /ppasym  Transitive Property /pptrans  equality /aeq  prinequality /ane  individual inequality /aane  assertion /ac  object property assertion /aprop  negative object property assertion /anprop  name //l  comment //c  addition information //ai  agent //da  information //v  deprecation //dep  backwards compatibility //bc  incompatibility //incomp  prior version //pv">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="OWL2 Snippets for VSCode" />
+<meta property="og:description" content="I put together a list of OWL2 snippets for Visual Studio Code, for use with Turtle ( *.ttl ) files.
+https://github.com/aabs/owl-2-turtle-snippets
+The shortcuts cover most of the OWL2 Reference Card. Enjoy.
+command shortcut
+ class /c  add label rlab  add comment rcom  object property ropr  time value rtime  intersect class rintersect  class intersection /ci  class union /cu  class complement /cc  class enumeration /ce  subclass /csub  equivalent classes /cequ  disjoint classes /cd  pairwise disjoint classes /cda  disjoint union /cdu  universal /pru  existential /pre  individual value /pri  local reflexivity /prx  exact cardinality /prc  qualified exact cardinality /prcqxc  maximum cardinality /prcmax  qualified maximum cardinality /prcqmax  minimum cardinality /prcmin  qualified minimum cardinality /prcqmin  n-ary universal /prdu  n-ary existential /prde  inverse property /pv  data range complement /drc  data range intersection /dri  data range union /dru  literal enumeration /denum  datatype restriction /drs  subproperty /ppsub  chain inclusion /ppch  domain /ppdom  range /ppran  equivalent properties /ppequ  disjoint properties /ppd  all disjoint properties /ppdd  inverse properties /ppinv  functional property /ppfun  inverse functional property /ppinfu  reflexive property /ppref  irreflexive property /ppirref  symmetric property /ppsym  Asymmetric Property /ppasym  Transitive Property /pptrans  equality /aeq  prinequality /ane  individual inequality /aane  assertion /ac  object property assertion /aprop  negative object property assertion /anprop  name //l  comment //c  addition information //ai  agent //da  information //v  deprecation //dep  backwards compatibility //bc  incompatibility //incomp  prior version //pv" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/owl2-snippets-for-vscode/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="OWL2 Snippets for VSCode">
+<meta itemprop="description" content="I put together a list of OWL2 snippets for Visual Studio Code, for use with Turtle ( *.ttl ) files.
+https://github.com/aabs/owl-2-turtle-snippets
+The shortcuts cover most of the OWL2 Reference Card. Enjoy.
+command shortcut
+ class /c  add label rlab  add comment rcom  object property ropr  time value rtime  intersect class rintersect  class intersection /ci  class union /cu  class complement /cc  class enumeration /ce  subclass /csub  equivalent classes /cequ  disjoint classes /cd  pairwise disjoint classes /cda  disjoint union /cdu  universal /pru  existential /pre  individual value /pri  local reflexivity /prx  exact cardinality /prc  qualified exact cardinality /prcqxc  maximum cardinality /prcmax  qualified maximum cardinality /prcqmax  minimum cardinality /prcmin  qualified minimum cardinality /prcqmin  n-ary universal /prdu  n-ary existential /prde  inverse property /pv  data range complement /drc  data range intersection /dri  data range union /dru  literal enumeration /denum  datatype restriction /drs  subproperty /ppsub  chain inclusion /ppch  domain /ppdom  range /ppran  equivalent properties /ppequ  disjoint properties /ppd  all disjoint properties /ppdd  inverse properties /ppinv  functional property /ppfun  inverse functional property /ppinfu  reflexive property /ppref  irreflexive property /ppirref  symmetric property /ppsym  Asymmetric Property /ppasym  Transitive Property /pptrans  equality /aeq  prinequality /ane  individual inequality /aane  assertion /ac  object property assertion /aprop  negative object property assertion /anprop  name //l  comment //c  addition information //ai  agent //da  information //v  deprecation //dep  backwards compatibility //bc  incompatibility //incomp  prior version //pv">
+
+<meta itemprop="wordCount" content="218">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="OWL2 Snippets for VSCode"/>
+<meta name="twitter:description" content="I put together a list of OWL2 snippets for Visual Studio Code, for use with Turtle ( *.ttl ) files.
+https://github.com/aabs/owl-2-turtle-snippets
+The shortcuts cover most of the OWL2 Reference Card. Enjoy.
+command shortcut
+ class /c  add label rlab  add comment rcom  object property ropr  time value rtime  intersect class rintersect  class intersection /ci  class union /cu  class complement /cc  class enumeration /ce  subclass /csub  equivalent classes /cequ  disjoint classes /cd  pairwise disjoint classes /cda  disjoint union /cdu  universal /pru  existential /pre  individual value /pri  local reflexivity /prx  exact cardinality /prc  qualified exact cardinality /prcqxc  maximum cardinality /prcmax  qualified maximum cardinality /prcqmax  minimum cardinality /prcmin  qualified minimum cardinality /prcqmin  n-ary universal /prdu  n-ary existential /prde  inverse property /pv  data range complement /drc  data range intersection /dri  data range union /dru  literal enumeration /denum  datatype restriction /drs  subproperty /ppsub  chain inclusion /ppch  domain /ppdom  range /ppran  equivalent properties /ppequ  disjoint properties /ppd  all disjoint properties /ppdd  inverse properties /ppinv  functional property /ppfun  inverse functional property /ppinfu  reflexive property /ppref  irreflexive property /ppirref  symmetric property /ppsym  Asymmetric Property /ppasym  Transitive Property /pptrans  equality /aeq  prinequality /ane  individual inequality /aane  assertion /ac  object property assertion /aprop  negative object property assertion /anprop  name //l  comment //c  addition information //ai  agent //da  information //v  deprecation //dep  backwards compatibility //bc  incompatibility //incomp  prior version //pv"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">OWL2 Snippets for VSCode</h1>
+      
+      <p class="tracked">
+        By <strong>aabs</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>I put together a list of OWL2 snippets for Visual Studio Code, for use with Turtle ( <code>*.ttl </code>) files.</p>
+<p><a href="https://github.com/aabs/owl-2-turtle-snippets">https://github.com/aabs/owl-2-turtle-snippets</a></p>
+<p>The shortcuts cover most of the OWL2 Reference Card. Enjoy.</p>
+<p>command                              shortcut</p>
+<hr>
+<p>class                                <code>/c </code>
+add label                            <code>rlab </code>
+add comment                          <code>rcom </code>
+object property                      <code>ropr </code>
+time value                           <code>rtime </code>
+intersect class                      <code>rintersect </code>
+class intersection                   <code>/ci </code>
+class union                          <code>/cu </code>
+class complement                     <code>/cc </code>
+class enumeration                    <code>/ce </code>
+subclass                             <code>/csub </code>
+equivalent classes                   <code>/cequ </code>
+disjoint classes                     <code>/cd </code>
+pairwise disjoint classes            <code>/cda </code>
+disjoint union                       <code>/cdu </code>
+universal                            <code>/pru </code>
+existential                          <code>/pre </code>
+individual value                     <code>/pri </code>
+local reflexivity                    <code>/prx </code>
+exact cardinality                    <code>/prc </code>
+qualified exact cardinality          <code>/prcqxc </code>
+maximum cardinality                  <code>/prcmax </code>
+qualified maximum cardinality        <code>/prcqmax </code>
+minimum cardinality                  <code>/prcmin </code>
+qualified minimum cardinality        <code>/prcqmin </code>
+n-ary universal                      <code>/prdu </code>
+n-ary existential                    <code>/prde </code>
+inverse property                     <code>/pv </code>
+data range complement                <code>/drc </code>
+data range intersection              <code>/dri </code>
+data range union                     <code>/dru </code>
+literal enumeration                  <code>/denum </code>
+datatype restriction                 <code>/drs </code>
+subproperty                          <code>/ppsub </code>
+chain inclusion                      <code>/ppch </code>
+domain                               <code>/ppdom </code>
+range                                <code>/ppran </code>
+equivalent properties                <code>/ppequ </code>
+disjoint properties                  <code>/ppd </code>
+all disjoint properties              <code>/ppdd </code>
+inverse properties                   <code>/ppinv </code>
+functional property                  <code>/ppfun </code>
+inverse functional property          <code>/ppinfu </code>
+reflexive property                   <code>/ppref </code>
+irreflexive property                 <code>/ppirref </code>
+symmetric property                   <code>/ppsym </code>
+Asymmetric Property                  <code>/ppasym </code>
+Transitive Property                  <code>/pptrans </code>
+equality                             <code>/aeq </code>
+prinequality                         <code>/ane </code>
+individual inequality                <code>/aane </code>
+assertion                            <code>/ac </code>
+object property assertion            <code>/aprop </code>
+negative object property assertion   <code>/anprop </code>
+name                                 <code>//l </code>
+comment                              <code>//c </code>
+addition information                 <code>//ai </code>
+agent                                <code>//da </code>
+information                          <code>//v </code>
+deprecation                          <code>//dep </code>
+backwards compatibility              <code>//bc </code>
+incompatibility                      <code>//incomp </code>
+prior version                        <code>//pv </code></p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

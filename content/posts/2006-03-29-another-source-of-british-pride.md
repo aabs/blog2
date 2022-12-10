@@ -2,7 +2,7 @@
 title: Another Source of British Pride?
 date: 2006-03-29 03:14
 author: Andrew Matthews
-tags: conspiracies, humour, misc
+ignored-tags: conspiracies, humour, misc
 slug: another-source-of-british-pride
 status: published
 ---

@@ -2,7 +2,7 @@
 title: Predicates and Expressions - Part 2
 date: 2005-04-26 16:24
 author: Andrew Matthews
-tags: DBC
+ignored-tags: DBC
 slug: predicates-and-expressions-part-2-3
 status: published
 ---

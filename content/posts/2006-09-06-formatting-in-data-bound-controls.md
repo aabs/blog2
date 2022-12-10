@@ -2,7 +2,7 @@
 title: Formatting in Data Bound Controls
 date: 2006-09-06 14:15
 author: Andrew Matthews
-tags: ASP.NET, programming
+ignored-tags: ASP.NET, programming
 slug: formatting-in-data-bound-controls
 status: published
 ---

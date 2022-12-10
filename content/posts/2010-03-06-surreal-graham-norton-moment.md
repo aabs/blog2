@@ -3,7 +3,7 @@ title: Surreal Graham Norton Moment
 date: 2010-03-06 20:15
 author: aabs
 category: humour
-tags: weird
+ignored-tags: weird
 slug: surreal-graham-norton-moment
 status: published
 ---

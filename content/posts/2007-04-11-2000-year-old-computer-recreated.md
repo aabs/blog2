@@ -2,7 +2,7 @@
 title: 2000 Year Old Computer Recreated
 date: 2007-04-11 22:33
 author: Andrew Matthews
-tags: Computer Science
+ignored-tags: Computer Science
 slug: 2000-year-old-computer-recreated
 status: published
 ---

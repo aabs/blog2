@@ -2,7 +2,7 @@
 title: Hillary Briss' "Special Stuff"?
 date: 2005-09-02 16:10
 author: Andrew Matthews
-tags: humour
+ignored-tags: humour
 slug: hillary-briss-special-stuff
 status: published
 ---

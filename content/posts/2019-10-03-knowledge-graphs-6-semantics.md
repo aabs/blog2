@@ -3,7 +3,7 @@ title: Knowledge Graphs 6 - Semantics
 date: 2019-10-03 16:28
 author: aabs
 category: programming
-tags: entailment, inference, knowledge graphs, RDF, rdfs, Semantic Web
+ignored-tags: entailment, inference, knowledge graphs, RDF, rdfs, Semantic Web
 slug: knowledge-graphs-6-semantics
 status: published
 attachments: 2019/10/donald-giannatti-zhptmnzz-nm-unsplash-1.jpg, 2019/10/donald-giannatti-zhptmnzz-nm-unsplash.jpg

@@ -2,7 +2,7 @@
 title: When a brill-o-pad goes bad...
 date: 2005-07-11 13:36
 author: Andrew Matthews
-tags: software, Work
+ignored-tags: software, Work
 slug: when-a-brill-o-pad-goes-bad
 status: published
 ---

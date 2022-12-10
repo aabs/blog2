@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Søren on DBC | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Recently, Søren Skovsbøll wrote a excellent follow up to a little post I did a while back on using C# 3.0 expression trees for representing predicates in design by contract. The conclusion of that series was that C# was inadequate in lots of ways to the task of doing design by contract. Having said that, you can still achieve a lot using serialisation of object states and storage of predicates for running before and after a scope.">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Søren on DBC" />
+<meta property="og:description" content="Recently, Søren Skovsbøll wrote a excellent follow up to a little post I did a while back on using C# 3.0 expression trees for representing predicates in design by contract. The conclusion of that series was that C# was inadequate in lots of ways to the task of doing design by contract. Having said that, you can still achieve a lot using serialisation of object states and storage of predicates for running before and after a scope." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/s%c3%b8ren-on-dbc/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="Søren on DBC">
+<meta itemprop="description" content="Recently, Søren Skovsbøll wrote a excellent follow up to a little post I did a while back on using C# 3.0 expression trees for representing predicates in design by contract. The conclusion of that series was that C# was inadequate in lots of ways to the task of doing design by contract. Having said that, you can still achieve a lot using serialisation of object states and storage of predicates for running before and after a scope.">
+
+<meta itemprop="wordCount" content="181">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Søren on DBC"/>
+<meta name="twitter:description" content="Recently, Søren Skovsbøll wrote a excellent follow up to a little post I did a while back on using C# 3.0 expression trees for representing predicates in design by contract. The conclusion of that series was that C# was inadequate in lots of ways to the task of doing design by contract. Having said that, you can still achieve a lot using serialisation of object states and storage of predicates for running before and after a scope."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Søren on DBC</h1>
+      
+      <p class="tracked">
+        By <strong>aabs</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>Recently, <a href="http://skarpt.dk/blog">Søren Skovsbøll</a> wrote a excellent follow up to a little post I did a while back on using <a href="http://aabs.wordpress.com/2008/01/16/complex-assertions-using-c-30/">C# 3.0 expression trees</a> for representing predicates in design by contract. The conclusion of that series was that C# was inadequate in lots of ways to the task of doing design by contract. Having said that, you can still achieve a lot using serialisation of object states and storage of predicates for running before and after a scope.</p>
+<p>Søren was not happy with the format of errors being reported, nor the potential for massive serialisation blowout. Rather than comment on the blog, he went away and did something about it. And it&rsquo;s pretty good! Go <a href="http://skarpt.dk/blog/?p=14">take a look</a>, and then pick up the baton from him. Your challenge is to extract the parmeter objects from the expression trees of the predicates and take lightweight snapshots of the objects refered to. You also need a &ldquo;platform independent&rdquo; way to serialize objects for this scheme (i.e. one that doesn&rsquo;t depend on XmlSerialisation or WCF data contracts.</p>
+<p>Think you can do it? Apply here! :P</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

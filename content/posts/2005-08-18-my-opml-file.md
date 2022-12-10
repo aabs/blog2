@@ -2,7 +2,7 @@
 title: My OPML file
 date: 2005-08-18 12:14
 author: Andrew Matthews
-tags: Web2.0
+ignored-tags: Web2.0
 slug: my-opml-file
 status: published
 ---

@@ -2,7 +2,7 @@
 title: How LINQ Works – Where
 date: 2006-11-14 08:35
 author: Andrew Matthews
-tags: C#
+ignored-tags: C#
 slug: how-linq-works-%e2%80%93-where
 status: published
 ---

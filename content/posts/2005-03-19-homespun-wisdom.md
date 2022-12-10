@@ -2,7 +2,7 @@
 title: Homespun Wisdom
 date: 2005-03-19 10:08
 author: Andrew Matthews
-tags: humour
+ignored-tags: humour
 slug: homespun-wisdom
 status: published
 ---

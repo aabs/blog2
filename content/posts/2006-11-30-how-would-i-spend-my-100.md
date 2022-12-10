@@ -2,7 +2,7 @@
 title: How would I spend my $100?
 date: 2006-11-30 14:45
 author: Andrew Matthews
-tags: ASP.NET, Computer Science, programming
+ignored-tags: ASP.NET, Computer Science, programming
 slug: how-would-i-spend-my-100
 status: published
 ---

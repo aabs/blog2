@@ -2,7 +2,7 @@
 title: Wish Me Luck
 date: 2005-04-19 09:55
 author: Andrew Matthews
-tags: misc, programming
+ignored-tags: misc, programming
 slug: wish-me-luck
 status: published
 ---

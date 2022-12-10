@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Singleton – the most overused pattern. | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="[digg=http://digg.com/design/Singleton_the_most_overused_pattern]Recently within Readify we&rsquo;ve been discussing the results of some code reviews we&rsquo;d done with some of our clients. One issue that came to light was the issues introduced by the excessive use of the singleton pattern. If you&rsquo;re not familiar with patterns, it&rsquo;s quite simple. Patterns are a kind of reusable design. The original and most famous book (commonly called the Gang of Four book or just GoF) was itself inspired by the Pattern Language book by Christopher Alexander.">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Singleton – the most overused pattern." />
+<meta property="og:description" content="[digg=http://digg.com/design/Singleton_the_most_overused_pattern]Recently within Readify we&rsquo;ve been discussing the results of some code reviews we&rsquo;d done with some of our clients. One issue that came to light was the issues introduced by the excessive use of the singleton pattern. If you&rsquo;re not familiar with patterns, it&rsquo;s quite simple. Patterns are a kind of reusable design. The original and most famous book (commonly called the Gang of Four book or just GoF) was itself inspired by the Pattern Language book by Christopher Alexander." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/singleton-%e2%80%93-the-most-overused-pattern/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="Singleton – the most overused pattern.">
+<meta itemprop="description" content="[digg=http://digg.com/design/Singleton_the_most_overused_pattern]Recently within Readify we&rsquo;ve been discussing the results of some code reviews we&rsquo;d done with some of our clients. One issue that came to light was the issues introduced by the excessive use of the singleton pattern. If you&rsquo;re not familiar with patterns, it&rsquo;s quite simple. Patterns are a kind of reusable design. The original and most famous book (commonly called the Gang of Four book or just GoF) was itself inspired by the Pattern Language book by Christopher Alexander.">
+
+<meta itemprop="wordCount" content="1467">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Singleton – the most overused pattern."/>
+<meta name="twitter:description" content="[digg=http://digg.com/design/Singleton_the_most_overused_pattern]Recently within Readify we&rsquo;ve been discussing the results of some code reviews we&rsquo;d done with some of our clients. One issue that came to light was the issues introduced by the excessive use of the singleton pattern. If you&rsquo;re not familiar with patterns, it&rsquo;s quite simple. Patterns are a kind of reusable design. The original and most famous book (commonly called the Gang of Four book or just GoF) was itself inspired by the Pattern Language book by Christopher Alexander."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Singleton – the most overused pattern.</h1>
+      
+      <p class="tracked">
+        By <strong>Andrew Matthews</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>[digg=http://digg.com/design/Singleton_the_most_overused_pattern]Recently within Readify we&rsquo;ve been discussing the results of some code reviews we&rsquo;d done with some of our clients. One issue that came to light was the issues introduced by the excessive use of the singleton pattern. If you&rsquo;re not familiar with patterns, it&rsquo;s quite simple. Patterns are a kind of reusable design. The original and most famous book (commonly called the Gang of Four book or just <a href="http://en.wikipedia.org/wiki/GoF">GoF</a>) was itself inspired by the Pattern Language book by Christopher <a href="http://en.wikipedia.org/wiki/Christopher_Alexander">Alexander</a>. Alexander was a bricks and mortar architect, who realized that there were common factors found in all buildings that were livable. There were, he concluded, common groups of solutions that addressed the same problems, and that when used together could provide a proven solution that had been shown to work in the past. His work was the first attempt to codify the common wisdom of not just highly paid US architects but the traditional wisdom of indigenous societies. His solutions worked whether applied to a mud hut, a stucco villa or a high-rise apartment. The GoF realized that they could codify the common designs in use in the software development community in the same way – by describing the outline of the problem that it seeks to solve, the forces that determine whether the solution will fit, and a typical implementation. The Singleton pattern is one of those first few GoF patterns and is probably the most commonly applied.</p>
+<p>The Singleton pattern uses static access rules to control the way in which objects are constructed for a type. That is to say, they provide one place to get an instance of an object, and that place dispenses copies that are shared by all. Here&rsquo;s a typical implementation of Singleton:</p>
+<p><code>public sealed class SingletonClass { private static readonly SingletonClass instance = new SingletonClass(); private SingletonClass(){/*…*/} public static SingletonClass Instance {     get{return instance;} } // … }</code></p>
+<p>As you can see the SingletonClass gets constructed once – in the static initialiser of the instance field. No other constructions can occur, since the constructor of the class is private. Other languages have other solutions based on what their object construction rules dictate, but the common features are static self construction, single instance self-storage, and private constructors. You may be thinking that this is an elegant pattern, and that you could use this for your middle tier components and other back-end stuff. That&rsquo;s certainly been the case in my current client. They have made every single middle tier business logic component a singleton, and are beginning to pay the price for having done so. To see why, you have to think about thread safety, scalability, and Murphy&rsquo;s Law. BL components will be either stateless or not. If the component is stateless, then there is absolutely no benefit for dealing with an instance at all – there&rsquo;s no data to store, and therefore there can be no properties and fields to access. If on the other hand the component does have state, then restricting your business logic to a single statically-held class will mean that all method calls and property references will be confined to a single instance of the component. The problem is that in some environments, such as ASP.NET, you may have multiple threads needing to make calls to the component. If you allow everyone to access the component willy-nilly you will eventually find some nasty and hard to debug problem arising that ultimately stem from race conditions. You can get a very good description of what happens during a race condition in <a href="http://en.wikipedia.org/wiki/Race_condition">Wikipedia</a>. Suffice it to say, that you don&rsquo;t want to tempt fate in a multi-threaded environment if you are already prone to premature baldness or grey hair. Generally when people find that they are in danger of experiencing concurrency problems, they make use of <a href="http://en.wikipedia.org/wiki/Lock_%28software_engineering%29"><em><strong>locking</strong></em></a> to prevent concurrent access to a critical block of code. The first person to arrive gets through the lock, and subsequent callers have to wait until the first caller has finished until they can proceed. This solves the problem, but it introduces another problem that may be even more disastrous – scalability problems. If you have a single instance of a method that performs a lengthy operation (like reading from and writing to a database) and you make everyone wait till you have finished, there is going to be a pretty large queue waiting by the time you have finished. When the traffic is light on your site, it may not be noticeable. It almost certainly won&rsquo;t be noticeable on a developer&rsquo;s machine where stress and volume testing is seldom performed. Therefore, you&rsquo;re only likely to find out about your scalability problems after they have gone into staging or production, by which time it may be too late to introduce a redesign.</p>
+<p>The current best practice suggests that you should attempt to make your business logic classes <em><strong>stateless</strong></em>. You should be able to create as many of them as you like, and use them concurrently. They should probably be static in scope. That has a few implications of its own. If the class is stateless then you cannot use it to store intermediate results of calculations unless you can guarantee that you are the only holder of the object, and that object is never accessed until you&rsquo;ve finished doing whatever it is that you are going with it. That frequently means that you should be able to do whatever you need to do from within a single call. The alternative is what is called a &lsquo;<em>chatty</em>&rsquo; interface. That sort of design uses multiple calls to establish a consistent state before commencing a transaction. You get this a lot when you have something like a wizard form gathering data and passing it on to someone else before going on to the next page. The drawback is that the instance that stores the data has to be kept around, or the data has to be persisted somewhere, despite the fact that it is incomplete. It is much better to cache the data somehow in the presentation tier before passing it to your business logic for processing.</p>
+<p>Another name for a business object method is <em><strong>transaction script</strong></em>, which I think exemplifies what you should be aiming for. A transaction script gets all of its data and enacts the transactions required to change the system state (I&rsquo;m not just talking about databases here – see <a href="http://en.wikipedia.org/wiki/Herb_Sutter">Sutter</a> for a discussion of exception management and consistency). If you don&rsquo;t give it all the data that it needs to complete the transaction then you will either have to leave the database in an inconsistent state till the last data arrives, or you will have to maintain long-running transactions which will place stress on the database&rsquo;s resources.</p>
+<p>So, what is the point of the singleton pattern, you may well now be asking? If it causes so many problems, why would I want to have them around? The short answer is that you want it to control access to single resources. For instance, you may have a file that you write to which cannot have two open file handles. A singleton would mediate access to that file. You may want to restrict the number of items, because it doesn&rsquo;t make sense to have more – the root of a tree structure might fall into that category. The point is that there is often a real-world singleness of the entity being modeled by a singleton pattern. You control access to and management of that resource by exploiting the access rules of your language to disallow multiple references to the resource. Situations like <em>singleton access to the business logic</em> are not bound by real world cardinality rules. There&rsquo;s no rule that says that SalesForcastManager must be a single instance for instance so why bind it that way.</p>
+<p>A singleton is a special case of an object pool. An object pool dispenses objects and potentially manages their lifecycle and state to a certain extent. Often a pool will recycle objects, return their state to a default state and generally clean up after an object has been used. You can see that in comparison to an object pool such as in .NET Enterprise Services, a singleton as shown above is actually quite a degenerate specimen. It does no recycling, cleanup or queuing. Users just get a reference to share with everyone else, and the devil take the hindmost! The singleton pattern, if to be used in a multithreaded environment, should be used with real understanding of risks involved.</p>
+<p>So you see, an innocent little singleton in you middle tier is not so innocent after all. Don&rsquo;t use it unless you are forced to.</p>
+<p>For for a good description that explains how you <em>ought</em> to implement the singleton, visit Jon Skeet&rsquo;s excellent <a href="http://www.yoda.arachsys.com/csharp/singleton.html">article</a> on the subject.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

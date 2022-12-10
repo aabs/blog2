@@ -2,7 +2,7 @@
 title: Wireless Power Transmission
 date: 2007-06-20 12:30
 author: Andrew Matthews
-tags: cool, gadgets, science
+ignored-tags: cool, gadgets, science
 slug: wireless-power-transmission
 status: published
 ---

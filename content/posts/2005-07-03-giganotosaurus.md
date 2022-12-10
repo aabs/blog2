@@ -2,7 +2,7 @@
 title: Giganotosaurus
 date: 2005-07-03 16:26
 author: Andrew Matthews
-tags: photography, science
+ignored-tags: photography, science
 slug: giganotosaurus
 status: published
 ---

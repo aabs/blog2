@@ -2,7 +2,7 @@
 title: More old scribblings
 date: 2005-04-18 22:21
 author: Andrew Matthews
-tags: Computer Science, programming
+ignored-tags: Computer Science, programming
 slug: more-old-scribblings
 status: published
 ---

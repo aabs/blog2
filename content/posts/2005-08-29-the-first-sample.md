@@ -2,7 +2,7 @@
 title: The first sample
 date: 2005-08-29 11:10
 author: Andrew Matthews
-tags: art, gadgets, photography
+ignored-tags: art, gadgets, photography
 slug: the-first-sample
 status: published
 ---

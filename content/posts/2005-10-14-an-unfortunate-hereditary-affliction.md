@@ -2,7 +2,7 @@
 title: An unfortunate hereditary affliction
 date: 2005-10-14 22:39
 author: Andrew Matthews
-tags: humour, photography
+ignored-tags: humour, photography
 slug: an-unfortunate-hereditary-affliction
 status: published
 ---

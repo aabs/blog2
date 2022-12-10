@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Announcing LinqToRdf v0.8 | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="I&rsquo;m very pleased to announce the release of version 0.8 of LinqToRdf. This release is significant for a couple of reasons. Firstly, because it provides a preview release of RdfMetal and secondly because it is the first release containing changes contributed by someone other than yours truly. The changes in this instance being provided by Carl Blakeley of OpenLink Software.
+LinqToRdf v0.8 has received a few major chunks of work:">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Announcing LinqToRdf v0.8" />
+<meta property="og:description" content="I&rsquo;m very pleased to announce the release of version 0.8 of LinqToRdf. This release is significant for a couple of reasons. Firstly, because it provides a preview release of RdfMetal and secondly because it is the first release containing changes contributed by someone other than yours truly. The changes in this instance being provided by Carl Blakeley of OpenLink Software.
+LinqToRdf v0.8 has received a few major chunks of work:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/announcing-linqtordf-v08/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="Announcing LinqToRdf v0.8">
+<meta itemprop="description" content="I&rsquo;m very pleased to announce the release of version 0.8 of LinqToRdf. This release is significant for a couple of reasons. Firstly, because it provides a preview release of RdfMetal and secondly because it is the first release containing changes contributed by someone other than yours truly. The changes in this instance being provided by Carl Blakeley of OpenLink Software.
+LinqToRdf v0.8 has received a few major chunks of work:">
+
+<meta itemprop="wordCount" content="342">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Announcing LinqToRdf v0.8"/>
+<meta name="twitter:description" content="I&rsquo;m very pleased to announce the release of version 0.8 of LinqToRdf. This release is significant for a couple of reasons. Firstly, because it provides a preview release of RdfMetal and secondly because it is the first release containing changes contributed by someone other than yours truly. The changes in this instance being provided by Carl Blakeley of OpenLink Software.
+LinqToRdf v0.8 has received a few major chunks of work:"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Announcing LinqToRdf v0.8</h1>
+      
+      <p class="tracked">
+        By <strong>aabs</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>I&rsquo;m very pleased to announce the release of version 0.8 of LinqToRdf. This release is significant for a couple of reasons. Firstly, because it provides a preview release of RdfMetal and secondly because it is the first release containing changes contributed by someone other than yours truly. The changes in this instance being provided by Carl Blakeley of <a href="http://www.openlinksw.com">OpenLink Software</a>.</p>
+<p>LinqToRdf v0.8 has received a few major chunks of work:</p>
+<ul>
+<li>New installers for both the designer and the whole framework
+WIX was proving to be a pain, so I downgraded to the integrated installer generator in Visual Studio.</li>
+<li>A preview release of RdfMetal. I brought this release forward a little, on Carl Blakeley&rsquo;s request, to coincide with a post he&rsquo;s preparing on using OpenLink Virtuoso with LinqToRdf, so RdfMetal is not as fully baked as I&rsquo;d planned. But it&rsquo;s still worth a look. Expect a minor release in the next few weeks with additional fixes/enhancements.</li>
+</ul>
+<p>I&rsquo;d like to extend a very big <em><strong>thank-you</strong></em> to Carl for the the work he&rsquo;s done in recent weeks to help extend and improve the mechanisms LinqToRdf uses to represent and traverse relationships. His contributions also include improvements in representing default graphs, and referencing multiple ontologies within a single .NET class. He also provided fixes around the quoting of URIs and some other fixes in the ways LinqToRdf generates SPARQL for default graphs. Carl also provided an interesting example application using OpenLink Virtuoso&rsquo;s hosted version of Musicbrainz that is significantly richer than the test ontology I created for the unit tests and manuals.</p>
+<p>I hope that Carl&rsquo;s contributions represent an acknowledgement by OpenLink that not only does LinqToRdf support Virtuoso, but that there is precious little else in the .NET space that stands a chance of attracting developers to the semantic web. .NET is a huge untapped market for semantic web product vendors. LinqToRdf is, right now, the best way to get into semantic web development on .NET.</p>
+<p>Look out for blog posts from Carl in the next day or two, about using LinqToRdf with OpenLink <a href="http://virtuoso.openlinksw.com/">Virtuoso</a>.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

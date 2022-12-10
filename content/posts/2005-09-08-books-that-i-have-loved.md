@@ -2,7 +2,7 @@
 title: Books that I have loved.
 date: 2005-09-08 17:15
 author: Andrew Matthews
-tags: Computer Science, philosophy, programming, science
+ignored-tags: Computer Science, philosophy, programming, science
 slug: books-that-i-have-loved
 status: published
 ---

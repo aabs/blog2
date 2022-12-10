@@ -2,7 +2,7 @@
 title: Policy and Configuration I
 date: 2006-04-04 04:23
 author: Andrew Matthews
-tags: Code Generation, programming
+ignored-tags: Code Generation, programming
 slug: policy-and-configuration-i
 status: published
 ---

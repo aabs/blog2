@@ -2,7 +2,7 @@
 title: France Elevates its Security Level - via Alan Williams
 date: 2005-11-24 11:56
 author: Andrew Matthews
-tags: humour
+ignored-tags: humour
 slug: france-elevates-its-security-level-via-alan-williams-2
 status: published
 ---

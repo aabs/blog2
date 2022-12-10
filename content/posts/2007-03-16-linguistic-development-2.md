@@ -2,7 +2,7 @@
 title: Linguistic development
 date: 2007-03-16 16:21
 author: Andrew Matthews
-tags: family, linguistics, philosophy, psychology
+ignored-tags: family, linguistics, philosophy, psychology
 slug: linguistic-development-2
 status: published
 ---
