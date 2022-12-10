@@ -4,7 +4,7 @@ date: 2019-10-07 09:17
 author: Andrew Matthews
 slug: blog
 status: published
-...
+---
 
 ::: {.wp-block-cover .alignfull .has-background-dim-20 .has-background-dim style="background-image:url('https://aabs.files.wordpress.com/2019/10/greg-rakozy-ompaz-dn-9i-unsplash.jpg');min-height:235px;"}
 ::: {.wp-block-cover__inner-container}

@@ -4,7 +4,7 @@ date: 2017-05-24 14:12
 author: Andrew Matthews
 slug: contact-me
 status: published
-...
+---
 
 Contact me about anything related to my company or services.
 

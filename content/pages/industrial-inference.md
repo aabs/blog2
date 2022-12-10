@@ -4,7 +4,7 @@ date: 2019-10-07
 author: Andrew Matthews
 slug: industrial-inference
 status: published
-...
+---
 
 I offer a range of services to help early adopters get started with Knowledge Graph and Semantic Web technologies. Not sure what you need, or what it costs? I can explain how to start small and gradually expand the intelligence of your systems. Get in touch below.
 
