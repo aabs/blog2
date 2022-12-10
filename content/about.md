@@ -1,9 +1,6 @@
 ---
 title: About
 author: Andrew Matthews
-foo:
-  bar:
-    baz: It's the foo bar baz part!!!!!
 ---
 
 I’ve been writing about knowledge graph and semantic web technologies for over
