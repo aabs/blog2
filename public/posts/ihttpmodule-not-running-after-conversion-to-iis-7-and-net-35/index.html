@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>IHttpModule not running after conversion to IIS 7 and .NET 3.5 | My New Hugo Site</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="I recently ran into this problem with one of our clients. It&rsquo;s the sort of thing that I take ages to track down a solution to, and then once I have solved it, I immediately forget what the solution is. So I&rsquo;m putting it here as an aid memoire.
+The client had a module that they were using to create a custom Principal object derived from a FormsPrincipal. I found that after I had converted the project to work with VS.">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="IHttpModule not running after conversion to IIS 7 and .NET 3.5" />
+<meta property="og:description" content="I recently ran into this problem with one of our clients. It&rsquo;s the sort of thing that I take ages to track down a solution to, and then once I have solved it, I immediately forget what the solution is. So I&rsquo;m putting it here as an aid memoire.
+The client had a module that they were using to create a custom Principal object derived from a FormsPrincipal. I found that after I had converted the project to work with VS." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/ihttpmodule-not-running-after-conversion-to-iis-7-and-net-35/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="IHttpModule not running after conversion to IIS 7 and .NET 3.5">
+<meta itemprop="description" content="I recently ran into this problem with one of our clients. It&rsquo;s the sort of thing that I take ages to track down a solution to, and then once I have solved it, I immediately forget what the solution is. So I&rsquo;m putting it here as an aid memoire.
+The client had a module that they were using to create a custom Principal object derived from a FormsPrincipal. I found that after I had converted the project to work with VS.">
+
+<meta itemprop="wordCount" content="367">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="IHttpModule not running after conversion to IIS 7 and .NET 3.5"/>
+<meta name="twitter:description" content="I recently ran into this problem with one of our clients. It&rsquo;s the sort of thing that I take ages to track down a solution to, and then once I have solved it, I immediately forget what the solution is. So I&rsquo;m putting it here as an aid memoire.
+The client had a module that they were using to create a custom Principal object derived from a FormsPrincipal. I found that after I had converted the project to work with VS."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        My New Hugo Site
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">IHttpModule not running after conversion to IIS 7 and .NET 3.5</h1>
+      
+      <p class="tracked">
+        By <strong>aabs</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>I recently ran into this problem with one of our clients. It&rsquo;s the sort of thing that I take ages to track down a solution to, and then once I have solved it, I immediately forget what the solution is. So I&rsquo;m putting it here as an aid memoire.</p>
+<p>The client had a module that they were using to create a custom Principal object derived from a FormsPrincipal. I found that after I had converted the project to work with VS.NET 2008 beta 2, it stopped working, giving me a GenericPrincipal instead. I had converted the client&rsquo;s project to .NET 3.5 from .NET 2.0 and I was also using IIS 7 where they were using IIS 6 in production and IIS 5 for dev. There were a few variables that made it not very straightforward to solve, not least of which is that nothing is easy to find in IIS 7 (when you&rsquo;re so used to IIS 6).</p>
+<p>First step: find the blasted thing that shows you what managed modules you&rsquo;ve got.</p>
+<p><a href="%7Bstatic%7D2007/11/image.png"><img src="%7Bstatic%7D2007/11/image-thumb.png" alt="image">{width=&ldquo;239&rdquo; height=&ldquo;355&rdquo;}</a></p>
+<p>Double click on it, and you will be shown a list of what modules apply for the application you&rsquo;re working with.</p>
+<p>Sort the modules by type.</p>
+<p><a href="%7Bstatic%7D2007/11/image1.png"><img src="%7Bstatic%7D2007/11/image-thumb1.png" alt="image">{width=&ldquo;213&rdquo; height=&ldquo;132&rdquo;}</a></p>
+<p>What I found was that my web.config file had entries for two modules:</p>
+<p><a href="%7Bstatic%7D2007/11/image2.png"><img src="%7Bstatic%7D2007/11/image-thumb2.png" alt="image">{width=&ldquo;314&rdquo; height=&ldquo;94&rdquo;}</a></p>
+<p>But IIS 7 claimed I had only one.</p>
+<p><a href="%7Bstatic%7D2007/11/image3.png"><img src="%7Bstatic%7D2007/11/image-thumb3.png" alt="image">{width=&ldquo;363&rdquo; height=&ldquo;47&rdquo;}</a></p>
+<p>I tried a load of different things, like rearranging the order of the modules, putting tracing on the lifecycle events of the module, and adding more detailed version info on the fully qualified type name of the module. All to no avail. Then I noticed that IIS offered the ability to add you own modules.</p>
+<p><a href="%7Bstatic%7D2007/11/image4.png"><img src="%7Bstatic%7D2007/11/image-thumb4.png" alt="image">{width=&ldquo;178&rdquo; height=&ldquo;135&rdquo;}</a></p>
+<p>So I clicked on the &ldquo;Add Managed Module&hellip;&rdquo; link, and entered the details that were already in the web.config file, and hey presto! It replaced the contents of the modules section in the web.config with exactly the same data. But this time it was also reflected in the modules area of IIS 7.</p>
+<p><a href="%7Bstatic%7D2007/11/image5.png"><img src="%7Bstatic%7D2007/11/image-thumb5.png" alt="image">{width=&ldquo;354&rdquo; height=&ldquo;63&rdquo;}</a></p>
+<p>Don&rsquo;t ask me why - it&rsquo;s probably something to do with the IIS 7 metabase, but I don&rsquo;t know. Certainly, it wasn&rsquo;t anything wrong with the config file.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  My New Hugo Site 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

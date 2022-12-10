@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>LinqToRdf v0.7.1 and RdfMetal | My New Hugo Site</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="I&rsquo;ve just uploaded version 0.7.1 of LinqToRdf. This bug fix release corrects an issue I introduced in version 0.7. The issue only seemed to affect some machines and stems from the use of the GAC by the WIX installer (to the best of my knowledge). I&rsquo;ve abandoned GAC installation and gone back to the original approach.
+Early indications (Thanks, Hinnerk) indicate that the issue has been successfully resolved. Please let me know if you are still experiencing problems.">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="LinqToRdf v0.7.1 and RdfMetal" />
+<meta property="og:description" content="I&rsquo;ve just uploaded version 0.7.1 of LinqToRdf. This bug fix release corrects an issue I introduced in version 0.7. The issue only seemed to affect some machines and stems from the use of the GAC by the WIX installer (to the best of my knowledge). I&rsquo;ve abandoned GAC installation and gone back to the original approach.
+Early indications (Thanks, Hinnerk) indicate that the issue has been successfully resolved. Please let me know if you are still experiencing problems." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/linqtordf-v071-and-rdfmetal/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="LinqToRdf v0.7.1 and RdfMetal">
+<meta itemprop="description" content="I&rsquo;ve just uploaded version 0.7.1 of LinqToRdf. This bug fix release corrects an issue I introduced in version 0.7. The issue only seemed to affect some machines and stems from the use of the GAC by the WIX installer (to the best of my knowledge). I&rsquo;ve abandoned GAC installation and gone back to the original approach.
+Early indications (Thanks, Hinnerk) indicate that the issue has been successfully resolved. Please let me know if you are still experiencing problems.">
+
+<meta itemprop="wordCount" content="511">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="LinqToRdf v0.7.1 and RdfMetal"/>
+<meta name="twitter:description" content="I&rsquo;ve just uploaded version 0.7.1 of LinqToRdf. This bug fix release corrects an issue I introduced in version 0.7. The issue only seemed to affect some machines and stems from the use of the GAC by the WIX installer (to the best of my knowledge). I&rsquo;ve abandoned GAC installation and gone back to the original approach.
+Early indications (Thanks, Hinnerk) indicate that the issue has been successfully resolved. Please let me know if you are still experiencing problems."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        My New Hugo Site
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">LinqToRdf v0.7.1 and RdfMetal</h1>
+      
+      <p class="tracked">
+        By <strong>aabs</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>I&rsquo;ve just uploaded <a href="http://linqtordf.googlecode.com/files/LinqToRdf-0.7.1.msi">version 0.7.1</a> of LinqToRdf. This bug fix release corrects an issue I introduced in version 0.7. The issue only seemed to affect some machines and stems from the use of the GAC by the WIX installer (to the best of my knowledge). I&rsquo;ve abandoned GAC installation and gone back to the original approach.</p>
+<p>Early indications (Thanks, Hinnerk) indicate that the issue has been successfully resolved. Please let me know if you are still experiencing problems. Thanks to 13sides, Steve Dunlap, Hinnerk Bruegmann, Kevin Richards and <a href="http://www.paulstovell.com/blog/">Paul Stovell</a> for bringing it to my attention and helping me to overcome the allure of the GAC.</p>
+<p>Kevin also reported that he&rsquo;s hoping to use LinqToRdf on a project involving the Biodiversity Information Standards (<a href="http://www.tdwg.org/">TDWG</a>). It&rsquo;s always great to hear how people are using the framework. Please drop me a line to let me know how you are using LinqToRdf.</p>
+<p>Kevin might find feature <a href="http://code.google.com/p/linqtordf/issues/detail?id=13&amp;colspec=ID%20Type%20Summary%20Priority">#13</a> useful. It will be called <em><strong>RdfMetal</strong></em> in honour of SqlMetal. It will automate the process of working with remotely managed ontologies. RdfMetal will completely lower any barriers to entry in semantic web development. You will (in principle) no longer need to know the formats, protocols and standards of the semantic web in order to consume data in it.</p>
+<p><a href="%7Bstatic%7D2008/06/clip-image0015.png"><img src="%7Bstatic%7D2008/06/clip-image0015-thumb.png" alt="clip\_image001\[5\]">{width=&ldquo;533&rdquo; height=&ldquo;207&rdquo;}</a></p>
+<p>Here&rsquo;s an example of the output it generated from DBpedia.org for the FOAF ontology:</p>
+<pre><code>./RdfMetal.exe -e:http://DBpedia.org/sparql -i -n http://xmlns.com/foaf/0.1/ -o foaf.cs
+</code></pre>
+<p>Which produced the following source:</p>
+<pre><code>namespace Some.Namespace
+{
+[assembly: Ontology(
+    BaseUri = &quot;http://xmlns.com/foaf/0.1/&quot;,
+    Name = &quot;MyOntology&quot;,
+    Prefix = &quot;MyOntology&quot;,
+    UrlOfOntology = &quot;http://xmlns.com/foaf/0.1/&quot;)]
+
+
+    public partial class MyOntologyDataContext : RdfDataContext
+    {
+        public MyOntologyDataContext(TripleStore store) : base(store)
+        {
+        }
+        public MyOntologyDataContext(string store) : base(new TripleStore(store))
+        {
+        }
+
+                public IQueryable&lt;Person&gt; Persons
+                {
+                    get
+                    {
+                        return ForType&lt;Person&gt;();
+                    }
+                }
+
+                public IQueryable&lt;Document&gt; Documents
+                {
+                    get
+                    {
+                        return ForType&lt;Document&gt;();
+                    }
+                }
+
+                // ...
+
+    }
+
+[OwlResource(OntologyName=&quot;MyOntology&quot;, RelativeUriReference=&quot;Person&quot;)]
+public partial class Person
+{
+  [OwlResource(OntologyName = &quot;MyOntology&quot;, RelativeUriReference = &quot;surname&quot;)]
+  public string surname {get;set;}
+  [OwlResource(OntologyName = &quot;MyOntology&quot;, RelativeUriReference = &quot;family_name&quot;)]
+  public string family_name {get;set;}
+  [OwlResource(OntologyName = &quot;MyOntology&quot;, RelativeUriReference = &quot;geekcode&quot;)]
+  public string geekcode {get;set;}
+  [OwlResource(OntologyName = &quot;MyOntology&quot;, RelativeUriReference = &quot;firstName&quot;)]
+  public string firstName {get;set;}
+  [OwlResource(OntologyName = &quot;MyOntology&quot;, RelativeUriReference = &quot;plan&quot;)]
+  public string plan {get;set;}
+  [OwlResource(OntologyName = &quot;MyOntology&quot;, RelativeUriReference = &quot;knows&quot;)]
+  public Person knows {get;set;}
+  [OwlResource(OntologyName = &quot;MyOntology&quot;, RelativeUriReference = &quot;img&quot;)]
+  public Image img {get;set;}
+  [OwlResource(OntologyName = &quot;MyOntology&quot;, RelativeUriReference = &quot;myersBriggs&quot;)]
+  // ...
+}
+
+[OwlResource(OntologyName=&quot;MyOntology&quot;, RelativeUriReference=&quot;Document&quot;)]
+public partial class Document
+{
+  [OwlResource(OntologyName = &quot;MyOntology&quot;, RelativeUriReference = &quot;primaryTopic&quot;)]
+  public LinqToRdf.OwlInstanceSupertype primaryTopic {get;set;}
+  [OwlResource(OntologyName = &quot;MyOntology&quot;, RelativeUriReference = &quot;topic&quot;)]
+  public LinqToRdf.OwlInstanceSupertype topic {get;set;}
+}
+
+// ...
+</code></pre>
+<p>As you can see, it&rsquo;s still pretty rough, but it allows me to write queries like this:</p>
+<pre><code>[TestMethod]
+public void TestGetPetesFromDbPedia()
+{
+    var ctx = new MyOntologyDataContext(&quot;http://DBpedia.org/sparql&quot;);
+    var q = from p in ctx.Persons
+            where p.firstName.StartsWith(&quot;Pete&quot;)
+            select p;
+    foreach (Person person in q)
+    {
+        Debug.WriteLine(person.firstName + &quot; &quot; + person.family_name);
+    }
+}
+</code></pre>
+<p><a href="http://11011.net/software/vspaste"></a><a href="http://11011.net/software/vspaste"></a></p>
+<p>RdfMetal will be added to the v0.8 release of LinqToRdf in the not too distant
+future. If you have any feature requests, or want to help out, please reply to
+this or better-still join the
+<a href="http://groups.google.com/group/linqtordf-discuss">LinqToRdf discussion group</a>
+and post there.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  My New Hugo Site 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

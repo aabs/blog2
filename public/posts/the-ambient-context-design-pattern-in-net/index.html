@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>The Ambient Context Design Pattern in .NET | My New Hugo Site</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="For a piece of agent related work I&rsquo;m doing at the moment I am making heavy use of multi-threaded development. I&rsquo;m developing a little special purpose Agent Framework to manage some data that I maintain. As part of that work, I need to have an ambient context object to hold details about the currently active agent and the tasks that it is performing. This is a common pattern that we see used throughout the .">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="The Ambient Context Design Pattern in .NET" />
+<meta property="og:description" content="For a piece of agent related work I&rsquo;m doing at the moment I am making heavy use of multi-threaded development. I&rsquo;m developing a little special purpose Agent Framework to manage some data that I maintain. As part of that work, I need to have an ambient context object to hold details about the currently active agent and the tasks that it is performing. This is a common pattern that we see used throughout the ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/the-ambient-context-design-pattern-in-net/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="The Ambient Context Design Pattern in .NET">
+<meta itemprop="description" content="For a piece of agent related work I&rsquo;m doing at the moment I am making heavy use of multi-threaded development. I&rsquo;m developing a little special purpose Agent Framework to manage some data that I maintain. As part of that work, I need to have an ambient context object to hold details about the currently active agent and the tasks that it is performing. This is a common pattern that we see used throughout the .">
+
+<meta itemprop="wordCount" content="1730">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="The Ambient Context Design Pattern in .NET"/>
+<meta name="twitter:description" content="For a piece of agent related work I&rsquo;m doing at the moment I am making heavy use of multi-threaded development. I&rsquo;m developing a little special purpose Agent Framework to manage some data that I maintain. As part of that work, I need to have an ambient context object to hold details about the currently active agent and the tasks that it is performing. This is a common pattern that we see used throughout the ."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        My New Hugo Site
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">The Ambient Context Design Pattern in .NET</h1>
+      
+      <p class="tracked">
+        By <strong>aabs</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>For a piece of agent related work I&rsquo;m doing at the moment I am making heavy use of multi-threaded development. I&rsquo;m developing a little special purpose Agent Framework to manage some data that I maintain. As part of that work, I need to have an ambient context object to hold details about the currently active agent and the tasks that it is performing. This is a common <a href="http://en.wikipedia.org/wiki/Design_Patterns">pattern</a> that we see used throughout the .NET framework. They&rsquo;re a powerful mechanism to keep useful data around, to define scopes and to provide cross-cutting capabilities. They provide functionality and a non-intrusive management mechanism without having to clutter the components that need them with additional parameters or static variables. In effect they are a form of controlled global variable that exists to maintain scoped information.</p>
+<p>Since I haven&rsquo;t seen this pattern documented in any detail elsewhere, I thought I might make a first attempt to describe it in pattern language terms. in what follows, I&rsquo;ll try to stick to the Gang of Four (<a href="http://www.awprofessional.com/title/0201633612">GoF94</a>) format wherever possible, but I may make a few digressions for the sake of drawing parallels with comparable facilities in the framework (.NET 3.5). I&rsquo;ll also highlight when one of the characteristics I describe is not a universal feature of a context class, but is commonly enough used to be worth a mention.</p>
+<h2 id="pattern-name-and-classification">Pattern Name and Classification</h2>
+<p>Ambient Context</p>
+<h2 id="intent">Intent</h2>
+<p>Provide a place to store scope or context related information or functionality that automatically follows the flow of execution between execution scopes or domains.</p>
+<h2 id="also-known-as">Also Known As</h2>
+<p>Scope, Context Object</p>
+<h2 id="motivation-forces">Motivation (Forces)</h2>
+<p>You have a problem that demands the use of scoping of execution blocks. You also need to supply execution policy information to those blocks, and a means to pass other information and functionality that is automatically available in sub-scopes. In addition you don&rsquo;t want to add these facilities as parameters to every method signature that you work with. Some of the code that exists in your sub-scopes may not be under your control, or may be third party code - this would prevent you from passing information to other sub-systems that need the contextual information you are attempting to supply.  You want a standardised system that will make such information available without having to recourse to costly shared data systems like a database.</p>
+<h2 id="applicability">Applicability</h2>
+<p>This pattern applies in many area that deal with runtime execution scopes such as security, thread management, or call marshalling. If you wish to allow information and control to flow across code boundaries then you either have to employ something equivalent to a context object, or augment every API with parameters that carry this information for you.</p>
+<h2 id="structure">Structure</h2>
+<p>A context object for a scope is typically created, and managed by a singleton or static manager class or method. Frequently, the context object is a per-thread (or execution scope) singleton that contains several read-only properties supplying information for the scope. In addition, the context object may provide an area for storage of information that can be allowed to flow downstream to other scopes. If nesting is allowed in the scope of the context, then stacks are frequently employed to allow unwinding of the context on exit from a scope.</p>
+<h2 id="participants">Participants</h2>
+<p>The participants of this pattern include a static or singleton manager class, the context object, and the entities within the execution scope.</p>
+<h2 id="collaboration">Collaboration</h2>
+<p>The manager class will provide a means to initiate a new scope. In the process it will instantiate a new context object which it will assign to the new scope. Prior to assignment to the scope the context object will be initialised with appropriate values for its read-only properties. Frequently these will be taken from the ambient values of an enclosing or current context. Once the ambient context is applied it will remain in effect until the scope is left. In some cases this may be due to an error state (such as an exception) in which case the context (and any effects that it might allow on the system state) are unwound and control is returned to the enclosing scope.</p>
+<h2 id="consequences">Consequences</h2>
+<p>The consequences to the system of making use of an ambient context object will be dependent on the problem domain. One constant is that the need for a proliferation of parameters from client call signatures is reduced.</p>
+<h2 id="implementation">Implementation</h2>
+<p>Typically the context object is stored in a <em><strong>Thread Relative Static Field,</strong></em> access to which is controlled by the Manager class. Access to that can be achieved through the use of static property objects.</p>
+<p>A simple implementation is shown below. It does not make use of thread static variables to achieve its effect. instead, it makes use of a static Stack class of contexts call scopeStack. being private, this stack is entirely under the control of the context object itself. Obviously there are other ways that a manager class could be made able to manage the creation and disposal of the context objects.</p>
+<pre><code>public class MyNestedContext : IDisposable
+{
+    private static Stack&lt;MyNestedContext&gt; scopeStack = new Stack&lt;MyNestedContext&gt;();
+    public string Id { get; set; }
+    public MyNestedContext(string id)
+    {
+        Id = id;
+        scopeStack.Push(this);
+    }
+    public static MyNestedContext Current
+    {
+        get
+        {
+            if (scopeStack.Count == 0)
+            {
+                return null;
+            }
+            return scopeStack.Peek();
+        }
+    }
+
+    #region IDisposable Members
+
+    public void Dispose()
+    {
+        if (ShouldUnwindScope())
+            UnwindScope();
+        scopeStack.Pop();
+    }
+
+    #endregion
+
+    private void UnwindScope()
+    {
+        // ...
+    }
+
+    private bool ShouldUnwindScope()
+    {
+        bool result = true;
+        //...
+        return result;
+    }
+}
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Test1();
+        Console.ReadKey();
+    }
+
+    private static void Test1()
+    {
+        Console.WriteLine(&quot;Current Context is {0}&quot;, MyNestedContext.Current != null ? MyNestedContext.Current.Id : &quot;null&quot;);
+        using (new MyNestedContext(&quot;outer scope&quot;))
+        {
+            Console.WriteLine(&quot;Current Context is {0}&quot;, MyNestedContext.Current != null ? MyNestedContext.Current.Id : &quot;null&quot;);
+            using (new MyNestedContext(&quot;inner scope&quot;))
+            {
+                Console.WriteLine(&quot;Current Context is {0}&quot;, MyNestedContext.Current != null ? MyNestedContext.Current.Id : &quot;null&quot;);
+            }
+            Console.WriteLine(&quot;Current Context is {0}&quot;, MyNestedContext.Current != null ? MyNestedContext.Current.Id : &quot;null&quot;);
+        }
+        Console.WriteLine(&quot;Current Context is {0}&quot;, MyNestedContext.Current != null ? MyNestedContext.Current.Id : &quot;null&quot;);
+    }
+}
+</code></pre>
+<p><a href="http://11011.net/software/vspaste"></a></p>
+<p>This implementation produces the desired result:</p>
+<blockquote>
+<p>Current Context is null
+Current Context is outer scope
+Current Context is inner scope
+Current Context is outer scope
+Current Context is null</p>
+</blockquote>
+<p>While this will work in a single-threaded environment its flaw is that the same context stack is shared between all threads. This will probably for example not be appropriate for a service oriented application (such as might be based on WCF) may have multiple unrelated threads going on at a time. the following code (within a context manager class) can be used to create a new thread with the same context as was current in the creating thread.</p>
+<pre><code>public static void Run(ParameterizedThreadStart pts, Object obj, string threadName)
+{
+    // get the current context
+    Context c = CurrentContext;
+    // create a wrapper delegate to set up the context
+    ParameterizedThreadStart pts2 = (Object arg) =&gt;
+    {
+        // extract the package of context, worker func and params
+        Tuple&lt;ParameterizedThreadStart, Context, Object&gt; t = (Tuple&lt;ParameterizedThreadStart, Context, Object&gt;)arg;
+        // set up the context
+        ContextManager.StartNewContext(t.Second);
+        // run the worker
+        t.First(t.Third);
+    };
+    // package up the worker, current context and args
+    Tuple&lt;ParameterizedThreadStart, Context, Object&gt; x = new Tuple&lt;ParameterizedThreadStart, Context, Object&gt;(pts, c, obj);
+    // create and run a thread using the wrapper.
+    Thread thread = new Thread(pts2);
+    if (!string.IsNullOrEmpty(threadName))
+    {
+        thread.Name = threadName;
+    }
+    thread.Start(x);
+}
+</code></pre>
+<p><a href="http://11011.net/software/vspaste"></a></p>
+<p>We would also need to achieve the same effect if we were making cross process calls. In WCF, for example, this might be achieved through the use of a custom header that carries the new scope through to the new process. The implementation for that might resemble something like the following:</p>
+<pre><code>public class EndpointBehaviorAddUserSessionId : IEndpointBehavior
+{
+    #region IEndpointBehavior Members
+
+    public void AddBindingParameters(
+        ServiceEndpoint endpoint,
+        BindingParameterCollection bindingParameters) { }
+
+    public void ApplyClientBehavior(
+        ServiceEndpoint endpoint,
+        ClientRuntime clientRuntime)
+    {
+        clientRuntime.MessageInspectors.Add(new MessageInspectorAddCurrentContext());
+    }
+
+    public void ApplyDispatchBehavior(
+        ServiceEndpoint endpoint,
+        EndpointDispatcher endpointDispatcher) { }
+
+    public void Validate(ServiceEndpoint endpoint) { }
+
+    #endregion
+}
+
+
+public class MessageInspectorAddCurrentContext: IClientMessageInspector
+{
+    public void AfterReceiveReply(ref Message reply, object correlationState)
+    {
+    }
+
+    public object BeforeSendRequest(ref Message request, IClientChannel channel)
+    {
+        AddCurrentContext(ref request);
+        return null;
+    }
+
+    private void AddCurrentContext(ref Message request)
+    {
+        if (MyNestedContext.Current != null)
+        {
+            string name = &quot;MyNestedContext-Context&quot;;
+            string ns = &quot;urn:&lt;some guid&gt;&quot;;
+            request.Headers.Add(
+                MessageHeader.CreateHeader(name, ns, MyNestedContext.Current));
+        }
+    }
+}
+</code></pre>
+<p>Which would then be used like so:</p>
+<pre><code>internal static T CreateProxy&lt;T&gt;(string configName) where T : class
+{
+    ChannelFactory&lt;T&gt; factory = new ChannelFactory&lt;T&gt;(configName);
+    factory.Endpoint.Behaviors.Add(new EndpointBehaviorAddCurrentContext());
+    return factory.CreateChannel();
+}
+public static IMyClientObject CreateCallManager()
+{
+    return CreateProxy&lt;IMyClientObject&gt;(&quot;tcpMyClient&quot;);
+}
+</code></pre>
+<p><a href="http://11011.net/software/vspaste"></a></p>
+<p>Allowing the context at the top of the stack to flow to new new domain. When the new domain call progresses it may push further context objects onto the stack</p>
+<h2 id="sample-code">Sample Code</h2>
+<p>the following sample demonstrates the implementations described above in action. the first example shows the single-threaded case, where no specific support is required to maintain and protect the context in a thread-safe way:</p>
+<pre><code>private static void Test1()
+{
+    DisplayScopeDetails();
+    using (new Context(&quot;outer scope&quot;))
+    {
+        DisplayScopeDetails();
+        using (new Context(&quot;inner scope&quot;))
+        {
+            DisplayScopeDetails();
+        }
+        DisplayScopeDetails();
+    }
+    DisplayScopeDetails();
+}
+</code></pre>
+<p>Which produces the expected output.</p>
+<blockquote>
+<p>Thread: unknown thread  Context: null
+Thread: unknown thread  Context: outer scope
+Thread: unknown thread  Context: inner scope
+Thread: unknown thread  Context: outer scope
+Thread: unknown thread  Context: null</p>
+</blockquote>
+<p>The next example demonstrates the cross threaded support at work:</p>
+<pre><code>private static void Test2()
+{
+    DisplayScopeDetails(&quot;start&quot;);
+    using (new Context(&quot;outer scope&quot;))
+    {
+        DisplayScopeDetails();
+        using (new Context(&quot;inner scope&quot;))
+        {
+            DisplayScopeDetails(&quot;begin&quot;);
+            ContextManager.Run(WorkerFunction, null, &quot;new thread&quot;);
+            Thread.Sleep(20);
+            DisplayScopeDetails(&quot;end&quot;);
+        }
+        DisplayScopeDetails();
+    }
+    DisplayScopeDetails(&quot;end&quot;);
+}
+
+private static void WorkerFunction(object o)
+{
+    DisplayScopeDetails(&quot;In Worker Function&quot;);
+    using (new Context(&quot;inner inner scope&quot;))
+    {
+        DisplayScopeDetails();
+    }
+    DisplayScopeDetails(&quot;Leaving Worker Function&quot;);
+}
+</code></pre>
+<p><a href="http://11011.net/software/vspaste"></a><a href="http://11011.net/software/vspaste"></a></p>
+<p>which this time produces the following</p>
+<blockquote>
+<p>Thread: unknown thread  Context: null   (start)
+Thread: unknown thread  Context: outer scope
+Thread: unknown thread  Context: inner scope    (begin)
+Thread: new thread      Context: inner scope    (In Worker Function)
+Thread: new thread      Context: inner inner scope
+Thread: new thread      Context: inner scope    (Leaving Worker Function)
+Thread: unknown thread  Context: inner scope    (end)
+Thread: unknown thread  Context: outer scope
+Thread: unknown thread  Context: null   (end)</p>
+</blockquote>
+<p><a href="http://11011.net/software/vspaste"></a></p>
+<p>This demonstrates a situation where a new scope stack has to be created on a new thread, and then is allowed to grow before being unwound and discontinued. After 20ms the old thread is continued and it proceeds to unwind its own scope stack before completion.</p>
+<h2 id="known-uses">Known Uses</h2>
+<p>There are numerous uses of this pattern in cross domain communications libraries, multi-threading libraries and in server environments where thread pools handle numerous incoming requests. Examples include the core .NET framework classes listed below:</p>
+<ul>
+<li>System.Globalization.CultureInfo</li>
+<li>System.ActivationContext</li>
+<li>System.Threading.ExecutionContext</li>
+<li>System.Threading.SynchronizationContext</li>
+<li>System.Transactions.TransactionScope</li>
+<li>System.ServiceModel.OperationContext</li>
+<li>System.Web.HttpContext</li>
+<li>System.Security.SecurityContext</li>
+</ul>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  My New Hugo Site 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

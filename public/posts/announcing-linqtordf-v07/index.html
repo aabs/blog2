@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Announcing LinqToRdf v0.7 | My New Hugo Site</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="I&rsquo;m proud to say that I&rsquo;ve finally uploaded version 0.7 of LinqToRdf. This is by far the best release of LinqToRdf (so far), and it now contains full support for relationship navigation out of the box. Relationship support has always been possible (provided you were intimately familiar with various undocumented parts of LINQ:), but with the automated support for instance URIs that came in version 0.6, it&rsquo;s now automatic.
+The high points of the release are:">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Announcing LinqToRdf v0.7" />
+<meta property="og:description" content="I&rsquo;m proud to say that I&rsquo;ve finally uploaded version 0.7 of LinqToRdf. This is by far the best release of LinqToRdf (so far), and it now contains full support for relationship navigation out of the box. Relationship support has always been possible (provided you were intimately familiar with various undocumented parts of LINQ:), but with the automated support for instance URIs that came in version 0.6, it&rsquo;s now automatic.
+The high points of the release are:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/announcing-linqtordf-v07/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="Announcing LinqToRdf v0.7">
+<meta itemprop="description" content="I&rsquo;m proud to say that I&rsquo;ve finally uploaded version 0.7 of LinqToRdf. This is by far the best release of LinqToRdf (so far), and it now contains full support for relationship navigation out of the box. Relationship support has always been possible (provided you were intimately familiar with various undocumented parts of LINQ:), but with the automated support for instance URIs that came in version 0.6, it&rsquo;s now automatic.
+The high points of the release are:">
+
+<meta itemprop="wordCount" content="395">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Announcing LinqToRdf v0.7"/>
+<meta name="twitter:description" content="I&rsquo;m proud to say that I&rsquo;ve finally uploaded version 0.7 of LinqToRdf. This is by far the best release of LinqToRdf (so far), and it now contains full support for relationship navigation out of the box. Relationship support has always been possible (provided you were intimately familiar with various undocumented parts of LINQ:), but with the automated support for instance URIs that came in version 0.6, it&rsquo;s now automatic.
+The high points of the release are:"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        My New Hugo Site
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Announcing LinqToRdf v0.7</h1>
+      
+      <p class="tracked">
+        By <strong>aabs</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>I&rsquo;m proud to say that I&rsquo;ve finally uploaded <a href="http://linqtordf.googlecode.com/files/LinqToRdf-0.7.msi">version 0.7 of LinqToRdf</a>. This is by far the best release of <a href="http://code.google.com/p/linqtordf/">LinqToRdf</a> (so far), and it now contains full support for relationship navigation out of the box. Relationship support has always been possible (provided you were intimately familiar with various undocumented parts of LINQ:), but with the automated support for instance URIs that came in version 0.6, it&rsquo;s now automatic.</p>
+<p>The high points of the release are:</p>
+<ul>
+<li>LinqToRdf and all its prerequisites are now installed to the Global Assembly Cache (GAC).</li>
+<li>The code generator creates EntitySet and EntityRef properties for the parent and child ends of class relationships. This provide a lazily loaded collection and instance management system - the same as is used in LINQ to SQL.</li>
+<li>All generated code makes use of partial classes to allow code to be extended cleanly with standard queries. This allows you to marry standard queries with the DataContext to allow easy relationship navigation while the DataContext is in scope.</li>
+<li>DataContext classes are automatically generated using a LINQ to SQL idiom that makes the code MUCH more readable. See below for an example of how clean LinqToRdf code looks these days.</li>
+<li>New meta-model query operators allow you to query by subject URI and Instance URI. This was to support relationship navigation, but it can be used anywhere. This is the first step in providing reification via LinqToRdf.</li>
+<li>Support for commonly used LINQ Standard Query Operators like Count, First, and FirstOrDefault.</li>
+</ul>
+<p>I&rsquo;ve been meaning to do all of this for quite a while now, but it took some prompting by Carl Blakeley of OpenLink (back at the beginning of May) to force me to get my act together. My apologies to Carl for taking so long to come up with the goods - I&rsquo;m sure you used EntitySets in the end, but now you have Instance URIs that you can plug into them to make the code cleaner. Enjoy.</p>
+<p>The following is now actively supported by designer-generated code.</p>
+<pre><code>public void Foo()
+{
+    var ctx = new MusicDataContext(@&quot;Some SPARQL Endpoint&quot;);
+    var track = (from t in ctx.Tracks
+                 where t.HasInstanceUri(&quot;Some Instance URI&quot;)
+                 select t).First();
+
+    Debug.WriteLine(&quot;Track was &quot; + track.Title);
+    Debug.WriteLine(&quot;Album was &quot; + track.Album.Name);
+
+    foreach (var t in track.Album.Tracks)
+    {
+        Debug.WriteLine(&quot;Album Track was &quot; + track.Title);
+    }
+}
+</code></pre>
+<p>Please download it. Give it a try. Any and all feedback is much appreciated.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy;  My New Hugo Site 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
