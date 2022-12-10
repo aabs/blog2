@@ -1,6 +1,6 @@
 ---
 title: 'Welcome to my blog'
-date: '2005-03-15 09:39'
+date: '2005-03-15'
 ---
 
 Well there is so much to write about, that I thought it was about time I jumped
