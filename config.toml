@@ -9,6 +9,7 @@ SectionPagesMenu = "main"
 Paginate = 5 # this is set low for demonstrating with dummy content. Set to a higher number
 googleAnalytics = ""
 enableRobotsTXT = true
+omit_header_text = true
 
 [sitemap]
   changefreq = "monthly"
@@ -16,7 +17,7 @@ enableRobotsTXT = true
   filename = "sitemap.xml"
 
 [params]
-  text_color = ""
+  text_color = "#000000"
   author = ""
   favicon = ""
   site_logo = ""
@@ -26,5 +27,6 @@ enableRobotsTXT = true
   recent_posts_number = 10
 
 [[params.ananke_socials]]
-name = "twitter"
-url = "https://twitter.com/aabs"
+name= "mastodon"
+url= "https://techhub.social/@aabs"
+rel = "me noopener"
