@@ -1,6 +1,6 @@
 ---
 title: Industrial Inference
-date: 2019-10-07 09:14
+date: 2019-10-07
 author: Andrew Matthews
 slug: industrial-inference
 status: published
