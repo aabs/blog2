@@ -9,3 +9,8 @@ clean:
 
 deploy:
 	cp -R public/* /var/www/html/
+
+save:
+	git add -A .
+	git commit -m "wip"
+	git push
