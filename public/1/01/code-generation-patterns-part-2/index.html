@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Code Generation Patterns - Part 2 | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Last time I described typed and un-typed events, and multicasting events to several listeners. One of those listeners would be a code generator. This time I&rsquo;ll go on to describe some of the necessary infrastructure that such a design requires. Generally this information is all about tieing the events together. The context in which an event takes place is as important as the event itself.
+When you&rsquo;re generating code progressively, you need to keep track of what you have done, and what still needs to be done.">
+    <meta name="generator" content="Hugo 0.108.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Code Generation Patterns - Part 2" />
+<meta property="og:description" content="Last time I described typed and un-typed events, and multicasting events to several listeners. One of those listeners would be a code generator. This time I&rsquo;ll go on to describe some of the necessary infrastructure that such a design requires. Generally this information is all about tieing the events together. The context in which an event takes place is as important as the event itself.
+When you&rsquo;re generating code progressively, you need to keep track of what you have done, and what still needs to be done." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://industrialinference.com/1/01/code-generation-patterns-part-2/" /><meta property="article:section" content="posts" />
+
+
+<meta itemprop="name" content="Code Generation Patterns - Part 2">
+<meta itemprop="description" content="Last time I described typed and un-typed events, and multicasting events to several listeners. One of those listeners would be a code generator. This time I&rsquo;ll go on to describe some of the necessary infrastructure that such a design requires. Generally this information is all about tieing the events together. The context in which an event takes place is as important as the event itself.
+When you&rsquo;re generating code progressively, you need to keep track of what you have done, and what still needs to be done.">
+
+<meta itemprop="wordCount" content="1229">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Code Generation Patterns - Part 2"/>
+<meta name="twitter:description" content="Last time I described typed and un-typed events, and multicasting events to several listeners. One of those listeners would be a code generator. This time I&rsquo;ll go on to describe some of the necessary infrastructure that such a design requires. Generally this information is all about tieing the events together. The context in which an event takes place is as important as the event itself.
+When you&rsquo;re generating code progressively, you need to keep track of what you have done, and what still needs to be done."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
+      
+        mastadon
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://twitter.com/share?url=https://industrialinference.com/1/01/code-generation-patterns-part-2/&amp;text=Code%20Generation%20Patterns%20-%20Part%202" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Code Generation Patterns - Part 2</h1>
+      
+      <p class="tracked">
+        By <strong>Andrew Matthews</strong>
+      </p>
+      
+      
+      
+
+      
+      
+        <span class="f6 mv4 dib tracked"> - 6 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 1229 words </span>
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>Last time I described typed and un-typed events, and multicasting events to several listeners. One of those listeners would be a code generator. This time I&rsquo;ll go on to describe some of the necessary infrastructure that such a design requires. Generally this information is all about tieing the events together. The context in which an event takes place is as important as the event itself.</p>
+<p>When you&rsquo;re generating code progressively, you need to keep track of what you have done, and what still needs to be done. In this case that means the code already generated, and the messages already received, but have not generated code for. It also indicates what code structure(s) an incoming predicate applies to.</p>
+<p>There are two complementary modes of operation that a scanner/code-generator system can use for <em>broadcasting</em> events. They are variations of tree search algorithms. In the first case, the most senior element is broadcast first. that means that an event would be generated for a type before the events for its methods are fired. I shall call this (for want of a better name) the &ldquo;<em><strong>depth-last recursive search</strong></em>&rdquo;. The second approach is a true &ldquo;<em><strong>depth-first search</strong></em>&rdquo; since elements that are lowest in the object tree are announced sooner. These two modes support different code-generation plan. The choice will have an effect on what sort of state one has to keep, and how long it has to hang around. More on that later.</p>
+<p>With depth-first recursion a <em>method event</em> will be broadcast before the corresponding <em>type event</em> , and a predicate such as an <em><strong>Ensure</strong></em> attribute, will be received before the method on which it was attached. Therefore, when you are generating code, you can&rsquo;t just slot what you get into what you already have, because you don&rsquo;t have anywhere to put it.</p>
+<p><img src="http://aabs.aspxconnection.com/objectTree.png" alt=""></p>
+<p><strong>An object tree. Depth means further from the assembly object.</strong></p>
+<p>With a depth first search context variables track the predicates detected till an event for the method is broadcast and we can generate the whole code for the method. We still have to keep the generated code around till we get the type event! Needless to say, we could hunt for such information as the method event arrives. We could use reflection to navigate up the type object graph as far as the assembly if we wanted to. But if we rely too much on that sort of navigation we break the whole broadcast idiom, and morph the algorithm into a depth-last recursive search (which has it&rsquo;s own unique requirements that I&rsquo;ll come onto next).</p>
+<p>In the depth-last search the event for the more senior object is fired before that of its subordinates. That means we get the event for the type before that of the method, and the event for the method before that of its predicates. That&rsquo;s helpful because we now have something to hang the subsequent events off of. If you were producing a whole object graph in memory then this would be ideal, since the tree would always be properly connected rather than fractured. This approach is not without its drawbacks, not least of which is that you have to build up an object graph in memory before you can generate the code for it! With depth-first recursion you know that when you get the event for the method that there are no more predicates coming. You know when it&rsquo;s safe to generate code. With the depth last approach you have to send a &ldquo;<em>finish</em>&rdquo; message that says when the stream of sub-objects has stopped. On the whole I&rsquo;ve found for this project that depth-first navigation of the assembly object graph works fine, and simplifies the event interface of the listeners that I want to use. In other projects I&rsquo;ve used this on I&rsquo;ve done the opposite, and everything has gone OK, it really depends on the sizes of the data stream, and the performance characteristics required. There are drawbacks with either approach and you should probably decide on the basis of the following criteria:</p>
+<ul>
+<li>Is the stream of events large (or never-ending)</li>
+<li>Do you need to keep the resultant data structures around in memory</li>
+<li>Would single-pass processing be an advantage to you.</li>
+</ul>
+<p>The snippet below shows some of the code that I use to process events in the code generator. Much has been chopped out of course, but from this you should see how all the talk about depth-first searches and events translates into code generation.</p>
+<pre><code>public class DbcProxyCodeGenerator : DbcSupertype
+{
+    public DbcProxyCodeGenerator()
+    {
+        InitialiseTemplates();
+    }
+
+    #region Context Variables
+
+    private ArrayList processedAssembly = null;
+    private ArrayList processedTypes = null;
+    private ArrayList processedMethods = null;
+    private ArrayList processedProperties = null;
+    private ArrayList processedFields = null;
+    private ArrayList processedEvents = null;
+    private Hashtable processedSnapshotsBefore = null;
+    private Hashtable processedSnapshotsAfter = null;
+    private ArrayList processedInvariants = null;
+    private ArrayList processedEnsures = null;
+    private ArrayList processedRequires = null;
+    private Hashtable processedNamespaces;
+
+    public void NewAssembly(object sender,
+  NewAssemblyEventArgs e)
+    {
+        vtAssembly.SetAttr(&quot;assembly&quot;, e.TheAssembly);
+        string[] namespaces = new string[
+  ProcessedNamespaces.Keys.Count];
+        ProcessedNamespaces.Keys.CopyTo(namespaces, 0);
+        vtAssembly.SetAttr(&quot;namespaces&quot;, namespaces);
+        vtAssembly.SetAttr(&quot;types&quot;, ProcessedTypes);
+        ProcessedAssembly.Add(vtAssembly.Merge());
+    }
+
+    public void NewType(object sender, NewTypeEventArgs e)
+    {
+        ProcessedNamespaces.Add(e.TheType.Namespace, null);
+        vtType.SetAttr(&quot;type&quot;, e.TheType);
+        vtType.SetAttr(&quot;methods&quot;, ProcessedMethods);
+        vtType.SetAttr(&quot;fields&quot;, ProcessedFields);
+        vtType.SetAttr(&quot;properties&quot;, ProcessedProperties);
+        vtType.SetAttr(&quot;events&quot;, ProcessedEvents);
+        ProcessedTypes.Add(vtType.Merge());
+        ProcessedMethods = null;
+        ProcessedFields = null;
+        ProcessedProperties = null;
+        ProcessedEvents = null;
+        ProcessedInvariants = null;
+    }
+
+    public void NewMethod(object sender, NewMethodEventArgs e)
+    {
+        vtMethod.SetAttr(&quot;method&quot;, e.Method);
+        vtMethod.SetAttr(&quot;invariants&quot;, ProcessedInvariants);
+        vtMethod.SetAttr(&quot;requires&quot;, ProcessedRequires);
+        vtMethod.SetAttr(&quot;ensures&quot;, ProcessedEnsures);
+        ArrayList beforeSnapshots =
+  SnapshotProcessor.GetBeforeSnapshots
+           (e.Method as MemberInfo, ProcessedSnapshotsBefore.Keys);
+        ArrayList afterSnapshots =
+  SnapshotProcessor.GetAfterSnapshots
+           (e.Method as MemberInfo, ProcessedSnapshotsAfter.Keys);
+        vtMethod.SetAttr(&quot;ssbefore&quot;, beforeSnapshots);
+        vtMethod.SetAttr(&quot;ssafter&quot;, afterSnapshots);
+        ProcessedMethods.Add(vtMethod.Merge());
+        ProcessedEnsures = null;
+        ProcessedRequires = null;
+    }
+
+    public void NewInvariantAttribute(object sender,
+  NewInvariantAttributeEventArgs e)
+    {
+        EnsureSpecification es = DbcPragmaProcessor.
+  ProcessEnsure(e.Invariant.Predicate);
+        SnapshotProcessor.RegisterSnapshots(es,
+  ref this.processedSnapshotsBefore,
+  ref this.processedSnapshotsAfter);
+        vtInvariant.SetAttr(&quot;invariant&quot;, es);
+        ProcessedInvariants.Add(vtInvariant.Merge());
+    }
+
+    public void NewEnsuresAttribute(object sender,
+  NewEnsuresAttributeEventArgs e)
+    {
+        EnsureSpecification es = DbcPragmaProcessor.
+  ProcessEnsure(e.Ensure.Predicate);
+        SnapshotProcessor.RegisterSnapshots(es,
+  ref this.processedSnapshotsBefore,
+  ref this.processedSnapshotsAfter);
+        vtEnsure.SetAttr(&quot;ensure&quot;, es);
+        ProcessedEnsures.Add(vtEnsure.Merge());
+    }
+}
+</code></pre>
+<h3 id="iterative-vs-final-expansion-of-templates">Iterative vs final expansion of templates</h3>
+<p>A seemlingly simple decision like the order in which you notify interested parties leads to significant performance issues that must be known about in advance. To illustrate this, consider the following scenario:
+<em>I want to use this framework in a number of different scenarios. I want to be able to statically generate the code for a proxy object that I then use as though it were the real object. That proxy object will enforce all of my rules at runtime. Projects that use my proxies must include the proxy assembly as well as the assembly of the target object. This is the simple case, I also need to be able to dispense with that and use dynamic proxies. Thus situation is one where I use dynamic code generation at runtime. To do that I need to request access to the object through a class factory that will perform code generation of the proxy on-the-fly. In other situations I want the framework to dovetail with aspect oriented programming frameworks like ACA.NET. In that situation the generated code could be either static or dynamic, but the specifics need to abstracted into a configuration file.</em></p>
+<p>As you can see from these requirements our needs can swing between static and dynamic code generation, and we may even want to use both in the same program. Performance must take precedence if we want to use dynamic code generation. Static code generation won&rsquo;t suffer over much if we choose a code generation strategy that is biased towards dynamic code generation since its costs are at compile time, and won&rsquo;t affect runtime performance.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://industrialinference.com/" >
+    &copy;  Andrew Matthews 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
+      
+        mastadon
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

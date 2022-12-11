@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Relational Modeling? Not as we know it! | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Marcello Cantos commented on my recent post about the ways in which RDF can transcend the object-oriented model. He posed the question of what things RDF can represent more easily than the relational model. I know Marcello is a very high calibre software engineer, so it&rsquo;s not just an idle question from a relational dinosaur, but a serious question from someone who can push the envelope far with a relational database.">
+    <meta name="generator" content="Hugo 0.108.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Relational Modeling? Not as we know it!" />
+<meta property="og:description" content="Marcello Cantos commented on my recent post about the ways in which RDF can transcend the object-oriented model. He posed the question of what things RDF can represent more easily than the relational model. I know Marcello is a very high calibre software engineer, so it&rsquo;s not just an idle question from a relational dinosaur, but a serious question from someone who can push the envelope far with a relational database." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://industrialinference.com/1/01/relational-modeling-not-as-we-know-it/" /><meta property="article:section" content="posts" />
+
+
+<meta itemprop="name" content="Relational Modeling? Not as we know it!">
+<meta itemprop="description" content="Marcello Cantos commented on my recent post about the ways in which RDF can transcend the object-oriented model. He posed the question of what things RDF can represent more easily than the relational model. I know Marcello is a very high calibre software engineer, so it&rsquo;s not just an idle question from a relational dinosaur, but a serious question from someone who can push the envelope far with a relational database.">
+
+<meta itemprop="wordCount" content="1153">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Relational Modeling? Not as we know it!"/>
+<meta name="twitter:description" content="Marcello Cantos commented on my recent post about the ways in which RDF can transcend the object-oriented model. He posed the question of what things RDF can represent more easily than the relational model. I know Marcello is a very high calibre software engineer, so it&rsquo;s not just an idle question from a relational dinosaur, but a serious question from someone who can push the envelope far with a relational database."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
+      
+        mastadon
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://twitter.com/share?url=https://industrialinference.com/1/01/relational-modeling-not-as-we-know-it/&amp;text=Relational%20Modeling?%20Not%20as%20we%20know%20it!" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Relational Modeling? Not as we know it!</h1>
+      
+      <p class="tracked">
+        By <strong>aabs</strong>
+      </p>
+      
+      
+      
+
+      
+      
+        <span class="f6 mv4 dib tracked"> - 6 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 1153 words </span>
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>Marcello Cantos commented on my <a href="http://aabs.wordpress.com/2008/09/23/object-orientation-not-as-we-know-it/">recent post</a> about the ways in which RDF can transcend the object-oriented model. He posed the question of what things RDF can represent more easily than the relational model. I know Marcello is a very high calibre software engineer, so it&rsquo;s not just an idle question from a relational dinosaur, but a serious question from someone who can push the envelope far with a relational database.</p>
+<p>Since an ontology is most frequently defined (in compsci) as a <a href="http://www-ksl.stanford.edu/kst/what-is-an-ontology.html">specification of a conceptualization</a>, a relational model is a kind of ontology. That means a relational model is by definition a knowledge representation system. That&rsquo;d be my answer if I just wanted to sidestep the real thrust of his question; <em>Is the relational model adequate to do what can be done by RDF</em>?</p>
+<p>That&rsquo;s a more interesting question, and I&rsquo;d be inclined to say everything I said in my previous post about the shortcomings of object oriented programming languages applies equally to the relational model. But lets take another look at the design features of RDF that make it useful for representation of &lsquo;knowledge&rsquo;.</p>
+<p>○ URI based
+○ Triple format
+○ Extensible
+○ Layered
+○ Class based
+○ Meta-model</p>
+<h4 id="uri-based">URI Based</h4>
+<p>By using URIs as a token of identification and definition, and by making identifications and definitions readable, interchangeable and reusable the designers of RDF exposed the conceptualisation of the ontology to the world at large. Could you imagine defining a customer in your database as &lsquo;<em>everything in</em> <em>XYZ</em> <em>company&rsquo;s</em> <em>CRM&rsquo;s</em> <em>definition of a customer, plus a few special fields of our own</em>&rsquo;. It is not practical. Perhaps you might want to say, <em>everything in their database less some fields that we&rsquo;re not interested in</em>. Again - not possible. Relational models are not as flexible as the concepts that they need to represent. That is also the real reason why interchange formats never caught on - they were just not able to adapt to the ways that people needed to use them. RDF is designed from the outset to be malleable.</p>
+<h4 id="triple-format">Triple Format</h4>
+<p>At their foundation, all representations make statements about the structure or characteristics of things. All statements must have the form (or can be transformed into that format). The relational model strictly defines the set of triples that can be expressed about a thing. For example, imagine a table &lsquo;Star&rsquo; that has some fields:</p>
+<pre><code>Star (
+    StarId INT,
+    CommonName nvarchar(256),
+    Magnitude decimal NOT NULL,
+    RA decimal NOT NULL,
+    DEC decimal NOT NULL,
+    Distance decimal NOT NULL,
+    SpectralType nvarchar(64)
+    )
+</code></pre>
+<p>Now if we had a row</p>
+<pre><code>(123, 'Deneb', 1.25, 300.8, 45.2, 440, 'A2la')
+</code></pre>
+<p>That would be equivalent to a set of triples represented in N3 like this:</p>
+<pre><code>[]
+  StartId 123;
+  CommonName &quot;Deneb&quot;;
+  Magnitude 1.25^xsd:decimal;
+  RA 300.8^xsd:decimal;
+  DEC 45.2^xsd:decimal;
+  Distance 440^xsd:decimal;
+  SpectralType &quot;A2la&quot; .
+</code></pre>
+<p>Clearly there&rsquo;s a great deal of overlap between these two systems and the one is convertible into the other. But what happens when we launch a new space probe capable of measuring some new feature of the star that was never measurable before? Or what happens when we realise that to plot our star very far into the future we need to store radial velocity, proper motion and absolute magnitude. We don&rsquo;t have fields for that, and there&rsquo;s no way in the database to add them without extensive modifications to the database.</p>
+<p>RDF triple stores (or runtime models or files for that matter) have no particular dependence on the data conforming to a prescribed format. More importantly class membership and instance-hood are more decoupled so that a &rsquo;thing&rsquo; can exist without automatically being in a class. In OO languages you MUST have a type, just as in RDBMSs, a row MUST come from some table. We can define an instance that has all of the properties defined in table &lsquo;Star&rsquo; plus a few others gained from the Hipparchos catalog and a few more gleaned from the Tycho-1 catalog. It does not break the model nor invalidate the &lsquo;Star&rsquo; class-hood to have this extra information, it just happens that we know more about <a href="http://en.wikipedia.org/wiki/Deneb">Deneb</a> in our database than some other stars.</p>
+<p>This independent, extensible, free-form, standards-based language is capable of accommodating any knowledge that you can gather about a thing. If you add meta-data about the thing then more deductions can be made about it, but its absence doesn&rsquo;t stop you from adding or using the data in queries.</p>
+<h4 id="extensible-layered-class-based-with-meta-model">Extensible, Layered, Class Based with Meta-model</h4>
+<p>Being extensible, in the case of RDF, means a few things. It means that RDF supports OO-style multiple inheritance relationships. See my previous post to see that this is the tip of the iceberg for RDF class membership. That post went into more detail about how class membership was not based on some immutable Type property that once assigned can never by removed. Instead it, can be based on more or less flexible criteria.</p>
+<p>Extensibility in RDF also means providing a way to make complex statements about the modelling language itself. For example once the structure of triples is defined (plus URIs that can be in subjects, predicates or objects) in the base RDF language, then RDF has a way to define complex relationships. The language was extended with RDF Schema which in turn was extended with several layers in OWL, which will in turn be extended by yet more abstract layers.</p>
+<p>Is there a mechanism for self reference in SQL? I can&rsquo;t think of a way of defining one structure in a DB in terms of the structure of another. There&rsquo;s no way that I can think of of being explicit about the nature of the relationship between two entities. Is there a way for you to state in your relational model facts like this:</p>
+<pre><code>{?s CommonName ?c.} =&gt; {?s Magnitude ?m. ?m greaterThan 6.}
+</code></pre>
+<p>i.e. if it has a common name then it must be visible to the naked eye. I guess you&rsquo;d do that with a relational view so that you could query whether the view &rsquo;nakedEyeStars&rsquo; contains star 123. Of course CommonName could apply to botanical entities (plants) as well as to stars, but I imagine you&rsquo;d struggle to create a view that merged data from the plant table and the star table.</p>
+<p>So, in conclusion, there&rsquo;s plenty of ways that RDF specifically addresses the problems it seeks to address - data interchange, standards definition, KR, mashups - in a distributed web-wide way. RDBMSs address the problems faced by programmers at the coal face in the 60s and 70s - efficient, standardized, platform-independent data storage and retrieval. The imperative that created a need for RDBMSs in the 60s is not going away, so I doubt databases will be going away any time soon either. In fact they can be exposed to the world as triples without too much trouble. The problem is that developers need more than just data storage and retrieval. They need <em>intelligent</em> data storage and retrieval.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://industrialinference.com/" >
+    &copy;  Andrew Matthews 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
+      
+        mastadon
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

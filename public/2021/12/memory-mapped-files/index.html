@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Memory Mapped Files | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="The first thing we need to do to build a database is to find a fast way to read from and write to disk. Whether we are doing I/O on a hard drive or an SSD, the interface to the disk typically works the same. It transfers data into and out of the disk in &lsquo;pages&rsquo; or blocks of data.
+It makes sense to keep data we are likely to access together in the same page so that it is already in memory when we need to access it.">
+    <meta name="generator" content="Hugo 0.108.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Memory Mapped Files" />
+<meta property="og:description" content="The first thing we need to do to build a database is to find a fast way to read from and write to disk. Whether we are doing I/O on a hard drive or an SSD, the interface to the disk typically works the same. It transfers data into and out of the disk in &lsquo;pages&rsquo; or blocks of data.
+It makes sense to keep data we are likely to access together in the same page so that it is already in memory when we need to access it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://industrialinference.com/2021/12/memory-mapped-files/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-12-08T00:00:00+00:00" />
+<meta itemprop="name" content="Memory Mapped Files">
+<meta itemprop="description" content="The first thing we need to do to build a database is to find a fast way to read from and write to disk. Whether we are doing I/O on a hard drive or an SSD, the interface to the disk typically works the same. It transfers data into and out of the disk in &lsquo;pages&rsquo; or blocks of data.
+It makes sense to keep data we are likely to access together in the same page so that it is already in memory when we need to access it."><meta itemprop="datePublished" content="2021-12-08T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-12-08T00:00:00+00:00" />
+<meta itemprop="wordCount" content="944">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Memory Mapped Files"/>
+<meta name="twitter:description" content="The first thing we need to do to build a database is to find a fast way to read from and write to disk. Whether we are doing I/O on a hard drive or an SSD, the interface to the disk typically works the same. It transfers data into and out of the disk in &lsquo;pages&rsquo; or blocks of data.
+It makes sense to keep data we are likely to access together in the same page so that it is already in memory when we need to access it."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
+      
+        mastadon
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://twitter.com/share?url=https://industrialinference.com/2021/12/memory-mapped-files/&amp;text=Memory%20Mapped%20Files" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Memory Mapped Files</h1>
+      
+      <p class="tracked">
+        By <strong>Andrew Matthews</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-12-08T00:00:00Z">December 8, 2021</time>
+      
+
+      
+      
+        <span class="f6 mv4 dib tracked"> - 5 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 944 words </span>
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>The first thing we need to do to build a database is to find a fast way to read
+from and write to disk.  Whether we are doing I/O on a hard drive or an SSD, the
+interface to the disk typically works the same.  It transfers data into and out
+of the disk in &lsquo;pages&rsquo; or blocks of data.</p>
+<p>It makes sense to keep data we are likely to access together in the same page so
+that it is already in memory when we need to access it.  This applies whether we
+are reading items in an index, or grabbing consecutive rows in a range.  This is
+the principle of <em>temporal locality of reference</em>: We are most likely to access
+data nearby on disk or in memory.</p>
+<p>The size and shape of indexes in a database are often determined by the size of
+virtual memory pages - how much will be brought into memory from disk when we
+access something.  This allows us to exploit locality to minimise the cost of
+scanning through indexes to find data we need.  Which brings us to our first
+port of call in our triple store journey; memory mapped files.</p>
+<p>I&rsquo;m lazy.  And realistic.  I doubt I&rsquo;d be able to do as good a job as the OS
+developers at interfacing with disk efficiently (or at least not without
+spending a LOT of time learning how to do it properly and portably).
+Thankfully, there is a way for me to exploit all the specialised knowledge of
+the OS implementors in reading and writing to disk efficiently.</p>
+<p>A <em>Memory Mapped File</em> is a programming abstraction that exposes a file on disk
+as though it were a region of memory.  The OS takes care of all the details of
+mapping the memory region back onto the disk file.  It handles caching and all
+the other details of keeping the file in memory and keeping the file in sync
+with changes to the memory region.</p>
+<p>.NET has a few nice features allowing us to work with memory mapped files and
+also to efficiently work with raw blocks of binary data in memory.</p>
+<p>Let&rsquo;s take a look at some code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#a6e22e">[TestMethod]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> CreateAndWriteToMMF()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> filename = Path.GetTempFileName();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 1. Create a temporary file and map it into memory</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">using</span> var file = File.Create(filename, <span style="color:#ae81ff">2048</span>, FileOptions.RandomAccess);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">using</span> var mappedFile = MemoryMappedFile.CreateFromFile(file,
+</span></span><span style="display:flex;"><span>                                                                <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>                                                                <span style="color:#ae81ff">1024</span>,
+</span></span><span style="display:flex;"><span>                                                                MemoryMappedFileAccess.ReadWrite,
+</span></span><span style="display:flex;"><span>                                                                HandleInheritability.None,
+</span></span><span style="display:flex;"><span>                                                                <span style="color:#66d9ef">false</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span>[] array = <span style="color:#66d9ef">new</span>[] { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span> };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 2. Get a view accessor allowing random access into the memory view of the file</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">using</span> var accessor = mappedFile.CreateViewAccessor(<span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">int</span>) * array.Length);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 3.  Write some data into the memory region</span>
+</span></span><span style="display:flex;"><span>        accessor.WriteArray(<span style="color:#ae81ff">0</span>, array, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">5</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 4. push the updated data into the underlying file</span>
+</span></span><span style="display:flex;"><span>        accessor.Flush();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 5. create another array and read out of the memory into the array</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> newArray = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">5</span>];
+</span></span><span style="display:flex;"><span>        accessor.ReadArray&lt;<span style="color:#66d9ef">int</span>&gt;(<span style="color:#ae81ff">0</span>, newArray, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">5</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span>(<span style="color:#66d9ef">var</span> item <span style="color:#66d9ef">in</span> newArray)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Console.WriteLine(item);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">finally</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (File.Exists(filename))
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            File.Delete(filename);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This creates a temporary file, maps it to memory, and writes an array of
+integers starting at position 10, then deletes the file at the end.  The way it
+is able to write into the file through the memory mapped file it via a
+<a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.memorymappedfiles.memorymappedviewaccessor?view=net-6.0"><code>MemoryMappedViewAccessor</code></a>
+which provides random access to the contents of the file.</p>
+<p>This would probably be adequate for a first version, but there is an API used
+with accessing blocks of memory that has been around for a while.</p>
+<h2 id="spant-and-memoryt"><code>Span&lt;T&gt;</code> and <code>Memory&lt;T&gt;</code></h2>
+<p>The
+<a href="https://docs.microsoft.com/en-us/dotnet/standard/memory-and-spans/memory-t-usage-guidelines"><code>Memory&lt;T&gt;</code></a>
+structure acts as an adapter allowing you to have type safe access to the
+contents of a block of memory.  It allows you to extract the contents of the
+region as well as take slices of the memory, ensuring bounds checking is
+enforced.  This is handy if we need to implement something like a B+ Tree over
+the top of a page of raw bytes.  Right now, you need to use the
+<code>DotNext.IO.MemoryMappedFiles</code> package (supported by the dotnetfoundation), that
+has some nice extension methods to handle the creation of wrappers to the memory
+mapped file.</p>
+<p>Let&rsquo;s see what it looks like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> DotNext.IO.MemoryMappedFiles;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">[TestMethod]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> AccessMemoryMappedFileUsingMemoryOfT()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> filename = Path.GetTempFileName();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">using</span> var file = File.Create(filename, <span style="color:#ae81ff">2048</span>, FileOptions.RandomAccess);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">using</span> var mappedFile = MemoryMappedFile.CreateFromFile(file,
+</span></span><span style="display:flex;"><span>                                                            <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>                                                            <span style="color:#ae81ff">1024</span>,
+</span></span><span style="display:flex;"><span>                                                            MemoryMappedFileAccess.ReadWrite,
+</span></span><span style="display:flex;"><span>                                                            HandleInheritability.None,
+</span></span><span style="display:flex;"><span>                                                            <span style="color:#66d9ef">false</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 1. Create a Direct Accessor</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> accessor = mappedFile.CreateMemoryAccessor();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 2. Create a `Span&lt;int&gt;` from the accessor&#39;s Span&lt;byte&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> memInts = MemoryMarshal.Cast&lt;<span style="color:#66d9ef">byte</span>, <span style="color:#66d9ef">int</span>&gt;(accessor.Bytes);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 3. Directly write bytes to the memory region</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; <span style="color:#ae81ff">5</span>; i++)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        memInts[i] = i;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 4. push to disk</span>
+</span></span><span style="display:flex;"><span>    accessor.Flush();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 5. Read it back as before</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">using</span> var accessor2 = mappedFile.CreateViewAccessor(<span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">int</span>) * <span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> newArray = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">5</span>];
+</span></span><span style="display:flex;"><span>    accessor2.ReadArray&lt;<span style="color:#66d9ef">int</span>&gt;(<span style="color:#ae81ff">0</span>, newArray, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">5</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> (<span style="color:#66d9ef">var</span> item <span style="color:#66d9ef">in</span> newArray)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Console.WriteLine(item);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The <code>CreatememoryAccessor</code> provides a <code>Bytes</code> property of type <code>Span&lt;byte&gt;</code> that
+is compatible with the other commonly adopted mechanisms to work with byte
+blocks in .NET.  Now we can cast the byte span as an int span, and work with it
+in much the same way as an <code>int[]</code>.</p>
+<p>To those that are familiar with the techniques used in the old days to shovel
+binary data around in C++, this is like a safe version of the trick of casting a
+<code>void *</code> pointer to be a pointer to <code>T</code>.  Naughty but nice.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Now we&rsquo;ve got safe, very fast low level access to memory mapped files, we&rsquo;re in
+a position to start implementing data structures like B+ Trees over the top of
+it.  Next time I&rsquo;ll show how we might start to implement a rudimentary Storage
+Engine for the triple store.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://industrialinference.com/" >
+    &copy;  Andrew Matthews 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
+      
+        mastadon
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

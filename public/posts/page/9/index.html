@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en-au">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
     <title>The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="All the amusing things">
+    <meta name="description" content="">
     <meta name="generator" content="Hugo 0.108.0">
     
     
@@ -35,13 +35,13 @@
     
     
     <meta property="og:title" content="Posts" />
-<meta property="og:description" content="All the amusing things" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://45.89.107.9/posts/" />
+<meta property="og:url" content="https://industrialinference.com/posts/" />
 <meta itemprop="name" content="Posts">
-<meta itemprop="description" content="All the amusing things"><meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="All the amusing things"/>
+<meta name="twitter:description" content=""/>
 
 	
   </head>
@@ -62,16 +62,6 @@
     <div class="flex-l items-center">
       
 
-      
-        <ul class="pl0 mr3">
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/posts/" title="Posts page">
-              Posts
-            </a>
-          </li>
-          
-        </ul>
       
       
 <div class="ananke-socials">
@@ -129,7 +119,7 @@
     <main class="pb7" role="main">
       
   <article class="pa3 pa4-ns nested-copy-line-height">
-    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy fg_black"></section>
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
     <section class="flex-ns flex-wrap justify-around mt5">
       
         <div class="relative w-100 w-30-l mb4 bg-white">
@@ -137,14 +127,12 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/2005/and-were-off-2/" class="link black dim">
-        And we&#39;re off
+      <a href="/1/01/comment-spam/" class="link black dim">
+        Comment Spam
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      I have set up the sourceforge project. You can find it here. I&rsquo;ve also classified all of the work, and split it up into releases.
-Here&rsquo;s what will go into release one:
-Configuration Use native .NET configuration Configuration Remove existing config assembly Installers WIX installers Runtime Control Add transactional support from COM+ Runtime Control Extend reverse engineering to examine SPs and create wrappers for them. Runtime Control Configurable ID strategy Runtime Control Configurable transaction isolation policy Templates Move core templates into resource assembly Testing Create a proper test database Runtime Control Divide system between runtime and development projects Runtime Control Standardise all names to CamelCase
+      Some swine has started using comments on my blog as a way to spam me. I may soon have to prevent anonymous users from posting comments. I got 104 comments on one of my posts, and it wasn&rsquo;t even that interesting!
     </div>
   </div>
 </div>
@@ -156,14 +144,13 @@ Configuration Use native .NET configuration Configuration Remove existing config
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/2007/announcing-linqtordf-03-and-linqtordf-designer-03/" class="link black dim">
-        Announcing LinqToRdf 0.3 and LinqToRdf Designer 0.3
+      <a href="/1/01/complex-assertions-in-c/" class="link black dim">
+        Complex Assertions in C#
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      The third release of LinqToRdf has been uploaded to GoogleCode. Go to the project web site for links to the latest release.
-LinqToRdf Changes:
-support for SPARQL type casting numerous bug fixes better support for identity projections more SPARQL relational operators latest versions of SemWeb &amp; SPARQL Engine, incorporating recent bug fixes and enhancements of each of them I have also released a new graphical designer to auto-generate C# entity models as well as N3 ontology specifications from UML-like designs.
+      Recently I attempted to implement a declarative predicate checking system to allow design by contract (DBC) within C# 3.0. I was not successful due to a limitation in the kind of parameters one can pass to an Attribute constructor in .NET (no lambdas). I thought I&rsquo;d just follow that up with a simpler model based on extension methods.
+public static class Predicates { public static void Assert&lt;T&gt;(this T obj, Func&lt;T, bool&gt; pred) { if (!
     </div>
   </div>
 </div>
@@ -175,15 +162,12 @@ support for SPARQL type casting numerous bug fixes better support for identity p
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/2008/announcing-linqtordf-v05/" class="link black dim">
-        Announcing LinqToRdf v0.5
+      <a href="/1/01/configuration-considered-harmful/" class="link black dim">
+        Configuration considered harmful
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      []{#msg_06050fdd438f8b01}The fifth release of LinqToRdf has just been uploaded to Google Code.
-Go to http://code.google.com/p/linqtordf for links to the latest MSI installer.
-LinqToRdf Changes:
-Member access projections like this: from a in c select a.Name initial support for Distinct results latest versions of SemWeb &amp; SPARQL Engine, incorporating the new SqlServer store provider updated the DSL tools to compile on RTM version of VS.NET 2008 Please let me know how you get on.
+      The configuration of applications is a reflex action these days. Programmers assume the need for a config system without reflection and then move on to wondering howthey will implement it. I&rsquo;ve spent a bit of time lately wondering how many of these standard practices of configuration are ill-pre-conceived opinions. Do they deserve the merit that they have? I con&rsquo;t help but think that most of the times I use config it&rsquo;s out of habit, and the vague idea that it adds to my system somehow.
     </div>
   </div>
 </div>
@@ -195,14 +179,13 @@ Member access projections like this: from a in c select a.Name initial support f
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/2008/announcing-linqtordf-v06/" class="link black dim">
-        Announcing LinqToRdf v0.6
+      <a href="/1/01/continue-if-not-null-operator-yes-please/" class="link black dim">
+        Continue if not null operator? Yes please!
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      I&rsquo;ve just uploaded LinqToRdf v0.6 with improved designer support for Visual Studio .NET 2008.
-The release includes the following high-points:
-LinqToRdf Designer and VS.NET 2008 extension completely rewritten LinqToRdf Installer now includes the installer of LinqToRdf Designer (at no extra cost) Project and Item templates now installed as part of LinqToRdf Designer Generated object and data properties now get their own EntitySet or EntityRef. Generates LINQ to SQL-style DataContext objects to hide query creation.
+      Olmo made a very worthwhile suggestion on the LINQ forums recently. His suggestion was for a new operator to be added to the C# language to allow us to do away with the following kind of pesky construct:
+[sourcecode language='csharp']string x; if(a != null &amp;amp;&amp;amp; a.Address != null &amp;amp;&amp;amp; a.Address.FirstLine != null) x = a.Address.FirstLine;[/sourcecode] instead he suggested a new ?. operator so that we could produce something like this:
     </div>
   </div>
 </div>
@@ -214,13 +197,98 @@ LinqToRdf Designer and VS.NET 2008 extension completely rewritten LinqToRdf Inst
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="/posts/2008/announcing-linqtordf-v07/" class="link black dim">
-        Announcing LinqToRdf v0.7
+      <a href="/1/01/contractual-contraction/" class="link black dim">
+        Contractual Contraction
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      I&rsquo;m proud to say that I&rsquo;ve finally uploaded version 0.7 of LinqToRdf. This is by far the best release of LinqToRdf (so far), and it now contains full support for relationship navigation out of the box. Relationship support has always been possible (provided you were intimately familiar with various undocumented parts of LINQ:), but with the automated support for instance URIs that came in version 0.6, it&rsquo;s now automatic.
-The high points of the release are:
+      Well, then end of another contract looms. Telstra have been my &ldquo;hosts&rdquo; for the last few months. I would like to believe that it has not been a parasitic relationship. A parasite is &ldquo;an organism that grows, feeds, and is sheltered on or in a different organism while contributing nothing to the survival of its host&rdquo;. Sadly though, I must admit that, try as I might, I was able to contribute little more than a few (beautifully typeset) documents that were promptly applauded then ignored.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/1/01/converting-jena-to-.net/" class="link black dim">
+        Converting Jena to .NET
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      I spent most of my evening converting Jena to .NET. Needless to say it was only at the end of the evening that I discovered that Andy Seabourne (from my old home town of Bristol) had already worked out how to use IKVM to convert the jar files into assemblies. I&rsquo;m not bothered though; I produced make files (rather than shell scripts) that work better on cygwin. The best thing I got from Andy was his &ldquo;don&rsquo;t worry be happy&rdquo; advice that IKVM spuriously complains about unfound classes - you don&rsquo;t need to worry about it.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/1/01/cord-blood-yields-ethical-embryonic-stem-cells/" class="link black dim">
+        Cord blood yields &#39;ethical&#39; embryonic stem cells
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      New scientist is carrying a story about the use of cord blood in the preparation of embryonic stem cells. When K &amp; I saw references to preservation of cord blood around the hospital we thought that it was to be preserved for later use by the baby in the case of operations and anemia. Now I am wondering whether they actually want it for other people. In which case my eagerness is slightly less!
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/1/01/corneliu-caught-a-funnel-web-and-persuaded-it-to-do-a-photo-shoot/" class="link black dim">
+        Corneliu caught a funnel-web, and persuaded it to do a photo shoot
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      [I doubt he got far with the Austin Powers routine&hellip;]{style=&ldquo;color:rgb(79, 129, 189);font-size:9pt;&rdquo;}
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/1/01/cowardly-manouver/" class="link black dim">
+        Cowardly Manouver
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Well, EDS seemed grim-in-the-extreme, they want someone to spend two months writing some godawful burocratic change request document for some Telstra billing department. I think that my facial expression may have hinted at the miasmic feeling of despondency and depression I felt at the prospect of having to wade neck-deep through so much pointless paper. I doubt I&rsquo;ll hear back from them, especially after asking to see one of their documents to check the level of design they wanted from me - only to discover that there was none!
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/1/01/creating-a-linq-query-provider/" class="link black dim">
+        Creating A LINQ Query Provider
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      As promised last time, I have extended the query mechanism of my little application with a LINQ Query Provider. I based my initial design on the method published by Bart De Smet, but have extended that framework, cleaned it up and tied it in with the original object deserialiser for SemWeb (a semantic web library by Joshua Tauberer).
+In this post I&rsquo;ll give you some edited highlights of what was involved.
     </div>
   </div>
 </div>
@@ -254,15 +322,15 @@ The high points of the release are:
         <a href="/posts/page/10/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
       </li>
       <li class="page-item">
-        <a href="/posts/page/80/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/posts/page/40/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
       </li>
     </ul></article>
 
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
-    &copy;  The Wandering Glitch 2022 
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://industrialinference.com/" >
+    &copy;  Andrew Matthews 2022 
   </a>
     <div>
 <div class="ananke-socials">
