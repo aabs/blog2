@@ -1,135 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  Announcing LinqToRdf v0.8 · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-
-
-
-
-<meta name="description" content="I&rsquo;m very pleased to announce the release of version 0.8 of LinqToRdf. This release is significant for a couple of reasons. Firstly, because it provides a preview release of RdfMetal and secondly because it is the first release containing changes contributed by someone other than yours truly. The changes in this instance being provided by Carl Blakeley of OpenLink Software.
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Announcing LinqToRdf v0.8 - The Wandering Glitch</title>
+  <meta property="og:title" content="Announcing LinqToRdf v0.8 - The Wandering Glitch" />
+  <meta name="twitter:title" content="Announcing LinqToRdf v0.8 - The Wandering Glitch" />
+  <meta name="description" content="I&rsquo;m very pleased to announce the release of version 0.8 of LinqToRdf. This release is significant for a couple of reasons. Firstly, because it provides a preview release of RdfMetal and secondly because it is the first release containing changes contributed by someone other than yours truly. The changes in this instance being provided by Carl Blakeley of OpenLink Software.
 LinqToRdf v0.8 has received a few major chunks of work:">
-<meta name="keywords" content="">
+  <meta property="og:description" content="I&rsquo;m very pleased to announce the release of version 0.8 of LinqToRdf. This release is significant for a couple of reasons. Firstly, because it provides a preview release of RdfMetal and secondly because it is the first release containing changes contributed by someone other than yours truly. The changes in this instance being provided by Carl Blakeley of OpenLink Software.
+LinqToRdf v0.8 has received a few major chunks of work:">
+  <meta name="twitter:description" content="I&rsquo;m very pleased to announce the release of version 0.8 of LinqToRdf. This release is significant for a couple of reasons. Firstly, because it provides a preview release of RdfMetal and secondly …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/1/01/announcing-linqtordf-v0.8/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Announcing LinqToRdf v0.8"/>
-<meta name="twitter:description" content="I&rsquo;m very pleased to announce the release of version 0.8 of LinqToRdf. This release is significant for a couple of reasons. Firstly, because it provides a preview release of RdfMetal and secondly because it is the first release containing changes contributed by someone other than yours truly. The changes in this instance being provided by Carl Blakeley of OpenLink Software.
-LinqToRdf v0.8 has received a few major chunks of work:"/>
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
-<meta property="og:title" content="Announcing LinqToRdf v0.8" />
-<meta property="og:description" content="I&rsquo;m very pleased to announce the release of version 0.8 of LinqToRdf. This release is significant for a couple of reasons. Firstly, because it provides a preview release of RdfMetal and secondly because it is the first release containing changes contributed by someone other than yours truly. The changes in this instance being provided by Carl Blakeley of OpenLink Software.
-LinqToRdf v0.8 has received a few major chunks of work:" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/1/01/announcing-linqtordf-v0.8/" /><meta property="article:section" content="posts" />
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-
-
-
-<link rel="canonical" href="https://industrialinference.com/1/01/announcing-linqtordf-v0.8/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/1/01/announcing-linqtordf-v0.8/">
-              Announcing LinqToRdf v0.8
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              2-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <p>I&rsquo;m very pleased to announce the release of version 0.8 of LinqToRdf. This release is significant for a couple of reasons. Firstly, because it provides a preview release of RdfMetal and secondly because it is the first release containing changes contributed by someone other than yours truly. The changes in this instance being provided by Carl Blakeley of <a href="http://www.openlinksw.com">OpenLink Software</a>.</p>
+      
+      <h1 class="article-title">Announcing LinqToRdf v0.8</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+      </ul>
+      
+      <p>I&rsquo;m very pleased to announce the release of version 0.8 of LinqToRdf. This release is significant for a couple of reasons. Firstly, because it provides a preview release of RdfMetal and secondly because it is the first release containing changes contributed by someone other than yours truly. The changes in this instance being provided by Carl Blakeley of <a href="http://www.openlinksw.com">OpenLink Software</a>.</p>
 <p>LinqToRdf v0.8 has received a few major chunks of work:</p>
 <ul>
 <li>New installers for both the designer and the whole framework
@@ -140,63 +60,31 @@ WIX was proving to be a pain, so I downgraded to the integrated installer genera
 <p>I hope that Carl&rsquo;s contributions represent an acknowledgement by OpenLink that not only does LinqToRdf support Virtuoso, but that there is precious little else in the .NET space that stands a chance of attracting developers to the semantic web. .NET is a huge untapped market for semantic web product vendors. LinqToRdf is, right now, the best way to get into semantic web development on .NET.</p>
 <p>Look out for blog posts from Carl in the next day or two, about using LinqToRdf with OpenLink <a href="http://virtuoso.openlinksw.com/">Virtuoso</a>.</p>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/1/01/announcing-linqtordf-v0.7/" data-toggle="tooltip" data-placement="top" title="Announcing LinqToRdf v0.7">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/1/01/another-anti-agile-gripe/" data-toggle="tooltip" data-placement="top" title="Another Anti-Agile Gripe">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>

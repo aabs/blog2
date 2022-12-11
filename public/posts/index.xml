@@ -155,8 +155,8 @@ It shows a very nice example of the new object creation syntax as well.</descrip
       
       <guid>https://industrialinference.com/1/01/a-cure-for-cancer/</guid>
       <description>From KurzweilAI. If this isn&amp;rsquo;t worth blogging about, then nothing is. Could this be the most historic announcement ever to arrive in my inbox? [ ]{style=&amp;ldquo;font-size:9pt;font-family:Arial;&amp;rdquo;}
-Cheap, safe drug kills most cancers Link to heading [[NewScientist.com news service Jan. 20, 2007]{style=&amp;ldquo;font-size:8pt;&amp;rdquo;}[ ]{style=&amp;ldquo;font-size:9pt;&amp;rdquo;}]{style=&amp;ldquo;font-family:Arial;&amp;rdquo;}
-University of Alberta scientists have tested dichloroacetate (DCA) on human cells cultured outside the body and found that it killed lung, breast and brain cancer cells, but not healthy cells&amp;hellip;.</description>
+Cheap, safe drug kills most cancers [[NewScientist.com news service Jan. 20, 2007]{style=&amp;ldquo;font-size:8pt;&amp;rdquo;}[ ]{style=&amp;ldquo;font-size:9pt;&amp;rdquo;}]{style=&amp;ldquo;font-family:Arial;&amp;rdquo;}
+University of Alberta scientists have tested dichloroacetate (DCA) on human cells cultured outside the body and found that it killed lung, breast and brain cancer cells, but not healthy cells&amp;hellip;. [http://www.kurzweilai.net/email/newsRedirect.html?newsID=6368&amp;amp;m=28179]{style=&amp;ldquo;color:blue;text-decoration:underline;&amp;rdquo;}</description>
     </item>
     
     <item>
@@ -194,7 +194,7 @@ I&amp;rsquo;ve created a Fisher plugin template to use as the basis for each of 
       
       <guid>https://industrialinference.com/1/01/a-jedi-fly-through/</guid>
       <description>NB: this file is still under construction. The first few sections are all that has been produced so far. If you feel like producing one of the sections that are incomplete from the list at the bottom of this document, then send an html doc to the mebmaster for inclusion (after appraisal)
-Introduction Link to heading This document is the basis of a use case analysis of the JEDI system. The sections of this document each cover a different aspect of the way that a user might interact with (i) the JEDI system, (ii) with programs in the JEDI system and (iii) with other users logged onto the system at the same time.</description>
+Introduction This document is the basis of a use case analysis of the JEDI system. The sections of this document each cover a different aspect of the way that a user might interact with (i) the JEDI system, (ii) with programs in the JEDI system and (iii) with other users logged onto the system at the same time.</description>
     </item>
     
     <item>
@@ -541,7 +541,7 @@ The music began with Allegri&amp;rsquo;s Misereri which blew us both away, but t
       <guid>https://industrialinference.com/1/01/as-the-buddha-said.../</guid>
       <description>&amp;hellip;life is pain.
 And it seems that some of us (and I&amp;rsquo;m including myself in this camp till proven otherwise) are born with an inherited tendency to feel more pain than others. This curse is known as &amp;ldquo;primary erythromelalgia&amp;rdquo;. And is somehow related to a defective sodium channel in the pain signalling neurons. I blame my parents.
-Breaking news Link to heading It seems that one of the guys that I&amp;rsquo;m working with has a father-in-law who was a body guard for Adolph Hitler.</description>
+Breaking news It seems that one of the guys that I&amp;rsquo;m working with has a father-in-law who was a body guard for Adolph Hitler.</description>
     </item>
     
     <item>
@@ -780,7 +780,7 @@ I&amp;rsquo;ve recently been playing around with PostSharp, and it brought to mi
       
       <guid>https://industrialinference.com/1/01/code-generation-patterns-part-1/</guid>
       <description>This time I&amp;rsquo;m going to show you the design pattern that I use for code generation. Generally I use this for analysis of hierarchical structures, such as assemblies or database metadata. You could use it in other scenarios, where data is less structured. If you are familiar with the operation of a SAX parser and .NET events then you&amp;rsquo;ll have no trouble understanding the design.
-SAX-like Parser Link to heading A SAX parser works by iterating through its material (in this case XML, but that&amp;rsquo;s immaterial) firing off events for everything that it finds.</description>
+SAX-like Parser A SAX parser works by iterating through its material (in this case XML, but that&amp;rsquo;s immaterial) firing off events for everything that it finds.</description>
     </item>
     
     <item>
@@ -961,7 +961,7 @@ Is this the ghost of Christmas&amp;rsquo; past or dad feeling left out because t
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/data-centre-strategy/</guid>
-      <description>Do the fundamentals matter? Link to heading Last week I was at the Cloud and Data Centre Edge Conference. It was a great trip, and I had the chance to chat with various leaders in the Australian data centre and cloud industry. The conversations continued after the conference was over, and one in particular was with a member of our investment analysis team.
+      <description>Do the fundamentals matter? Last week I was at the Cloud and Data Centre Edge Conference. It was a great trip, and I had the chance to chat with various leaders in the Australian data centre and cloud industry. The conversations continued after the conference was over, and one in particular was with a member of our investment analysis team.
 They wanted to know more about UniSuper&amp;rsquo;s data centre policy and my impressions of the conference.</description>
     </item>
     
@@ -1690,7 +1690,7 @@ Go back to bed.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/how-linq-works-creating-queries/</guid>
-      <description>Introduction Link to heading In recent weeks I&amp;rsquo;ve been decompiling LINQ with Reflector to try to better understand how expression trees get converted into code. I had some doubts about Reflector&amp;rsquo;s analysis capabilities, but [Matt Warren]{style=&amp;ldquo;color:#365f91;&amp;rdquo;} and [Nigel Watson]{style=&amp;ldquo;color:#365f91;&amp;rdquo;} assure me that it can resolve everything that gets generated by the C# 3.0 compiler. I am going to continue disassembling typical usage of LINQ to Objects, and will use whatever tools are available to allow me to peer beneath the hood.</description>
+      <description>Introduction In recent weeks I&amp;rsquo;ve been decompiling LINQ with Reflector to try to better understand how expression trees get converted into code. I had some doubts about Reflector&amp;rsquo;s analysis capabilities, but [Matt Warren]{style=&amp;ldquo;color:#365f91;&amp;rdquo;} and [Nigel Watson]{style=&amp;ldquo;color:#365f91;&amp;rdquo;} assure me that it can resolve everything that gets generated by the C# 3.0 compiler. I am going to continue disassembling typical usage of LINQ to Objects, and will use whatever tools are available to allow me to peer beneath the hood.</description>
     </item>
     
     <item>
@@ -3807,8 +3807,8 @@ Recently OpenLink has been investigating LinqToRdf{#link-id0x20d8a248}, an excit
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/who-should-you-vote-for/</guid>
-      <description>Who should I vote for? Link to heading Your expected outcome: Link to heading Liberal Democrat
-Your actual outcome: Link to heading Labour -4 ![](http://www.whoshouldyouvotefor.com/tiny_grey_light.gif){width=&amp;quot;8&amp;quot; height=&amp;quot;20&amp;quot;} Conservative -28 ![](http://www.whoshouldyouvotefor.com/tiny_grey_light.gif){width=&amp;quot;56&amp;quot; height=&amp;quot;20&amp;quot;} ![](http://www.whoshouldyouvotefor.com/tiny_grey_dark.gif){width=&amp;quot;92&amp;quot; height=&amp;quot;20&amp;quot;} Liberal Democrat 46 UK Independence Party -7 ![](http://www.whoshouldyouvotefor.com/tiny_grey_light.gif){width=&amp;quot;14&amp;quot; height=&amp;quot;20&amp;quot;} ![](http://www.whoshouldyouvotefor.com/tiny_grey_dark.gif){width=&amp;quot;66&amp;quot; height=&amp;quot;20&amp;quot;} Green 33 You should vote: Liberal Democrat
+      <description>Who should I vote for? Your expected outcome: Liberal Democrat
+Your actual outcome: Labour -4 ![](http://www.whoshouldyouvotefor.com/tiny_grey_light.gif){width=&amp;quot;8&amp;quot; height=&amp;quot;20&amp;quot;} Conservative -28 ![](http://www.whoshouldyouvotefor.com/tiny_grey_light.gif){width=&amp;quot;56&amp;quot; height=&amp;quot;20&amp;quot;} ![](http://www.whoshouldyouvotefor.com/tiny_grey_dark.gif){width=&amp;quot;92&amp;quot; height=&amp;quot;20&amp;quot;} Liberal Democrat 46 UK Independence Party -7 ![](http://www.whoshouldyouvotefor.com/tiny_grey_light.gif){width=&amp;quot;14&amp;quot; height=&amp;quot;20&amp;quot;} ![](http://www.whoshouldyouvotefor.com/tiny_grey_dark.gif){width=&amp;quot;66&amp;quot; height=&amp;quot;20&amp;quot;} Green 33 You should vote: Liberal Democrat
 The LibDems take a strong stand against tax cuts and a strong one in favour of public services: they would make long-term residential care for the elderly free across the UK, and scrap university tuition fees.</description>
     </item>
     
@@ -3860,7 +3860,7 @@ bool shouldUseXyzService = bool.Parse(WebConfiguration.AppSettings[&amp;quot;sho
 It&amp;rsquo;s a familiar thing to most programmers. And most programmers never stop to think about just how evil it is. In my last few posts I&amp;rsquo;ve been suggesting that we ought to be using something like this:
 if(SomeConfiguration.ShouldUseXyzService){…}
 Why is it better?
-Type Safety. Link to heading The key reason is automatic type safety.</description>
+Type Safety. The key reason is automatic type safety. Type safety ensures that when you make a call to another component you get the data you are after in the format you wanted.</description>
     </item>
     
     <item>

@@ -1,138 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  Knowledge Graphs 4 - Querying your knowledge graph using .NET · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-
-
-
-
-<meta name="description" content="This installment leaves the CLI behind to show how we consume a knowledge graph within our programmatic environments. The framework I use to work with RDF is dotNetRdf.
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Knowledge Graphs 4 - Querying your knowledge graph using .NET - The Wandering Glitch</title>
+  <meta property="og:title" content="Knowledge Graphs 4 - Querying your knowledge graph using .NET - The Wandering Glitch" />
+  <meta name="twitter:title" content="Knowledge Graphs 4 - Querying your knowledge graph using .NET - The …" />
+  <meta name="description" content="This installment leaves the CLI behind to show how we consume a knowledge graph within our programmatic environments. The framework I use to work with RDF is dotNetRdf.
 This is part 4 of an ongoing series providing a little background on &lsquo;knowledge graphs&rsquo;. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history, just practical knowledge.
 Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using .">
-<meta name="keywords" content="">
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Knowledge Graphs 4 - Querying your knowledge graph using .NET"/>
-<meta name="twitter:description" content="This installment leaves the CLI behind to show how we consume a knowledge graph within our programmatic environments. The framework I use to work with RDF is dotNetRdf.
+  <meta property="og:description" content="This installment leaves the CLI behind to show how we consume a knowledge graph within our programmatic environments. The framework I use to work with RDF is dotNetRdf.
 This is part 4 of an ongoing series providing a little background on &lsquo;knowledge graphs&rsquo;. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history, just practical knowledge.
-Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using ."/>
+Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using .">
+  <meta name="twitter:description" content="This installment leaves the CLI behind to show how we consume a knowledge graph within our programmatic environments. The framework I use to work with RDF is dotNetRdf.
+This is part 4 of an ongoing …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/1/01/knowledge-graphs-4-querying-your-knowledge-graph-using-.net/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
-<meta property="og:title" content="Knowledge Graphs 4 - Querying your knowledge graph using .NET" />
-<meta property="og:description" content="This installment leaves the CLI behind to show how we consume a knowledge graph within our programmatic environments. The framework I use to work with RDF is dotNetRdf.
-This is part 4 of an ongoing series providing a little background on &lsquo;knowledge graphs&rsquo;. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history, just practical knowledge.
-Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using ." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/1/01/knowledge-graphs-4-querying-your-knowledge-graph-using-.net/" /><meta property="article:section" content="posts" />
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-
-
-<link rel="canonical" href="https://industrialinference.com/1/01/knowledge-graphs-4-querying-your-knowledge-graph-using-.net/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/1/01/knowledge-graphs-4-querying-your-knowledge-graph-using-.net/">
-              Knowledge Graphs 4 - Querying your knowledge graph using .NET
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              9-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <p>This installment leaves the CLI behind to show how we consume a knowledge graph
+      
+      <h1 class="article-title">Knowledge Graphs 4 - Querying your knowledge graph using .NET</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#get-dotnetrdf-with-nuget">Get dotNetRdf with Nuget</a></li>
+    <li><a href="#remote-connections-and-connection-strings">Remote Connections and Connection Strings</a></li>
+    <li><a href="#how-to-perform-a-basic-query">How to perform a basic query</a></li>
+    <li><a href="#inserting-data-into-your-graph">Inserting data into your graph</a></li>
+    <li><a href="#making-sense-of-results">Making sense of results</a></li>
+    <li><a href="#pulling-graphs-to-avoid-cross-product-result-sets">Pulling graphs to avoid cross-product result sets</a></li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+</aside>
+      <p>This installment leaves the CLI behind to show how we consume a knowledge graph
 within our programmatic environments. The framework I use to work with RDF is
 <a href="http://www.dotnetrdf.org/">dotNetRdf</a>.</p>
 <p>This is part 4 of an ongoing series providing a little background on &lsquo;<em>knowledge graphs</em>&rsquo;. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history, just practical knowledge.</p>
@@ -146,33 +79,15 @@ within our programmatic environments. The framework I use to work with RDF is
 <li><a href="https://aabs.wordpress.com/2019/11/06/knowledge-graphs-7-named-graphs/">Knowledge Graphs 7 - Named graphs</a></li>
 </ul>
 <p>There are a couple of different ways to make queries and get results back from SPARQL. They have different strengths, so I will show both and try to briefly explain where they would be best used. First let&rsquo;s get the preliminaries out of the way.</p>
-<h2 id="get-dotnetrdf-with-nuget">
-  Get dotNetRdf with Nuget
-  <a class="heading-link" href="#get-dotnetrdf-with-nuget">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="get-dotnetrdf-with-nuget">Get dotNetRdf with Nuget</h2>
 <p>DotNetRdf is a framework for RDF processing that has been around for a while. it covers quite a few of the usage scenarios you are likely to have, but for my purposes, it is its SPARQL capabilities and its local in-memory graph capabilities that I care about. To get started, create a .NET project and add the nuget package.</p>
 <pre tabindex="0"><code>dotnet add package dotNetRDF --version 2.2.0
-</code></pre><h2 id="remote-connections-and-connection-strings">
-  Remote Connections and Connection Strings
-  <a class="heading-link" href="#remote-connections-and-connection-strings">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+</code></pre><h2 id="remote-connections-and-connection-strings">Remote Connections and Connection Strings</h2>
 <p>When working with SPARQL in dotNetRdf, the easiest way to go is to create a</p>
 <pre tabindex="0"><code>var rqp = new RemoteQueryProcessor(new SparqlRemoteEndpoint(new Uri(&#34;https://my.remote.endpoint/sparql&#34;)))
 </code></pre><p>Similarly, when you are aiming to insert or update data, you use a remote update processor.</p>
 <pre tabindex="0"><code>var rup = new RemoteUpdateProcessor(new SparqlRemoteUpdateEndpoint(new Uri(&#34;https://my.remote.endpoint/sparql&#34;)))
-</code></pre><h2 id="how-to-perform-a-basic-query">
-  How to perform a basic query
-  <a class="heading-link" href="#how-to-perform-a-basic-query">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+</code></pre><h2 id="how-to-perform-a-basic-query">How to perform a basic query</h2>
 <p>When you query, all the same principles apply as when you work with a relational database in SQL. You establish a connection to the remote store. Then, you build queries using predefined templates. You use a dedicated API to insert variables and params into the query as you build it. As with SQL, don&rsquo;t allow SQL/SPARQL injection attacks. Instead, use the automatic escaping facilities of the query API to convert your query parameters to a format compatible with SPARQL.</p>
 <pre tabindex="0"><code>var QueryProcessor = new RemoteQueryProcessor(
     new SparqlRemoteEndpoint(
@@ -201,13 +116,7 @@ foreach (var result in results)//8
 <li>The individual results are indexed by ordinal or name (just like a DataSet). The data does need to be converted out of RDF literal format (based on XML Schema Datatypes).</li>
 </ol>
 <p>If you have any familiarity with implementing data access frameworks you will see parallels between this little sequence, and the equivalent process used for frameworks like ADO.NET or ODBC/JDBC. When all&rsquo;s said and done, the problem is much the same whether you are using relational or graph based databases.</p>
-<h2 id="inserting-data-into-your-graph">
-  Inserting data into your graph
-  <a class="heading-link" href="#inserting-data-into-your-graph">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="inserting-data-into-your-graph">Inserting data into your graph</h2>
 <p>Inserting data into the knowledge graph is similar:</p>
 <pre tabindex="0"><code>var UpdateProcessor = new RemoteUpdateProcessor(
     new SparqlRemoteUpdateEndpoint(
@@ -234,13 +143,7 @@ query.Process(UpdateProcessor);//4
 <li>In addition to URI arguments to the query template, you can add literal data to the query. Normally it gets the escaping right. There are ways to override if you are using something obscure for your data types.</li>
 <li>As with something like ADO.NET, you present updates and don&rsquo;t get a result set.</li>
 </ol>
-<h2 id="making-sense-of-results">
-  Making sense of results
-  <a class="heading-link" href="#making-sense-of-results">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="making-sense-of-results">Making sense of results</h2>
 <p>A  <code>SparqlResultSet</code> is formatted according to the <a href="https://www.w3.org/TR/sparql11-results-json/">specification here</a>. The section  <code>#select_bindings</code> describes how the results are formatted as they are passed back. Essentially, they are in much the same format that they use when they are in the triple store. For our immediate purposes, that means they are either a  <code>Uri</code> node or a  <code>Literal</code> Node. There are other types, but I&rsquo;m ignoring them for now.</p>
 <p>I usually have some sort of switch statement to extract data from the result bindings. I normally use type information gleaned from reflection or some other kind of mapping API to tell me how to extract and convert the data when filling the properties of some result POCO.</p>
 <pre tabindex="0"><code>protected object GetNodeValue(Type propertyType, INode node)
@@ -310,13 +213,7 @@ query.Process(UpdateProcessor);//4
                     wc =&gt; wc.Incoming(&#34;n:withPlayer&#34;).Outgoing(&#34;n:withTeam&#34;));
 }
 </code></pre><p>This mapper example also uses a graph walking system I will cover in a later installment.</p>
-<h2 id="pulling-graphs-to-avoid-cross-product-result-sets">
-  Pulling graphs to avoid cross-product result sets
-  <a class="heading-link" href="#pulling-graphs-to-avoid-cross-product-result-sets">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="pulling-graphs-to-avoid-cross-product-result-sets">Pulling graphs to avoid cross-product result sets</h2>
 <p>The standard SPARQL  <code>SELECT</code> query gets results back in a tabular form. That means that if you present it with a query like this:</p>
 <pre tabindex="0"><code>SELECT ?teamId ?playerId
 WHERE {
@@ -356,74 +253,36 @@ WHERE
             n:withTeam ?teamId.
     }
 </code></pre><p>I&rsquo;ve found this a very powerful way to pull back a whole bunch of related data in a single pass, when I can anticipate that the data will be needed, or where the latency cost of repeated calls to the database is too much to bear.</p>
-<h2 id="summary">
-  Summary
-  <a class="heading-link" href="#summary">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="summary">Summary</h2>
 <p>This is a pretty code intensive post, and to make it short enough I&rsquo;ve had to leave some things to your imagination. I showed how to connect to the query and update APIs of a triple store using dotNetRdf. I showed the anatomy of typical  <code>INSERT</code> and  <code>SELECT</code> queries. I showed some of the typical boilerplate related to getting data into a POCO format from XSD data. This is normally handled for you by platforms like WCF etc, but here we have to do it ourselves. Lastly I showed a neat way to pull back a graph, which is much nicer for deserializing POCOs.</p>
 <p>Next time I will show how I create a simple API to walk a <em><strong>local</strong></em> in-memory graph (in a way similar to <a href="https://en.wikipedia.org/wiki/Gremlin_(programming_language)">Gremlin</a>) to allow me to easily extract data from the graph when I know what I am looking for.</p>
 <p>Meanwhile, please let me know if this series is useful to you in what you are doing.</p>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/1/01/kerry-smells-or-at-least-i-hope-so/" data-toggle="tooltip" data-placement="top" title="Kerry smells - or at least I hope so!!!">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/1/01/knowledge-graphs-5-modelling-with-rdfs/" data-toggle="tooltip" data-placement="top" title="Knowledge Graphs 5 - Modelling with RDFS">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>

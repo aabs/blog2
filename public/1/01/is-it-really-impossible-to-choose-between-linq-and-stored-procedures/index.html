@@ -1,135 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  Is it really impossible to choose between LINQ and Stored Procedures? · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-
-
-
-
-<meta name="description" content="For the mathematician there is no [Ignorabimus]{style=&ldquo;font-size:10pt;&rdquo;}, and, in my opinion, not at all for natural science either. &hellip; The true reason why [no one] has succeeded in finding an unsolvable problem is, in my opinion, that there is no unsolvable problem. In contrast to the foolish Ignoramibus, our credo avers: We must know, We shall know.
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Is it really impossible to choose between LINQ and Stored Procedures? - The Wandering Glitch</title>
+  <meta property="og:title" content="Is it really impossible to choose between LINQ and Stored Procedures? - The Wandering Glitch" />
+  <meta name="twitter:title" content="Is it really impossible to choose between LINQ and Stored Procedures? …" />
+  <meta name="description" content="For the mathematician there is no [Ignorabimus]{style=&ldquo;font-size:10pt;&rdquo;}, and, in my opinion, not at all for natural science either. &hellip; The true reason why [no one] has succeeded in finding an unsolvable problem is, in my opinion, that there is no unsolvable problem. In contrast to the foolish Ignoramibus, our credo avers: We must know, We shall know.
 It&rsquo;s that time of the month again – when all of the evangelically inclined mavens of Readify gather round to have the traditional debate.">
-<meta name="keywords" content="">
+  <meta property="og:description" content="For the mathematician there is no [Ignorabimus]{style=&ldquo;font-size:10pt;&rdquo;}, and, in my opinion, not at all for natural science either. &hellip; The true reason why [no one] has succeeded in finding an unsolvable problem is, in my opinion, that there is no unsolvable problem. In contrast to the foolish Ignoramibus, our credo avers: We must know, We shall know.
+It&rsquo;s that time of the month again – when all of the evangelically inclined mavens of Readify gather round to have the traditional debate.">
+  <meta name="twitter:description" content="For the mathematician there is no [Ignorabimus]{style=&ldquo;font-size:10pt;&rdquo;}, and, in my opinion, not at all for natural science either. &hellip; The true reason why [no one] has succeeded in …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/1/01/is-it-really-impossible-to-choose-between-linq-and-stored-procedures/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Is it really impossible to choose between LINQ and Stored Procedures?"/>
-<meta name="twitter:description" content="For the mathematician there is no [Ignorabimus]{style=&ldquo;font-size:10pt;&rdquo;}, and, in my opinion, not at all for natural science either. &hellip; The true reason why [no one] has succeeded in finding an unsolvable problem is, in my opinion, that there is no unsolvable problem. In contrast to the foolish Ignoramibus, our credo avers: We must know, We shall know.
-It&rsquo;s that time of the month again – when all of the evangelically inclined mavens of Readify gather round to have the traditional debate."/>
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
-<meta property="og:title" content="Is it really impossible to choose between LINQ and Stored Procedures?" />
-<meta property="og:description" content="For the mathematician there is no [Ignorabimus]{style=&ldquo;font-size:10pt;&rdquo;}, and, in my opinion, not at all for natural science either. &hellip; The true reason why [no one] has succeeded in finding an unsolvable problem is, in my opinion, that there is no unsolvable problem. In contrast to the foolish Ignoramibus, our credo avers: We must know, We shall know.
-It&rsquo;s that time of the month again – when all of the evangelically inclined mavens of Readify gather round to have the traditional debate." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/1/01/is-it-really-impossible-to-choose-between-linq-and-stored-procedures/" /><meta property="article:section" content="posts" />
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-
-
-
-<link rel="canonical" href="https://industrialinference.com/1/01/is-it-really-impossible-to-choose-between-linq-and-stored-procedures/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/1/01/is-it-really-impossible-to-choose-between-linq-and-stored-procedures/">
-              Is it really impossible to choose between LINQ and Stored Procedures?
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              14-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <blockquote>
+      
+      <h1 class="article-title">Is it really impossible to choose between LINQ and Stored Procedures?</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#the-decision-problem---a-quick-detour">The Decision Problem - a quick detour</a></li>
+        <li><a href="#the-architectural-decision-problem">The Architectural Decision Problem</a></li>
+        <li><a href="#judging-a-good-design">Judging a good design</a></li>
+        <li><a href="#scientific-software-design">Scientific Software Design?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+      <blockquote>
 <p>For the mathematician there is no <a href="http://en.wikipedia.org/wiki/Ignorabimus">[<em>Ignorabimus</em>]{style=&ldquo;font-size:10pt;&rdquo;}</a>, and, in my opinion, not at all for natural science either. &hellip; The true reason why [no one] has succeeded in finding an unsolvable problem is, in my opinion, that there is no unsolvable problem. In contrast to the foolish Ignoramibus, our credo avers:
 We must know,
 We shall know.</p>
@@ -147,45 +81,21 @@ We shall know.</p>
 <p>That is the real reason we spend so much of our time rehearsing these architectural arguments, trying to win over the other side. Nobody gets evangelical about something they <em>just know</em> - they only evangelise about things they are <em>not</em> sure about. Most people don&rsquo;t proclaim to the world that the sun will rise tomorrow. But like me, you may well devote a lot of bandwidth to the idea that the object domain is paramount, not the relational. As an object oriented specialist that is my central creed and highest article of faith. The traditional debate goes on because we just don&rsquo;t have <em>proof</em> on either side. Both sides have thoroughly convincing arguments, and there is no decision procedure to choose between them.</p>
 <p>So why don&rsquo;t we just resolve it once and for all? The computer science and software engineering fraternity is probably the single largest focussed accumulation of IQ points gathered in the history of mankind. They all focus intensively on issues just like this. Surely it is not beyond them to answer the simple question of whether we should put our business logic into stored procedures or use an ORM product to dynamically generate SQL statements. My initial thought was &ldquo;<em>We Must Know, We Will Know</em>&rdquo; or words to that effect. There is nothing that can&rsquo;t be solved given enough resolve and intelligence. If we have a will to do so, we could probably settle on a definitive way to describe an architecture so that we can decide what is best for a given problem.</p>
 <p>Those of you who followed the link at the top of the post will have found references there to David Hilbert, and that should have given you enough of a clue to know that there&rsquo;s a chance that my initial sentiment was probably a pipe dream. If you are still in the dark, I&rsquo;m referring to Hilbert&rsquo;s <a href="http://en.wikipedia.org/wiki/Entscheidungsproblem">Entscheidungsproblem</a> (or the <em>Decision Problem</em> in English) and I <a href="http://aabs.wordpress.com/2005/09/08/books-that-i-have-loved/">beg</a> you to read Douglas Hofstadter&rsquo;s magnificent <em>Gödel, Escher, Bach – An eternal golden braid</em>. This book is at the top of my all-time favourites list, and among the million interesting topics it covers, the decision problem is central.</p>
-<h3 id="the-decision-problem---a-quick-detour">
-  The Decision Problem - a quick detour
-  <a class="heading-link" href="#the-decision-problem---a-quick-detour">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
+<h3 id="the-decision-problem---a-quick-detour">The Decision Problem - a quick detour</h3>
 <p>One thing you&rsquo;ll notice about the Entscheidungsproblem and Turing&rsquo;s <a href="http://en.wikipedia.org/wiki/Halting_problem"><em>Halting Problem</em></a> is that they are equivalent. They seem to be asking about different things, but at a deeper level the problems are the same. The decision problem asks whether there is a mechanical procedure to determine the truth of any mathematical statement. At the turn of the century they might have imagined some procedure that cranked through every derivation of the axioms of mathematical logic till it found a proof of the statement returning true. The problem with that brute-force approach is that mathematics allows a continual complexification and simplification of statements – it is <em>non-monotonic</em>. The implication is that just because you have applied every combination of the construction rules on all of the axioms up to a given length you can&rsquo;t know whether there are new statements of the same length that could be found by the repeated application of growth and shrinkage rules that aren&rsquo;t already in your list. That means that even though you may think you have a definitive list of all the true statements of a given length you may be wrong, so you can never give a false, only continue till you either find a concrete proof or disproof.</p>
 <p>Because of these non-monotonic derivation rules, you will never be sure that no answer from your procedure means an answer of <strong>false</strong>. You will always have to wait and see. This is the equivalence between the Entscheidungsproblem and Alan Turing&rsquo;s Halting Problem. If you knew your procedure would not halt, then you would just short-circuit the decision process and immediately answer <strong>false</strong>. If you knew that the procedure <em>would</em> halt, then you would just let it run and produce whatever true/false answer it came up with – either way, you would have a decision procedure. Unfortunately it&rsquo;s not that easy, because the halting decision procedure has no overview of the whole of mathematics either, and can&rsquo;t give an answer to the halting question. Ergo there is no decision procedure either. Besides, Kurt Gödel proved that there were undecidable problems, and the quest for a decision procedure was doomed to fail. he showed that even if you came up with a more sophisticated procedure than the brute force attack, you would still never get a decision procedure for all mathematics.</p>
-<h3 id="the-architectural-decision-problem">
-  The Architectural Decision Problem
-  <a class="heading-link" href="#the-architectural-decision-problem">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
+<h3 id="the-architectural-decision-problem">The Architectural Decision Problem</h3>
 <p>What has this got to do with deciding on the relative merits of two software designs? Is the issue of deciding between two designs also equivalent to the decision problem? Is it a constraint optimisation problem? You could enumerate the critical factors, assign a rank to them and then sum the scores for each design? That is exactly what I did in one of my recent <a href="http://aabs.wordpress.com/2007/01/23/the-great-domain-model-debate-%e2%80%93-solved/">posts</a> entitled &ldquo;<em>The great Domain Model Debate – Solved!</em>&rdquo; Of course the &lsquo;<em>Solved!</em>&rsquo; part was partly tongue-in-cheek – I just provided a decision procedure for readers to distinguish between the competing designs of domain models.</p>
 <p>One of the criticisms levelled at my offering for this problem was that my weights and scores were too subjective. I maintained that although my heuristic was flawed, it held the key to solving these design issues because there was the hope that there <em>are</em> objective measures of the importance of design criteria for each design, and it was possible to quantify the efficacy of each approach. But I&rsquo;m beginning to wonder whether that&rsquo;s really true. Let&rsquo;s consider the domain model approach for a moment to see how we could quantify those figures.</p>
 <p>Imagine that we could enumerate all of the criteria that pertained to the problem. Each represents an aspect of the value that architects place in a good design. In my previous post I considered such things as complexity, density of data storage, performance, maintainability etc. Obviously each of these figures varies in just how subjective it is. Complexity is a measure of how easy it is to understand. One programmer may be totally at home with a design whereas another may be confused. But there <a href="http://en.wikipedia.org/wiki/Algorithmic_complexity">are</a> measures of complexity that <em>are</em> objective that we could use. We could use that as an indicator of maintainability – the more complex a design is, the harder it would be to maintain.</p>
 <p>This complexity measure would be more fundamental than any mere subjective measure, and would be tightly correlated with the subjective measure. Algorithmic complexity would be directly related to the degree of confusion a given developer would experience when first exposed to the design. Complexity affects our ability to remember the details of the design (as it is employed in a given context) and also our ability to mentally visualise the design and its uses. When we give a subjective measure of something like complexity, it may be due to the fact that we are looking at it from the wrong level. Yes, there is a subjective difference, but that is because of an objective difference that we are responding to.</p>
 <p>It&rsquo;s even possible to prove that such variables exist, so long as we are willing to agree that a subjective dislike that is completely whimsical is not worth incorporating into an assessment of a design&rsquo;s worth. I&rsquo;m thinking of such knee-jerk reactions like &lsquo;<em>we never use that design here</em>&rsquo; or &lsquo;<em>I don&rsquo;t want to use it because I heard it was no good</em>&rsquo;. Such opinions whilst strongly felt are of no value, because they don&rsquo;t pertain to the design per-se but rather to a free-standing psychological state in the person who has them. The design could still be optimal, but that wouldn&rsquo;t stop them from having that opinion. Confusion on the other hand has its origin in some aspect of the design, and thus should be factored in.</p>
 <p>For each subjective criterion that we currently use to judge a design, there must be a set of objective criteria that cause it. If there are none, then we can discount it - it contributes nothing to an objective decision procedure – it is just a prejudice. If there are objective criteria, then we can substitute all occurrences of the subjective criterion in the decision procedure with the set of objective criteria. If we continue this process, we will eventually be left with nothing but objective criteria. At that point are we in a position to choose between two designs?</p>
-<h3 id="judging-a-good-design">
-  Judging a good design
-  <a class="heading-link" href="#judging-a-good-design">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
+<h3 id="judging-a-good-design">Judging a good design</h3>
 <p>It still remains to be seen whether we can enumerate all of the objective criteria that account for our experiences with a design, and its performance in production. It also remains for us to work out ways to measure them, and weigh their relative importance over other criteria. We are still in danger of slipping into a world of subjective opinions over what is most important. We should be able to apply some rigour because we&rsquo;re aiming at a stationary target. Every design is produced to fulfil a set of requirements. Provided those requirements are fulfilled we can assess the design solely in terms of the objective criteria. We can filter out all of the designs that are incapable of meeting the requirements – all the designs that are left are guaranteed to do the job, but some will be better than others. If that requires that we formally specify our designs and requirements then (for the purposes of this argument) so be it. All that matters is that we are able to guarantee that all remaining designs are fit to be used. All that distinguishes them are performance and other quality criteria that can be objectively measured.</p>
 <p>Standard practice in software engineering is to reduce a problem to its component parts, and attempt to then compose the system from those components in a way that fulfils the requirements for the system. Clearly there are internal structures to a system, and those structures cannot necessarily be weighed in isolation. There is a context in which parts of a design make sense, and they can only be judged within that context. Often we judge our design patterns as though they were isolated systems on their own. That&rsquo;s why people sometimes decide to use design patterns before they have even worked out if they are <a href="http://aabs.wordpress.com/2007/03/08/singleton-%e2%80%93-the-most-overused-pattern/">appropriate</a>. The traditional debate is one where we judge the efficacy of a certain type of data access approach in isolation of the system it&rsquo;s to be used in. I&rsquo;ve seen salesmen for major software companies do the same thing – their marks have decided they are going to use the product before they&rsquo;ve worked out why they will do so. I wonder whether the components of our architectural decision procedure can be composed in the same way that our components are.</p>
 <p>In the context that they&rsquo;re to be used, will all systems have a monotonic effect on the quality of a system? Could we represent the quality of our system as a sum of scores of the various sub-designs in the system like this? (Q~1~ + Q~2~ + &hellip; + Q~n~) That would assume that the quality of the system is the sum of the quality of its parts which seems a bit naive to me – some systems will work well in combination, others will limit the damage of their neighbours and some will exacerbate problems that would have lain dormant in their absence. How are we to represent the calculus of software quality? Perhaps the answer lies in the architecture itself? If you were to measure the quality of each unique path through the system, then you would have a way to measure the quality of that path as though it was a sequence of operations with no choices or loops involved. You could then sum the quality of each of these paths weighted in favour of frequency of usage. That would eliminate all subjective bias and the impact of all sub designs would be proportional to the centrality of its role within the system as a whole. In most systems data access plays a part in pretty much all paths through a system, hence the disproportionate emphasis we place on it in the traditional debates.</p>
-<h3 id="scientific-software-design">
-  Scientific Software Design?
-  <a class="heading-link" href="#scientific-software-design">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
+<h3 id="scientific-software-design">Scientific Software Design?</h3>
 <p>Can we work out what these criteria are? If we could measure every aspect of the system (data that gets created, stored, communicated, the complexity of that data etc) then we have the physical side of the picture – what we still lack is all of those thorny subjective measures that matter. Remember though that these are the subjective measures that <em>can</em> be converted into objective measures. Each of those measures can thus be added to the mix. What&rsquo;s left? All of the criteria that we don&rsquo;t know to ask about, and all of the physical measurements that we don&rsquo;t know how to make, or don&rsquo;t even know we should make. That&rsquo;s the elephant in the room. You don&rsquo;t know what you don&rsquo;t know. And if you did, then it would pretty immediately fall to some kind of scientific enquiry. But will we be in the same situation as science and mathematics was at the dawn of the 20^th^ Century? Will we, like Lord Kelvin, declare that everything of substance about software architecture is known and all the future holds for us is the task of filling in the gaps?</p>
 <p>Are these unknown criteria like the unknown paths through a mathematical derivation? Are they the fatal flaw that unhinges any attempt to assess the quality of a design, or are they the features that turns software engineering into a weird amalgam of mathematics, physics and psychology? There will never be any way for us to unequivocally say that we have found all of the criteria that truly determine the quality of a design. Any criteria that we can think of we can objectify – but it&rsquo;s the ones we can&rsquo;t or don&rsquo;t think of that will undermine our confidence in a design and doom us to traditional debates. Here&rsquo;s a new way to state Hilbert&rsquo;s 10^th^ Problem:</p>
 <blockquote>
@@ -197,63 +107,31 @@ We shall know.</p>
 </blockquote>
 <p>The spirit of the enlightenment is fading. That much is certain. The resurgence of religiosity in all parts of the world is a backward step. It pulls us away from that pioneering spirit that Kant called a maturing of the human spirit. Maturity is no longer needing authority figures to tell us what to think. He was talking about the grand program to roll back the stifling power of the church. In software design we still cling to the idea that there are authority figures that are infallible. When they proclaim a design as sound, then we use it without further analysis. Design patterns are our scriptures, and traditional wisdom the ultimate authority by which we judge our designs. I want to see the day when scientific method is routinely brought to bear on software designs. Only then will we have reached the state of maturity where we can judge each design on its objective merits. I wonder what the Readify Tech List will be like then?</p>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/1/01/intrusive-technology/" data-toggle="tooltip" data-placement="top" title="Intrusive Technology">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/1/01/its-foggy-in-melbourne-today/" data-toggle="tooltip" data-placement="top" title="It&#39;s foggy in Melbourne today">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>

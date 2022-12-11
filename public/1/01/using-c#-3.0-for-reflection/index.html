@@ -1,135 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  Using C# 3.0 For Reflection · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-
-
-
-
-<meta name="description" content="C# in Orcas will provide a bunch of really useful tools for those who want to perform tasks involving reflection. The reflection APIs in C# are already excellent but with the new query capabilities provided by LINQ, Reflection will be a real pleasure. There’ve been a few excellent posts on the topic.
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Using C# 3.0 For Reflection - The Wandering Glitch</title>
+  <meta property="og:title" content="Using C# 3.0 For Reflection - The Wandering Glitch" />
+  <meta name="twitter:title" content="Using C# 3.0 For Reflection - The Wandering Glitch" />
+  <meta name="description" content="C# in Orcas will provide a bunch of really useful tools for those who want to perform tasks involving reflection. The reflection APIs in C# are already excellent but with the new query capabilities provided by LINQ, Reflection will be a real pleasure. There’ve been a few excellent posts on the topic.
 In this post I’ll show you how to use the attribute metadata system to filter types using LINQ. In past posts I’ve talked about the Design By Contract (DBC) system I used to generate pre and post conditions for methods on a class.">
-<meta name="keywords" content="">
+  <meta property="og:description" content="C# in Orcas will provide a bunch of really useful tools for those who want to perform tasks involving reflection. The reflection APIs in C# are already excellent but with the new query capabilities provided by LINQ, Reflection will be a real pleasure. There’ve been a few excellent posts on the topic.
+In this post I’ll show you how to use the attribute metadata system to filter types using LINQ. In past posts I’ve talked about the Design By Contract (DBC) system I used to generate pre and post conditions for methods on a class.">
+  <meta name="twitter:description" content="C# in Orcas will provide a bunch of really useful tools for those who want to perform tasks involving reflection. The reflection APIs in C# are already excellent but with the new query capabilities …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/1/01/using-c#-3.0-for-reflection/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Using C# 3.0 For Reflection"/>
-<meta name="twitter:description" content="C# in Orcas will provide a bunch of really useful tools for those who want to perform tasks involving reflection. The reflection APIs in C# are already excellent but with the new query capabilities provided by LINQ, Reflection will be a real pleasure. There’ve been a few excellent posts on the topic.
-In this post I’ll show you how to use the attribute metadata system to filter types using LINQ. In past posts I’ve talked about the Design By Contract (DBC) system I used to generate pre and post conditions for methods on a class."/>
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
-<meta property="og:title" content="Using C# 3.0 For Reflection" />
-<meta property="og:description" content="C# in Orcas will provide a bunch of really useful tools for those who want to perform tasks involving reflection. The reflection APIs in C# are already excellent but with the new query capabilities provided by LINQ, Reflection will be a real pleasure. There’ve been a few excellent posts on the topic.
-In this post I’ll show you how to use the attribute metadata system to filter types using LINQ. In past posts I’ve talked about the Design By Contract (DBC) system I used to generate pre and post conditions for methods on a class." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/1/01/using-c#-3.0-for-reflection/" /><meta property="article:section" content="posts" />
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-
-
-
-<link rel="canonical" href="https://industrialinference.com/1/01/using-c#-3.0-for-reflection/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/1/01/using-c#-3.0-for-reflection/">
-              Using C# 3.0 For Reflection
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              5-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <p>C# in Orcas will provide a bunch of really useful tools for those who want to perform tasks involving reflection. The reflection APIs in C# are already excellent but with the new query capabilities provided by LINQ, Reflection will be a real pleasure. There’ve been a few excellent posts on the topic.</p>
+      
+      <h1 class="article-title">Using C# 3.0 For Reflection</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents"></nav>
+</aside>
+      <p>C# in Orcas will provide a bunch of really useful tools for those who want to perform tasks involving reflection. The reflection APIs in C# are already excellent but with the new query capabilities provided by LINQ, Reflection will be a real pleasure. There’ve been a few excellent posts on the topic.</p>
 <p>In this post I’ll show you how to use the attribute metadata system to filter types using LINQ. In past posts I’ve talked about the Design By Contract (DBC) system I used to generate pre and post conditions for methods on a class. In the post I’ll use Queries, Extension Methods, and iterators to show you how to get types for inserting into the code generation system. Just to recap, here’s how I annotate a class:</p>
 <p>[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}</p>
 <pre><code>[Dbc, Invariant(&quot;Prop1 &gt;= 1&quot;)]
@@ -305,63 +228,31 @@ private static IEnumerable&lt;AttrType&gt; GetAllAttributes&lt;AttrType&gt;(Memb
 </code></pre>
 <p>It’s really pretty neat. It doesn’t do anything we couldn’t do before but it does it in a way that makes it seem as though the framework classes provide all of the features we need from them out of the box. I like that, it makes code much more readable.</p>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/1/01/ubuntist-deviant-atones-for-sins/" data-toggle="tooltip" data-placement="top" title="Ubuntist deviant atones for sins">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/1/01/using-mock-objects-when-testing-linq-code/" data-toggle="tooltip" data-placement="top" title="Using Mock Objects When Testing LINQ Code">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>

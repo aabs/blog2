@@ -1,132 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  Silverlight HtmlElement wrappers · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Silverlight HtmlElement wrappers - The Wandering Glitch</title>
+  <meta property="og:title" content="Silverlight HtmlElement wrappers - The Wandering Glitch" />
+  <meta name="twitter:title" content="Silverlight HtmlElement wrappers - The Wandering Glitch" />
+  <meta name="description" content="I&rsquo;ve been glancing at the HtmlElement class in Silverlight today. It&rsquo;s a nice system, but it&rsquo;s clearly a work in progress. Everything I&rsquo;ve said in the past about lumping all of your object model into a single class applies to this. The thing that irritated me was that it wouldn&rsquo;t have been hard for the Silverlight 1.1 team to make the developer experience more palatable even if they were using the one class under the hood.">
+  <meta property="og:description" content="I&rsquo;ve been glancing at the HtmlElement class in Silverlight today. It&rsquo;s a nice system, but it&rsquo;s clearly a work in progress. Everything I&rsquo;ve said in the past about lumping all of your object model into a single class applies to this. The thing that irritated me was that it wouldn&rsquo;t have been hard for the Silverlight 1.1 team to make the developer experience more palatable even if they were using the one class under the hood.">
+  <meta name="twitter:description" content="I&rsquo;ve been glancing at the HtmlElement class in Silverlight today. It&rsquo;s a nice system, but it&rsquo;s clearly a work in progress. Everything I&rsquo;ve said in the past about lumping all of …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/1/01/silverlight-htmlelement-wrappers/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
-<meta name="description" content="I&rsquo;ve been glancing at the HtmlElement class in Silverlight today. It&rsquo;s a nice system, but it&rsquo;s clearly a work in progress. Everything I&rsquo;ve said in the past about lumping all of your object model into a single class applies to this. The thing that irritated me was that it wouldn&rsquo;t have been hard for the Silverlight 1.1 team to make the developer experience more palatable even if they were using the one class under the hood.">
-<meta name="keywords" content="">
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Silverlight HtmlElement wrappers"/>
-<meta name="twitter:description" content="I&rsquo;ve been glancing at the HtmlElement class in Silverlight today. It&rsquo;s a nice system, but it&rsquo;s clearly a work in progress. Everything I&rsquo;ve said in the past about lumping all of your object model into a single class applies to this. The thing that irritated me was that it wouldn&rsquo;t have been hard for the Silverlight 1.1 team to make the developer experience more palatable even if they were using the one class under the hood."/>
-
-<meta property="og:title" content="Silverlight HtmlElement wrappers" />
-<meta property="og:description" content="I&rsquo;ve been glancing at the HtmlElement class in Silverlight today. It&rsquo;s a nice system, but it&rsquo;s clearly a work in progress. Everything I&rsquo;ve said in the past about lumping all of your object model into a single class applies to this. The thing that irritated me was that it wouldn&rsquo;t have been hard for the Silverlight 1.1 team to make the developer experience more palatable even if they were using the one class under the hood." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/1/01/silverlight-htmlelement-wrappers/" /><meta property="article:section" content="posts" />
-
-
-
-
-
-
-<link rel="canonical" href="https://industrialinference.com/1/01/silverlight-htmlelement-wrappers/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/1/01/silverlight-htmlelement-wrappers/">
-              Silverlight HtmlElement wrappers
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              2-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <p>I&rsquo;ve been glancing at the HtmlElement class in Silverlight today. It&rsquo;s a nice system, but it&rsquo;s clearly a work in progress. Everything I&rsquo;ve said in the past about lumping all of your object model into a single class applies to this. The thing that irritated me was that it wouldn&rsquo;t have been hard for the Silverlight 1.1 team to make the developer experience more palatable even if they were using the one class under the hood.` [sourcecode language=&lsquo;csharp&rsquo;]private void Test1() {   HtmlDocument document = HtmlPage.Document;   document.GetElementByID(&ldquo;Submit1&rdquo;).AttachEvent(&ldquo;onclick&rdquo;,     (object obj, EventArgs args) =&gt;       {         Text1.SetAttribute(&ldquo;value&rdquo;, (++counter).ToString());         Text1.SetStyleAttribute(&ldquo;color&rdquo;, &ldquo;blue&rdquo;);       }     ); }</p>
+      
+      <h1 class="article-title">Silverlight HtmlElement wrappers</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+      </ul>
+      
+      <p>I&rsquo;ve been glancing at the HtmlElement class in Silverlight today. It&rsquo;s a nice system, but it&rsquo;s clearly a work in progress. Everything I&rsquo;ve said in the past about lumping all of your object model into a single class applies to this. The thing that irritated me was that it wouldn&rsquo;t have been hard for the Silverlight 1.1 team to make the developer experience more palatable even if they were using the one class under the hood.` [sourcecode language=&lsquo;csharp&rsquo;]private void Test1() {   HtmlDocument document = HtmlPage.Document;   document.GetElementByID(&ldquo;Submit1&rdquo;).AttachEvent(&ldquo;onclick&rdquo;,     (object obj, EventArgs args) =&gt;       {         Text1.SetAttribute(&ldquo;value&rdquo;, (++counter).ToString());         Text1.SetStyleAttribute(&ldquo;color&rdquo;, &ldquo;blue&rdquo;);       }     ); }</p>
 <p>Not a lot you can say about this other than &ldquo;<em>Where&rsquo;s the classes, dude?</em>&rdquo;. It wouldn&rsquo;t have been hard, to give us something like this:</p>
 <pre><code>private void Test1() {   HtmlDocument document = HtmlPage.Document;   document.GetElementByID(&quot;Submit1&quot;).AttachEvent(&quot;onclick&quot;,     (object obj, EventArgs args) =&gt;       {       Text1.Text = (++counter).ToString();       Text1.Style[&quot;color&quot;] = &quot;blue&quot;;       }     ); }
 </code></pre>
@@ -141,63 +62,31 @@
 </code></pre>
 <p>This wraps the HtmlElement in a TextBox instance, and from there on you can access it in way that appeals to programmers.</p>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/1/01/sharpreader-is-still-the-best/" data-toggle="tooltip" data-placement="top" title="SharpReader is still the best">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/1/01/singleton-the-most-overused-pattern./" data-toggle="tooltip" data-placement="top" title="Singleton – the most overused pattern.">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>

@@ -1,150 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  Tech Notes:  Event Sourcing · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-
-
-
-
-<meta name="description" content="Title: UPDATE your VIEW on DELETE: The benefits of Event Sourcing Speaker: Sebastian von Conrad of Envato Where: Melbourne CTO School Date: 2016-12-06
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Tech Notes:  Event Sourcing - The Wandering Glitch</title>
+  <meta property="og:title" content="Tech Notes:  Event Sourcing - The Wandering Glitch" />
+  <meta name="twitter:title" content="Tech Notes:  Event Sourcing - The Wandering Glitch" />
+  <meta name="description" content="Title: UPDATE your VIEW on DELETE: The benefits of Event Sourcing Speaker: Sebastian von Conrad of Envato Where: Melbourne CTO School Date: 2016-12-06
 We attended a very entertaining and engaging lecture held at the Envato offices on Even Sourcing, entitled &ldquo;UPDATE your VIEW on DELETE&rdquo; given by Sebastian von Conrad (@vonconrad). This was a meetup organised by the Melbourne CTO School group with a couple of dozen attendees present.
 This isn&rsquo;t the first time that Sebastian has given the talk - the same talk was given to the Software Engineering Institute at CMU, and the video for that is available online.">
-<meta name="keywords" content="">
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tech Notes:  Event Sourcing"/>
-<meta name="twitter:description" content="Title: UPDATE your VIEW on DELETE: The benefits of Event Sourcing Speaker: Sebastian von Conrad of Envato Where: Melbourne CTO School Date: 2016-12-06
+  <meta property="og:description" content="Title: UPDATE your VIEW on DELETE: The benefits of Event Sourcing Speaker: Sebastian von Conrad of Envato Where: Melbourne CTO School Date: 2016-12-06
 We attended a very entertaining and engaging lecture held at the Envato offices on Even Sourcing, entitled &ldquo;UPDATE your VIEW on DELETE&rdquo; given by Sebastian von Conrad (@vonconrad). This was a meetup organised by the Melbourne CTO School group with a couple of dozen attendees present.
-This isn&rsquo;t the first time that Sebastian has given the talk - the same talk was given to the Software Engineering Institute at CMU, and the video for that is available online."/>
+This isn&rsquo;t the first time that Sebastian has given the talk - the same talk was given to the Software Engineering Institute at CMU, and the video for that is available online.">
+  <meta name="twitter:description" content="Title: UPDATE your VIEW on DELETE: The benefits of Event Sourcing Speaker: Sebastian von Conrad of Envato Where: Melbourne CTO School Date: 2016-12-06
+We attended a very entertaining and engaging …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/1/01/tech-notes-event-sourcing/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
-<meta property="og:title" content="Tech Notes:  Event Sourcing" />
-<meta property="og:description" content="Title: UPDATE your VIEW on DELETE: The benefits of Event Sourcing Speaker: Sebastian von Conrad of Envato Where: Melbourne CTO School Date: 2016-12-06
-We attended a very entertaining and engaging lecture held at the Envato offices on Even Sourcing, entitled &ldquo;UPDATE your VIEW on DELETE&rdquo; given by Sebastian von Conrad (@vonconrad). This was a meetup organised by the Melbourne CTO School group with a couple of dozen attendees present.
-This isn&rsquo;t the first time that Sebastian has given the talk - the same talk was given to the Software Engineering Institute at CMU, and the video for that is available online." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/1/01/tech-notes-event-sourcing/" /><meta property="article:section" content="posts" />
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-
-
-<link rel="canonical" href="https://industrialinference.com/1/01/tech-notes-event-sourcing/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/1/01/tech-notes-event-sourcing/">
-              Tech Notes:  Event Sourcing
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              4-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <p><strong>Title</strong>: UPDATE your VIEW on DELETE: The benefits of Event Sourcing
+      
+      <h1 class="article-title">Tech Notes:  Event Sourcing</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#in-a-nutshell">In a Nutshell</a></li>
+        <li><a href="#gotchas">Gotchas</a></li>
+        <li><a href="#observations">Observations</a></li>
+        <li><a href="#thoughts-and-ideas">Thoughts and Ideas</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+      <p><strong>Title</strong>: UPDATE your VIEW on DELETE: The benefits of Event Sourcing
 <strong>Speaker</strong>: Sebastian von Conrad of <a href="https://twitter.com/envato">Envato</a>
 <strong>Where</strong>: Melbourne CTO School
 <strong>Date</strong>: 2016-12-06</p>
 <p>We attended a very entertaining and engaging lecture held at the Envato offices on Even Sourcing, entitled &ldquo;<em>UPDATE your VIEW on DELETE&rdquo; given by Sebastian von Conrad (</em><a href="https://twitter.com/vonconrad">@vonconrad</a>). This was a meetup organised by the <a href="https://www.google.com.au/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;uact=8&amp;ved=0ahUKEwir6aGTn_LQAhWCgrwKHRWUCqkQFggbMAA&amp;url=https%3A%2F%2Fwww.meetup.com%2FCTO-School-Melbourne%2F&amp;usg=AFQjCNEj-GqCxcoJL-yftSRslPKLAGb6TA&amp;sig2=eGPSccRAaWs-O0t_fWO3rw">Melbourne CTO School</a> group with a couple of dozen attendees present.</p>
 <p>This isn&rsquo;t the first time that Sebastian has given the talk - the same talk was given to the Software Engineering Institute at CMU, and the video for that is available <a href="https://youtu.be/_TeMYF_JjNg">online</a>.</p>
-<h3 id="in-a-nutshell">
-  In a Nutshell
-  <a class="heading-link" href="#in-a-nutshell">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
+<h3 id="in-a-nutshell">In a Nutshell</h3>
 <ul>
 <li>A <strong>store of events</strong> is the primary source of truth.</li>
 <li>Events are <strong>immutable</strong>.</li>
@@ -162,13 +90,7 @@ This isn&rsquo;t the first time that Sebastian has given the talk - the same tal
 <li>Any data stored in a projection is by definition <strong>disposable</strong> and ephemeral, since the projection is recreated by <strong>replaying</strong> the event stream as needed.</li>
 <li>To speed up the process of resynchronisation, if necessary, <strong>checkpoint</strong> messages can be generated summarising the state <em>under a given projection</em> up to a given point in time.</li>
 </ul>
-<h3 id="gotchas">
-  Gotchas
-  <a class="heading-link" href="#gotchas">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
+<h3 id="gotchas">Gotchas</h3>
 <ul>
 <li>Busy environments can rack up a very large number of events very quickly.</li>
 <li>Event Sourcing may be better suited to <strong>read heavy</strong> applications where the projections can stay in sync with the event stream for longer before they become out of sync.</li>
@@ -176,13 +98,7 @@ This isn&rsquo;t the first time that Sebastian has given the talk - the same tal
 <li>Storing the summarised results of projections in the event stream itself is a kind of data pollution, since events are of the business process realm, whereas projections are of the interpretation domain (one is facts, the other hypotheses or conclusions which is by its very nature provisional)</li>
 <li>Occasionally event representational flaws are discovered long after the system has been in execution. Correction this requires something like a projectional transformation into a new event store. Something to be avoided as much as a major schema change in a database.</li>
 </ul>
-<h3 id="observations">
-  Observations
-  <a class="heading-link" href="#observations">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
+<h3 id="observations">Observations</h3>
 <ul>
 <li>Event Sourcing has historical pedigree in practices like <strong>double entry bookkeeping</strong>. We would never use a bank that treated our money the way we treat data in relational databases.</li>
 <li>By segregating the events out in this way, we also segregate the storage of the events from the interpretation of them. This prevents an insidious form of coupling at the conceptual level, often known as the <strong>leaky abstraction</strong>.</li>
@@ -191,13 +107,7 @@ This isn&rsquo;t the first time that Sebastian has given the talk - the same tal
 <li>Dedicated event stores exist to make such architectures easier.</li>
 <li>Envato typically start a new project with a phase of <strong>event storming</strong>. A cross between brain storming and User Story authoring geared towards understanding the key transactions of the system.</li>
 </ul>
-<h3 id="thoughts-and-ideas">
-  Thoughts and Ideas
-  <a class="heading-link" href="#thoughts-and-ideas">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
+<h3 id="thoughts-and-ideas">Thoughts and Ideas</h3>
 <ul>
 <li>A business event is defined as a <strong>_fact_</strong>, at a specific point in time.</li>
 <li>Storing and interpreting facts (in the sense of <strong>knowledge management</strong>) is at the very heart of the <strong>semantic web</strong> vision.</li>
@@ -206,63 +116,31 @@ This isn&rsquo;t the first time that Sebastian has given the talk - the same tal
 <li>An <strong>inference engine</strong> can be a kind of projection, and the inferences it deduces from the incoming events can be stored in a projection, becoming a <strong>materialised inference</strong>, which is typically disposable and ephemeral too.</li>
 </ul>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/1/01/tax-on-british-stupidity-gets-hiked/" data-toggle="tooltip" data-placement="top" title="Tax on British Stupidity gets Hiked">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/1/01/telepathy-fantasy-or-nearly-reality/" data-toggle="tooltip" data-placement="top" title="Telepathy - Fantasy or nearly Reality?">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>

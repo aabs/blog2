@@ -1,145 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  A Jedi Fly-through · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>A Jedi Fly-through - The Wandering Glitch</title>
+  <meta property="og:title" content="A Jedi Fly-through - The Wandering Glitch" />
+  <meta name="twitter:title" content="A Jedi Fly-through - The Wandering Glitch" />
+  <meta name="description" content="NB: this file is still under construction. The first few sections are all that has been produced so far. If you feel like producing one of the sections that are incomplete from the list at the bottom of this document, then send an html doc to the mebmaster for inclusion (after appraisal)
+Introduction This document is the basis of a use case analysis of the JEDI system. The sections of this document each cover a different aspect of the way that a user might interact with (i) the JEDI system, (ii) with programs in the JEDI system and (iii) with other users logged onto the system at the same time.">
+  <meta property="og:description" content="NB: this file is still under construction. The first few sections are all that has been produced so far. If you feel like producing one of the sections that are incomplete from the list at the bottom of this document, then send an html doc to the mebmaster for inclusion (after appraisal)
+Introduction This document is the basis of a use case analysis of the JEDI system. The sections of this document each cover a different aspect of the way that a user might interact with (i) the JEDI system, (ii) with programs in the JEDI system and (iii) with other users logged onto the system at the same time.">
+  <meta name="twitter:description" content="NB: this file is still under construction. The first few sections are all that has been produced so far. If you feel like producing one of the sections that are incomplete from the list at the bottom …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/1/01/a-jedi-fly-through/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
-<meta name="description" content="NB: this file is still under construction. The first few sections are all that has been produced so far. If you feel like producing one of the sections that are incomplete from the list at the bottom of this document, then send an html doc to the mebmaster for inclusion (after appraisal)
-Introduction Link to heading This document is the basis of a use case analysis of the JEDI system. The sections of this document each cover a different aspect of the way that a user might interact with (i) the JEDI system, (ii) with programs in the JEDI system and (iii) with other users logged onto the system at the same time.">
-<meta name="keywords" content="">
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="A Jedi Fly-through"/>
-<meta name="twitter:description" content="NB: this file is still under construction. The first few sections are all that has been produced so far. If you feel like producing one of the sections that are incomplete from the list at the bottom of this document, then send an html doc to the mebmaster for inclusion (after appraisal)
-Introduction Link to heading This document is the basis of a use case analysis of the JEDI system. The sections of this document each cover a different aspect of the way that a user might interact with (i) the JEDI system, (ii) with programs in the JEDI system and (iii) with other users logged onto the system at the same time."/>
-
-<meta property="og:title" content="A Jedi Fly-through" />
-<meta property="og:description" content="NB: this file is still under construction. The first few sections are all that has been produced so far. If you feel like producing one of the sections that are incomplete from the list at the bottom of this document, then send an html doc to the mebmaster for inclusion (after appraisal)
-Introduction Link to heading This document is the basis of a use case analysis of the JEDI system. The sections of this document each cover a different aspect of the way that a user might interact with (i) the JEDI system, (ii) with programs in the JEDI system and (iii) with other users logged onto the system at the same time." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/1/01/a-jedi-fly-through/" /><meta property="article:section" content="posts" />
-
-
-
-
-
-
-<link rel="canonical" href="https://industrialinference.com/1/01/a-jedi-fly-through/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/1/01/a-jedi-fly-through/">
-              A Jedi Fly-through
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              18-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <p>NB: this file is still under construction. The first few sections are
+      
+      <h1 class="article-title">A Jedi Fly-through</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+      <p>NB: this file is still under construction. The first few sections are
 all that has been produced so far. If you feel like producing one of the
 sections that are incomplete from the list at the bottom of this document,
 then send an html doc to the mebmaster for inclusion (after appraisal)</p>
-<h4 id="introduction">
-  Introduction
-  <a class="heading-link" href="#introduction">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h4>
+<h4 id="introduction">Introduction</h4>
 <p>This document is the basis of a use case analysis of the JEDI system. The sections of this document each cover a different aspect of the way that a user might interact with (i) the JEDI system, (ii) with programs in the JEDI system and (iii) with other users logged onto the system at the same time. When this document is finished the requirements specification process should be more informed about the features that are absolute musts and those that are graphical candy.</p>
 <p>The primary requirement of any environment that is to be used by &ldquo;power users&rdquo;, (which is what developers are) is that it must be slick. Psychologically, there are many other requirements for a system to be usable by humans such as frame rate, perspective, understandability, learnability etc. Being a developer I assume certain things about the users that may be unfounded, but in my experience are probably true. For example, most programmers are great readers of science fiction. Many of them have read the seminal classics such as Gibson’s Neuromancer. Although such works are not requirements specifications for a VR development system, they have defined what a system could be like with good HCI. More than that, the Cyberspace described by Gibson has a visceral thrill which, if exploited, could convert the JEDI system into a Killer App overnight.</p>
 <p>Therefore one shouldn’t ignore Graphical Candy and sound effects in the requirement spec. It could make all of the difference between success and failure. There is a basic set of features that the system should provide. They are independent of the graphical display system (JDM), and are related to the program manipulation, representation and execution. However, such features, although revolutionary, wouldn’t fill people with enthusiasm.</p>
@@ -147,13 +72,7 @@ then send an html doc to the mebmaster for inclusion (after appraisal)</p>
 <p>If at the same time as making using JEDI fun, we can make it addictive we also have a distinct advantage over the competition. If the end results of JEDI development are also more robust, then the combination is users that are driven and who in the process of their all night hacking sessions produce good code, the software industry will benefit as well as the clients who invest in JEDI.</p>
 <p>So, should the requirements specification for the system include the specification of the right combination of look and feel to make the system a Killer App? I think so. And that explains the reason why I dwell within this document on what the system will feel like to use as well as how it will be used. I shall describe how I want to feel about using the JEDI system.</p>
 <p>This story is based upon the design of a program for controlling a microscope and camera to produce an Image Acquisition System. The only reason that this particular example is being used is that I am about to start work on just such a system. Moreover, I have a tight deadline and a loose specification of what I am to do. I am to work with other code from developers in my company that has not been designed nor written with reuse in mind. For the majority of the reuse code, this will be the first time that the code has been reused outside of its original application. Therefore there is additional work to be done in adapting the code to the needs of my design as it unfolds. This project is a real world example of how life for me would be easier if my company made use of JEDI rather than an industry-standard Windows based C++ IDE. The story starts just after the first meeting in which my task is explained to me. &ldquo;You are to produce an image scanning system that performs time series, montage scanning and serial slide scanning, and you have three weeks to do it in, this tape will self-destruct in 20 seconds.&rdquo;</p>
-<h4 id="starting-the-program-up">
-  Starting the Program Up
-  <a class="heading-link" href="#starting-the-program-up">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h4>
+<h4 id="starting-the-program-up">Starting the Program Up</h4>
 <p>I have just come out of a rather boring meeting in which it was explained to me that I have three weeks in which to design, implement and test a new system in my company’s suite of image management tools 3DFI. There has been some talk for a while about producing this application, and I am pleased to get the job. The trouble is, the spec is a bit loose so a lot of the program I’ll have to design myself. Still, now that we have JEDI and I have a quiet office, it should be a breeze.</p>
 <p>I return to the office, in which I work, and make myself a cup of coffee. I’m already deep in thought about how I’m going to create the system. I have some ideas, but right now that’s all they are, and I’ll have to start producing a good design right away. Normally, I would shut myself away for a day or two with a new pad of paper and a new pen and start to scribble furiously. Some of the design tools that we used before we got JEDI were OK but they only went so far. I used to get frustrated because they never really supported C++ the way that I used it. The diagramming tools were only OK as a record of what I had designed so far. But I couldn’t create code from them and therefore as time went by I was put off using them as design tools in favour of the best design tool of all – a piece of paper!</p>
 <p>That’s all changed now. I can sit down and start developing right away, without feeling guilty or that I have broken a golden rule or something. When I develop in JEDI the design is the program, and vice versa. There is no source code so I just work with the design. That’s just as well considering the tight deadline I have on this one, I can’t afford to waste any time.</p>
@@ -166,74 +85,36 @@ ngs. I find that if I have a Design Space environment that I am familiar with I 
 <p>With the headphones in place I speak my invocation command &ldquo;Warp factor nine&rdquo; into the Mic. I see that JEDI is beginning to load because the darkness is slowly illuminated as the system uploads itself and the designs from our server, an old Pentium in the other room. Along with the appearance of JEDI comes some daft sound effects that I lifted from the Video independence day from the part where the Space Ship flies overhead – a deep rumbling that becomes a terrifying fanfare for technology. When the fanfare is over the JEDI system is available for use. JEDI has loaded up PathSight which is what I normally work on, I can see Mike and Ross working on what looks from here to be an auto-focus routine. I can vaguely hear what they are saying and I say &ldquo;Hello guys.&rdquo; Because I am looking at them while I say this they get the acoustics loud and clear from me. Mike looks up and says &ldquo;got a minute?&rdquo; I glide over and look at what they are puzzling over. &ldquo;What’s the problem?&rdquo; I say, and Ross replies &ldquo;It’s doing all of the work but the final view is always the original focus that the system started out on.&rdquo; After a bit of a root around, I can see the problem. &ldquo;You have forgotten to update this variable here. If you move to the focus stored in that, at the end you will have moved to the original focus. That variable is not taking part in the rest of the process after the initialization. You need to copy the final position from the FibSearch function into that position. See? That way the end result is immediately updated.&rdquo;</p>
 <p>Ross’ avatar jiggles a bit and I know that he has just slapped his forehead. I drag a line from the outgoing channel of the FibSearch algorithm into the Stage. Immediately the others can see where they went wrong. JEDI’s like that – the logic of the program is so much easier to see when it is floating in front of you!</p>
 <p>I make a hitcher’s thumb sign and the toolbox slides in from the periphery of my vision where had been floating ever since The system came up. The box glides in to my central field of view where it hovers, rotating slightly. It shrinks slightly and then quickly unfolds into an artists paint palette with a colourful set of icons on it. I choose the icon that looks like a lightswitch and suddenly the PathSight project design space disappears from view. I can’t hear the conversation that is going on between Mike and Ross. Instead I hear the faint background hum of JEDI. I have just closed the PathSight design because I am about to star up a new project. On the palette in from of me I point at the icon of a present wrapped in a bow. A wizard appears in front of me, asking what type of project that would be. Normally this would be Marco Polo or Hari Seldon, but in the plain old system it is a wizardly avatar with a pointy hat and starts and moons all over his cloak. I select new Windows NT6 Application, and the system guide makes a note on a clipboard he holds in his hand. &ldquo;Is this a stand alone application sir or would you like it to make use of other code?&rdquo; I reply &ldquo;make use of designs from the 3DFI application&rdquo;. &ldquo;very well sir&rdquo;, within the JEDI server in the other room the wizards is performing his magic and creating a new project directory with a basic JCOSS to store the classes on.</p>
-<h4 id="surveying-the-system-files-and-class-libraries">
-  Surveying the System Files and Class Libraries
-  <a class="heading-link" href="#surveying-the-system-files-and-class-libraries">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h4>
+<h4 id="surveying-the-system-files-and-class-libraries">Surveying the System Files and Class Libraries</h4>
 <p>The design space appears piece by piece as the wizard creates it. The design space in JEDI’s Plain Old PUP (or POPUP for short) is a limitless three-dimensional space in which the user can move by using their fingers to direct their movements. I see the Win64 system libraries forming in the distance below me, seemly fathoms deep. Largely, those files really are fathoms deep unless you happen to like rooting around 64bit design files written by people with a very evolved idea of what generic means. They were written to support proper object oriented windowing. They were a good attempt to create component based interface programming and if you don’t want to know how they do what they do you can use them with ease. I seldom have to go down there, because I did all of that low-level stuff on the PathSight project ages ago. Still its sometimes fun to swim down there and explore new regions of the designs.</p>
 <p>These designs will be the basis for the 3dAcquire app I’m about to design. They contain all of the basic interfaces to the standard operating systems currently supported by Fairfield. I’ve got interfaces to BeOS, SunOS, Windows NT, Rhapsody, and of course Linux. Next comes the base designs for the 3DFI suite that I shall be dipping into at times for things like image enhancement and alignment tools, cameras and stage drivers. Last of all comes the generic JEDI App framework that I selected first of all. I see that the standard entry point class is in there, linked up to a window class that shows a basic 2D dialog. Wouldn’t it be cool if all applications could make use of 3D virtual environments. People would need more hardware than is currently entry level, though, so I still have to produce 2D apps like some C++ programmer. Yechhh! Maybe one day I’ll add to the JEDI base libraries some fast code for doing VR in the basic App.</p>
 <p>I slide over to the app design and see that it contains a class which has the standard function begin. I figured that within the acquire program I need to distinguish between the system that specified where the images were to be taken and the part that took those images. I also need a place to store those images. I therefore point in front of me two. The JEDI system spots my shorthand for new class and animates my VR Glove squirting forth a new class that comes to rest just in front of me. I dictate &ldquo;Itinerary&rdquo; and the system places a name on the box floating in front of me: Citinerary. I say, &ldquo;annotate&rdquo; and a small microphone appears by the class. I say, &ldquo;This class is designed to store the positions where a stage might visit in the process of scanning a slide.&rdquo; The system MPEGS the audio and stores it away on disk. The class itself is adorned with a little play button like a right arrow. I press the arrow and the MPEG annotation is loaded back from disk and played. When it is finished I create a new class in the same way and call it CScanner. I then point three fingers at CScanner and an owns relationship is anchored to the scanner class. The other end of the owns relationship is dangling free. I drag it over to Citinerary where it is attached. The CScanner now owns the Citinerary.</p>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/1/01/a-github-repo-template-for-creating-fisher-plugins/" data-toggle="tooltip" data-placement="top" title="A GitHub repo template for creating Fisher plugins">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/1/01/a-moment-of-nostalgia/" data-toggle="tooltip" data-placement="top" title="A moment of nostalgia">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>

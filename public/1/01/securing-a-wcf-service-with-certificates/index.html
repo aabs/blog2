@@ -1,132 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  Securing a WCF service with Certificates · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Securing a WCF service with Certificates - The Wandering Glitch</title>
+  <meta property="og:title" content="Securing a WCF service with Certificates - The Wandering Glitch" />
+  <meta name="twitter:title" content="Securing a WCF service with Certificates - The Wandering Glitch" />
+  <meta name="description" content="For a client and server to talk securely with message level encryption, they both require certificates to encrypt and decrypt messages from the other. Those certificates need to be produced and installed on each machine. This post shows how that can be done, and what settings are required to work with the certificates. Thanks to Mitch Denny, who wrote a very good post on the use of certificates, which helped a lot more than some of the official documentation.">
+  <meta property="og:description" content="For a client and server to talk securely with message level encryption, they both require certificates to encrypt and decrypt messages from the other. Those certificates need to be produced and installed on each machine. This post shows how that can be done, and what settings are required to work with the certificates. Thanks to Mitch Denny, who wrote a very good post on the use of certificates, which helped a lot more than some of the official documentation.">
+  <meta name="twitter:description" content="For a client and server to talk securely with message level encryption, they both require certificates to encrypt and decrypt messages from the other. Those certificates need to be produced and …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/1/01/securing-a-wcf-service-with-certificates/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
-<meta name="description" content="For a client and server to talk securely with message level encryption, they both require certificates to encrypt and decrypt messages from the other. Those certificates need to be produced and installed on each machine. This post shows how that can be done, and what settings are required to work with the certificates. Thanks to Mitch Denny, who wrote a very good post on the use of certificates, which helped a lot more than some of the official documentation.">
-<meta name="keywords" content="">
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Securing a WCF service with Certificates"/>
-<meta name="twitter:description" content="For a client and server to talk securely with message level encryption, they both require certificates to encrypt and decrypt messages from the other. Those certificates need to be produced and installed on each machine. This post shows how that can be done, and what settings are required to work with the certificates. Thanks to Mitch Denny, who wrote a very good post on the use of certificates, which helped a lot more than some of the official documentation."/>
-
-<meta property="og:title" content="Securing a WCF service with Certificates" />
-<meta property="og:description" content="For a client and server to talk securely with message level encryption, they both require certificates to encrypt and decrypt messages from the other. Those certificates need to be produced and installed on each machine. This post shows how that can be done, and what settings are required to work with the certificates. Thanks to Mitch Denny, who wrote a very good post on the use of certificates, which helped a lot more than some of the official documentation." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/1/01/securing-a-wcf-service-with-certificates/" /><meta property="article:section" content="posts" />
-
-
-
-
-
-
-<link rel="canonical" href="https://industrialinference.com/1/01/securing-a-wcf-service-with-certificates/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/1/01/securing-a-wcf-service-with-certificates/">
-              Securing a WCF service with Certificates
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              4-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <p>For a client and server to talk securely with message level encryption, they both require certificates to encrypt and decrypt messages from the other. Those certificates need to be produced and installed on each machine. This post shows how that can be done, and what settings are required to work with the certificates. Thanks to Mitch Denny, who wrote a <a href="http://notgartner.wordpress.com/2007/09/06/using-certificate-based-authentication-and-protection-with-windows-communication-foundation-wcf/">very good post</a> on the use of certificates, which helped a lot more than some of the official documentation. This post assumes that you&rsquo;re using Juval Lowy of IDesign&rsquo;s <a href="http://idesign.net/idesign/DesktopDefault.aspx?tabindex=5&amp;tabid=11">ServiceModelEx</a> extensions for WCF. If you&rsquo;re not, you should really consider these additions - they add declarative security and better validation amongst many other enhancements.</p>
+      
+      <h1 class="article-title">Securing a WCF service with Certificates</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#configuring-the-service-endpoints">Configuring the service endpoints</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+      <p>For a client and server to talk securely with message level encryption, they both require certificates to encrypt and decrypt messages from the other. Those certificates need to be produced and installed on each machine. This post shows how that can be done, and what settings are required to work with the certificates. Thanks to Mitch Denny, who wrote a <a href="http://notgartner.wordpress.com/2007/09/06/using-certificate-based-authentication-and-protection-with-windows-communication-foundation-wcf/">very good post</a> on the use of certificates, which helped a lot more than some of the official documentation. This post assumes that you&rsquo;re using Juval Lowy of IDesign&rsquo;s <a href="http://idesign.net/idesign/DesktopDefault.aspx?tabindex=5&amp;tabid=11">ServiceModelEx</a> extensions for WCF. If you&rsquo;re not, you should really consider these additions - they add declarative security and better validation amongst many other enhancements.</p>
 <p>First you need to create a certificate for both the client and the server. Most examples demonstrate the scenario on a single machine thus glossing over the fact that in that situation you only need the one certificate. It obscures the real process of certificate exchange which I’ll show here.</p>
 <p>The following is a little script (called setupcert.cmd) that will create a new certificate using makecert.exe, will add it to the ‘My’ cert store on the location machine hive of the registry. It will then export that cert for use on the other machine.</p>
 <blockquote>
@@ -164,13 +96,7 @@ certmgr.exe /put /c /r LocalMachine /n %CERT_NAME% /s my %CERT_NAME%.publickey.c
 <p>In the Trusted People certificates you should see the server side certificate.</p>
 <p><a href="%7Bstatic%7D2007/10/image8.png"><img src="%7Bstatic%7D2007/10/image-thumb8.png" alt="image">{width=&ldquo;272&rdquo; height=&ldquo;289&rdquo;}</a></p>
 <p>The reverse should be true for the Server side certificate stores.</p>
-<h3 id="configuring-the-service-endpoints">
-  Configuring the service endpoints
-  <a class="heading-link" href="#configuring-the-service-endpoints">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
+<h3 id="configuring-the-service-endpoints">Configuring the service endpoints</h3>
 <p>The client side proxy needs to reference its certificate like so.</p>
 <blockquote>
 <pre><code>ServiceProxy proxy = new ServiceProxy();
@@ -198,63 +124,31 @@ SecurityHelper.SecureProxy&lt;IMyService&gt;(proxy, &quot;ClientSide&quot;);
 <p>That&rsquo;s all the configuration needed for the service and proxy to talk to each other.</p>
 <p>PS. remember to delete any cert files left lying around!</p>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/1/01/science-headlines-of-the-day/" data-toggle="tooltip" data-placement="top" title="Science Headlines of the Day">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/1/01/self-modeling-robots/" data-toggle="tooltip" data-placement="top" title="Self Modeling Robots">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>

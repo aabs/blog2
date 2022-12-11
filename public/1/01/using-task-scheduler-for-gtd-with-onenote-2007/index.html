@@ -1,132 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  Using Task Scheduler For GTD with OneNote 2007 · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Using Task Scheduler For GTD with OneNote 2007 - The Wandering Glitch</title>
+  <meta property="og:title" content="Using Task Scheduler For GTD with OneNote 2007 - The Wandering Glitch" />
+  <meta name="twitter:title" content="Using Task Scheduler For GTD with OneNote 2007 - The Wandering Glitch" />
+  <meta name="description" content="Aymeric Gaurat-Apelli, against my will, has got me hooked on using OneNote, and like many people I started using it for organisation with GTD. I set up my OneNote the way that Rob from 7Breaths described in his great blog series. But I found that I still need a little prompting from time to time. So I found a neat way to shove OneNote in my face at the beginning and end of every day to &lsquo;gently&rsquo; persuade me to gather and process my tasks for the day.">
+  <meta property="og:description" content="Aymeric Gaurat-Apelli, against my will, has got me hooked on using OneNote, and like many people I started using it for organisation with GTD. I set up my OneNote the way that Rob from 7Breaths described in his great blog series. But I found that I still need a little prompting from time to time. So I found a neat way to shove OneNote in my face at the beginning and end of every day to &lsquo;gently&rsquo; persuade me to gather and process my tasks for the day.">
+  <meta name="twitter:description" content="Aymeric Gaurat-Apelli, against my will, has got me hooked on using OneNote, and like many people I started using it for organisation with GTD. I set up my OneNote the way that Rob from 7Breaths …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/1/01/using-task-scheduler-for-gtd-with-onenote-2007/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
-<meta name="description" content="Aymeric Gaurat-Apelli, against my will, has got me hooked on using OneNote, and like many people I started using it for organisation with GTD. I set up my OneNote the way that Rob from 7Breaths described in his great blog series. But I found that I still need a little prompting from time to time. So I found a neat way to shove OneNote in my face at the beginning and end of every day to &lsquo;gently&rsquo; persuade me to gather and process my tasks for the day.">
-<meta name="keywords" content="">
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Using Task Scheduler For GTD with OneNote 2007"/>
-<meta name="twitter:description" content="Aymeric Gaurat-Apelli, against my will, has got me hooked on using OneNote, and like many people I started using it for organisation with GTD. I set up my OneNote the way that Rob from 7Breaths described in his great blog series. But I found that I still need a little prompting from time to time. So I found a neat way to shove OneNote in my face at the beginning and end of every day to &lsquo;gently&rsquo; persuade me to gather and process my tasks for the day."/>
-
-<meta property="og:title" content="Using Task Scheduler For GTD with OneNote 2007" />
-<meta property="og:description" content="Aymeric Gaurat-Apelli, against my will, has got me hooked on using OneNote, and like many people I started using it for organisation with GTD. I set up my OneNote the way that Rob from 7Breaths described in his great blog series. But I found that I still need a little prompting from time to time. So I found a neat way to shove OneNote in my face at the beginning and end of every day to &lsquo;gently&rsquo; persuade me to gather and process my tasks for the day." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/1/01/using-task-scheduler-for-gtd-with-onenote-2007/" /><meta property="article:section" content="posts" />
-
-
-
-
-
-
-<link rel="canonical" href="https://industrialinference.com/1/01/using-task-scheduler-for-gtd-with-onenote-2007/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/1/01/using-task-scheduler-for-gtd-with-onenote-2007/">
-              Using Task Scheduler For GTD with OneNote 2007
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              2-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <p><a href="http://aymeric.gaurat.net/">Aymeric Gaurat-Apelli</a>, against my will, has got me hooked on using OneNote, and like many people I started using it for organisation with <a href="http://www.google.com.au/url?sa=t&amp;ct=res&amp;cd=1&amp;url=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FGetting_Things_Done&amp;ei=SMmwR-ngHqTIswKI0qnwCQ&amp;usg=AFQjCNHi9227WDd1uvPMy9kZTRrMcKJIxA&amp;sig2=k1UKesK9RZVMxE_zsdAEXA">GTD</a>. I set up my OneNote the way that Rob from <a href="http://www.blog.7breaths.co.uk">7Breaths</a> described in his <a href="http://www.blog.7breaths.co.uk/2007/04/gtd-with-onenote-set-up.html">great blog series</a>. But I found that I still need a little prompting from time to time. So I found a neat way to shove OneNote in my face at the beginning and end of every day to &lsquo;gently&rsquo; persuade me to gather and process my tasks for the day.</p>
+      
+      <h1 class="article-title">Using Task Scheduler For GTD with OneNote 2007</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents"></nav>
+</aside>
+      <p><a href="http://aymeric.gaurat.net/">Aymeric Gaurat-Apelli</a>, against my will, has got me hooked on using OneNote, and like many people I started using it for organisation with <a href="http://www.google.com.au/url?sa=t&amp;ct=res&amp;cd=1&amp;url=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FGetting_Things_Done&amp;ei=SMmwR-ngHqTIswKI0qnwCQ&amp;usg=AFQjCNHi9227WDd1uvPMy9kZTRrMcKJIxA&amp;sig2=k1UKesK9RZVMxE_zsdAEXA">GTD</a>. I set up my OneNote the way that Rob from <a href="http://www.blog.7breaths.co.uk">7Breaths</a> described in his <a href="http://www.blog.7breaths.co.uk/2007/04/gtd-with-onenote-set-up.html">great blog series</a>. But I found that I still need a little prompting from time to time. So I found a neat way to shove OneNote in my face at the beginning and end of every day to &lsquo;gently&rsquo; persuade me to gather and process my tasks for the day.</p>
 <p>If you&rsquo;ve got your OneNote set up according to Rob&rsquo;s method, you&rsquo;ll have a TODAY section, and in that you&rsquo;ll gather your daily notes, clippings etc for later processing and organisation. I just added a couple of pages and then I invoke them at preset times of the day. Here&rsquo;s how you do it.</p>
 <p>First Create your page in the TODAY section. It doesn&rsquo;t matter what you call it. I called mine the &ldquo;<em>Brain Dump Area</em>&rdquo;:</p>
 <p><a href="%7Bstatic%7D2008/02/image.png"><img src="%7Bstatic%7D2008/02/image-thumb.png" alt="image">{width=&ldquo;570&rdquo; height=&ldquo;414&rdquo;}</a></p>
@@ -147,63 +71,31 @@ page-id={0F370401-83D6-4BB3-B2CC-7266A16395B7}&amp;end&rdquo;</strong></p>
 <p>Yours will be different, but similar. Click through to the finish button, and you&rsquo;re done. If you right click on the task entry and select Run, you can see what it will do. It starts OneNote selecting the Brain Dump Page for immediate display.</p>
 <p>Now all I have to do is resist the urge to hit Snooze, and I&rsquo;ll be really organised.</p>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/1/01/using-rdf-and-c#-to-create-an-mp3-manager-part-3/" data-toggle="tooltip" data-placement="top" title="Using RDF and C# to create an MP3 Manager - Part 3">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/1/01/virtualization-good-or-bad/" data-toggle="tooltip" data-placement="top" title="Virtualization – Good or Bad?">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>

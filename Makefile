@@ -5,7 +5,7 @@ build:
 
 clean:
 	rm -rf public/*
-	rm /var/www/html/* -rf
+	rm -rf /var/www/html/*
 
 deploy:
 	cp -R public/* /var/www/html/

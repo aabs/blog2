@@ -1,132 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  Relational Modeling? Not as we know it! · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Relational Modeling? Not as we know it! - The Wandering Glitch</title>
+  <meta property="og:title" content="Relational Modeling? Not as we know it! - The Wandering Glitch" />
+  <meta name="twitter:title" content="Relational Modeling? Not as we know it! - The Wandering Glitch" />
+  <meta name="description" content="Marcello Cantos commented on my recent post about the ways in which RDF can transcend the object-oriented model. He posed the question of what things RDF can represent more easily than the relational model. I know Marcello is a very high calibre software engineer, so it&rsquo;s not just an idle question from a relational dinosaur, but a serious question from someone who can push the envelope far with a relational database.">
+  <meta property="og:description" content="Marcello Cantos commented on my recent post about the ways in which RDF can transcend the object-oriented model. He posed the question of what things RDF can represent more easily than the relational model. I know Marcello is a very high calibre software engineer, so it&rsquo;s not just an idle question from a relational dinosaur, but a serious question from someone who can push the envelope far with a relational database.">
+  <meta name="twitter:description" content="Marcello Cantos commented on my recent post about the ways in which RDF can transcend the object-oriented model. He posed the question of what things RDF can represent more easily than the relational …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/1/01/relational-modeling-not-as-we-know-it/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
-<meta name="description" content="Marcello Cantos commented on my recent post about the ways in which RDF can transcend the object-oriented model. He posed the question of what things RDF can represent more easily than the relational model. I know Marcello is a very high calibre software engineer, so it&rsquo;s not just an idle question from a relational dinosaur, but a serious question from someone who can push the envelope far with a relational database.">
-<meta name="keywords" content="">
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Relational Modeling? Not as we know it!"/>
-<meta name="twitter:description" content="Marcello Cantos commented on my recent post about the ways in which RDF can transcend the object-oriented model. He posed the question of what things RDF can represent more easily than the relational model. I know Marcello is a very high calibre software engineer, so it&rsquo;s not just an idle question from a relational dinosaur, but a serious question from someone who can push the envelope far with a relational database."/>
-
-<meta property="og:title" content="Relational Modeling? Not as we know it!" />
-<meta property="og:description" content="Marcello Cantos commented on my recent post about the ways in which RDF can transcend the object-oriented model. He posed the question of what things RDF can represent more easily than the relational model. I know Marcello is a very high calibre software engineer, so it&rsquo;s not just an idle question from a relational dinosaur, but a serious question from someone who can push the envelope far with a relational database." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/1/01/relational-modeling-not-as-we-know-it/" /><meta property="article:section" content="posts" />
-
-
-
-
-
-
-<link rel="canonical" href="https://industrialinference.com/1/01/relational-modeling-not-as-we-know-it/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/1/01/relational-modeling-not-as-we-know-it/">
-              Relational Modeling? Not as we know it!
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              6-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <p>Marcello Cantos commented on my <a href="http://aabs.wordpress.com/2008/09/23/object-orientation-not-as-we-know-it/">recent post</a> about the ways in which RDF can transcend the object-oriented model. He posed the question of what things RDF can represent more easily than the relational model. I know Marcello is a very high calibre software engineer, so it&rsquo;s not just an idle question from a relational dinosaur, but a serious question from someone who can push the envelope far with a relational database.</p>
+      
+      <h1 class="article-title">Relational Modeling? Not as we know it!</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+      <p>Marcello Cantos commented on my <a href="http://aabs.wordpress.com/2008/09/23/object-orientation-not-as-we-know-it/">recent post</a> about the ways in which RDF can transcend the object-oriented model. He posed the question of what things RDF can represent more easily than the relational model. I know Marcello is a very high calibre software engineer, so it&rsquo;s not just an idle question from a relational dinosaur, but a serious question from someone who can push the envelope far with a relational database.</p>
 <p>Since an ontology is most frequently defined (in compsci) as a <a href="http://www-ksl.stanford.edu/kst/what-is-an-ontology.html">specification of a conceptualization</a>, a relational model is a kind of ontology. That means a relational model is by definition a knowledge representation system. That&rsquo;d be my answer if I just wanted to sidestep the real thrust of his question; <em>Is the relational model adequate to do what can be done by RDF</em>?</p>
 <p>That&rsquo;s a more interesting question, and I&rsquo;d be inclined to say everything I said in my previous post about the shortcomings of object oriented programming languages applies equally to the relational model. But lets take another look at the design features of RDF that make it useful for representation of &lsquo;knowledge&rsquo;.</p>
 <p>○ URI based
@@ -135,21 +67,9 @@
 ○ Layered
 ○ Class based
 ○ Meta-model</p>
-<h4 id="uri-based">
-  URI Based
-  <a class="heading-link" href="#uri-based">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h4>
+<h4 id="uri-based">URI Based</h4>
 <p>By using URIs as a token of identification and definition, and by making identifications and definitions readable, interchangeable and reusable the designers of RDF exposed the conceptualisation of the ontology to the world at large. Could you imagine defining a customer in your database as &lsquo;<em>everything in</em> <em>XYZ</em> <em>company&rsquo;s</em> <em>CRM&rsquo;s</em> <em>definition of a customer, plus a few special fields of our own</em>&rsquo;. It is not practical. Perhaps you might want to say, <em>everything in their database less some fields that we&rsquo;re not interested in</em>. Again - not possible. Relational models are not as flexible as the concepts that they need to represent. That is also the real reason why interchange formats never caught on - they were just not able to adapt to the ways that people needed to use them. RDF is designed from the outset to be malleable.</p>
-<h4 id="triple-format">
-  Triple Format
-  <a class="heading-link" href="#triple-format">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h4>
+<h4 id="triple-format">Triple Format</h4>
 <p>At their foundation, all representations make statements about the structure or characteristics of things. All statements must have the form (or can be transformed into that format). The relational model strictly defines the set of triples that can be expressed about a thing. For example, imagine a table &lsquo;Star&rsquo; that has some fields:</p>
 <pre><code>Star (
     StarId INT,
@@ -177,13 +97,7 @@
 <p>Clearly there&rsquo;s a great deal of overlap between these two systems and the one is convertible into the other. But what happens when we launch a new space probe capable of measuring some new feature of the star that was never measurable before? Or what happens when we realise that to plot our star very far into the future we need to store radial velocity, proper motion and absolute magnitude. We don&rsquo;t have fields for that, and there&rsquo;s no way in the database to add them without extensive modifications to the database.</p>
 <p>RDF triple stores (or runtime models or files for that matter) have no particular dependence on the data conforming to a prescribed format. More importantly class membership and instance-hood are more decoupled so that a &rsquo;thing&rsquo; can exist without automatically being in a class. In OO languages you MUST have a type, just as in RDBMSs, a row MUST come from some table. We can define an instance that has all of the properties defined in table &lsquo;Star&rsquo; plus a few others gained from the Hipparchos catalog and a few more gleaned from the Tycho-1 catalog. It does not break the model nor invalidate the &lsquo;Star&rsquo; class-hood to have this extra information, it just happens that we know more about <a href="http://en.wikipedia.org/wiki/Deneb">Deneb</a> in our database than some other stars.</p>
 <p>This independent, extensible, free-form, standards-based language is capable of accommodating any knowledge that you can gather about a thing. If you add meta-data about the thing then more deductions can be made about it, but its absence doesn&rsquo;t stop you from adding or using the data in queries.</p>
-<h4 id="extensible-layered-class-based-with-meta-model">
-  Extensible, Layered, Class Based with Meta-model
-  <a class="heading-link" href="#extensible-layered-class-based-with-meta-model">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h4>
+<h4 id="extensible-layered-class-based-with-meta-model">Extensible, Layered, Class Based with Meta-model</h4>
 <p>Being extensible, in the case of RDF, means a few things. It means that RDF supports OO-style multiple inheritance relationships. See my previous post to see that this is the tip of the iceberg for RDF class membership. That post went into more detail about how class membership was not based on some immutable Type property that once assigned can never by removed. Instead it, can be based on more or less flexible criteria.</p>
 <p>Extensibility in RDF also means providing a way to make complex statements about the modelling language itself. For example once the structure of triples is defined (plus URIs that can be in subjects, predicates or objects) in the base RDF language, then RDF has a way to define complex relationships. The language was extended with RDF Schema which in turn was extended with several layers in OWL, which will in turn be extended by yet more abstract layers.</p>
 <p>Is there a mechanism for self reference in SQL? I can&rsquo;t think of a way of defining one structure in a DB in terms of the structure of another. There&rsquo;s no way that I can think of of being explicit about the nature of the relationship between two entities. Is there a way for you to state in your relational model facts like this:</p>
@@ -192,63 +106,31 @@
 <p>i.e. if it has a common name then it must be visible to the naked eye. I guess you&rsquo;d do that with a relational view so that you could query whether the view &rsquo;nakedEyeStars&rsquo; contains star 123. Of course CommonName could apply to botanical entities (plants) as well as to stars, but I imagine you&rsquo;d struggle to create a view that merged data from the plant table and the star table.</p>
 <p>So, in conclusion, there&rsquo;s plenty of ways that RDF specifically addresses the problems it seeks to address - data interchange, standards definition, KR, mashups - in a distributed web-wide way. RDBMSs address the problems faced by programmers at the coal face in the 60s and 70s - efficient, standardized, platform-independent data storage and retrieval. The imperative that created a need for RDBMSs in the 60s is not going away, so I doubt databases will be going away any time soon either. In fact they can be exposed to the world as triples without too much trouble. The problem is that developers need more than just data storage and retrieval. They need <em>intelligent</em> data storage and retrieval.</p>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/1/01/quote-of-the-day-chris-sells-on-cocktail-parties/" data-toggle="tooltip" data-placement="top" title="Quote of the Day - Chris Sells on Cocktail Parties">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/1/01/rip-arnie-humour/" data-toggle="tooltip" data-placement="top" title="RIP Arnie Humour">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>

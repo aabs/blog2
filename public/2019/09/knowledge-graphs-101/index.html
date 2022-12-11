@@ -1,132 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  Knowledge Graphs 101 · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Knowledge Graphs 101 - The Wandering Glitch</title>
+  <meta property="og:title" content="Knowledge Graphs 101 - The Wandering Glitch" />
+  <meta name="twitter:title" content="Knowledge Graphs 101 - The Wandering Glitch" />
+  <meta name="description" content="This is the first in a short series introducing Knowledge Graphs. It covers just the basics, showing how to write, store, query and work with graph data using RDF (short for Resource Description Format). I will keep it free of theory and interesting but unnecessary digressions. Let me know in the comments if you find it useful, and also tell me what other Knowledge Graph topics you would like to know more about.">
+  <meta property="og:description" content="This is the first in a short series introducing Knowledge Graphs. It covers just the basics, showing how to write, store, query and work with graph data using RDF (short for Resource Description Format). I will keep it free of theory and interesting but unnecessary digressions. Let me know in the comments if you find it useful, and also tell me what other Knowledge Graph topics you would like to know more about.">
+  <meta name="twitter:description" content="This is the first in a short series introducing Knowledge Graphs. It covers just the basics, showing how to write, store, query and work with graph data using RDF (short for Resource Description …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/2019/09/knowledge-graphs-101/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
-<meta name="description" content="This is the first in a short series introducing Knowledge Graphs. It covers just the basics, showing how to write, store, query and work with graph data using RDF (short for Resource Description Format). I will keep it free of theory and interesting but unnecessary digressions. Let me know in the comments if you find it useful, and also tell me what other Knowledge Graph topics you would like to know more about.">
-<meta name="keywords" content="">
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Knowledge Graphs 101"/>
-<meta name="twitter:description" content="This is the first in a short series introducing Knowledge Graphs. It covers just the basics, showing how to write, store, query and work with graph data using RDF (short for Resource Description Format). I will keep it free of theory and interesting but unnecessary digressions. Let me know in the comments if you find it useful, and also tell me what other Knowledge Graph topics you would like to know more about."/>
-
-<meta property="og:title" content="Knowledge Graphs 101" />
-<meta property="og:description" content="This is the first in a short series introducing Knowledge Graphs. It covers just the basics, showing how to write, store, query and work with graph data using RDF (short for Resource Description Format). I will keep it free of theory and interesting but unnecessary digressions. Let me know in the comments if you find it useful, and also tell me what other Knowledge Graph topics you would like to know more about." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/2019/09/knowledge-graphs-101/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2019-09-12T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-09-12T00:00:00+00:00" />
-
-
-
-
-<link rel="canonical" href="https://industrialinference.com/2019/09/knowledge-graphs-101/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/2019/09/knowledge-graphs-101/">
-              Knowledge Graphs 101
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="2019-09-12T00:00:00Z">
-                September 12, 2019
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              7-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <p>This is the first in a short series introducing Knowledge Graphs. It covers just the basics, showing how to write, store, query and work with graph data using RDF (short for <em>Resource Description Format</em>). I will keep it free of theory and interesting but unnecessary digressions. Let me know in the comments if you find it useful, and also tell me what other Knowledge Graph topics you would like to know more about.</p>
+      
+      <h1 class="article-title">Knowledge Graphs 101</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>September 12, 2019</time></li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#rdf-triples---the-lego-blocks">RDF Triples - The Lego Blocks</a></li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+</aside>
+      <p>This is the first in a short series introducing Knowledge Graphs. It covers just the basics, showing how to write, store, query and work with graph data using RDF (short for <em>Resource Description Format</em>). I will keep it free of theory and interesting but unnecessary digressions. Let me know in the comments if you find it useful, and also tell me what other Knowledge Graph topics you would like to know more about.</p>
 <p>This post shows some of the basics of RDF and knowledge graphs. It introduces the simple idea of the <em>triple</em>, how you make statements with them, and piece them together into graphs. I show how you can neatly write RDF using the <em>Turtle</em> language as well as how to use the elegant query language <em>SPARQL</em> to explore your knowledge graph.</p>
 <ul>
 <li><a href="https://andrewmatthews.blog/2019/09/12/knowledge-graphs-101/">Knowledge Graphs 101</a></li>
@@ -137,13 +66,7 @@
 <li><a href="https://andrewmatthews.blog/2019/10/03/knowledge-graphs-6-semantics/">Knowledge Graphs 6 - Semantics</a></li>
 <li><a href="https://aabs.wordpress.com/2019/11/06/knowledge-graphs-7-named-graphs/">Knowledge Graphs 7 - Named graphs</a></li>
 </ul>
-<h2 id="rdf-triples---the-lego-blocks">
-  RDF Triples - The Lego Blocks
-  <a class="heading-link" href="#rdf-triples---the-lego-blocks">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="rdf-triples---the-lego-blocks">RDF Triples - The Lego Blocks</h2>
 <p>RDF is a way to represent graphs using triples made up of Uris for both vertice and edges. A triple consists of three parts: Subject, Predicate and Object. The subject is the primary <em>thing</em> that you are making a statement about. The Object is something that you are <em>relating</em> to the Subject, and the Predicate is <em>how</em> you are relating the Subject and Object.</p>
 <p>Let&rsquo;s take some concrete examples.</p>
 <p>&ldquo;<em>The cat sat on the mat</em>&rdquo;</p>
@@ -243,73 +166,35 @@ WHERE {
 
 &gt; p:Charlie
 </code></pre><p>Just state in the graph pattern what <em>must be true</em> about the results, and leave the rest blank (by adding variables that begin with &lsquo;<code>?</code>&rsquo;). It pretty much is as simple as that. So much easier to build up a complex query.</p>
-<h2 id="summary">
-  Summary
-  <a class="heading-link" href="#summary">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="summary">Summary</h2>
 <p>This post showed just the basics of RDF and knowledge graphs. It introduce the simple idea of the triple, how you make statements with them, and piece them together. I showed how you can neatly write RDF using the Turtle language and how to query using SPARQL to explore your knowledge graph.</p>
 <p>Next time, I will show how to play with RDF on the command line, and also how to call out to AWS Neptune using .NET. Please let me know if you found this helpful. This is a work in progress, so please let me know what would help to make your journey into knowledge graphs easier and I&rsquo;ll try to include it in a post.</p>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/2019/09/knowledge-graphs-3-using-a-triple-store/" data-toggle="tooltip" data-placement="top" title="Knowledge Graphs 3 - Using a Triple Store">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/2005/03/welcome-to-my-blog/" data-toggle="tooltip" data-placement="top" title="Welcome to my blog">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>

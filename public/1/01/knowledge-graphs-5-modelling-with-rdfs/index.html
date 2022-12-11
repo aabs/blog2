@@ -1,135 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  Knowledge Graphs 5 - Modelling with RDFS · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-
-
-
-
-<meta name="description" content="This installment moves beyond the simple graph model of RDF to introduce the modelling support of RDF Schema. I will go on to show you how using the W3C Standard RDFS imbues your data with another layer of meaning, and makes it easier for you to enrich your raw data with meaning over time.
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Knowledge Graphs 5 - Modelling with RDFS - The Wandering Glitch</title>
+  <meta property="og:title" content="Knowledge Graphs 5 - Modelling with RDFS - The Wandering Glitch" />
+  <meta name="twitter:title" content="Knowledge Graphs 5 - Modelling with RDFS - The Wandering Glitch" />
+  <meta name="description" content="This installment moves beyond the simple graph model of RDF to introduce the modelling support of RDF Schema. I will go on to show you how using the W3C Standard RDFS imbues your data with another layer of meaning, and makes it easier for you to enrich your raw data with meaning over time.
 This is part 5 of an ongoing series providing a little background on ‘knowledge graphs‘. The aim is to let software developers get up to speed as fast as possible.">
-<meta name="keywords" content="">
+  <meta property="og:description" content="This installment moves beyond the simple graph model of RDF to introduce the modelling support of RDF Schema. I will go on to show you how using the W3C Standard RDFS imbues your data with another layer of meaning, and makes it easier for you to enrich your raw data with meaning over time.
+This is part 5 of an ongoing series providing a little background on ‘knowledge graphs‘. The aim is to let software developers get up to speed as fast as possible.">
+  <meta name="twitter:description" content="This installment moves beyond the simple graph model of RDF to introduce the modelling support of RDF Schema. I will go on to show you how using the W3C Standard RDFS imbues your data with another …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/1/01/knowledge-graphs-5-modelling-with-rdfs/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Knowledge Graphs 5 - Modelling with RDFS"/>
-<meta name="twitter:description" content="This installment moves beyond the simple graph model of RDF to introduce the modelling support of RDF Schema. I will go on to show you how using the W3C Standard RDFS imbues your data with another layer of meaning, and makes it easier for you to enrich your raw data with meaning over time.
-This is part 5 of an ongoing series providing a little background on ‘knowledge graphs‘. The aim is to let software developers get up to speed as fast as possible."/>
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
-<meta property="og:title" content="Knowledge Graphs 5 - Modelling with RDFS" />
-<meta property="og:description" content="This installment moves beyond the simple graph model of RDF to introduce the modelling support of RDF Schema. I will go on to show you how using the W3C Standard RDFS imbues your data with another layer of meaning, and makes it easier for you to enrich your raw data with meaning over time.
-This is part 5 of an ongoing series providing a little background on ‘knowledge graphs‘. The aim is to let software developers get up to speed as fast as possible." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/1/01/knowledge-graphs-5-modelling-with-rdfs/" /><meta property="article:section" content="posts" />
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-
-
-
-<link rel="canonical" href="https://industrialinference.com/1/01/knowledge-graphs-5-modelling-with-rdfs/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/1/01/knowledge-graphs-5-modelling-with-rdfs/">
-              Knowledge Graphs 5 - Modelling with RDFS
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              8-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <p>This installment moves beyond the simple graph model of RDF to introduce the
+      
+      <h1 class="article-title">Knowledge Graphs 5 - Modelling with RDFS</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#recap---the-rdf-graph-model">Recap - The RDF Graph Model</a></li>
+    <li><a href="#modelling-in-rdf">Modelling in RDF</a></li>
+    <li><a href="#defining-classes">Defining Classes</a></li>
+    <li><a href="#defining-properties">Defining Properties</a></li>
+    <li><a href="#subproperties">Subproperties</a>
+      <ul>
+        <li><a href="#reinterpreting-data">Reinterpreting Data</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+</aside>
+      <p>This installment moves beyond the simple graph model of RDF to introduce the
 modelling support of RDF Schema. I will go on to show you how using the W3C
 Standard RDFS imbues your data with another layer of meaning, and makes it
 easier for you to enrich your raw data with meaning over time.</p>
@@ -144,23 +80,11 @@ easier for you to enrich your raw data with meaning over time.</p>
 <li><a href="https://aabs.wordpress.com/2019/11/06/knowledge-graphs-7-named-graphs/">Knowledge Graphs 7 - Named graphs</a></li>
 </ul>
 <p>First let&rsquo;s have a recap then take a look at the basics of modelling.</p>
-<h2 id="recap---the-rdf-graph-model">
-  Recap - The RDF Graph Model
-  <a class="heading-link" href="#recap---the-rdf-graph-model">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="recap---the-rdf-graph-model">Recap - The RDF Graph Model</h2>
 <p>Just to remind you of how low-level the foundations are, let&rsquo;s review what bare RDF is made up of.</p>
 <p>The RDF model consists of only a few basic ideas. RDF allows you to build a graph using <em>Triples</em>. Each triple is an <em>edge</em> of the directed graph, where the identifier of each vertice and edge is a Uri. The three components of the edge of the graph are used to make statements: Subject, Predicate and Object. The subject is the primary *thing *that you are making a statement about - that&rsquo;s the <em>from vertex</em>. The Object is something that you are *relating *to the Subject - the <em>to vertex.</em> The Predicate - the <em>edge</em> itself - is *how *you relate the Subject and Object.</p>
 <p>Triples forming a graph are stored in a kind of database called a &lsquo;<em>Triple Store</em>&rsquo;. A triple store allows you to store multiple graphs of triples, each of which is, of course, identified by a URI. So to be properly accurate, each triple is really a quadruple - one URI for the graph ID, plus one each for the subject, predicate and object.</p>
-<h2 id="modelling-in-rdf">
-  Modelling in RDF
-  <a class="heading-link" href="#modelling-in-rdf">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="modelling-in-rdf">Modelling in RDF</h2>
 <p>So far I have introduced how to capture some knowledge in your RDF graph, but what we have so far falls a long way short of how we think about the world. So RDF on its own is insufficient. A key extension for representing real-world concepts comes with the RDF Schema (RDFS) standard. It introduce two key ideas; the <em>Class</em> and the <em>Property</em>.</p>
 <p>Those coming from a software development background, will probably have an intuitive grasp of the concept of a &lsquo;<em>class</em>&rsquo;. According to the dictionary, a class is defined as</p>
 <blockquote>
@@ -169,13 +93,7 @@ easier for you to enrich your raw data with meaning over time.</p>
 </blockquote>
 <p>Similarly, a set is any group or collection of entities that can be considered as a single unit. In practice I tend to think of a set as any collection that I can conceive of, and give a name to, regardless of whether they have properties defined or not. And that&rsquo;s the point. Being able to give a name to some set of things is the act of assigning a Uri to denote them. Assigning properties comes at a later stage.</p>
 <p>Solidifying this idea is the purpose of <a href="https://www.w3.org/TR/rdf-schema/">RDF Schema</a>. It provides ways to define classes and subclasses, and declare membership of them. It also provides a way to describe the defining properties of a class.</p>
-<h2 id="defining-classes">
-  Defining Classes
-  <a class="heading-link" href="#defining-classes">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="defining-classes">Defining Classes</h2>
 <p>Since a class or set is the fundamental unit of abstraction, it is also the primary building block in a model. Let&rsquo;s see how to define some classes:</p>
 <pre tabindex="0"><code>:Vehicle rdf:type rdfs:Class .
 :Car rdfs:subClassOf :Vehicle .
@@ -186,13 +104,7 @@ easier for you to enrich your raw data with meaning over time.</p>
 </code></pre><p>So essentially, there&rsquo;s an innate hierarchy at work. You declare an instance of a class through the  <code>rdf:type</code> predicate. But when you declare a thing as an instance of a  <code>rdfs:Class</code> then you are actually declaring a class that other things can be instances of.</p>
 <p>Class definition and membership would be of little value without subset or subclass hierarchies. The  <code>rdfs:subClassOf</code> predicate allows you to coin a new class based on a subset of some super class. For example, I defined  <code>:Car</code> as a subclass of  <code>:Vehicle </code>. Later on, I declare  <code>:MyCar2</code> to be an instance of  <code>:Car </code>.</p>
 <p>As a software developer this all seems so basic I feel I should apologise, but bear with me - I promise to sail out into uncharted waters soon. After all, the good folks at the W3C didn&rsquo;t stop here - they kept on building.</p>
-<h2 id="defining-properties">
-  Defining Properties
-  <a class="heading-link" href="#defining-properties">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="defining-properties">Defining Properties</h2>
 <p>Part of the definition of Class I cited above was the <em>defining properties or attributes.</em> RDF Schema allows us to define properties, and later on I will show you how we can use those properties as <em>defining characteristics.</em></p>
 <p>Since a car is usually build from a modular arrangement of sub-parts, let&rsquo;s model it&rsquo;s engine accordingly. First I want to break down the vehicle class hierarchy a little more.</p>
 <pre tabindex="0"><code>:Vehicle a rdfs:Class.
@@ -216,13 +128,7 @@ easier for you to enrich your raw data with meaning over time.</p>
 <pre tabindex="0"><code>:cost rdfs:range xsd:integer .
 :engine2 :cost 2000 .
 </code></pre><p>As I mentioned, earlier in this series, the object of a triple can be a resource node or a literal. By defining the  <code>rdfs:range</code> as an instance of  <code>rdfs:Class </code>, I&rsquo;m restricting the Object&rsquo;s URIs to only those of instances of the range class. When I reference a datatype from XSD, however, I am restricting to literals of a specific datatype.</p>
-<h2 id="subproperties">
-  Subproperties
-  <a class="heading-link" href="#subproperties">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="subproperties">Subproperties</h2>
 <p>One cool modelling feature of RDFS is that, in addition to class hierarchies, it allows the definition of property hierarchies also. This is a feature that is wholly absent from the world of object orientation. You might think that since it is absent, it must be non-essential or obscure somehow, yet that couldn&rsquo;t be further from the truth. In fact, every day we use super and sub properties without ever thinking about it.</p>
 <p>Let&rsquo;s first show the <em>hello world</em> of subproperties.</p>
 <pre tabindex="0"><code>:isSpouseOf rdfs:domain :Person;
@@ -238,13 +144,7 @@ easier for you to enrich your raw data with meaning over time.</p>
 <pre tabindex="0"><code>:isComprisedOf a rdf:Property .
 :engine rdfs:subPropertyOf :isComprisedOf .
 </code></pre><p>This is a slightly less obvious relationship, yet if you say that the car has an engine, then it is at least comprised of that engine, as well as any other parts it includes. This is a powerful capability to make use of.</p>
-<h3 id="reinterpreting-data">
-  Reinterpreting Data
-  <a class="heading-link" href="#reinterpreting-data">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
+<h3 id="reinterpreting-data">Reinterpreting Data</h3>
 <p>Often we can transmute base metals into gold, by re-interpreting something humble to mean something deeper or of more lasting significance. This actually happens all the time these days, when organisations use low level signals to signify the occurrence of high-level business events. For example, in the super industry, the occurrence of a low level log file entry might be re-interpreted in several ways:</p>
 <pre tabindex="0"><code>WWW Logs contained HTTP 200 Status Code for login page
 |-&gt; User successfully authenticated on our web site
@@ -253,73 +153,35 @@ easier for you to enrich your raw data with meaning over time.</p>
             |-&gt; The user should be targeted by marketing
 </code></pre><p>Cynical as this sounds, it is a sound piece of reasoning in the superannuation industry where customers ignore the websites of their super funds for years at a time. Other companies will use this kind of reinterpretation of data to bootstrap event sourced systems by deducing business domain events from low level audit log entries.</p>
 <p>The point of this digression, is that sub properties enable a similar sort of reinterpretation of the data and the relationships between resources after the fact, allowing data to be turned into <em>intelligence.</em></p>
-<h2 id="summary">
-  Summary
-  <a class="heading-link" href="#summary">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="summary">Summary</h2>
 <p>This time round I introduced you to the powerful tools for modelling provided by RDF Schema. In later installments I will introduce the capabilities of OWL2, which makes the capabilities of RDFS (an object orientation as well) seem rather weak.</p>
 <p>I briefly touched on how we can reinterpret data through some of the more powerful modelling capabilities of RDFS. Next time I will show how the use of entailment and reasoners allow us to materialise some of the alternate means that are latent in our data. That promises to be a lot of fun, but till then, please let me know in the comments if you have any questions, thoughts or suggestions.</p>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/1/01/knowledge-graphs-4-querying-your-knowledge-graph-using-.net/" data-toggle="tooltip" data-placement="top" title="Knowledge Graphs 4 - Querying your knowledge graph using .NET">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/1/01/knowledge-graphs-6-semantics/" data-toggle="tooltip" data-placement="top" title="Knowledge Graphs 6 - Semantics">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>

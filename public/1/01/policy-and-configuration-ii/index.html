@@ -1,135 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  Policy and Configuration II · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-
-
-
-
-<meta name="description" content="The last time I gave some thought to some of the limitations of configuration systems, I was concerned that people use configuration without thought about the consequences. Configuration seems to be a solution of first resort. I was trying to argue that that is probably an unwarranted strategy. It needs to be thought out. I argued in favour of a limitation on configuration. The points I made were:
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Policy and Configuration II - The Wandering Glitch</title>
+  <meta property="og:title" content="Policy and Configuration II - The Wandering Glitch" />
+  <meta name="twitter:title" content="Policy and Configuration II - The Wandering Glitch" />
+  <meta name="description" content="The last time I gave some thought to some of the limitations of configuration systems, I was concerned that people use configuration without thought about the consequences. Configuration seems to be a solution of first resort. I was trying to argue that that is probably an unwarranted strategy. It needs to be thought out. I argued in favour of a limitation on configuration. The points I made were:
 The implementation of configuration systems intrude into their client systems unnecessarily.">
-<meta name="keywords" content="">
+  <meta property="og:description" content="The last time I gave some thought to some of the limitations of configuration systems, I was concerned that people use configuration without thought about the consequences. Configuration seems to be a solution of first resort. I was trying to argue that that is probably an unwarranted strategy. It needs to be thought out. I argued in favour of a limitation on configuration. The points I made were:
+The implementation of configuration systems intrude into their client systems unnecessarily.">
+  <meta name="twitter:description" content="The last time I gave some thought to some of the limitations of configuration systems, I was concerned that people use configuration without thought about the consequences. Configuration seems to be a …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/1/01/policy-and-configuration-ii/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Policy and Configuration II"/>
-<meta name="twitter:description" content="The last time I gave some thought to some of the limitations of configuration systems, I was concerned that people use configuration without thought about the consequences. Configuration seems to be a solution of first resort. I was trying to argue that that is probably an unwarranted strategy. It needs to be thought out. I argued in favour of a limitation on configuration. The points I made were:
-The implementation of configuration systems intrude into their client systems unnecessarily."/>
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
-<meta property="og:title" content="Policy and Configuration II" />
-<meta property="og:description" content="The last time I gave some thought to some of the limitations of configuration systems, I was concerned that people use configuration without thought about the consequences. Configuration seems to be a solution of first resort. I was trying to argue that that is probably an unwarranted strategy. It needs to be thought out. I argued in favour of a limitation on configuration. The points I made were:
-The implementation of configuration systems intrude into their client systems unnecessarily." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/1/01/policy-and-configuration-ii/" /><meta property="article:section" content="posts" />
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-
-
-
-<link rel="canonical" href="https://industrialinference.com/1/01/policy-and-configuration-ii/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/1/01/policy-and-configuration-ii/">
-              Policy and Configuration II
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              15-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <p>The last time I gave some thought to some of the limitations of configuration systems, I was concerned that people use configuration without thought about the consequences. Configuration seems to be a solution of <em>first resort</em>. I was trying to argue that that is probably an unwarranted strategy. It needs to be thought out. I argued in favour of a limitation on configuration. The points I made were:</p>
+      
+      <h1 class="article-title">Policy and Configuration II</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#are-there-different-types-of-configuration-data">Are there different types of configuration data?</a>
+      <ul>
+        <li><a href="#a-holistic-view-of-stateful-systems">A holistic view of stateful systems</a></li>
+      </ul>
+    </li>
+    <li><a href="#frequency-of-reference">Frequency of Reference</a></li>
+    <li><a href="#locality-of-spatial-reference--or-use-case-for-short--">Locality of Spatial Reference – or <em>Use Case</em> for short ;-)</a></li>
+    <li><a href="#in-summary">In Summary</a></li>
+  </ul>
+</nav>
+</aside>
+      <p>The last time I gave some thought to some of the limitations of configuration systems, I was concerned that people use configuration without thought about the consequences. Configuration seems to be a solution of <em>first resort</em>. I was trying to argue that that is probably an unwarranted strategy. It needs to be thought out. I argued in favour of a limitation on configuration. The points I made were:</p>
 <ol>
 <li>The implementation of configuration systems intrude into their client systems unnecessarily.</li>
 <li>Configuration systems should produce typed objects, not name-value containers as is all too often the case.</li>
@@ -140,26 +74,14 @@ The implementation of configuration systems intrude into their client systems un
 <li>Hierarchical configurations are best represented using native type hierarchies.</li>
 </ol>
 <p>These generalizations don&rsquo;t apply across the board, and some systems are better than others. The general trend is towards typed state data, but point 4 inclines me to the idea that we should hide from ourselves the fact that we are even dealing with configuration data. Polymorphism allows us to incorporate points 1,2,3,4,6 and 7 seamlessly. In this post I want to explore the ideas further and see whether we can conclude anything about how we ought to be handling configuration data, and state data in general.</p>
-<h2 id="are-there-different-types-of-configuration-data">
-  Are there different types of configuration data?
-  <a class="heading-link" href="#are-there-different-types-of-configuration-data">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="are-there-different-types-of-configuration-data">Are there different types of configuration data?</h2>
 <p>Previously, I mentioned that configuration data falls into two broad categories: Policy data and State data. By &lsquo;policy&rsquo; I mean data that determines how a system behaves at run-time. As I mentioned before, policy data is a subset of the state space devoted to making decisions about <em>how</em> to do things. The rest of the configuration provides input to what gets calculated during program execution. Policy acts as input to flow of control statements. The following excerpt from a configuration file shows a fairly typical example:</p>
 <p><code>&lt;add key=”DefaultEmailFormat” value=”html” /&gt; &lt;add key=”SmtpServer” value=”smtp.myserver.com” /&gt; &lt;add key=”ForgotPasswordMessageHtml” value=”&lt;html&gt;&lt;body&gt;Dear {0},&lt;br/&gt;...” /&gt; &lt;add key=”ForgotPasswordMessageText” value=”Dear {0},\n\n ...” /&gt;</code></p>
 <p>Both types of configuration data are present in this example. DefaultEmailFormat is quite clearly a policy variable, it is used to decide which ForgotPasswordMessageXXXX template is used to generate new emails. Likewise, SmtpServer decides where a message gets routed to when it is being sent. The ForgotPasswordMessageXXXX configurations are different. They are never consulted in deciding what to do. They are used instead to generate data that is intended to produce output. In this case the output is an email body.</p>
 <p>My first thought when I noticed this division of configuration data was – surely there are items of configuration data that are both policy <em>and</em> configuration. What I&rsquo;m speculating about in this post is whether config data should be divided in this way - whether such a division will allow better designs.</p>
 <p>With a holistic view of the system, we might be able to cut through the propaganda about configuration and characterize what, if anything, distinguishes those variables that directly affect the state evolution, and why they ought not to be shoved into XML files or databases. In my previous posts on configuration I used an email system as an example to illustrate what I&rsquo;m on about. So, consider the two variables: SmtpServer and DefaultEmailFormat.  Each of these variables that might be candidates for putting in a configuration file to initialize the email system. Is there a difference between these two variables in the way they are used, or how they affect the outcome of operations?</p>
 <p>The SmtpServer variable tells the email system where to connect to send an email. The DefaultEmailFormat affects what form of formatting the email server should use for its emails. The SmtpServer setting is just telling the system what IP address to connect to. The system doesn&rsquo;t behave differently if a new address is put in - the same path of execution gets followed, even though the external outcome may be different.  The DefaultEmailFormat variable, on the other hand, will cause different data to be sent. It will also cause different formatting tools and validators to be used, and may cause different email addresses to be retrieved. In other words, it more directly affects the flow of control in the system, without directly contributing to the state data or outputs. It doesn&rsquo;t form part of the output of the system, and it is in existence from the very first moment that the program gets run.  Of course, you can imagine a system where these are not the case, but for the sake of this illustration I am making the point that variables can often fall into these two categories. If you were to modify the logic of the system so that the system responded to the SMTP server or paid no attention to the ShouldSendAsHtml variable. You would however just be changing the category into which these variables fell, without changing the nature of the categories. And it&rsquo;s the fact of these categories that is the point that I&rsquo;m trying to make - some variables have disproportionately more influence over the evolution of the state of the program than others.</p>
-<h3 id="a-holistic-view-of-stateful-systems">
-  A holistic view of stateful systems
-  <a class="heading-link" href="#a-holistic-view-of-stateful-systems">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
+<h3 id="a-holistic-view-of-stateful-systems">A holistic view of stateful systems</h3>
 <p>I&rsquo;ve distinguished between two types of configuration data, but I wonder whether there is any real difference between configuration data and the normal state data that we consider the grist for the mill of our programs?</p>
 <p>In the example above, policy data controls how the state of the system evolves, because the state is controlled by the branches in execution on the way to producing a result.  Imagine an executing program as a sequence of states - an automaton. In an automaton, we represent the status of a system as a finite set of &lsquo;states&rsquo;. As the program progresses it moves between states, until it either loops back to it&rsquo;s original state and starts again, or finishes on a completion or error state. All non-trivial computer programs have to maintain a record of their state, often in numerous variables and objects, and the combined set of these variables represents the current state of the system.</p>
 <p>More often than not, we&rsquo;ll find that the state variables are distinct from the normal data that the system is manipulating. Even more often they are implicitly stored in the position of the program&rsquo;s thread of execution. The point is that the data that keeps track of where we are and what we need to be doing is kept apart from the data that we are manipulating. Imagine that our email program has to go through a set of states to do a mail merge. The system may start out in a &lsquo;<strong>ready</strong>&rsquo; state, move to a &lsquo;<strong>collecting recipients</strong>&rsquo; state, then on to &lsquo;<strong>producing emails</strong>&rsquo;, &lsquo;<strong>sending emails</strong>&rsquo; before returning to its &lsquo;<strong>ready</strong>&rsquo; state again. Much of this will be implicit in the stack frames that define the sequence of method calls we make.</p>
@@ -170,35 +92,17 @@ The implementation of configuration systems intrude into their client systems un
 <p><code>string server = (DefaultEmailFormat.ToString()) + “mail.myserver.com”; if(server.ToLower().Equals(“htmlmail.myserver.com”)) SendHtmlMail(server, “Message from ” + server); else SendTextMail(server, “Message from ” + server); </code></p>
 <p>It&rsquo;s a bit contrived, I know, but I&rsquo;ve seen worse in production systems, believe me! Now, the server variable is constructed out of a policy variable and it then used as both a policy variable and as normal state data (as part of the message being sent). What conclusions can we draw about this piece of code? The first thing to note is that the code becomes more brittle after the change. Changing a single variable now affects not only the path of execution of the system, but also its outputs and they will potentially be compounded over time. By keeping the policy variable separate from the state variable we are able to independently manipulate the behaviour of the system or the content of its outputs. Thus we stand a better chance of being able to maintain the system over time. There is also a hit on the comprehensibility of the system that also makes it harder to maintain and extend. This is a form of coupling that once embedded into the logic of your system, can be very hard to weed out without extensive refactoring. It therefore seems to me that careful division of variables between policy and state can contribute to the long-term viability of a software system.</p>
 <p>There is another issue that I want to discuss next, which is another defining feature of policy variables. The frequency with which they are accessed. The frequency of access of variables can be used to justify special treatment for policy variables. That point is a specific case of a general problem – the misplacement of data in the memory pyramid.</p>
-<h2 id="frequency-of-reference">
-  Frequency of Reference
-  <a class="heading-link" href="#frequency-of-reference">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="frequency-of-reference">Frequency of Reference</h2>
 <p>Modular software systems tend to follow the &lsquo;<em>transaction script</em>&rsquo; pattern in making state changes. That means that at any stage they are working on making modifications to a specific subset of the data that is in the system. In outlook, you wouldn&rsquo;t expect that when you add a new task that it would be also making modifications to the archived messages, or setting up new appointments. That principle is called the <em>principle of locality of temporal reference</em> (PLTR). If like or related data are kept together then changes and references to data will tend over time to cluster together. That is – if you access a variable now, the chances are you&rsquo;re going to need it again soon. That&rsquo;s the principle on which working sets in virtual memory systems are based. If you are working on a piece of data, bring it into memory for a while along with other data nearby. That way when you need to update a related piece of data it will probably be to hand.</p>
 <p>A memory pyramid defines areas of access relative to chances of access. Therefore if you expect to refer to or change a piece of data frequently, don&rsquo;t put it out to disk. Keep it in memory, so that you don&rsquo;t incur unnecessary delays when you want to get to it. The concept of the memory pyramid stems from the insight of the PLTR in deciding where to put state data in a system with memory constraints. In a memory pyramid data is inherently mobile, since it moves up and down the memory pyramid as the chances of accessing it rise or fall. In many case the operating system takes care of moving data between levels of the pyramid. In some key cases, such as configuration you have to do it yourself. If you do not to make a choice, you still have made a choice – probably not one you were counting on.</p>
 <p><img src="http://static.flickr.com/82/274215346_2f741304b3_o_d.png" alt="">
 [<strong>Figure 1. A Memory Pyramid, showing types of data according to how much we can store there, and how fast we can get at it.</strong> ]{style=&ldquo;font-size:9pt;color:#4f81bd;&rdquo;}</p>
 <p>The majority of configuration data is incorrectly placed in the local disk tier of the memory pyramid. The majority is also generally stuck where the developer puts it, and cannot move. By drawing the distinction between policy variables and normal state variables, I hope to highlight that some configuration should be elevated to RAM and others should be relegated to remote servers.</p>
-<h2 id="locality-of-spatial-reference--or-use-case-for-short--">
-  Locality of Spatial Reference – or <em>Use Case</em> for short ;-)
-  <a class="heading-link" href="#locality-of-spatial-reference--or-use-case-for-short--">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="locality-of-spatial-reference--or-use-case-for-short--">Locality of Spatial Reference – or <em>Use Case</em> for short ;-)</h2>
 <p>Most of us write modular code these days. With the help that modern refactoring tools provide, we can easily factor out duplication in our code, and move it about till we have a tidier, more normalised, class design. Which brings me to another kind of locality of reference principle – the <em>principle of locality of spatial reference</em> (PLSR). This is related to the PLTR, and works in the same way. When you access a piece of data, you are likely to access pieces of data nearby or related to it. That means you should cluster semantically related data together, and move it around in the memory pyramid as a chunk. So, another criticism of standard configuration systems such as that natively provided by .NET is that all configuration is treated as an undifferentiated mass without semantic linkage. Perhaps something like RDF should be used to store configuration data. That way, we could at least know what goes together and how to treat it.</p>
 <p>There are policy variables for use in specific use cases that will, for a while, be accessed continually and then not be used again for seconds or hours. The PLSR tells us that if we keep them around in memory after that time, we are probably just wasting space. Likewise, if we leave them out of memory when they are most in use we are causing disk access that could be avoided.</p>
 <p>What we should do is assess the usage patterns of our configuration data and use that as a guide on how to put it in its rightful place in the memory pyramid. That either means we need a much more sophisticated configuration system or, as I think, a vastly simpler one.</p>
-<h2 id="in-summary">
-  In Summary
-  <a class="heading-link" href="#in-summary">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="in-summary">In Summary</h2>
 <p>This time round I&rsquo;ve tried to highlight some other concerns about how we use configuration. In addition to criticisms of needless overheads and lack of type-safety, the way we treat configuration is symptomatic of a general issue about mobility of data. Next time I tackle configuration, I&rsquo;ll try to focus on some real-world concerns that may influence how we should treat state data in modern applications. Issues such as thread safety, spatial distribution, consistency, mutability and system complexity. What do we know so far?</p>
 <ul>
 <li>Some state data is used for decision making, while others are used as inputs and outputs to calculations</li>
@@ -225,63 +129,31 @@ The implementation of configuration systems intrude into their client systems un
 <li>What are the forces at work in making decisions about how state data is managed? i.e. memory size, speed, latency, volatility etc</li>
 </ul>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/1/01/policy-and-configuration-i/" data-toggle="tooltip" data-placement="top" title="Policy and Configuration I">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/1/01/polymorphism-in-c#/.net-makes-code-incomprehensible/" data-toggle="tooltip" data-placement="top" title="Polymorphism in C#/.NET Makes Code Incomprehensible">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>

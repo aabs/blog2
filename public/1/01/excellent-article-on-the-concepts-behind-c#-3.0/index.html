@@ -1,192 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  Excellent Article on the Concepts behind C# 3.0 · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Excellent Article on the Concepts behind C# 3.0 - The Wandering Glitch</title>
+  <meta property="og:title" content="Excellent Article on the Concepts behind C# 3.0 - The Wandering Glitch" />
+  <meta name="twitter:title" content="Excellent Article on the Concepts behind C# 3.0 - The Wandering Glitch" />
+  <meta name="description" content="Thomas Petricek has written a very interesting article on the new concepts behind C# 3.0 (here). It shows the origin of many of the functional programming features found in C# 3.0 from Cω and F#. Having explored a little of the code that backs up the functional programming aspects, I understand that although the extension run with the basic features of C# 2.0, there is a huge amount of C# code required to deliver the functional paradigm to C#.">
+  <meta property="og:description" content="Thomas Petricek has written a very interesting article on the new concepts behind C# 3.0 (here). It shows the origin of many of the functional programming features found in C# 3.0 from Cω and F#. Having explored a little of the code that backs up the functional programming aspects, I understand that although the extension run with the basic features of C# 2.0, there is a huge amount of C# code required to deliver the functional paradigm to C#.">
+  <meta name="twitter:description" content="Thomas Petricek has written a very interesting article on the new concepts behind C# 3.0 (here). It shows the origin of many of the functional programming features found in C# 3.0 from Cω and F#. …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/1/01/excellent-article-on-the-concepts-behind-c#-3.0/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
-<meta name="description" content="Thomas Petricek has written a very interesting article on the new concepts behind C# 3.0 (here). It shows the origin of many of the functional programming features found in C# 3.0 from Cω and F#. Having explored a little of the code that backs up the functional programming aspects, I understand that although the extension run with the basic features of C# 2.0, there is a huge amount of C# code required to deliver the functional paradigm to C#.">
-<meta name="keywords" content="">
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Excellent Article on the Concepts behind C# 3.0"/>
-<meta name="twitter:description" content="Thomas Petricek has written a very interesting article on the new concepts behind C# 3.0 (here). It shows the origin of many of the functional programming features found in C# 3.0 from Cω and F#. Having explored a little of the code that backs up the functional programming aspects, I understand that although the extension run with the basic features of C# 2.0, there is a huge amount of C# code required to deliver the functional paradigm to C#."/>
-
-<meta property="og:title" content="Excellent Article on the Concepts behind C# 3.0" />
-<meta property="og:description" content="Thomas Petricek has written a very interesting article on the new concepts behind C# 3.0 (here). It shows the origin of many of the functional programming features found in C# 3.0 from Cω and F#. Having explored a little of the code that backs up the functional programming aspects, I understand that although the extension run with the basic features of C# 2.0, there is a huge amount of C# code required to deliver the functional paradigm to C#." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/1/01/excellent-article-on-the-concepts-behind-c#-3.0/" /><meta property="article:section" content="posts" />
-
-
-
-
-
-
-<link rel="canonical" href="https://industrialinference.com/1/01/excellent-article-on-the-concepts-behind-c#-3.0/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/1/01/excellent-article-on-the-concepts-behind-c#-3.0/">
-              Excellent Article on the Concepts behind C# 3.0
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              One-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <p>Thomas Petricek has written a very interesting article on the new concepts behind C# 3.0 (<a href="http://www.tomasp.net/articles/csharp3-concepts.aspx">here</a>). It shows the origin of many of the functional programming features found in C# 3.0 from <a href="http://research.microsoft.com/Comega/">Cω</a> and <a href="http://research.microsoft.com/fsharp/">F#</a>. Having explored a little of the code that backs up the functional programming aspects, I understand that although the extension run with the basic features of C# 2.0, there is a huge amount of C# code required to deliver the functional paradigm to C#. Most of that code provides complex code generation, type inference and declarative programming support.</p>
+      
+      <h1 class="article-title">Excellent Article on the Concepts behind C# 3.0</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+      </ul>
+      
+      <p>Thomas Petricek has written a very interesting article on the new concepts behind C# 3.0 (<a href="http://www.tomasp.net/articles/csharp3-concepts.aspx">here</a>). It shows the origin of many of the functional programming features found in C# 3.0 from <a href="http://research.microsoft.com/Comega/">Cω</a> and <a href="http://research.microsoft.com/fsharp/">F#</a>. Having explored a little of the code that backs up the functional programming aspects, I understand that although the extension run with the basic features of C# 2.0, there is a huge amount of C# code required to deliver the functional paradigm to C#. Most of that code provides complex code generation, type inference and declarative programming support.</p>
 <p>In the first section on first class function support – I found on closer inspection (within LINQ at least) that these first class functions, are actually delivered through calls to the <a href="http://msdn2.microsoft.com/en-us/system.reflection.emit.dynamicmethod.aspx">DynamicMethod</a> method of System.Reflection.Emit. If you disassemble its code, you&rsquo;ll see that the relationship between the imperative and functional programming in C# is through &lsquo;<em>runtime support</em>&rsquo;. The functional programming extensions are a runtime extension to the CLR that generates code to fulfill declarative requirements. That is – there&rsquo;s no new radical paradigm at work in the core code, but the way it&rsquo;s exposed will simplify things so much that it might as well be called a new paradigm.</p>
 <p>Well worth a read.</p>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/1/01/erik-werenskiold/" data-toggle="tooltip" data-placement="top" title="Erik Werenskiold">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/1/01/faceprints/" data-toggle="tooltip" data-placement="top" title="Faceprints">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>

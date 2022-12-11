@@ -1,135 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  Functional Programming - lessons from high-school arithmetic · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-
-
-
-
-<meta name="description" content="[{.size-full .wp-image-534 .aligncenter width=&ldquo;354&rdquo; height=&ldquo;259&rdquo;}]{style=&ldquo;font-size:11pt;font-family:Calibri;&rdquo;}
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Functional Programming - lessons from high-school arithmetic - The Wandering Glitch</title>
+  <meta property="og:title" content="Functional Programming - lessons from high-school arithmetic - The Wandering Glitch" />
+  <meta name="twitter:title" content="Functional Programming - lessons from high-school arithmetic - The …" />
+  <meta name="description" content="[{.size-full .wp-image-534 .aligncenter width=&ldquo;354&rdquo; height=&ldquo;259&rdquo;}]{style=&ldquo;font-size:11pt;font-family:Calibri;&rdquo;}
 [I&rsquo;ll start out with an apology - it was only by writing ]{style=&ldquo;font-size:11pt;font-family:Calibri;&rdquo;}[this ]{style=&ldquo;font-size:11pt;font-style:italic;font-family:Calibri;&rdquo;}[post, that I worked out how to write a shorter post on the same topic. Sometime I&rsquo;ll follow this up with something less full of digressions, explorations or justifications. The topic of the post started out as &lsquo;Closure&rsquo;. It then became &lsquo;Closure plus Rules of Composition&rsquo; and finally ended up as &lsquo;functional programming - lessons from high school arithmetic&rsquo;.">
-<meta name="keywords" content="">
+  <meta property="og:description" content="[{.size-full .wp-image-534 .aligncenter width=&ldquo;354&rdquo; height=&ldquo;259&rdquo;}]{style=&ldquo;font-size:11pt;font-family:Calibri;&rdquo;}
+[I&rsquo;ll start out with an apology - it was only by writing ]{style=&ldquo;font-size:11pt;font-family:Calibri;&rdquo;}[this ]{style=&ldquo;font-size:11pt;font-style:italic;font-family:Calibri;&rdquo;}[post, that I worked out how to write a shorter post on the same topic. Sometime I&rsquo;ll follow this up with something less full of digressions, explorations or justifications. The topic of the post started out as &lsquo;Closure&rsquo;. It then became &lsquo;Closure plus Rules of Composition&rsquo; and finally ended up as &lsquo;functional programming - lessons from high school arithmetic&rsquo;.">
+  <meta name="twitter:description" content="[{.size-full .wp-image-534 .aligncenter width=&ldquo;354&rdquo; height=&ldquo;259&rdquo;}]{style=&ldquo;font-size:11pt;font-family:Calibri;&rdquo;}
+[I&rsquo;ll start out with an apology - it was only …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/1/01/functional-programming-lessons-from-high-school-arithmetic/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Functional Programming - lessons from high-school arithmetic"/>
-<meta name="twitter:description" content="[{.size-full .wp-image-534 .aligncenter width=&ldquo;354&rdquo; height=&ldquo;259&rdquo;}]{style=&ldquo;font-size:11pt;font-family:Calibri;&rdquo;}
-[I&rsquo;ll start out with an apology - it was only by writing ]{style=&ldquo;font-size:11pt;font-family:Calibri;&rdquo;}[this ]{style=&ldquo;font-size:11pt;font-style:italic;font-family:Calibri;&rdquo;}[post, that I worked out how to write a shorter post on the same topic. Sometime I&rsquo;ll follow this up with something less full of digressions, explorations or justifications. The topic of the post started out as &lsquo;Closure&rsquo;. It then became &lsquo;Closure plus Rules of Composition&rsquo; and finally ended up as &lsquo;functional programming - lessons from high school arithmetic&rsquo;."/>
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
-<meta property="og:title" content="Functional Programming - lessons from high-school arithmetic" />
-<meta property="og:description" content="[{.size-full .wp-image-534 .aligncenter width=&ldquo;354&rdquo; height=&ldquo;259&rdquo;}]{style=&ldquo;font-size:11pt;font-family:Calibri;&rdquo;}
-[I&rsquo;ll start out with an apology - it was only by writing ]{style=&ldquo;font-size:11pt;font-family:Calibri;&rdquo;}[this ]{style=&ldquo;font-size:11pt;font-style:italic;font-family:Calibri;&rdquo;}[post, that I worked out how to write a shorter post on the same topic. Sometime I&rsquo;ll follow this up with something less full of digressions, explorations or justifications. The topic of the post started out as &lsquo;Closure&rsquo;. It then became &lsquo;Closure plus Rules of Composition&rsquo; and finally ended up as &lsquo;functional programming - lessons from high school arithmetic&rsquo;." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/1/01/functional-programming-lessons-from-high-school-arithmetic/" /><meta property="article:section" content="posts" />
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-
-
-
-<link rel="canonical" href="https://industrialinference.com/1/01/functional-programming-lessons-from-high-school-arithmetic/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/1/01/functional-programming-lessons-from-high-school-arithmetic/">
-              Functional Programming - lessons from high-school arithmetic
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              16-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <p>[<a href="http://geekandpoke.typepad.com/"><img src="%7Bstatic%7D2008/05/math.png" alt="">{.size-full .wp-image-534 .aligncenter width=&ldquo;354&rdquo; height=&ldquo;259&rdquo;}</a>]{style=&ldquo;font-size:11pt;font-family:Calibri;&rdquo;}</p>
+      
+      <h1 class="article-title">Functional Programming - lessons from high-school arithmetic</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents"></nav>
+</aside>
+      <p>[<a href="http://geekandpoke.typepad.com/"><img src="%7Bstatic%7D2008/05/math.png" alt="">{.size-full .wp-image-534 .aligncenter width=&ldquo;354&rdquo; height=&ldquo;259&rdquo;}</a>]{style=&ldquo;font-size:11pt;font-family:Calibri;&rdquo;}</p>
 <p>[I&rsquo;ll start out with an apology - it was only by writing ]{style=&ldquo;font-size:11pt;font-family:Calibri;&rdquo;}[this ]{style=&ldquo;font-size:11pt;font-style:italic;font-family:Calibri;&rdquo;}[post, that I worked out how to write a shorter post on the same topic. Sometime I&rsquo;ll follow this up with something less full of digressions, explorations or justifications. The topic of the post started out as &lsquo;<em>Closure</em>&rsquo;. It then became <em>&lsquo;Closure plus Rules of Composition</em>&rsquo; and finally ended up as <em>&lsquo;functional programming - lessons from high school arithmetic</em>&rsquo;. The point of this post is to explore the API design principles we can learn from rudimentary high school arithmetic.  <strong><em>You already know all the mathematics I&rsquo;m going to talk about, so don&rsquo;t be put off by any terminology I introduce - it&rsquo;s only in there to satisfy any passing mathematicians.</em> ;^]</strong>]{style=&ldquo;font-size:11pt;font-family:Calibri;&rdquo;}</p>
 <p>The topic of this post is much more wide-ranging than the previous ones. The post will eventually get around to talking about API design, but I really started out just wanting to dwell on some neat ideas from philosophy or mathematics that just appealed to me. The first idea is &lsquo;<em><strong>Closure</strong></em>&rsquo;.</p>
 <p>Closure has many meanings, but the two most relevant to this blog are:</p>
@@ -260,63 +184,31 @@ credit = credit + sumToTransfer;
 <p>It&rsquo;s funny that these ideas flow simply from looking at high-school algebra, especially since some of them read like a functional-programming manifesto. But, hopefully, you&rsquo;ll agree that some of them have merit. They&rsquo;re just thoughts that have occurred to me from trying to understand an offhand comment by Eric Mejer about the relationship between LINQ and Monads. Perhaps I&rsquo;ll pursue that idea some more in future posts, but for now I&rsquo;ll try to keep the posts coming more frequently.
 :::</p>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/1/01/functional-programming-is-it-worth-your-time/" data-toggle="tooltip" data-placement="top" title="Functional programming - Is it worth your time?">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/1/01/functional-programming-in-c#-higher-order-functions/" data-toggle="tooltip" data-placement="top" title="Functional Programming in C# - Higher-Order Functions">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>

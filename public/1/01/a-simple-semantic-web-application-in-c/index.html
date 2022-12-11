@@ -1,132 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  A simple semantic web application in C# · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>A simple semantic web application in C# - The Wandering Glitch</title>
+  <meta property="og:title" content="A simple semantic web application in C# - The Wandering Glitch" />
+  <meta name="twitter:title" content="A simple semantic web application in C# - The Wandering Glitch" />
+  <meta name="description" content="[digg=http://www.digg.com/programming/A_simple_semantic_web_application_in_C]The latest update of the SemWeb library from Josh Tauberer includes a C# implementation of the Euler reasoner. This reasoner is able to go beyond simplistic RDFS reasoning – being able to navigate the class and property relationships - to make use of rules. The ontology I&rsquo;ve been using to get used to coding in the framework models a simple state machine. The ontology couldn&rsquo;t be simpler. Here&rsquo;s an N3 file that declares the classes and their relationships.">
+  <meta property="og:description" content="[digg=http://www.digg.com/programming/A_simple_semantic_web_application_in_C]The latest update of the SemWeb library from Josh Tauberer includes a C# implementation of the Euler reasoner. This reasoner is able to go beyond simplistic RDFS reasoning – being able to navigate the class and property relationships - to make use of rules. The ontology I&rsquo;ve been using to get used to coding in the framework models a simple state machine. The ontology couldn&rsquo;t be simpler. Here&rsquo;s an N3 file that declares the classes and their relationships.">
+  <meta name="twitter:description" content="[digg=http://www.digg.com/programming/A_simple_semantic_web_application_in_C]The latest update of the SemWeb library from Josh Tauberer includes a C# implementation of the Euler reasoner. This …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/1/01/a-simple-semantic-web-application-in-c/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
-<meta name="description" content="[digg=http://www.digg.com/programming/A_simple_semantic_web_application_in_C]The latest update of the SemWeb library from Josh Tauberer includes a C# implementation of the Euler reasoner. This reasoner is able to go beyond simplistic RDFS reasoning – being able to navigate the class and property relationships - to make use of rules. The ontology I&rsquo;ve been using to get used to coding in the framework models a simple state machine. The ontology couldn&rsquo;t be simpler. Here&rsquo;s an N3 file that declares the classes and their relationships.">
-<meta name="keywords" content="">
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="A simple semantic web application in C#"/>
-<meta name="twitter:description" content="[digg=http://www.digg.com/programming/A_simple_semantic_web_application_in_C]The latest update of the SemWeb library from Josh Tauberer includes a C# implementation of the Euler reasoner. This reasoner is able to go beyond simplistic RDFS reasoning – being able to navigate the class and property relationships - to make use of rules. The ontology I&rsquo;ve been using to get used to coding in the framework models a simple state machine. The ontology couldn&rsquo;t be simpler. Here&rsquo;s an N3 file that declares the classes and their relationships."/>
-
-<meta property="og:title" content="A simple semantic web application in C#" />
-<meta property="og:description" content="[digg=http://www.digg.com/programming/A_simple_semantic_web_application_in_C]The latest update of the SemWeb library from Josh Tauberer includes a C# implementation of the Euler reasoner. This reasoner is able to go beyond simplistic RDFS reasoning – being able to navigate the class and property relationships - to make use of rules. The ontology I&rsquo;ve been using to get used to coding in the framework models a simple state machine. The ontology couldn&rsquo;t be simpler. Here&rsquo;s an N3 file that declares the classes and their relationships." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/1/01/a-simple-semantic-web-application-in-c/" /><meta property="article:section" content="posts" />
-
-
-
-
-
-
-<link rel="canonical" href="https://industrialinference.com/1/01/a-simple-semantic-web-application-in-c/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/1/01/a-simple-semantic-web-application-in-c/">
-              A simple semantic web application in C#
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              7-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <p>[digg=http://www.digg.com/programming/A_simple_semantic_web_application_in_C]The
+      
+      <h1 class="article-title">A simple semantic web application in C#</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-to-notice">What to notice</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+      <p>[digg=http://www.digg.com/programming/A_simple_semantic_web_application_in_C]The
 latest update of the <a href="http://razor.occams.info/code/semweb/">SemWeb</a> library
 from Josh Tauberer includes a C# implementation of the
 <a href="http://www.agfa.com/w3c/euler/">Euler</a> reasoner. This reasoner is able to go
@@ -227,13 +159,7 @@ terms, that means you have to manually change the entries for the input and the
 states as they change. What the ontology adds is a framework for representing
 the data, and a set of rules for working out what the next state should be.
 That&rsquo;s still powerful, but I wonder how well it would scale.</p>
-<h3 id="what-to-notice">
-  What to notice
-  <a class="heading-link" href="#what-to-notice">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
+<h3 id="what-to-notice">What to notice</h3>
 <p>There are a few things in here that you should pay very close attention to if
 you want to write a semantic web application of your own using SemWeb. Firstly,
 the default namespace definition in the ontology and rules definition files.
@@ -268,63 +194,31 @@ I&rsquo;ll be posting more on this over the next few weeks, so if there are thin
 want me to write about, or answers to questions you have, pllease drop me a line
 or comment here, and I&rsquo;ll try to come up with answers.</p>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/1/01/a-simple-interface-to-timercallback/" data-toggle="tooltip" data-placement="top" title="A Simple Interface to TimerCallback">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/1/01/a-speculative-notation/" data-toggle="tooltip" data-placement="top" title="A Speculative Notation">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>

@@ -1,132 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  C#, Domain Models &amp; the Semantic Web · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>C#, Domain Models &amp; the Semantic Web - The Wandering Glitch</title>
+  <meta property="og:title" content="C#, Domain Models &amp; the Semantic Web - The Wandering Glitch" />
+  <meta name="twitter:title" content="C#, Domain Models &amp; the Semantic Web - The Wandering Glitch" />
+  <meta name="description" content="I&rsquo;ve recently been learning more about the OWL web ontology language in an attempt to find a way to represent SPARQL queries in LINQ. SPARQL and LINQ are very different, and the systems that they target are also dissimilar. Inevitably, it&rsquo;s difficult to imagine the techniques to employ in translating a query from one language to the other without actually trying to implpement the LINQ extensions. I&rsquo;ve got quite a long learning curve to climb.">
+  <meta property="og:description" content="I&rsquo;ve recently been learning more about the OWL web ontology language in an attempt to find a way to represent SPARQL queries in LINQ. SPARQL and LINQ are very different, and the systems that they target are also dissimilar. Inevitably, it&rsquo;s difficult to imagine the techniques to employ in translating a query from one language to the other without actually trying to implpement the LINQ extensions. I&rsquo;ve got quite a long learning curve to climb.">
+  <meta name="twitter:description" content="I&rsquo;ve recently been learning more about the OWL web ontology language in an attempt to find a way to represent SPARQL queries in LINQ. SPARQL and LINQ are very different, and the systems that …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/1/01/c#-domain-models-the-semantic-web/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
-<meta name="description" content="I&rsquo;ve recently been learning more about the OWL web ontology language in an attempt to find a way to represent SPARQL queries in LINQ. SPARQL and LINQ are very different, and the systems that they target are also dissimilar. Inevitably, it&rsquo;s difficult to imagine the techniques to employ in translating a query from one language to the other without actually trying to implpement the LINQ extensions. I&rsquo;ve got quite a long learning curve to climb.">
-<meta name="keywords" content="">
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="C#, Domain Models &amp; the Semantic Web"/>
-<meta name="twitter:description" content="I&rsquo;ve recently been learning more about the OWL web ontology language in an attempt to find a way to represent SPARQL queries in LINQ. SPARQL and LINQ are very different, and the systems that they target are also dissimilar. Inevitably, it&rsquo;s difficult to imagine the techniques to employ in translating a query from one language to the other without actually trying to implpement the LINQ extensions. I&rsquo;ve got quite a long learning curve to climb."/>
-
-<meta property="og:title" content="C#, Domain Models &amp; the Semantic Web" />
-<meta property="og:description" content="I&rsquo;ve recently been learning more about the OWL web ontology language in an attempt to find a way to represent SPARQL queries in LINQ. SPARQL and LINQ are very different, and the systems that they target are also dissimilar. Inevitably, it&rsquo;s difficult to imagine the techniques to employ in translating a query from one language to the other without actually trying to implpement the LINQ extensions. I&rsquo;ve got quite a long learning curve to climb." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/1/01/c#-domain-models-the-semantic-web/" /><meta property="article:section" content="posts" />
-
-
-
-
-
-
-<link rel="canonical" href="https://industrialinference.com/1/01/c#-domain-models-the-semantic-web/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/1/01/c#-domain-models-the-semantic-web/">
-              C#, Domain Models &amp; the Semantic Web
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              4-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <p>I&rsquo;ve recently been learning more about the <a href="http://www.w3.org/2004/OWL/">OWL</a> web ontology language in an attempt to find a way to represent <a href="http://www.w3.org/2001/sw/DataAccess/">SPARQL</a> queries in <a href="http://msdn2.microsoft.com/en-us/library/aa479865.aspx">LINQ</a>. SPARQL and LINQ are very different, and the systems that they target are also dissimilar. Inevitably, it&rsquo;s difficult to imagine the techniques to employ in translating a query from one language to the other without actually trying to implpement the LINQ extensions. I&rsquo;ve got quite a long learning curve to climb. One thing is clear though: OWL, or some system very similar to it, is going to have a radical impact both on developers and society at large. The reason I haven&rsquo;t posted in the last few weeks is because I&rsquo;ve been writing an article/paper for publication in some related journal.  I decided to put up the abstract and the closing remarks of the paper here, just so you can see what I&rsquo;ll be covering in more depth on this blog in the future: LINQ, OWL, &amp; RDF.</p>
+      
+      <h1 class="article-title">C#, Domain Models &amp; the Semantic Web</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents"></nav>
+</aside>
+      <p>I&rsquo;ve recently been learning more about the <a href="http://www.w3.org/2004/OWL/">OWL</a> web ontology language in an attempt to find a way to represent <a href="http://www.w3.org/2001/sw/DataAccess/">SPARQL</a> queries in <a href="http://msdn2.microsoft.com/en-us/library/aa479865.aspx">LINQ</a>. SPARQL and LINQ are very different, and the systems that they target are also dissimilar. Inevitably, it&rsquo;s difficult to imagine the techniques to employ in translating a query from one language to the other without actually trying to implpement the LINQ extensions. I&rsquo;ve got quite a long learning curve to climb. One thing is clear though: OWL, or some system very similar to it, is going to have a radical impact both on developers and society at large. The reason I haven&rsquo;t posted in the last few weeks is because I&rsquo;ve been writing an article/paper for publication in some related journal.  I decided to put up the abstract and the closing remarks of the paper here, just so you can see what I&rsquo;ll be covering in more depth on this blog in the future: LINQ, OWL, &amp; RDF.</p>
 <p>PS: If you are the editor of a journal that would like to publish the article, please contact me by email and I&rsquo;ll be in touch when it&rsquo;s finished. As you will see, the article is very optimistic about the prospects of the semantic web (despite its seeming lack of uptake outside of academia), and puts forward the idea that with the right fusion of technologies and environments the semantic web will have an even faster and more pervasive impact on society than the world wide web. This is all based on the assumption that LINQ the query language is capable of representing the same queries as SPARQL.</p>
 <p>The Abstract:</p>
 <p>The software engineering industry is undergoing a reassessment of ORM systems. It is possible to foresee a coming revolution where object oriented systems are augmented by semantic web technologies to allow legacy systems to become more intelligent. It is possible to embed an object oriented domain model in an ontology and use an object/ontology mapping (OOM) to overcome the impedance mismatch that exists between the two realms. The article explores the possibility of augmenting an object model with RDF. Reasoners can at last be employed on domain models – a feat that hitherto has been impossible. Finally, for fun, we attempt to prognosticate on what semantic web technologies mean for the object and relational domains.</p>
@@ -135,63 +59,31 @@
 <p>Imagine the prospect of being able to incorporate something like the Cyc ontology into your systems; to be able to ask useful but open-ended questions of your system without having to worry (too much) about the time taken to perform the query. Imagine being able to easily endow your applications with real-world insight that extends way beyond the narrow confines of the application at hand. Imagine being able to express business rules in their natural context – the business strategy. It would be a compelling commercial force for adoption of the semantic web. I imagine that in such a case developers would have less reason to cleave to relational databases with such fervour as at present.</p>
 <p>Under these circumstances it’s hard to believe that the semantic web will not suffuse society as quickly as the World Wide Web. It’s also hard to see an aspect of society that won’t be radically overturned by a combination of easy semantic web queries, quantum computer based DL reasoners and the combination of detailed domain-level and broadly scoped real-world ontologies. The near term effect of semantic web technologies on developers will be the merest foreshadowing of the momentous effects on society generally. Truly, the semantic web will help to sustain and accelerate the Singularity.</p>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/1/01/c#-puzzle-of-the-day/" data-toggle="tooltip" data-placement="top" title="C# puzzle of the day">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/1/01/calculation-of-the-day/" data-toggle="tooltip" data-placement="top" title="Calculation of the day">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>

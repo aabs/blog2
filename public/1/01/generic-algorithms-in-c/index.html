@@ -1,144 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  Generic Algorithms in C# · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-
-
-
-
-<meta name="description" content="This post describes generic programming and the capabilities of generics in C#. I conclude that C# Generics and C# generally are not able to solve issues that are easy in the Standard Template Library. Nothing would make me happier than if you were able to demonstrate to me that my conclusions are wrong. If thats true, please don&rsquo;t keep it to yourself!!!!!
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Generic Algorithms in C# - The Wandering Glitch</title>
+  <meta property="og:title" content="Generic Algorithms in C# - The Wandering Glitch" />
+  <meta name="twitter:title" content="Generic Algorithms in C# - The Wandering Glitch" />
+  <meta name="description" content="This post describes generic programming and the capabilities of generics in C#. I conclude that C# Generics and C# generally are not able to solve issues that are easy in the Standard Template Library. Nothing would make me happier than if you were able to demonstrate to me that my conclusions are wrong. If thats true, please don&rsquo;t keep it to yourself!!!!!
 Ever since moving to C# from C&#43;&#43;, I&rsquo;ve missed the expressive power and elegance of the Standard Template Library (STL).">
-<meta name="keywords" content="">
+  <meta property="og:description" content="This post describes generic programming and the capabilities of generics in C#. I conclude that C# Generics and C# generally are not able to solve issues that are easy in the Standard Template Library. Nothing would make me happier than if you were able to demonstrate to me that my conclusions are wrong. If thats true, please don&rsquo;t keep it to yourself!!!!!
+Ever since moving to C# from C&#43;&#43;, I&rsquo;ve missed the expressive power and elegance of the Standard Template Library (STL).">
+  <meta name="twitter:description" content="This post describes generic programming and the capabilities of generics in C#. I conclude that C# Generics and C# generally are not able to solve issues that are easy in the Standard Template …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/1/01/generic-algorithms-in-c/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Generic Algorithms in C#"/>
-<meta name="twitter:description" content="This post describes generic programming and the capabilities of generics in C#. I conclude that C# Generics and C# generally are not able to solve issues that are easy in the Standard Template Library. Nothing would make me happier than if you were able to demonstrate to me that my conclusions are wrong. If thats true, please don&rsquo;t keep it to yourself!!!!!
-Ever since moving to C# from C&#43;&#43;, I&rsquo;ve missed the expressive power and elegance of the Standard Template Library (STL)."/>
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
-<meta property="og:title" content="Generic Algorithms in C#" />
-<meta property="og:description" content="This post describes generic programming and the capabilities of generics in C#. I conclude that C# Generics and C# generally are not able to solve issues that are easy in the Standard Template Library. Nothing would make me happier than if you were able to demonstrate to me that my conclusions are wrong. If thats true, please don&rsquo;t keep it to yourself!!!!!
-Ever since moving to C# from C&#43;&#43;, I&rsquo;ve missed the expressive power and elegance of the Standard Template Library (STL)." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/1/01/generic-algorithms-in-c/" /><meta property="article:section" content="posts" />
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-
-
-
-<link rel="canonical" href="https://industrialinference.com/1/01/generic-algorithms-in-c/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/1/01/generic-algorithms-in-c/">
-              Generic Algorithms in C#
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              17-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <p>This post describes generic programming and the capabilities of generics in C#. I conclude that C# Generics and C# generally are not able to solve issues that are easy in the Standard Template Library. <em><strong>Nothing would make me happier than if you were able to demonstrate to me that my conclusions are wrong. If thats true, please don&rsquo;t keep it to yourself!!!!!</strong></em></p>
+      
+      <h1 class="article-title">Generic Algorithms in C#</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#algorithms--data-structures--programs-">Algorithms + Data Structures = Programs[ ]</a></li>
+    <li><a href="#iterators">Iterators</a></li>
+    <li><a href="#generic-algorithms">Generic Algorithms</a></li>
+    <li><a href="#shortcomings-of-c-">[Shortcomings of C# ]</a>
+      <ul>
+        <li><a href="#exporting-types-">[Exporting Types ]</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusions">Conclusions</a></li>
+  </ul>
+</nav>
+</aside>
+      <p>This post describes generic programming and the capabilities of generics in C#. I conclude that C# Generics and C# generally are not able to solve issues that are easy in the Standard Template Library. <em><strong>Nothing would make me happier than if you were able to demonstrate to me that my conclusions are wrong. If thats true, please don&rsquo;t keep it to yourself!!!!!</strong></em></p>
 <p>Ever since moving to C# from C++, I&rsquo;ve missed the expressive power and elegance of the Standard Template Library (STL). When generics were introduced into C# 2.0 I assumed that to gain runtime type safety, some of that expressive power had to be sacrificed. My initial impression was that it was good only for generic collections, but not for those idioms that revolutionized C++ when the STL was adopted, and after Alexandrescu published his eye-opening [<em>Modern C++ Design</em>]{style=&ldquo;font-size:9pt;font-family:Tahoma;&rdquo;}. I&rsquo;d never found the time to confirm my misgivings, so I recently made time to explore the issues - I&rsquo;ve been working on a .NET project based on legacy code which was - how can I put it delicately - based on the best practice of yesteryear! I have a pressing incentive to find clean, expressive and sexy ways to enhance the code-base and architecture. Obviously, I&rsquo;m breathless with anticipation of Linq in all its forms, but I have a job to do now with the tools at hand.</p>
 <p>I don&rsquo;t think I&rsquo;ve ever seen syntactic and idiomatic support in any framework to better STL as it stood a decade ago. Don&rsquo;t get me wrong - I love C# - but I regret that I can&rsquo;t combine the best of both worlds. Are generics in C# 2.0 too impoverished to be able to provide the power of STL? Are we able to provide the full power that has until now been the exclusive reserve of STL developers?</p>
-<h2 id="algorithms--data-structures--programs-">
-  Algorithms + Data Structures = Programs[ ]
-  <a class="heading-link" href="#algorithms--data-structures--programs-">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 style="font-size:13pt;" id="algorithms--data-structures--programs-">Algorithms + Data Structures = Programs[ ]</h2>
 <p>The STL stems from work done by Alex Stepanov and Meng Lee, and earlier work on generic programming by Stepanov and Musser. Their object was to produce a set of general purpose container classes and associated algorithms that could exist independently. In languages that don&rsquo;t support generics, you have four choices when you want to provide standard algorithms on containers:</p>
 <ul>
 <li>you implement every method that you need on each container class (The MFC approach).</li>
@@ -147,13 +76,7 @@ Ever since moving to C# from C&#43;&#43;, I&rsquo;ve missed the expressive power
 <li>you don&rsquo;t bother implementing algorithms at all (The C5 approach).</li>
 </ul>
 <p>None of these options is particularly desirable, so Stepanov &amp; Co developed an idiom for coding in C++ that allowed algorithms to be developed independently of data structures. This is an important point - you can develop a sort method that will sort a linked list as easily as an array. It&rsquo;s not easy. His approach was to employ <em>iterators</em>, a set of coding conventions, and type exports.</p>
-<h2 id="iterators">
-  Iterators
-  <a class="heading-link" href="#iterators">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="iterators">Iterators</h2>
 <p>Iterators are vital - they provide the topology independent mechanism for getting at the elements in a collection. The Iterators in STL are based on pointer semantics, and in the case of arrays may actually be implemented using a pointer. The key feature of a pointer is that it provides a way to dereference a collection element (using [operator *]{style=&ldquo;font-size:10pt;font-family:Courier New;&rdquo;}) to move forward and backward through the collection ([operator +]{style=&ldquo;font-size:10pt;font-family:Courier New;&rdquo;}+ and [operator &ndash;]{style=&ldquo;font-size:10pt;font-family:Courier New;&rdquo;}). in .NET, [IEnumerator&lt;T&gt;]{style=&ldquo;font-size:10pt;font-family:Courier New;&rdquo;} provides roughly the same functionality, and in general it is provided as a nested class within a collection. There&rsquo;s nothing sacred about pointer syntax. We can implement an iterator without using operator overloading. The key thing is pointer <em>semantics.</em> Pointers treat a block of memory as ordered, contiguous and typed. By being typed you know how far to move forward to get to the beginning of the next object. In other words, you can easily move forward through the ordered collection of objects. In the case of C/C++ pointers by using the operator++ method, but it could just as easily be by using a MoveNext method.</p>
 <p>Option 2 is what we are currently faced with in C#&rsquo;s System.Collections - all container classes store references to System.Object. If you want to ensure type safety in your system you&rsquo;ll probably find yourself with all accesses to the container using casts and try-catch blocks to ensure no foreign bodies are introduced by accident. It&rsquo;s nasty, messy and these days unnecessary when you have generics. The burning question is - if you can have generic data structures does that mean you can also have generic algorithms?</p>
 <p>The answer to that is a resounding NO! Which is the reason why a lot of ex C++ programmers were sceptical at the usefulness of generics in C#. Sure they can help you store stuff easier, but they alone can&rsquo;t provide a rich language in which to define generally useful reusable functionality. In STL, iterators are hand-coded nested classes in a collection. Their behaviour is dictated by the iterator category to which they belong. Iterators are classified as forward, reverse, bi-directional, or random access. They can also be const or non-const.</p>
@@ -162,13 +85,7 @@ Ever since moving to C# from C&#43;&#43;, I&rsquo;ve missed the expressive power
 <p>The interface to IEnumerator&lt;T&gt; is very simple.
 <code> public interface IEnumerator&lt;T&gt; {   bool MoveNext();   T Current { get; }   void Reset(); }</code></p>
 <p>It&rsquo;s clear that we can&rsquo;t do random access with this type of iterator, and we can&rsquo;t move backwards through the collection either. Since yield allows only trivial iterators we will probably have to use an alternative mechanism to iterate collections. Perhaps we need to expand the capabilities of IEnumerator&lt;T&gt;? The iterators will need to be constrained by coding conventions (of which more later on). There is nothing in principle to stop us doing whatever was possible with iterators in C++, in the same way - after all there is no in-built runtime support for iterators in C++, yet it copes well.</p>
-<h2 id="generic-algorithms">
-  Generic Algorithms
-  <a class="heading-link" href="#generic-algorithms">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="generic-algorithms">Generic Algorithms</h2>
 <p>In generic methods you often define your method signatures in terms of iterators. If you defined (in C++) a vector of integers like so:</p>
 <p><code>vector&lt;int&gt; vint = new vector&lt;int&gt;(); </code></p>
 <p>and you defined an algorithm called [Double]{style=&ldquo;font-size:10pt;font-family:Courier New;&rdquo;} like so:
@@ -191,24 +108,12 @@ Ever since moving to C# from C&#43;&#43;, I&rsquo;ve missed the expressive power
 <p><code>public char Current {   get {     if (this.index == -1) {       throw new InvalidOperationException (Environment.GetResourceString( &quot;InvalidOperation_EnumNotStarted&quot;));     }     if (this.index &gt;= this.str.Length) {       throw new InvalidOperationException (Environment.GetResourceString( &quot;InvalidOperation_EnumEnded&quot;));     }     return this.currentElement;   } }</code></p>
 <p>As soon as the iterator gets to the end of the collection it will not allow a dereference of collection elements. Instead it begins to throw exceptions. If this is typical of the framework, it doesn&rsquo;t bode well for algorithms like Double above, since you can&rsquo;t dereference one beyond the end of the collection without throwing exceptions.</p>
 <p>Without a common, immutable end of collection marker that can be passed to an algorithm, we are going to have problems. Firstly, we will have to provide algorithms for both the whole collection and for a range within that collection. Perhaps that&rsquo;s why the canonical generic algorithm in System.Collections.List is ForEach? Without a guaranteed end of collection iterator value, we can&rsquo;t be sure of iterating the whole of a collection that is being inserted to while it is being iterated.</p>
-<h2 id="shortcomings-of-c-">
-  [Shortcomings of C# ]
-  <a class="heading-link" href="#shortcomings-of-c-">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 style="font-family:Tahoma;" id="shortcomings-of-c-">[Shortcomings of C# ]</h2>
 <p>Using a convention about how collections expose their type parameters, STL allows a thorough introspection into data types used in a collection and its contained elements, without any prior knowledge of the types.  In a Genetic Algorithm, I never need to know how my Genomes are encoded to be able to evolve them. In C# I can get an iterator such as [IEnumerable&lt;T&gt;]{style=&ldquo;font-size:10pt;font-family:Courier New;&rdquo;}, but if T has further detail inside it, I have no easy way to get at it, because there are no typedefs or their equivalent inside IEnumerable. The code in my example above is completely illegal. You can&rsquo;t do Iterator.T because T is not accessible from Double. All it knows about is Iterator. It could define a constraint to say that its iterators must be [IEnumerator&lt;T&gt;]{style=&ldquo;font-size:10pt;font-family:Courier New;&rdquo;} but even then, it still can&rsquo;t work without explicitly specifying the types iterated over.</p>
 <p>Some collection libraries use a pattern of defining T (the element type) on the generic method, and then define their interfaces to accept IList&lt;T&gt;or IEnumerator&lt;T&gt;. This is partially generic – it allows the iterated elements to be parameterised, but not the collection types or their iterators.</p>
 <p>What&rsquo;s so bad about that, you might ask. Well, the type parameters would contain redundant type definitions which would be messy and would make the code brittle. In addition, that approach would only be useful if you knew how many levels you would need to dig into the type definitions. If you wanted to look inside T of IEnumerator&lt;T&gt;, you would have to provide extra parameters in the cases where T was itself generic. Obviously, messing with the parameter lists of a generic type or method won&rsquo;t help. So, we need some sort of type export mechanism.</p>
 <p>So, how do I find out more about the type parameter of IEnumerable&lt;T&gt; without using reflection, or what elegant workarounds and/or conventions could I adopt to make such type access easy? These problems are not specific to the realm of evolutionary programming - I just chose that because it&rsquo;s fun - there is currently <a href="http://blogs.msdn.com/ericgu/archive/2003/11/14/52852.aspx">[work]{style=&ldquo;font-size:9pt;font-family:Tahoma;&rdquo;}</a> being done by Anders Hejlsberg and the rest of the C# design team to find (or bake in) ways to achieve this in future versions of C#.</p>
-<h3 id="exporting-types-">
-  [Exporting Types ]
-  <a class="heading-link" href="#exporting-types-">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
+<h3 style="font-family:Tahoma;" id="exporting-types-">[Exporting Types ]</h3>
 <p>One feature of C++ that is used liberally in the STL is typedefs. <em>typedef</em> in C++ is useful for allowing type parameters to be inspected by algorithms. I&rsquo;ll show a few examples of typedefs at work below. This is a critical difference between the template system of C++ and the generics system of C#. In C# there is very little information flow between the generic type argument and the type constraints. C++ uses <em>static type checking</em> to check for type errors at compile time. It does not do this by checking type arguments against a lookup table of permissible types as is the case with C#. Instead it attempts to find bindings for methods, fields and typedefs for each specific <em>constructed type</em>. Consider the following example. I&rsquo;ve defined a class [A]{style=&ldquo;font-size:10pt;font-family:Courier New;&rdquo;} with a public method [Foo]{style=&ldquo;font-family:Courier New;&rdquo;}. I&rsquo;ve then defined a template method [Bar]{style=&ldquo;font-size:10pt;font-family:Courier New;&rdquo;}[
 ]{style=&ldquo;font-size:13pt;&quot;}that takes a vector of T.<code> </code></p>
 <p><code>class A {public: int Foo(){/* ... */}} // ... template&lt;typename T, typename R&gt; R Bar(vector&lt;T&gt; arg1){return arg1.Foo();} // ... int result = Bar&lt;A, int&gt;(someVector); </code></p>
@@ -222,13 +127,7 @@ Ever since moving to C# from C&#43;&#43;, I&rsquo;ve missed the expressive power
 <p>In the above example I have accessed type definitions to get iterators, and genome types used to declare local variables. Without this kind of thing we are forced to add internal types on generic parameter lists:</p>
 <p><code>GenomeType MutatePopulation&lt;PopulationType, PopulationIteratorType, GenomeType&gt;( PopulationType pop){  for(PopulationIteratorType i = pop.begin(); i != pop.end(); i.MoveNext()){   GenomeType gen = StochasticInvoke(Mutate(i.Current), pop.MutationProbability);   *i = gen;  } }</code></p>
 <p>As explained earlier this is nasty. It means that if I were to find a different way to represent GenomeType, I would have to change every place that uses a genome, rather than just the one place that stores the genomes. With the aid of typedefs I can just modify the declaration of my population collection, and the type will flow out into every generic method that works with populations. I want to be able to define the data type of a variable once and thereafter not have to mention it again, since clients can get it from the parameters I pass around.</p>
-<h4 id="type-exporting-using-external-methods">
-  Type exporting using external methods
-  <a class="heading-link" href="#type-exporting-using-external-methods">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h4>
+<h4 id="type-exporting-using-external-methods">Type exporting using external methods</h4>
 <p>The lack of static type checking in C# means we can&rsquo;t declare variables of types exported inside of type arguments. We can pass them around, though. Using extension methods (that are currently in pre-alpha release in the May CTP of C# 3.0) we can augment [System.Type]{style=&ldquo;font-size:10pt;font-family:Courier New;&rdquo;} to provide access, with the aid of reflection.</p>
 <p><code>namespace System{   public class TypedefAttribute : Attribute { }   public static class TypeExtensions {     public static IDictionary&lt;string, Type&gt; typedefs;     public static Type GetTypedef(this Type source, string typedef) {       if (typedefs == null) {         typedefs = ReflectTypeExports(source);       }       if (typedefs.ContainsKey(typedef))         return typedefs[typedef];       else         throw new ApplicationException(&quot;No type export named '&quot; + typedef + &quot;'&quot;);     }``````    public static IDictionary&lt;string, Type&gt; ReflectTypeExports(Type source) {       Dictionary&lt;string, Type&gt; result = new Dictionary&lt;string, Type&gt;();       // Get all properties adorned with TypedefAttribute from source       var q = from p in source.GetProperties()               where p.GetCustomAttributes(typeof(TypedefAttribute), rue)                  .Length &gt; 0               select p;       foreach (System.Reflection.PropertyInfo pi in q) {         result[pi.Name] = (Type)pi.GetValue(null, null);       }       return result;     }   } }``````namespace extensions {</code></p>
 <p>public class A&lt;T&gt; {
@@ -245,74 +144,36 @@ This is fine for passing types around, but you can&rsquo;t do much with it other
 <p>Lets take a look at a good collection of generic algorithms. The PowerCollections library from Wintellect. Here&rsquo;s a typical example from the generic methods class Algorithms:</p>
 <p><code>public static IEnumerable&lt;T&gt; Rotate&lt;T&gt;(IList&lt;T&gt; source, int amountToRotate) {   if (source == null)     throw new ArgumentNullException(&quot;source&quot;);   int count = source.Count;   if (count != 0) {     amountToRotate = amountToRotate % count;   if (amountToRotate &lt; 0)     amountToRotate += count;``````  // Do it in two parts.   for (int i = amountToRotate; i &lt; count; ++i)     yield return source[i];   for (int i = 0; i &lt; amountToRotate; ++i)     yield return source[i];   } }</code></p>
 <p>The method declares type parameters for the collected type, and then fixes the type for the collection. That is pretty much all you can do in C# without typedefs. What happens if you decide that your algorithm could be applied to any ordered type that can be iterated, rather than just ILists? Well, you could use iterators, but we know from the earlier discussion that currently, IEnumerator&lt;T&gt; doesn&rsquo;t use a fixed end point for the end of a collection. We may run into consistency and thread safety issues, because the end of a collection could change continually, so it can&rsquo;t be passed around.</p>
-<h2 id="conclusions">
-  Conclusions
-  <a class="heading-link" href="#conclusions">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="conclusions">Conclusions</h2>
 <p>We&rsquo;ve seen that the standard template library is a product of convention and integrated language support. You can get a long way with just iterators. Do those iterators need to be stable in a multithreaded environment? Probably. I attended a talk at TechEd Sydney given by Joel Pobar a few weeks back, where he pointed out that for developers to exploit the coming multi-core machines, they would have to embrace multi-threading. That implies that our generic algorithms will have to be designed to work in a thread safe way. You can sacrifice flexibility in your choice of containers to allow iteration, as has been done in the PowerCollections library. You could try to augment the iterator mechanisms to allow the integrated language support of C# to dovetail with a better collections library design. This was done in the C5 library, where const iterators and bi-directional iterators have been grafted onto the existing collection iteration mechanism.</p>
 <p>For truly generic algorithms (rather than shallow transformative operations such as the PowerCollections&rsquo; Rotate method given above) we need types to be flexible and informative. They are informative, but only about the type itself. Not about the relationships that the type has with other types. And what relationships the type does have, are not usable at compile time. That&rsquo;s where the typedef mechanism in C++ comes in. In C#, we are hindered by the richness of the reflection mechanism. Types are runtime things passed around just like other objects. We need them to be as flexible and informative at compile time. Currently they aren&rsquo;t. We may be able to do extraordinary things in future releases of C#, but currently we will never have the same degree of genericity as we had in C++. However, with a bit of good design and some compromise, we can produce some very flexible algorithms of lasting value.</p>
 <p>If I could ask for one thing to be included in future versions of C# - it would be static type checking, allowing generic type arguments to carry more information than the minimum required to create a concrete type at runtime. I want typedefs.</p>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/1/01/funny/" data-toggle="tooltip" data-placement="top" title="Funny">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/1/01/giganotosaurus/" data-toggle="tooltip" data-placement="top" title="Giganotosaurus">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>

@@ -1,168 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  DBC &amp; AOP don&#39;t mix · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>DBC &amp; AOP don&#39;t mix - The Wandering Glitch</title>
+  <meta property="og:title" content="DBC &amp; AOP don&#39;t mix - The Wandering Glitch" />
+  <meta name="twitter:title" content="DBC &amp; AOP don&#39;t mix - The Wandering Glitch" />
+  <meta name="description" content="This time I&rsquo;m going to explore some of the issues I&rsquo;ve found in converting the prototype over to work in a JIT environment. If you&rsquo;ve seen any of my previous posts, you&rsquo;ll know that I have a working prototype that uses static code generation to produce proxies to wrap objects that identify themselves with the DbcAttribute. These proxies are produced solely for those objects, so the developer has to know which items have predicates on them in order to instantiate the proxies rather than the target objects.">
+  <meta property="og:description" content="This time I&rsquo;m going to explore some of the issues I&rsquo;ve found in converting the prototype over to work in a JIT environment. If you&rsquo;ve seen any of my previous posts, you&rsquo;ll know that I have a working prototype that uses static code generation to produce proxies to wrap objects that identify themselves with the DbcAttribute. These proxies are produced solely for those objects, so the developer has to know which items have predicates on them in order to instantiate the proxies rather than the target objects.">
+  <meta name="twitter:description" content="This time I&rsquo;m going to explore some of the issues I&rsquo;ve found in converting the prototype over to work in a JIT environment. If you&rsquo;ve seen any of my previous posts, you&rsquo;ll know …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/1/01/dbc-aop-dont-mix/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
-<meta name="description" content="This time I&rsquo;m going to explore some of the issues I&rsquo;ve found in converting the prototype over to work in a JIT environment. If you&rsquo;ve seen any of my previous posts, you&rsquo;ll know that I have a working prototype that uses static code generation to produce proxies to wrap objects that identify themselves with the DbcAttribute. These proxies are produced solely for those objects, so the developer has to know which items have predicates on them in order to instantiate the proxies rather than the target objects.">
-<meta name="keywords" content="">
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="DBC &amp; AOP don&#39;t mix"/>
-<meta name="twitter:description" content="This time I&rsquo;m going to explore some of the issues I&rsquo;ve found in converting the prototype over to work in a JIT environment. If you&rsquo;ve seen any of my previous posts, you&rsquo;ll know that I have a working prototype that uses static code generation to produce proxies to wrap objects that identify themselves with the DbcAttribute. These proxies are produced solely for those objects, so the developer has to know which items have predicates on them in order to instantiate the proxies rather than the target objects."/>
-
-<meta property="og:title" content="DBC &amp; AOP don&#39;t mix" />
-<meta property="og:description" content="This time I&rsquo;m going to explore some of the issues I&rsquo;ve found in converting the prototype over to work in a JIT environment. If you&rsquo;ve seen any of my previous posts, you&rsquo;ll know that I have a working prototype that uses static code generation to produce proxies to wrap objects that identify themselves with the DbcAttribute. These proxies are produced solely for those objects, so the developer has to know which items have predicates on them in order to instantiate the proxies rather than the target objects." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/1/01/dbc-aop-dont-mix/" /><meta property="article:section" content="posts" />
-
-
-
-
-
-
-<link rel="canonical" href="https://industrialinference.com/1/01/dbc-aop-dont-mix/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/1/01/dbc-aop-dont-mix/">
-              DBC &amp; AOP don&#39;t mix
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              11-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <p>This time I&rsquo;m going to explore some of the issues I&rsquo;ve found in converting the prototype over to work in a JIT environment. If you&rsquo;ve seen any of my previous posts, you&rsquo;ll know that I have a working prototype that uses static code generation to produce proxies to wrap objects that identify themselves with the DbcAttribute. These proxies are produced solely for those objects, so the developer has to know which items have predicates on them in order to instantiate the proxies rather than the target objects. If the programmer forgets, or doesn&rsquo;t know, that an object has predicates, he may create the target object and not benefit from the DbcProxy capabilities.</p>
+      
+      <h1 class="article-title">DBC &amp; AOP don&#39;t mix</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+      <p>This time I&rsquo;m going to explore some of the issues I&rsquo;ve found in converting the prototype over to work in a JIT environment. If you&rsquo;ve seen any of my previous posts, you&rsquo;ll know that I have a working prototype that uses static code generation to produce proxies to wrap objects that identify themselves with the DbcAttribute. These proxies are produced solely for those objects, so the developer has to know which items have predicates on them in order to instantiate the proxies rather than the target objects. If the programmer forgets, or doesn&rsquo;t know, that an object has predicates, he may create the target object and not benefit from the DbcProxy capabilities.</p>
 <p>I&rsquo;ve therefore been looking at ways to guarantee that the proxy gets generated if the library designer has used DBC. There are a lot of ways to do this, and having not explored all of them, I want to find a way to construct the proxies that will allow any of these approaches to be employed at run time. That naturally makes me think of abstract class factories and abstraction frameworks. It is nice to allow the library designer to define predicates on interfaces, but that may not fit the design they are working on, so I don&rsquo;t want to mandate it.</p>
 <p>The solution I&rsquo;ve looking at uses the code injection system that comes with the System.Enterprise namespace&rsquo;s ContextBoundObject classes. This framework guarantees that the object gets a proxy if it has an attribute that derives from ProxyAttributes. I would derive my DbcAttribute from ProxyAttribute and get an automatic request to create a proxy. Sounds perfect? Yes! But as you will see, there is a gotcha that will prevent this approach. Read on to find out more&hellip;</p>
-<h4 id="status-of-the-prototype">
-  Status of the prototype
-  <a class="heading-link" href="#status-of-the-prototype">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h4>
+<h4 id="status-of-the-prototype">Status of the prototype</h4>
 <p>The prototype uses a Windows console application that is invoked as part of the build process to create the proxies for an assembly. The program is invoked in association with an application config file to provide it with the details of the target assembly, where the resulting proxy assembly is to be stored, and what it&rsquo;s to be called. It has a few other config settings to define how it will name the proxy for a target object, and what namespace it shall live in. So far, I have not added any guidance to it on how to handle the assemblies in a not static way. I haven&rsquo;t implemented any dispenser to intercede in the object creation process. In this blog I&rsquo;m going to take a look at what config settings I need to add to control the choice between dynamic and static proxy generation.</p>
 <p>I&rsquo;m using the Microsoft Enterprise Application Blocks to handle configuration, and I&rsquo;m using log4net to take care of logging issues. NVelocity is being used to construct the source code for the proxy. None of that will change in the refactoring that is to follow. In fact, very little has to change in the event model to turn the system into a dual static/dynamic proxy generator. What changes is in the issue of how to handle the prodicates when you are using a dispatch interface. More on that to follow.</p>
-<h4 id="static-code-gen-via-csharp-compiler">
-  static code gen via CSharp compiler
-  <a class="heading-link" href="#static-code-gen-via-csharp-compiler">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h4>
+<h4 id="static-code-gen-via-csharp-compiler">static code gen via CSharp compiler</h4>
 <p>The static code generation process has been described in a quite a bit of detail in previous posts, but in essence it works by scanning through all of the types in an assembly, looking for ones that are adorned wit the DbcAttribute. For each of those, it scans through each of the InvariantAttributes, and then through each of the members in the class to get their details and any predicates that are attached to them. It then creates a proxy class that imitates the target type, except that prior to each invocation it checks a set of pre-conditions, and afterwords checks post-conditions. This proxy type is kept around until all of the assemblies types have been scanned, and then a new proxy assembly is compiled and saved to disk. This Proxy assembly is then used instead of the target type.</p>
 <p>The CSharpCompiler provides a set of options to allow you to keep the source code used to create the assembly, and to create debug information to tie the assembly to the source code at run-time. This is useful for debugging the DBC system, but should not be necessary when using the framework in the field. If errors occur they will be on either side of the proxy (assuming I debug the proxies properly) and the user shouldn&rsquo;t want to see the source for the proxy itself. We therefore need to be able to turn this off, along with debug information.</p>
 <p>Another feature of the compiler is the ability to dispense an in-memory only assembly that is available for the lifetime of the process. This is just what we need for dynamic proxy generation.</p>
-<h4 id="new-library-for-dynamic-proxies">
-  New library for dynamic proxies
-  <a class="heading-link" href="#new-library-for-dynamic-proxies">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h4>
+<h4 id="new-library-for-dynamic-proxies">New library for dynamic proxies</h4>
 <p>One refactoring that is inevitable is that we now need two front-ends to the DBC system. A command line tool for static proxy generation that can be invoked from VS.NET or NAnt. We also need something that can be used in-proc to dispense dynamic proxies on demand. This can&rsquo;t be another process unless you want to use remoting to access your objects. You may want to do that, but you need to have some control of that situation, and it would be a little intrusive to have that decision taken away from you.</p>
-<h4 id="dynamic-proxy-code-generation-pattern">
-  Dynamic proxy code generation pattern
-  <a class="heading-link" href="#dynamic-proxy-code-generation-pattern">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h4>
+<h4 id="dynamic-proxy-code-generation-pattern">Dynamic proxy code generation pattern</h4>
 <p>The process for the dynamic proxy is much the same as for the static proxy, it just tweaks the compiler settings a little, and provides some speed ups for handling the storage and retrieval of assemblies for types that have already been code generated. The procedure is as follows:</p>
 <ul>
 <li>client requests an objects of type X</li>
@@ -188,63 +96,31 @@
 <p>So published interfaces aren&rsquo;t worth the paper they are written on, especially if you&rsquo;re playing a game of chinese wispers through layers of other people&rsquo;s code. We need a system that is direct and compulsory, with no middlemen to dilute the strength of the assertions that you make on a component.</p>
 <p>Next time I will describe how I solve this problem - probably by paying homage to the <a href="http://en.wikipedia.org/wiki/Design_Patterns">Gang Of Four</a>&hellip;</p>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/1/01/data-centre-strategy/" data-toggle="tooltip" data-placement="top" title="Data Centre Strategy">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/1/01/dbc-in-the-persistence-broker/" data-toggle="tooltip" data-placement="top" title="Dbc in the persistence broker">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>

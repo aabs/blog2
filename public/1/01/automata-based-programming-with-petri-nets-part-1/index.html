@@ -1,142 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>
-  Automata-Based Programming With Petri Nets - Part 1 · The Wandering Glitch
-</title>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Automata-Based Programming With Petri Nets - Part 1 - The Wandering Glitch</title>
+  <meta property="og:title" content="Automata-Based Programming With Petri Nets - Part 1 - The Wandering Glitch" />
+  <meta name="twitter:title" content="Automata-Based Programming With Petri Nets - Part 1 - The Wandering …" />
+  <meta name="description" content="Petri Nets are extremely powerful and expressive, but they are not as widely used in the software development community as deterministic state machines. That&rsquo;s a pity - they allow us to solve problems beyond the reach of conventional state machines. This is the first in a mini-series on software development with Petri Nets. All of the code for a full feature-complete Petri Net library is available online at GitHub. You&rsquo;re welcome to take a copy, play with it and use it in your own projects.">
+  <meta property="og:description" content="Petri Nets are extremely powerful and expressive, but they are not as widely used in the software development community as deterministic state machines. That&rsquo;s a pity - they allow us to solve problems beyond the reach of conventional state machines. This is the first in a mini-series on software development with Petri Nets. All of the code for a full feature-complete Petri Net library is available online at GitHub. You&rsquo;re welcome to take a copy, play with it and use it in your own projects.">
+  <meta name="twitter:description" content="Petri Nets are extremely powerful and expressive, but they are not as widely used in the software development community as deterministic state machines. That&rsquo;s a pity - they allow us to solve …">
+  <meta name="author" content=""/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/1/01/automata-based-programming-with-petri-nets-part-1/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.108.0">
 
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
 
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
 
+<body>
 
-<meta name="description" content="Petri Nets are extremely powerful and expressive, but they are not as widely used in the software development community as deterministic state machines. That&rsquo;s a pity - they allow us to solve problems beyond the reach of conventional state machines. This is the first in a mini-series on software development with Petri Nets. All of the code for a full feature-complete Petri Net library is available online at GitHub. You&rsquo;re welcome to take a copy, play with it and use it in your own projects.">
-<meta name="keywords" content="">
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Automata-Based Programming With Petri Nets - Part 1"/>
-<meta name="twitter:description" content="Petri Nets are extremely powerful and expressive, but they are not as widely used in the software development community as deterministic state machines. That&rsquo;s a pity - they allow us to solve problems beyond the reach of conventional state machines. This is the first in a mini-series on software development with Petri Nets. All of the code for a full feature-complete Petri Net library is available online at GitHub. You&rsquo;re welcome to take a copy, play with it and use it in your own projects."/>
-
-<meta property="og:title" content="Automata-Based Programming With Petri Nets - Part 1" />
-<meta property="og:description" content="Petri Nets are extremely powerful and expressive, but they are not as widely used in the software development community as deterministic state machines. That&rsquo;s a pity - they allow us to solve problems beyond the reach of conventional state machines. This is the first in a mini-series on software development with Petri Nets. All of the code for a full feature-complete Petri Net library is available online at GitHub. You&rsquo;re welcome to take a copy, play with it and use it in your own projects." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://industrialinference.com/1/01/automata-based-programming-with-petri-nets-part-1/" /><meta property="article:section" content="posts" />
-
-
-
-
-
-
-<link rel="canonical" href="https://industrialinference.com/1/01/automata-based-programming-with-petri-nets-part-1/">
-
-
-<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-
-
- 
-
-
-
-
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-<meta name="generator" content="Hugo 0.108.0">
-
-
-
-
-
-  </head>
-
-
-
-
-<body class="preload-transitions colorscheme-light">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      The Wandering Glitch
-    </a>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
+  <div class="main" role="main">
+    <article class="article">
       
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://industrialinference.com/1/01/automata-based-programming-with-petri-nets-part-1/">
-              Automata-Based Programming With Petri Nets - Part 1
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime="0001-01-01T00:00:00Z">
-                January 1, 0001
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              9-minute read
-            </span>
-          </div>
-          
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-        <p><em>Petri Nets are extremely powerful and expressive, but they are not as widely used in the software development community as deterministic state machines. That&rsquo;s a pity - they allow us to solve problems beyond the reach of conventional state machines. This is the first in a mini-series on software development with Petri Nets. All of the code for a full feature-complete Petri Net library is available online at GitHub. You&rsquo;re welcome to take a copy, play with it and use it in your own projects. Code for this and subsequent articles can be found at</em> <a href="http://github.com/aabs/PetriNets"><em>http://github.com/aabs/PetriNets</em></a>*.
+      
+      <h1 class="article-title">Automata-Based Programming With Petri Nets - Part 1</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#notes-from-the-trenches">Notes from the trenches</a></li>
+    <li><a href="#what-is-a-petri-net">What is a Petri Net?</a></li>
+  </ul>
+</nav>
+</aside>
+      <p><em>Petri Nets are extremely powerful and expressive, but they are not as widely used in the software development community as deterministic state machines. That&rsquo;s a pity - they allow us to solve problems beyond the reach of conventional state machines. This is the first in a mini-series on software development with Petri Nets. All of the code for a full feature-complete Petri Net library is available online at GitHub. You&rsquo;re welcome to take a copy, play with it and use it in your own projects. Code for this and subsequent articles can be found at</em> <a href="http://github.com/aabs/PetriNets"><em>http://github.com/aabs/PetriNets</em></a>*.
 *</p>
 <p>I didn&rsquo;t realize, but there&rsquo;s a paradigm for what I&rsquo;ve spent the last few years doing: <a href="http://en.wikipedia.org/wiki/Automata-based_programming">Automata Based Programming</a>. Despite the warm glow of knowing I work within a really cool (not to mention venerable) paradigm, I&rsquo;ve come to realize there are flaws in how I used my automata. I’ve been exploring the possibilities of <a href="http://en.wikipedia.org/wiki/Petri_net">Petri Nets</a> with a view to overhauling my DFA based systems.</p>
 <p>Every week, I’m asked for the code of a <a href="http://aabs.wordpress.com/2008/06/26/state-machines-in-c-30-using-t4-templates/">state machine system</a> I blogged about a few years back. I no longer have a copy of the code I used in that post, and I no longer recommend the models I used anyway. It was based on <a href="http://en.wikipedia.org/wiki/Deterministic_finite-state_machine">Deterministic Finite Automata</a> (DFAs), C# and T4 templates. I’m revising the approach I used in ‘06 in favour of a more powerful one based on <em><strong>High Level</strong></em> <em><strong>Petri Nets</strong></em>. In this series, I’ll look at the benefits and pitfalls of the techniques I used and suggest better alternatives. This time, I’ve made the code permanently accessible via GitHub. I’d welcome feedback, feature requests and collaborators.</p>
-<h2 id="notes-from-the-trenches">
-  Notes from the trenches
-  <a class="heading-link" href="#notes-from-the-trenches">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="notes-from-the-trenches">Notes from the trenches</h2>
 <p>Since 2008, I&rsquo;ve been developing a cloud-based soft-phone product - Skype for call-centres if you like. Under the hood, it models what’s going on using state machines very like the ones in my post mentioned earlier. Most of the inputs to the state machines are event notifications from telephony hardware. In addition to tracking call workflow, they track the lifecycles of daemons and threads. For a typical user session (of which there may be hundreds or thousands at a time) it maintains a dozen different state machines modelling some aspect of the session. It is clearly an automata-intensive application, and it’s important to me that there are no hidden flaws or vulnerabilities in the core of the app.</p>
 <p>The current automata models have worked out really well, yielding a massive dividend in reliability. That said, the way we used our DFAs is vulnerable to consistency errors without explicit protection. The vulnerability stems from our wish to factorise the state machines into orthogonal DFAs each modelling some independent aspect of the user’s session. We do it because it makes the state modeling more tractable.</p>
 <p>The issue with ‘factorising’ the state model is that having multiple <em>independent</em> DFAs increases the state space, allowing the system to legitimately assume invalid state combinations. We have a dozen state machines with an average of 8 states each. The total state space would be about $latex 8^{12}$ (about 69 billion) states. Practically all of those states are invalid, and it’s the job of the supporting architecture to ensure that invalid states are avoided. Naturally, one avoids invalid state combinations by accurately choosing the correct result state even in the face of faulty communications, hardware, user input and programmer errors. That’s no mean feat at the best of times, but especially hard in a real time event driven system hosted on a widely distributed hardware platform.</p>
@@ -145,13 +68,7 @@
 <p>I suspect most readers are more interested in how Petri Nets work, and how to use them to model their applications, than with the theoretical distinctions between the computational capabilities of different types of automata. There are many papers and books demonstrating Petri Nets are more expressive than DFAs. The question for me was – are they better in meaningful ways? I’d already had great successes with DFAs; is there a way that the richness of the Petri Net model can enhance what I’ve already got. I hope to explore the answer to that in the posts that follow this.</p>
 <p>I’m also not going to delve too deeply into the extensive body of theoretical literature out there. I’m more interested in the scarcely explored problem of how to utilize Petri Nets to solve problems in software engineering. I especially want to work out some of the design principles of event driven applications using Petri Nets.</p>
 <p>I&rsquo;ll start with what Petri Nets are, then in subsequent posts I&rsquo;ll move on to show a couple of ways to represent them, the trade-offs of different representations and then how to to drive an app using Petri Nets.</p>
-<h2 id="what-is-a-petri-net">
-  What is a Petri Net?
-  <a class="heading-link" href="#what-is-a-petri-net">
-    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
+<h2 id="what-is-a-petri-net">What is a Petri Net?</h2>
 <p>A Petri Net is a computational model, first and foremost, but importantly it is an easily understood graphical notation for representing that model. A Petri Net is represented as a graph with two types of nodes: <em>Places</em> (represented with a circle) and <em>Transitions</em> (represented with a box or bar). Here&rsquo;s a simple state transition from one state to another via a transition.</p>
 <p><a href="http://aabs.files.wordpress.com/2010/03/img1.png"><img src="%7Bstatic%7D2010/03/img1-e1267434652482.png" alt="" title="img1">{.size-full .wp-image-696 width=&ldquo;249&rdquo; height=&ldquo;64&rdquo;}</a></p>
 <p>The edges of the graph can only be between places and transitions or vice versa. You can never draw an edge between two places or two transitions. In the example above $latex P_0$ is connected to $latex T_0 $ and $latex T_0$ is in turn connected to $latex P_1$.</p>
@@ -186,63 +103,31 @@
 </li>
 </ol>
 
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
     </article>
 
     
-  </section>
 
-    </div>
 
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-    
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/1/01/australian-port-a-new-wmd/" data-toggle="tooltip" data-placement="top" title="Australian Port – a new WMD?">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/1/01/automated-parallelization-of-sequential-systems/" data-toggle="tooltip" data-placement="top" title="Automated parallelization of Sequential Systems">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
 
-  </main>
 
-  
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
 
-  
-  
-  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
-  
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 </body>
-
 </html>
