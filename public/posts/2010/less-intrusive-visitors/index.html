@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en-au">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Less Intrusive Visitors | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Forgive the recent silence - I&rsquo;ve been in my shed.
+Frequently, I need some variation on the Visitor or HierarchicalVisitor patterns to analyse or transform an object graph. Recent work on a query builder for an old-skool query API sent my thoughts once again to the Visitor pattern. I normally hand roll these frameworks based on my experiences with recursive descent compilers, but this time I thought I&rsquo;d produce a more GoF-compliant implementation.">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Less Intrusive Visitors" />
+<meta property="og:description" content="Forgive the recent silence - I&rsquo;ve been in my shed.
+Frequently, I need some variation on the Visitor or HierarchicalVisitor patterns to analyse or transform an object graph. Recent work on a query builder for an old-skool query API sent my thoughts once again to the Visitor pattern. I normally hand roll these frameworks based on my experiences with recursive descent compilers, but this time I thought I&rsquo;d produce a more GoF-compliant implementation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/2010/less-intrusive-visitors/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="Less Intrusive Visitors">
+<meta itemprop="description" content="Forgive the recent silence - I&rsquo;ve been in my shed.
+Frequently, I need some variation on the Visitor or HierarchicalVisitor patterns to analyse or transform an object graph. Recent work on a query builder for an old-skool query API sent my thoughts once again to the Visitor pattern. I normally hand roll these frameworks based on my experiences with recursive descent compilers, but this time I thought I&rsquo;d produce a more GoF-compliant implementation.">
+
+<meta itemprop="wordCount" content="1037">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Less Intrusive Visitors"/>
+<meta name="twitter:description" content="Forgive the recent silence - I&rsquo;ve been in my shed.
+Frequently, I need some variation on the Visitor or HierarchicalVisitor patterns to analyse or transform an object graph. Recent work on a query builder for an old-skool query API sent my thoughts once again to the Visitor pattern. I normally hand roll these frameworks based on my experiences with recursive descent compilers, but this time I thought I&rsquo;d produce a more GoF-compliant implementation."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
+      
+        mastadon
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://twitter.com/share?url=http://45.89.107.9/posts/2010/less-intrusive-visitors/&amp;text=Less%20Intrusive%20Visitors" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Less Intrusive Visitors</h1>
+      
+      <p class="tracked">
+        By <strong>aabs</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>Forgive the recent silence - I&rsquo;ve been in my shed.</p>
+<p>Frequently, I need some variation on the Visitor or HierarchicalVisitor patterns
+to analyse or transform an object graph. Recent work on a query builder
+for an old-skool query API sent my thoughts once again to the Visitor pattern. I
+normally hand roll these frameworks based on my experiences with recursive
+descent compilers, but this time I thought I&rsquo;d produce a more GoF-compliant
+implementation.</p>
+<p>The standard implementation of the visitor looks a lot like the first code example. First you
+define some sort of domain model (often following the composite pattern).
+This illustration doesn&rsquo;t bother with composite. I&rsquo;ll show one later on, with an
+accompanying HierarchicalVisitor implementation.</p>
+<p>[sourcecode language=&ldquo;csharp&rdquo; light=&ldquo;true&rdquo; wraplines=&ldquo;true&rdquo;]abstract class BaseElement {
+void Accept(IVisitor v);
+ }
+class T1 : BaseElement {
+  void Accept(IVisitor v) {
+    v.visit(this);
+  }
+}
+class T2 : BaseElement {
+  void Accept(IVisitor v) {
+    v.visit(this);
+  }
+}
+class T3 : BaseElement {
+  void Accept(IVisitor v) {
+    v.visit(this);
+  }
+}[/sourcecode]
+[sourcecode language=&ldquo;csharp&rdquo; light=&ldquo;true&rdquo; wraplines=&ldquo;true&rdquo;]interface IVisitor{
+  void Visit (T1 t1);
+  void Visit (T2 t2);
+  void Visit (T3 t3);
+}[/sourcecode]</p>
+<p>Here&rsquo;s an implementation of the visitor, normally you&rsquo;d give default
+implementations via and abstract base class. I&rsquo;ll show how that&rsquo;s done later.</p>
+<p>[sourcecode language=&ldquo;csharp&rdquo; light=&ldquo;true&rdquo; wraplines=&ldquo;true&rdquo;]class MyVisitor : IVisitor {
+  void Visit (T1 t1) {
+    // do something here
+  }
+  void Visit (T2 t2) {
+    // do something here
+  }
+  void Visit (T3 t3) {
+    // do something here
+  }
+}[/sourcecode]</p>
+<p>The accept methods are on the domain model entities themselves. What if I have a
+composite graph of objects that are not conveniently derived from some abstract
+class or interface for my convenience? What if I want to iterate or navigate
+the structures in alternate ways. What if I don&rsquo;t want to (or can&rsquo;t) pollute
+my domain model with visitation code?</p>
+<p>I thought it might be cleaner to factor out the responsibility for the
+dispatching into another class - a Dispatcher. I provide the Dispatcher from my
+client code and am still able to visit each element in turn. Surprisingly, the
+result is slightly cleaner than the standard implementation of the pattern,
+sacrificing nothing, but gaining a small increment in applicability.</p>
+<p>Let&rsquo;s contrast this canonical implementation with one that uses anemic objects
+for the domain model. First we need to define a little composite pattern to
+iterate over. This time, I&rsquo;ll give the abstract base class for the entities
+and for the visitors and show a composite pattern as well.</p>
+<p>[sourcecode language=&ldquo;csharp&rdquo; light=&ldquo;true&rdquo; wraplines=&ldquo;true&rdquo;]abstract class AbstractBase {
+  public string Name {get;set;}
+}
+class Composite : AbstractBase {
+  public string NonTerminalIdentifier { get; set; }
+  public Composite(string nonTerminalIdentifier) {
+    Name = &ldquo;Composite&rdquo;;
+    NonTerminalIdentifier = nonTerminalIdentifier;
+  }
+  public List SubParts = new List();
+}
+class Primitive1 : AbstractBase {
+  public Primitive1() {
+    Name = &ldquo;Primitive1&rdquo;;
+  }
+}
+class Primitive2 : AbstractBase {
+  public Primitive2() {
+    Name = &ldquo;Primitive2&rdquo;;
+  }
+}[/sourcecode]</p>
+<p>A composite class plus a couple of primitives. Next, Lets look at the visitor
+interface.</p>
+<p>[sourcecode language=&ldquo;csharp&rdquo; light=&ldquo;true&rdquo; wraplines=&ldquo;true&rdquo;]interface IVisitor {
+  void Visit(Primitive1 p1);
+  void Visit(Primitive2 p2);
+  bool StartVisit(Composite c);
+  void EndVisit(Composite c);
+}[/sourcecode]</p>
+<p>According to the discussions at the Portland pattern repository, this could be
+called the HierarchicalVisitor pattern, but I suspect most applications of
+visitor are over hierarchical object graphs, and they mostly end up like this so
+I won&rsquo;t dwell on the name too much. True to form, it provides mechanisms to
+visit each type of element allowed in our object graph. Next, the Dispatcher that
+controls the navigation over the object graph. This is the departure from the
+canonical model. A conventional implementation of visitor places this code in
+the composite model itself, which seems unnecessary. Accept overloads are
+provided for each type of the domain model.</p>
+<p>[sourcecode language=&ldquo;csharp&rdquo; light=&ldquo;true&rdquo; wraplines=&ldquo;true&rdquo;]class Dispatcher {
+  public static void Accept(Primitive1 p1, TV visitor)
+    where TV : IVisitor {
+    visitor.Visit(p1);
+  }
+  public static void Accept(Primitive2 p2, TV visitor)
+    where TV : IVisitor {
+    visitor.Visit(p2);
+  }
+  public static void Accept(Composite c, TV visitor)
+    where TV : IVisitor {
+    if (visitor.StartVisit(c)) {
+      foreach (var subpart in c.SubParts) {
+        if (subpart is Primitive1) {
+          Accept(subpart as Primitive1, visitor);
+        }
+        else if (subpart is Primitive2) {
+          Accept(subpart as Primitive2, visitor);
+        }
+        else if (subpart is Composite) {
+          Accept(subpart as Composite, visitor);
+      }
+    }
+    visitor.EndVisit(c);
+    }
+  }
+}[/sourcecode]</p>
+<p>The dispatcher&rsquo;s first parameter is the object graph element
+itself. This provides the context that was implicit with the conventional
+implementation. This is a trade-off. On the one hand you cannot access any
+private object information inside the dispatch code. On the other hand you can
+have multiple different dispatchers for different tasks. Another drawback with
+an &lsquo;external&rsquo; dispatcher is the need for old-fashioned dispatcher switch
+statements in the Composite acceptor. The Composite stores its sub-parts as
+references to the AbstractBase class, so it needs to decide manually what the
+Accept method is that must handle the sub-part in question.</p>
+<p>The implementation for a visitor is much the same as in a normal implementation.
+A default implementation of the visit functions is given that
+does nothing. To implement a HierarchicalVisitor, the
+default StartVisit must return true to allow iteration of the
+subparts of a Composite to proceed.</p>
+<p>[sourcecode language=&ldquo;csharp&rdquo; light=&ldquo;true&rdquo; wraplines=&ldquo;true&rdquo;]class BaseVisitor : IVisitor {
+  public virtual void Visit(Primitive1 p1) { }
+  public virtual void Visit(Primitive2 p2) { }
+  public virtual bool StartVisit(Composite c) {
+    return true;
+  }
+  public virtual void EndVisit(Composite c) { }
+}[/sourcecode]</p>
+<p>Here&rsquo;s a Visitor that simply records the name of who gets visited.</p>
+<p>[sourcecode language=&ldquo;csharp&rdquo; light=&ldquo;true&rdquo; wraplines=&ldquo;true&rdquo;]class Visitor : BaseVisitor {
+  public override void Visit(Primitive1 p1) {
+    Debug.WriteLine(&ldquo;p1&rdquo;);
+  }
+  public override void Visit(Primitive2 p2) {
+    Debug.WriteLine(&ldquo;p2&rdquo;);
+  }
+  public override bool StartVisit(Composite c) {
+    Debug.WriteLine(&quot;-&gt;c&quot;);
+    return true;
+  }
+  public override void EndVisit(Composite c) {
+    Debug.WriteLine(&quot;&lt;-c&quot;);
+  }
+}[/sourcecode]</p>
+<p>Given an object graph of type Composite, it is simple to use this little framework.</p>
+<p>[sourcecode language=&ldquo;csharp&rdquo; light=&ldquo;true&rdquo; wraplines=&ldquo;true&rdquo;]Dispatcher.Accept(objGraph, new Visitor1());[/sourcecode]</p>
+<p>I like this way of working with visitors more than the conventional
+implementation - it makes it possible to provide a good visitor implementation on
+thrid party frameworks (yes, I&rsquo;m thinking of LINQ expression trees). It is no
+more expensive to extend with new visitors, and it has the virtue that you can
+navigate an object graph in any fashion you like.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
+      
+        mastadon
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

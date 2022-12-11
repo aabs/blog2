@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en-au">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Designing a LINQ Query Provider | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="The process of creating a LINQ query provider is reasonably straightforward. Had it been documented earlier, there would have doubtless been dozens of providers written by now. Here&rsquo;s the broad outline of what you have to do.
+ Find the best API to talk to your target data store. Create a factory or context object to build your queries. Create a class for the query object(s). Choose between IQueryable&lt;T&gt; and IOrderedQueryable&lt;T&gt;.">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Designing a LINQ Query Provider" />
+<meta property="og:description" content="The process of creating a LINQ query provider is reasonably straightforward. Had it been documented earlier, there would have doubtless been dozens of providers written by now. Here&rsquo;s the broad outline of what you have to do.
+ Find the best API to talk to your target data store. Create a factory or context object to build your queries. Create a class for the query object(s). Choose between IQueryable&lt;T&gt; and IOrderedQueryable&lt;T&gt;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/2007/designing-a-linq-query-provider/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="Designing a LINQ Query Provider">
+<meta itemprop="description" content="The process of creating a LINQ query provider is reasonably straightforward. Had it been documented earlier, there would have doubtless been dozens of providers written by now. Here&rsquo;s the broad outline of what you have to do.
+ Find the best API to talk to your target data store. Create a factory or context object to build your queries. Create a class for the query object(s). Choose between IQueryable&lt;T&gt; and IOrderedQueryable&lt;T&gt;.">
+
+<meta itemprop="wordCount" content="2898">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Designing a LINQ Query Provider"/>
+<meta name="twitter:description" content="The process of creating a LINQ query provider is reasonably straightforward. Had it been documented earlier, there would have doubtless been dozens of providers written by now. Here&rsquo;s the broad outline of what you have to do.
+ Find the best API to talk to your target data store. Create a factory or context object to build your queries. Create a class for the query object(s). Choose between IQueryable&lt;T&gt; and IOrderedQueryable&lt;T&gt;."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
+      
+        mastadon
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://twitter.com/share?url=http://45.89.107.9/posts/2007/designing-a-linq-query-provider/&amp;text=Designing%20a%20LINQ%20Query%20Provider" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Designing a LINQ Query Provider</h1>
+      
+      <p class="tracked">
+        By <strong>Andrew Matthews</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>The process of creating a LINQ query provider is reasonably straightforward. Had it been documented earlier, there would have doubtless been dozens of providers written by now. Here&rsquo;s the broad outline of what you have to do.</p>
+<ol>
+<li>Find the best API to talk to your target data store.</li>
+<li>Create a factory or context object to build your queries.</li>
+<li>Create a class for the query object(s).</li>
+<li>Choose between IQueryable&lt;T&gt; and IOrderedQueryable&lt;T&gt;.</li>
+<li>Implement this interface on the query class.</li>
+<li>Decide how to present queries to the data store.</li>
+<li>Create an Expression Parser class.</li>
+<li>Create a type converter.</li>
+<li>Create a place to store the LINQ expressions.</li>
+<li>Wrap the connecting to and querying of the data store.</li>
+<li>Create a result deserialiser.</li>
+<li>Create a result cache.</li>
+<li>Return the results to the caller.</li>
+</ol>
+<h2 id="what-it-means">What It Means</h2>
+<p>These steps provide you with a high-level guide to the problems you have to solve when creating a query provider for the first time. In the sections below I&rsquo;ve tried to expand on how you will solve the problem. In many cases I&rsquo;ve explained from the viewpoint I took when implementing LINQ to RDF. Specifically, that means my problem was to create a query provider that supported a rich textual query language communicated via an SDK, and retrieved results in a format that needed subsequent conversion back into .NET objects.</p>
+<h3 id="find-the-best-api-to-talk-to-your-target-data-store">Find the best API to talk to your target data store.</h3>
+<p>Normally there is going to be some kind of API for you to request data from your data store. The main reason for creating a LINQ query provider is that the API reflects the underlying technology to much, and you want a more full encapsulation of the technology. For instance, standard APIs in the Semantic web space deal with triples and URIs. When you&rsquo;re an object oriented developer, you want to be dealing with <em>objects</em> not triples. That almost definitely means that there will be some kind of conversion process needed to deal with the entities of the underlying data store. In many cases there will be several APIs to choose between, and the choice you make will probably be due to performance or ease of interfacing with LINQ. If there is no overall winner, then prepare to provide multiple query types for all the ways you want to talk to the data store. :-)</p>
+<h3 id="create-a-factory-or-context-object-to-build-your-queries">Create a factory or context object to build your queries.</h3>
+<p>This class will perform various duties for you to help you keep track of the objects you&rsquo;ve retrieved, and to write them back to the data store (assuming you choose to provide round-trip persistence). this class is equivalent to the Context class in LINQ to SQL. This class can provide you with an abstract class factory to perform the other tasks, like creating type converters, expression translators, connections, command objects etc. It doesn&rsquo;t have to be very complex, but it IS useful to have around.</p>
+<p>In the case of LinqToRdf, I pass the class factory a structure that tells it where the triple store is located (local or remote, in-memory or persistent) and what query language to use to to query it.</p>
+<h3 id="create-a-class-for-the-query-objects">Create a class for the query object(s).</h3>
+<p>This class is the brains of the operation, and is where the bulk of your work will be.</p>
+<p>This is the first main step in the process of creating a query provider. You will have to implement one of the standard LINQ query interfaces on it, and either perform the query from this class, or use it to coordinate those components that will do the querying.</p>
+<p>LINQ talks to this query class directly, via the CreateQuery method, so this is the class that will have to implement the IQueryable or IOrderedQueryable interface to allow LINQ to pass in the expression trees. Each grammatical component of the query is passed into CreateQuery in turn, and you can store that somewhere for later processing.</p>
+<h3 id="choose-between-iqueryablet-and-iorderedqueryablet">Choose between IQueryable&lt;T&gt; and IOrderedQueryable&lt;T&gt;.</h3>
+<p>This is a simple choice. Do you want to be able to order the results that you will be passing back? If so use IOrderedQueryable, and you will then be able to write queries using the orderby keyword. Declare your query class to implement the chosen interface.</p>
+<h3 id="implement-this-interface-on-the-query-class">Implement this interface on the query class.</h3>
+<p>Now you&rsquo;ve decided which interface to use, you have to implement this interface on the query class  from point 3. Most of the work is in the CreateQuery and GetEnumerator methods.</p>
+<p>CreateQuery gets called once for each of the major components of the query. So for a query like this:</p>
+<pre><code>var q = (from t in qry
+    where t.Year == &quot;2006&quot; &amp;&amp;
+    t.GenreName == &quot;History 5 | Fall 2006 | UC Berkeley&quot;
+    orderby t.FileLocation
+    select new {t.Title, t.FileLocation}).Skip(10).Take(5);
+</code></pre>
+<p>Your query class will get called five times. Once each for the extension methods that are doing the work behind the scenes: Where, OrderBy, Select, Skip and Take. If you&rsquo;re not aware of the use of Extension methods in the design of LINQ, go over to the LINQ project site on Microsoft and peruse the documents on the <em>Standard Query Operators.</em> The integrated part of LINQ is a kind of syntactic sugar that masks the use of extension methods to make successive calls on an object in a way which is more attractive than plain static calls.</p>
+<p>My initial attempt at handling the expressions passed in through CreateQuery was to treat the whole process like a Recursive Descent compiler. Later on I found that to optimize the queries a little, I needed to wait till I had all of the expressions before I started processing them. The reason I did this is that I needed to know what parameters were going to be used in the projection (The Select part) before I could generate the body of the graph specification that is mostly based on the where expression.</p>
+<p><a href="http://11011.net/software/vspaste"></a></p>
+<h3 id="decide-how-to-present-queries-to-the-data-store">Decide how to present queries to the data store.</h3>
+<p>Does the API use a textual query language, a query API or its own Expression tree system? This will determine what you do with the expressions that get sent to you by LINQ. If it is a textual query language, then you will need to produce some kind of text from the expression trees in the syntax supported by the data store (like SPARQL or SQL). If it is an API, then you will need to interpret the expression trees and convert them into API calls on the data store. Lastly, if the data store has it&rsquo;s own expression tree system, then you need to create a tree out of the LINQ expression tree, that the data store will be able to convert or interpret on its own (Like NHibernate).</p>
+<p>SPARQL is a textual query language so my job was to produce SPARQL from a set of expression trees. Yours may be to drive an API, in which case you will have to work out how to invoke the methods on your API appropriately in response to the nodes of the expression tree.</p>
+<h3 id="create-an-expression-interpreter-class">Create an Expression interpreter class.</h3>
+<p>I found it easier to break off various responsibilities into separate classes. I did this for filter clause generation, type conversion, connections, and commands. I described that in my previous post, so I won&rsquo;t go into much depth here. Most people would call this a Visitor class, although I think in terms of recursive descent (since that&rsquo;s not patented). I passed down a StringBuilder with each recursive call to the Dispatch method on the expression translator. The interpreter inserts textual representations of the properties you reference in the query, the constant values they are compared against and it appends textual representation of the operators supported by the target query language. If necessary this is where you will use a type converter class to convert the format of any literals in your expressions.</p>
+<h3 id="create-a-type-converter">Create a type converter.</h3>
+<p>I had to create a type converter because there are a few syntactic conventions about use of type names in SPARQL. In addition, DateTime types are represented differently between SPARQL and .NET. You may not have this problem (although I bet you will) and if that&rsquo;s so, then you can get away with a bit less complexity.</p>
+<p>My type converter is just a hash table mapping from .NET primitives to XML Schema data types. In addition I made use of some custom attributes to allow me to add extra information about how the types should be handled. here&rsquo;s what the look up table works with:</p>
+<pre><code>public enum XsdtPrimitiveDataType : int
+{
+    [Xsdt(true, &quot;string&quot;)]
+    XsdtString,
+    [Xsdt(false, &quot;boolean&quot;)]
+    XsdtBoolean,
+    [Xsdt(false, &quot;short&quot;)]
+    XsdtShort,
+    [Xsdt(false, &quot;int&quot;)]
+    XsdtInt,
+</code></pre>
+<p>The XsdtAttribute is very simple, but provides a means, if I need it, to add more sophistication at a later date:</p>
+<pre><code>[AttributeUsage(AttributeTargets.Field)]
+public class XsdtAttribute : Attribute
+{
+    public XsdtAttribute(bool isQuoted, string name)
+    {
+        this.isQuoted = isQuoted;
+        this.name = name;
+    }
+</code></pre>
+<p>isQuoted allows me to tell the type converter whether to wrap a piece of data in double quotes, and the name parameter indicates what the type name is in the XML Schema data types specification. Your types will be different, but the principle will be the same, unless you are dealing directly with .NET types.</p>
+<p>I set up the lookup table like this:</p>
+<pre><code>public XsdtTypeConverter()
+{
+    typeLookup.Add(typeof(string), XsdtPrimitiveDataType.XsdtString);
+    typeLookup.Add(typeof(Char), XsdtPrimitiveDataType.XsdtString);
+    typeLookup.Add(typeof(Boolean), XsdtPrimitiveDataType.XsdtBoolean);
+    typeLookup.Add(typeof(Single), XsdtPrimitiveDataType.XsdtFloat);
+</code></pre>
+<p><a href="http://11011.net/software/vspaste"></a></p>
+<p>That is enough for me to be able to do a one-way conversion of literals when creating the query.</p>
+<h3 id="create-a-place-to-store-the-linq-expressions">Create a place to store the LINQ expressions.</h3>
+<p>As I mentioned above, you may need to keep the expressions around until all calls into CreateQuery have been made. I used another lookup table to allow me to store them till the call to GetEnumerator.</p>
+<pre><code>protected Dictionary&lt;string, MethodCallExpression&gt; expressions;
+
+public IQueryable&lt;S&gt; CreateQuery&lt;S&gt;(Expression expression){
+    SparqlQuery&lt;S&gt; newQuery = CloneQueryForNewType&lt;S&gt;();
+    MethodCallExpression call = expression as MethodCallExpression;
+    if (call != null){
+        newQuery.Expressions[call.Method.Name] = call;
+    }
+    return newQuery;
+}
+</code></pre>
+<p>You may prefer to have named variables for each source of expression. I just wanted to have the option to gather everything easily, before I had provided explicit support for it.</p>
+<h3 id="wrap-the-connecting-to-and-querying-of-the-data-store">Wrap the connecting to and querying of the data store.</h3>
+<p>This is a matter of choice, but if you wrap the process of connecting and presenting queries to your data store inside of a standardized API, then you will find it easier to port your code to new types of data store later on. I found this when I decided that I wanted to support at least 4 different types of connectivity and syntax in LinqToRdf. I also chose to (superficially) emulate the ADO.NET model (Connections, Commands, CommandText etc) there was no real need to do this, I just thought it would be more familiar to those from an ADO.NET background. the emulation is totally skin deep though, there being no need for transactions etc, and with LINQ providing a much neater way to present parameters than ADO.NET will ever have.</p>
+<p>When you implement the IQueryable interface, you will find that you have two versions of GetEnumerator, a generic version and an untyped version. Both of these can be served by the same code. I abstracted this into a method called RunQuery.</p>
+<pre><code>protected IEnumerator&lt;T&gt; RunQuery()
+{
+    if (Context.ResultsCache.ContainsKey(GetHashCode().ToString()))
+        return (IEnumerator&lt;T&gt;)Context.ResultsCache[GetHashCode()
+          .ToString()].GetEnumerator();
+    StringBuilder sb = new StringBuilder();
+    CreateQuery(sb);
+    IRdfConnection&lt;T&gt; conn = QueryFactory.CreateConnection(this);
+    IRdfCommand&lt;T&gt; cmd = conn.CreateCommand();
+    cmd.CommandText = sb.ToString();
+    return cmd.ExecuteQuery();
+}
+</code></pre>
+<p>The first thing it does is look to see whether it&rsquo;s been run before. If it has, then any results will have been stored in the Context object (see point 2) and they can be returned directly.</p>
+<p>If there are no cached results, then it passes a string builder into the CreateQuery object that encapsulates the process of creating a textual query for SPARQL. The query class also has a reference to a class called QueryFactory, that was created for it by the Context object. This factory allows it to just ask for a service, and get one that will work for the query type that is being produced. This is the Abstract Factory pattern at work, which is common in ORM systems and others like this.</p>
+<p>The IRdfConnection class that this gets from the QueryFactory encapsulates the connection method that will be used to talk to the triple store. The IRdfCommand does the same for the process of asking for the results using the SPARQL communications protocol.</p>
+<p>ExecuteQuery does exactly what you would expect. One extra facility that is exploited is the ability of the IRdfCommand to store the results directly in the context so that we can check next time round whether to go to all this trouble.</p>
+<p>I wrote my implementation of CreateQuery(sb) to conform fairly closely to the grammar spec of the SPARQL query language. Here&rsquo;s what it looks like:</p>
+<pre><code>private void CreateQuery(StringBuilder sb)
+{
+    if (Expressions.ContainsKey(&quot;Where&quot;))
+    {
+        // first parse the where expression to get the list
+        // of parameters to/from the query.
+        StringBuilder sbTmp = new StringBuilder();
+        ParseQuery(Expressions[&quot;Where&quot;].Parameters[1], sbTmp);
+        //sbTmp now contains the FILTER clause so save it
+        // somewhere useful.
+        FilterClause = sbTmp.ToString();
+        // now store the parameters where they can be used later on.
+        if (Parser.Parameters != null)
+            queryGraphParameters.AddAll(Parser.Parameters);
+        // we need to add the original type to the prolog to allow
+        // elements of the where clause to be optimised
+        namespaceManager.RegisterType(OriginalType);
+    }
+    CreateProlog(sb);
+    CreateDataSetClause(sb);
+    CreateProjection(sb);
+    CreateWhereClause(sb);
+    CreateSolutionModifier(sb);
+}
+</code></pre>
+<p>I&rsquo;ve described this in more detail in my previous post, so I&rsquo;ll not pursue it any further. The point is that this is the hard part of the provider, where you have to make sense of the expressions and convert them into something meaningful. For example the CreateWhereClause looks like this:</p>
+<pre><code>private void CreateWhereClause(StringBuilder sb)
+{
+    string instanceName = GetInstanceName();
+    sb.Append(&quot;WHERE {\n&quot;);
+    List&lt;MemberInfo&gt; parameters = new List&lt;MemberInfo&gt;(
+      queryGraphParameters.Union(projectionParameters));
+    if (parameters.Count &gt; 0)
+    {
+        sb.AppendFormat(&quot;_:{0} &quot;, instanceName);
+    }
+    for (int i = 0; i &lt; parameters.Count; i++)
+    {
+        MemberInfo info = parameters[i];
+        sb.AppendFormat(&quot;{1}{2} ?{3} &quot;, instanceName,
+          namespaceManager.typeMappings[originalType] + &quot;:&quot;,
+          OwlClassSupertype.GetPropertyUri(originalType,
+            info.Name, true), info.Name);
+        sb.AppendFormat((i &lt; parameters.Count - 1) ? &quot;;\n&quot; : &quot;.\n&quot;);
+    }
+    if (FilterClause != null &amp;&amp; FilterClause.Length &gt; 0)
+    {
+        sb.AppendFormat(&quot;FILTER(\n{0}\n)\n&quot;, FilterClause);
+    }
+    sb.Append(&quot;}\n&quot;);
+}
+</code></pre>
+<p><a href="http://11011.net/software/vspaste"></a></p>
+<p> The meaning of most of this is specific to SPARQL and won&rsquo;t matter to you, but you should take note of how the query in the string builder is getting built up piece by piece, based on the grammar of the target query language.</p>
+<h3 id="create-a-result-deserialiser">Create a Result Deserialiser.</h3>
+<p>Whatever format you get your results back in, one thing is certain. You need to convert those back into .NET objects. SemWeb exposes the SPARQK results set as a set of Bindings between a</p>
+<pre><code>public override bool Add(VariableBindings result)
+{
+    if (originalType == null) throw new ApplicationException
+         (&quot;need a type to create&quot;);
+    object t = Activator.CreateInstance(instanceType);
+    foreach (PropertyInfo pi in instanceType.GetProperties())
+    {
+        try
+        {
+            string vn = OwlClassSupertype.GetPropertyUri(OriginalType, pi.Name).Split('#')[1];
+            string vVal = result[pi.Name].ToString();
+            pi.SetValue(t, Convert.ChangeType(vVal, pi.PropertyType), null);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return false;
+        }
+    }
+    DeserialisedObjects.Add(t);
+    return true;
+}
+</code></pre>
+<p><a href="http://11011.net/software/vspaste"></a></p>
+<p>InstanceType is the type defined in the projection provided by the Select expression. Luckily LINQ will have created this type for you. You can pass the type (as a generic type parameter) to the deserialiser. the process is quite simple. In LinqToRdf, the following steps are performed:</p>
+<ol>
+<li>create an instance of the projected type (or the original type if using an identity projection)</li>
+<li>for each public property on the projected type
+<ol>
+<li>Get the matching property from the original type (which has the OwlAttributes on each property)</li>
+<li>Lookup the RDFS property name used for the property we&rsquo;re attempting to fill</li>
+<li>Lookup the value for that property from the result set</li>
+<li>Assign it to the newly created instance</li>
+</ol>
+</li>
+<li>Add the instance to the DeserialisedObjects collection</li>
+</ol>
+<p>The exact format your results come back in will be different, but again the principlple remains the same - create the result object using the Activator, fill each of its public properties with values from the result set. Repeat until all results have been converted to .NET objects.</p>
+<h3 id="create-a-result-cache">Create a Result Cache.</h3>
+<p>One advantage of being able to intercept calls to GetEnumerator is that you have the option to cache the results of the query, or to cache the intermediate query strings you used to get them. This is one of the great features of LINQ (and ORM object based queries generally).</p>
+<p>In the case of Semantic web applications we don&rsquo;t necessarily expect the data in the store to be changing frequently, so I have opted to store the .NET objects returned from the previous query (if there is one).  I suspect that I will opt to unmake this decision, since in the case of active data stores there is no guarantee that the results will remain consistent. It is still a major time saving to be able to run the query using the query string generated the first time round. In the case of LINQ to RDF using SPARQL this corresponds to around 67ms to generate the query. Admittedly the query including connection processing and deserialisation takes a further 500ms for a small database, but there are further optimizations that can be added at a later date.</p>
+<h3 id="return-the-results-to-the-caller">Return the Results to the Caller.</h3>
+<p>This is the last stage. Just get the results that you stored in the Context and return an enumerator from the collection. If you have the luxury to be able to use cursors or some other kind of incremental retrieval from the data store, then you will want to consider whether to use a custom iterator to deserialise objects on the fly.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
+      
+        mastadon
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

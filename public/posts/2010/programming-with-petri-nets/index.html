@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-au">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Automata-Based Programming With Petri Nets - Part 1 | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Petri Nets are extremely powerful and expressive, but they are not as widely used in the software development community as deterministic state machines. That&rsquo;s a pity - they allow us to solve problems beyond the reach of conventional state machines. This is the first in a mini-series on software development with Petri Nets. All of the code for a full feature-complete Petri Net library is available online at GitHub. You&rsquo;re welcome to take a copy, play with it and use it in your own projects.">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Automata-Based Programming With Petri Nets - Part 1" />
+<meta property="og:description" content="Petri Nets are extremely powerful and expressive, but they are not as widely used in the software development community as deterministic state machines. That&rsquo;s a pity - they allow us to solve problems beyond the reach of conventional state machines. This is the first in a mini-series on software development with Petri Nets. All of the code for a full feature-complete Petri Net library is available online at GitHub. You&rsquo;re welcome to take a copy, play with it and use it in your own projects." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/2010/programming-with-petri-nets/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="Automata-Based Programming With Petri Nets - Part 1">
+<meta itemprop="description" content="Petri Nets are extremely powerful and expressive, but they are not as widely used in the software development community as deterministic state machines. That&rsquo;s a pity - they allow us to solve problems beyond the reach of conventional state machines. This is the first in a mini-series on software development with Petri Nets. All of the code for a full feature-complete Petri Net library is available online at GitHub. You&rsquo;re welcome to take a copy, play with it and use it in your own projects.">
+
+<meta itemprop="wordCount" content="1872">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Automata-Based Programming With Petri Nets - Part 1"/>
+<meta name="twitter:description" content="Petri Nets are extremely powerful and expressive, but they are not as widely used in the software development community as deterministic state machines. That&rsquo;s a pity - they allow us to solve problems beyond the reach of conventional state machines. This is the first in a mini-series on software development with Petri Nets. All of the code for a full feature-complete Petri Net library is available online at GitHub. You&rsquo;re welcome to take a copy, play with it and use it in your own projects."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
+      
+        mastadon
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://twitter.com/share?url=http://45.89.107.9/posts/2010/programming-with-petri-nets/&amp;text=Automata-Based%20Programming%20With%20Petri%20Nets%20-%20Part%201" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Automata-Based Programming With Petri Nets - Part 1</h1>
+      
+      <p class="tracked">
+        By <strong>aabs</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p><em>Petri Nets are extremely powerful and expressive, but they are not as widely used in the software development community as deterministic state machines. That&rsquo;s a pity - they allow us to solve problems beyond the reach of conventional state machines. This is the first in a mini-series on software development with Petri Nets. All of the code for a full feature-complete Petri Net library is available online at GitHub. You&rsquo;re welcome to take a copy, play with it and use it in your own projects. Code for this and subsequent articles can be found at</em> <a href="http://github.com/aabs/PetriNets"><em>http://github.com/aabs/PetriNets</em></a>*.
+*</p>
+<p>I didn&rsquo;t realize, but there&rsquo;s a paradigm for what I&rsquo;ve spent the last few years doing: <a href="http://en.wikipedia.org/wiki/Automata-based_programming">Automata Based Programming</a>. Despite the warm glow of knowing I work within a really cool (not to mention venerable) paradigm, I&rsquo;ve come to realize there are flaws in how I used my automata. I’ve been exploring the possibilities of <a href="http://en.wikipedia.org/wiki/Petri_net">Petri Nets</a> with a view to overhauling my DFA based systems.</p>
+<p>Every week, I’m asked for the code of a <a href="http://aabs.wordpress.com/2008/06/26/state-machines-in-c-30-using-t4-templates/">state machine system</a> I blogged about a few years back. I no longer have a copy of the code I used in that post, and I no longer recommend the models I used anyway. It was based on <a href="http://en.wikipedia.org/wiki/Deterministic_finite-state_machine">Deterministic Finite Automata</a> (DFAs), C# and T4 templates. I’m revising the approach I used in ‘06 in favour of a more powerful one based on <em><strong>High Level</strong></em> <em><strong>Petri Nets</strong></em>. In this series, I’ll look at the benefits and pitfalls of the techniques I used and suggest better alternatives. This time, I’ve made the code permanently accessible via GitHub. I’d welcome feedback, feature requests and collaborators.</p>
+<h2 id="notes-from-the-trenches">Notes from the trenches</h2>
+<p>Since 2008, I&rsquo;ve been developing a cloud-based soft-phone product - Skype for call-centres if you like. Under the hood, it models what’s going on using state machines very like the ones in my post mentioned earlier. Most of the inputs to the state machines are event notifications from telephony hardware. In addition to tracking call workflow, they track the lifecycles of daemons and threads. For a typical user session (of which there may be hundreds or thousands at a time) it maintains a dozen different state machines modelling some aspect of the session. It is clearly an automata-intensive application, and it’s important to me that there are no hidden flaws or vulnerabilities in the core of the app.</p>
+<p>The current automata models have worked out really well, yielding a massive dividend in reliability. That said, the way we used our DFAs is vulnerable to consistency errors without explicit protection. The vulnerability stems from our wish to factorise the state machines into orthogonal DFAs each modelling some independent aspect of the user’s session. We do it because it makes the state modeling more tractable.</p>
+<p>The issue with ‘factorising’ the state model is that having multiple <em>independent</em> DFAs increases the state space, allowing the system to legitimately assume invalid state combinations. We have a dozen state machines with an average of 8 states each. The total state space would be about $latex 8^{12}$ (about 69 billion) states. Practically all of those states are invalid, and it’s the job of the supporting architecture to ensure that invalid states are avoided. Naturally, one avoids invalid state combinations by accurately choosing the correct result state even in the face of faulty communications, hardware, user input and programmer errors. That’s no mean feat at the best of times, but especially hard in a real time event driven system hosted on a widely distributed hardware platform.</p>
+<p>After a couple of years, we’ve pretty much done that, but we had no assistance from the state models themselves. I want an automata based model that will <em>inherently</em> prevent invalid states but still be comprehensible to the telephony domain experts who produce the state models.</p>
+<p>For the sake of brevity I’ll ignore the other reasons why I believe Petri Nets are better able to deliver guarantees of consistent states. I’ll come back to those other reasons in subsequent posts, where I will discuss some alternate ways to implement a Petri Net and the relative benefits of the different representations. For now, I’ll just remark that a Petri Net provides a means to veto transitions allowing us to add consistency control to a model. It’s also Turing Complete where DFAs are not, but I’m not sure whether that’s a practical distinction worth making or not.</p>
+<p>I suspect most readers are more interested in how Petri Nets work, and how to use them to model their applications, than with the theoretical distinctions between the computational capabilities of different types of automata. There are many papers and books demonstrating Petri Nets are more expressive than DFAs. The question for me was – are they better in meaningful ways? I’d already had great successes with DFAs; is there a way that the richness of the Petri Net model can enhance what I’ve already got. I hope to explore the answer to that in the posts that follow this.</p>
+<p>I’m also not going to delve too deeply into the extensive body of theoretical literature out there. I’m more interested in the scarcely explored problem of how to utilize Petri Nets to solve problems in software engineering. I especially want to work out some of the design principles of event driven applications using Petri Nets.</p>
+<p>I&rsquo;ll start with what Petri Nets are, then in subsequent posts I&rsquo;ll move on to show a couple of ways to represent them, the trade-offs of different representations and then how to to drive an app using Petri Nets.</p>
+<h2 id="what-is-a-petri-net">What is a Petri Net?</h2>
+<p>A Petri Net is a computational model, first and foremost, but importantly it is an easily understood graphical notation for representing that model. A Petri Net is represented as a graph with two types of nodes: <em>Places</em> (represented with a circle) and <em>Transitions</em> (represented with a box or bar). Here&rsquo;s a simple state transition from one state to another via a transition.</p>
+<p><a href="http://aabs.files.wordpress.com/2010/03/img1.png"><img src="%7Bstatic%7D2010/03/img1-e1267434652482.png" alt="" title="img1">{.size-full .wp-image-696 width=&ldquo;249&rdquo; height=&ldquo;64&rdquo;}</a></p>
+<p>The edges of the graph can only be between places and transitions or vice versa. You can never draw an edge between two places or two transitions. In the example above $latex P_0$ is connected to $latex T_0 $ and $latex T_0$ is in turn connected to $latex P_1$.</p>
+<p>Each place can have one or more &lsquo;<em>tokens</em>&rsquo;. The interpretation of having a token depends on several factors. I prefer to interpret having a token as ‘making some assertion or condition’. For example - a token in $latex P_0$ might mean &lsquo;<em>the user is on a call</em>&rsquo;. The absence of the token means that the condition does not hold - the user is not on a call. You mark the token with one or more dots inside the place, like so:</p>
+<p><a href="%7Bstatic%7D2010/03/img21-e1267435371101.png"><img src="%7Bstatic%7D2010/03/img21-e1267435371101.png" alt="" title="img2.1">{.size-full .wp-image-699 width=&ldquo;265&rdquo; height=&ldquo;72&rdquo;}</a></p>
+<p>A transition is <em>active</em> or <em>enabled</em> if all places with edges leading <em>into</em> it have tokens. In this case $latex T_0$ is active because it has an input place ($latex P_0$) and $latex P_0$ has a token. There may be more than one input place to a transition.</p>
+<p><a href="%7Bstatic%7D2010/03/img3.png"><img src="%7Bstatic%7D2010/03/img3.png" alt="" title="img3">{.size-full .wp-image-700 width=&ldquo;265&rdquo; height=&ldquo;149&rdquo;}</a></p>
+<p>In this case $latex T_0$ is not enabled, because not all of its input places have tokens. $latex P_2$ is missing a token. If you interpret the petri net as sets of conditions, then $latex T_0$ can be interpreted as &lsquo;$latex P_0$ and $latex P_2$&rsquo;. If $latex P_2$ is the condition that the other end hung up, then $latex T_0$ can be interpreted as &lsquo;the user was on a call and the other end hung up&rsquo;. It&rsquo;s a bit contrived, but you can see what I mean. If we placed a token in $latex P_2$, then $latex T_0$ would be enabled again.</p>
+<p>The complete set of tokens in places is known as the &lsquo;<em>marking</em>&rsquo; of the Petri Net, and represents the current state of the system. Again, if you interpret it as a set of conditions, the markings represents the set of all things that you know to be true.</p>
+<p>When an active transition &lsquo;<em>fires</em>&rsquo;, it takes one token from each of its input places and inserts one token in each of its output places. When the Petri Net fires, it performs a transition from one state to another. This can be thought of as representing the outcome of some computation or as the implication of what we know. If $latex P_1$ was something like &lsquo;we are playing the dial tone&rsquo;, then the whole above example can be interpreted as &lsquo;if we are on a call and the other end hung up then we should start to play the dial tone&rsquo;.</p>
+<p>If we started with this</p>
+<p><a href="%7Bstatic%7D2010/03/img4.png"><img src="%7Bstatic%7D2010/03/img4.png" alt="" title="img4">{.size-full .wp-image-702 width=&ldquo;265&rdquo; height=&ldquo;149&rdquo;}</a></p>
+<p>then firing $latex T_0$ would lead to this marking</p>
+<p><a href="%7Bstatic%7D2010/03/img5.png"><img src="%7Bstatic%7D2010/03/img5.png" alt="" title="img5">{.size-full .wp-image-703 width=&ldquo;265&rdquo; height=&ldquo;149&rdquo;}</a></p>
+<p>A transition can have multiple outgoing places as well. Imagine another place $latex P_3$, interpreted as &lsquo;we go back onto the ready queue&rsquo;. Then this model represents the assertion that <em>if we&rsquo;re on a call and the other end hangs up then we start playing the dial tone and we go back onto the ready queue.</em></p>
+<p><a href="%7Bstatic%7D2010/03/img6.png"><img src="%7Bstatic%7D2010/03/img6.png" alt="" title="img6">{.size-full .wp-image-705 width=&ldquo;265&rdquo; height=&ldquo;149&rdquo;}</a></p>
+<p>Clearly we have the ability to represent complex propositions using a petri net. And some of the conditions might continue to hold after firing a transition as well. That&rsquo;s easy too.</p>
+<p><a href="%7Bstatic%7D2010/03/img7.png"><img src="%7Bstatic%7D2010/03/img7.png" alt="" title="img7">{.size-full .wp-image-706 width=&ldquo;265&rdquo; height=&ldquo;96&rdquo;}</a></p>
+<p>The observant amongst you will immediately notice that $latex T_0$ will always be enabled under this marking and the tokens will continue to grow. There&rsquo;s a lot of techniques for analysing this kind of net and its properties. I can’t go into that topic here, but as with other software design, there are patterns and refactorings that can help to design a <em>safe</em> and <em>conservative</em> net.</p>
+<p>The arcs of the Petri Net can, and generally are, ‘<em>generalised’</em> to represent the case of multiple arcs between a place and transition. Rather than muddle the model with many identical edges we can add a ‘<em>weight’</em> to an arc. Whatever the weight is, is the number of tokens removed or added. Whatever the sum of the weights on the input arcs are is the number of tokens that must be present in the input places for a transition to be active. Likewise, the output arcs of a transition can have weights signifying how many token they add to their output places.</p>
+<p>For more information on the other extensions to the Petri Net rules, I recommend reading Murata’s paper.</p>
+<p>OK. The preliminaries are over. That’s covered most of the rules for firing a Petri Net. I’ve not even scratched the surface of all the techniques for working out how a given Petri Net will behave. Petri Nets are popular in designing complex distributed systems, because they can be used to simulate the systems. I hope to show in later posts how we can take a runable model and use it not only for code generation and application glue, but for simulating the behaviour of our apps at runtime. If you want to know more, the following links will give you plenty of history, background and theory.</p>
+<ol>
+<li>
+<p>James L. Peterson. 1977. <em><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.137.6622&amp;rep=rep1&amp;type=pdf"><strong>Petri</strong></a> <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.137.6622&amp;rep=rep1&amp;type=pdf"><strong>Nets</strong></a></em>. ACM Computing Surveys, 9(3), September 1977.</p>
+</li>
+<li>
+<p>Murata, Tadao. 1989. <em><strong><a href="http://www.cs.sysu.edu.cn/selab/references/TCS/T.Murata(IEEE1989)%20Petri%20Nets%20-%20Properties,%20Analysis%20and%20Applications.pdf">Petri</a></strong> <strong><a href="http://www.cs.sysu.edu.cn/selab/references/TCS/T.Murata(IEEE1989)%20Petri%20Nets%20-%20Properties,%20Analysis%20and%20Applications.pdf">nets</a></strong><a href="http://www.cs.sysu.edu.cn/selab/references/TCS/T.Murata(IEEE1989)%20Petri%20Nets%20-%20Properties,%20Analysis%20and%20Applications.pdf"><strong>: Properties</strong></a></em><a href="http://www.cs.sysu.edu.cn/selab/references/TCS/T.Murata(IEEE1989)%20Petri%20Nets%20-%20Properties,%20Analysis%20and%20Applications.pdf"><strong>, analysis, and applications</strong></a>. In Proc. IEEE-89, volume 77, 541&ndash;576.</p>
+</li>
+<li>
+<p><a href="http://en.wikipedia.org/wiki/Petri_net">http://en.wikipedia.org/wiki/Petri_net</a></p>
+</li>
+</ol>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
+      
+        mastadon
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

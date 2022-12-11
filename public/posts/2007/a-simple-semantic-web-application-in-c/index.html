@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en-au">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>A simple semantic web application in C# | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="[digg=http://www.digg.com/programming/A_simple_semantic_web_application_in_C]The latest update of the SemWeb library from Josh Tauberer includes a C# implementation of the Euler reasoner. This reasoner is able to go beyond simplistic RDFS reasoning – being able to navigate the class and property relationships - to make use of rules. The ontology I&rsquo;ve been using to get used to coding in the framework models a simple state machine. The ontology couldn&rsquo;t be simpler. Here&rsquo;s an N3 file that declares the classes and their relationships.">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="A simple semantic web application in C#" />
+<meta property="og:description" content="[digg=http://www.digg.com/programming/A_simple_semantic_web_application_in_C]The latest update of the SemWeb library from Josh Tauberer includes a C# implementation of the Euler reasoner. This reasoner is able to go beyond simplistic RDFS reasoning – being able to navigate the class and property relationships - to make use of rules. The ontology I&rsquo;ve been using to get used to coding in the framework models a simple state machine. The ontology couldn&rsquo;t be simpler. Here&rsquo;s an N3 file that declares the classes and their relationships." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/2007/a-simple-semantic-web-application-in-c/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="A simple semantic web application in C#">
+<meta itemprop="description" content="[digg=http://www.digg.com/programming/A_simple_semantic_web_application_in_C]The latest update of the SemWeb library from Josh Tauberer includes a C# implementation of the Euler reasoner. This reasoner is able to go beyond simplistic RDFS reasoning – being able to navigate the class and property relationships - to make use of rules. The ontology I&rsquo;ve been using to get used to coding in the framework models a simple state machine. The ontology couldn&rsquo;t be simpler. Here&rsquo;s an N3 file that declares the classes and their relationships.">
+
+<meta itemprop="wordCount" content="1309">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="A simple semantic web application in C#"/>
+<meta name="twitter:description" content="[digg=http://www.digg.com/programming/A_simple_semantic_web_application_in_C]The latest update of the SemWeb library from Josh Tauberer includes a C# implementation of the Euler reasoner. This reasoner is able to go beyond simplistic RDFS reasoning – being able to navigate the class and property relationships - to make use of rules. The ontology I&rsquo;ve been using to get used to coding in the framework models a simple state machine. The ontology couldn&rsquo;t be simpler. Here&rsquo;s an N3 file that declares the classes and their relationships."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
+      
+        mastadon
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://twitter.com/share?url=http://45.89.107.9/posts/2007/a-simple-semantic-web-application-in-c/&amp;text=A%20simple%20semantic%20web%20application%20in%20C#" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">A simple semantic web application in C#</h1>
+      
+      <p class="tracked">
+        By <strong>Andrew Matthews</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>[digg=http://www.digg.com/programming/A_simple_semantic_web_application_in_C]The
+latest update of the <a href="http://razor.occams.info/code/semweb/">SemWeb</a> library
+from Josh Tauberer includes a C# implementation of the
+<a href="http://www.agfa.com/w3c/euler/">Euler</a> reasoner. This reasoner is able to go
+beyond simplistic RDFS reasoning – being able to navigate the class and property
+relationships - to make use of rules. The ontology I&rsquo;ve been using to get used
+to coding in the framework models a simple state machine. The ontology couldn&rsquo;t
+be simpler. Here&rsquo;s an <a href="http://www.w3.org/2000/10/swap/Primer.html">N3</a> file that
+declares the classes and their relationships.</p>
+<pre tabindex="0"><code>@prefix daml:  . @prefix rdfs:  . @prefix owl:   . @prefix : .
+#Classes :State a owl:Class;
+daml:comment &quot;states the system can be in&quot;;
+daml:disjointUnionOf ( :S1 :S2 :S3 ).
+:InputToken a owl:Class;
+daml:comment &quot;inputs to the system&quot;;
+daml:disjointUnionOf ( :INil :I1 :I2 ).
+:Machine a owl:Class. :System a owl:Class.
+#properties :isInState rdfs:domain :Machine;
+rdfs:range  :State;
+owl:cardinality &quot;1&quot;.
+:hasInput rdfs:domain :System;
+rdfs:range  :InputToken;
+owl:cardinality &quot;1&quot;.
+#Instances :Machine1 a :Machine;
+:isInState :S1.
+:This a :System;
+:hasInput   :INil.
+</code></pre><p>As with any deterministic finite state <a href="http://aabs.wordpress.com/2007/01/16/342/">machine</a>, there are two key classes at work here. :State and :InputToken. State is a disjoint union of :S1, :S2 and :S3. That means that :S1 is not an :S2 or an :S3. If you don&rsquo;t specify such a disjunction, the reasoners cannot assume it – if there is no rule that says they are disjoint, the reasoner won&rsquo;t be able to assume they&rsquo;re different - just because Machine1 is in state S1, doesn&rsquo;t mean it isn&rsquo;t potentially in state S2 as well. You have to tell it that an S1 is not an S2. Pedantry is all-important in ontology design, and while I have gained a fair measure of it over the years as a defensive programmer I was shocked at the level of semantic support I get from the programming languages I use. OWL provides you with such a rich palette to work with, but less conventional support. It is kind of liberating to be designing class libraries in <a href="http://www.w3.org/2004/OWL/">OWL</a> vs. OO languages. Kind of like when you go from DOS to Bash.</p>
+<p>Anyway, the rules for this little ontology define a transition table for the state machine:</p>
+<pre tabindex="0"><code>@prefix log:  . @prefix rdfs:  . @prefix owl:   . @prefix : .
+#  ~&gt; {
+    :Machine1 :isInState  :S1. :This :hasInput :I1. } =&gt; {
+    :Machine1 :isInState  :S1. :This :hasInput :INil. }.
+#  ~&gt; {
+    :Machine1 :isInState  :S1. :This :hasInput :I2. } =&gt; {
+    :Machine1 :isInState  :S2. :This :hasInput :INil. }.
+#  ~&gt; {
+    :Machine1 :isInState  :S1. :This :hasInput :I3. } =&gt; {
+    :Machine1 :isInState  :S3. :This :hasInput :INil.}.
+</code></pre><p>I got into problems initially, since I thought about the problem from an
+imperative programming perspective. I designed it like I was assigning values to
+variables. That&rsquo;s the wrong approach – treat this as adding facts to what is
+already known. So, rather than saying <em>if X, then do Y,</em> think of it as <em>if I
+know X, then I also know that Y.</em> The program to work with it looks like this:</p>
+<pre tabindex="0"><code>internal class Program {
+    private static readonly string ontologyLocation = @&quot;C:\dev\prototypes\semantic-web\ontologies\20074\states\&quot;;
+    private static string baseUri = @&quot;file:///C:/dev/prototypes/semantic-web/ontologies/2007/04/states/states.rdf#&quot;;
+    private static MemoryStore store = new MemoryStore();
+    private static Entity Machine1 = new Entity(baseUri + &quot;Machine1&quot;);
+    private static Entity Input1 = new Entity(baseUri + &quot;I1&quot;);
+    private static Entity Input2 = new Entity(baseUri + &quot;I2&quot;);
+    private static Entity theSystem = new Entity(baseUri + &quot;This&quot;);
+    private static string hasInput = baseUri + &quot;hasInput&quot;;
+    private static string isInState = baseUri + &quot;isInState&quot;;
+    private static void Main(string[] args) {
+    InitialiseStore();
+    DisplayCurrentStates();
+    SetNewInput(Input2);
+    DisplayCurrentStates();
+}
+private static void DisplayCurrentStates() {
+    SelectResult ra = store.Select(new Statement(Machine1, new Entity(isInState), null));
+    Debug.Write(&quot;Current states: &quot;);
+    foreach (Statement resource in ra.ToArray()) {
+        Debug.Write(resource.Object.Uri);
+    }
+    Debug.WriteLine(&quot;&quot;);
+}
+private static void InitialiseStore() {
+    string statesLocation = Path.Combine(ontologyLocation, &quot;states.n3&quot;);
+    string rulesLocation = Path.Combine(ontologyLocation, &quot;rules.n3&quot;);
+    Euler engine = new Euler(new N3Reader(File.OpenText(rulesLocation)));
+    store.Import(new N3Reader(File.OpenText(statesLocation)));
+    store.AddReasoner(engine);
+}
+private static void SetNewInput(Entity newInput) {
+    Resource[] currentInput = store.SelectObjects(theSystem, hasInput);
+    Statement input = new Statement(theSystem, hasInput, Input1);
+    store.Remove(new Statement(theSystem, hasInput, currentInput[0]));
+    store.Add(new Statement(theSystem, hasInput, newInput));
+    Resource[] subsequentState = store.SelectObjects(Machine1, isInState);
+    Statement newState = new Statement(Machine1, isInState, subsequentState[0]);
+    store.Replace(new Statement(Machine1, isInState, null), newState);
+} }
+</code></pre><p>The task was simple – I wanted to set the state machine up in state :S1 with
+input :INil, then put input :I1 in, and see the state change from :S1 to :S2. In
+doing this I am trying to do something that is a little at odds with the
+expressed intention of ontologies. They are more static declarations of a body
+of knowledge as much as a specification for a dynamically changing body of
+facts. What that means is that they are <em>additive</em> – the frameworks and
+reasoners allow you to add to a body of knowledge. That makes reuse and trust
+possible on the semantic
+web[<a href="http://www.w3.org/TR/owl-semantics/rdfs.html">1</a>,
+<a href="http://www.w3.org/DesignIssues/N3Logic">2</a>]. If I can take your ontology and
+change it to mean something other than what you intended then no guarantees can
+be made about the result. The ontology should stand alone – if you want to base
+some data on it, that&rsquo;s up to you, and you will have to manage it. In practical
+terms, that means you have to manually change the entries for the input and the
+states as they change. What the ontology adds is a framework for representing
+the data, and a set of rules for working out what the next state should be.
+That&rsquo;s still powerful, but I wonder how well it would scale.</p>
+<h3 id="what-to-notice">What to notice</h3>
+<p>There are a few things in here that you should pay very close attention to if
+you want to write a semantic web application of your own using SemWeb. Firstly,
+the default namespace definition in the ontology and rules definition files.
+Generally, the examples of N3 files on the W3C site use the following format to
+specify the default namespace of a file:</p>
+<pre tabindex="0"><code>@prefix : &lt;#&gt;
+</code></pre><p>Unfortunately that leaves a little too much room for manoeuvring within SemWeb,
+and the actual URIs that it will use are a little unpredictable. Generally they
+are based upon the location that SemWeb got the files from. Instead, choose a
+URL like so:</p>
+<p>[@prefix : &lt;http://aabs.purl.org/ontologies/2007/04/states/states.rdf#&gt;.
+]{style=&ldquo;font-family:Courier New;font-size:10pt;&quot;}</p>
+<p>This was not the location of the file - it was just a URL I was using prior to
+using N3 format. The point is that you just need to give an unambiguous URL so
+that the semweb and its reasoner can distinguish resources properly, when you
+ask it questions. I used the same URL in the rules.n3 file, since most of what I
+was referring to was defined in the namespace above. I could just as easily have
+defined a new prefix for states.n3 and prepended all the elements in the rules
+with that prefix. The point is to have a non-default URL so that semweb is in no
+doubt about what the URL of the resources are that you are referring to.</p>
+<p>Next, remember that you will have to dip into the instances in the store to make
+manual changes to their state – this is no different from any relational
+database application. Although, I was disconcerted at first, because I had hoped
+that the reasoner would make any changes I needed for me. Alas that is not in
+the spirit of the semantic web apparently, so be prepared to manage the system
+closely.</p>
+<p>I think that the use of OWL ontologies would be very easy for question answering
+applications, but there may be a little more work required to place a reasoner
+at the core of your system. Of course, I could be wrong about that, and it could
+be my incorrigable procedural mindset that is to blame – I will keep you posted.
+I&rsquo;ll be posting more on this over the next few weeks, so if there are things you
+want me to write about, or answers to questions you have, pllease drop me a line
+or comment here, and I&rsquo;ll try to come up with answers.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
+      
+        mastadon
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

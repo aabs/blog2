@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en-au">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Generic Algorithms in C# | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="This post describes generic programming and the capabilities of generics in C#. I conclude that C# Generics and C# generally are not able to solve issues that are easy in the Standard Template Library. Nothing would make me happier than if you were able to demonstrate to me that my conclusions are wrong. If thats true, please don&rsquo;t keep it to yourself!!!!!
+Ever since moving to C# from C&#43;&#43;, I&rsquo;ve missed the expressive power and elegance of the Standard Template Library (STL).">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Generic Algorithms in C#" />
+<meta property="og:description" content="This post describes generic programming and the capabilities of generics in C#. I conclude that C# Generics and C# generally are not able to solve issues that are easy in the Standard Template Library. Nothing would make me happier than if you were able to demonstrate to me that my conclusions are wrong. If thats true, please don&rsquo;t keep it to yourself!!!!!
+Ever since moving to C# from C&#43;&#43;, I&rsquo;ve missed the expressive power and elegance of the Standard Template Library (STL)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/2006/generic-algorithms-in-c/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="Generic Algorithms in C#">
+<meta itemprop="description" content="This post describes generic programming and the capabilities of generics in C#. I conclude that C# Generics and C# generally are not able to solve issues that are easy in the Standard Template Library. Nothing would make me happier than if you were able to demonstrate to me that my conclusions are wrong. If thats true, please don&rsquo;t keep it to yourself!!!!!
+Ever since moving to C# from C&#43;&#43;, I&rsquo;ve missed the expressive power and elegance of the Standard Template Library (STL).">
+
+<meta itemprop="wordCount" content="3474">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Generic Algorithms in C#"/>
+<meta name="twitter:description" content="This post describes generic programming and the capabilities of generics in C#. I conclude that C# Generics and C# generally are not able to solve issues that are easy in the Standard Template Library. Nothing would make me happier than if you were able to demonstrate to me that my conclusions are wrong. If thats true, please don&rsquo;t keep it to yourself!!!!!
+Ever since moving to C# from C&#43;&#43;, I&rsquo;ve missed the expressive power and elegance of the Standard Template Library (STL)."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
+      
+        mastadon
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://twitter.com/share?url=http://45.89.107.9/posts/2006/generic-algorithms-in-c/&amp;text=Generic%20Algorithms%20in%20C#" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Generic Algorithms in C#</h1>
+      
+      <p class="tracked">
+        By <strong>Andrew Matthews</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>This post describes generic programming and the capabilities of generics in C#. I conclude that C# Generics and C# generally are not able to solve issues that are easy in the Standard Template Library. <em><strong>Nothing would make me happier than if you were able to demonstrate to me that my conclusions are wrong. If thats true, please don&rsquo;t keep it to yourself!!!!!</strong></em></p>
+<p>Ever since moving to C# from C++, I&rsquo;ve missed the expressive power and elegance of the Standard Template Library (STL). When generics were introduced into C# 2.0 I assumed that to gain runtime type safety, some of that expressive power had to be sacrificed. My initial impression was that it was good only for generic collections, but not for those idioms that revolutionized C++ when the STL was adopted, and after Alexandrescu published his eye-opening [<em>Modern C++ Design</em>]{style=&ldquo;font-size:9pt;font-family:Tahoma;&quot;}. I&rsquo;d never found the time to confirm my misgivings, so I recently made time to explore the issues - I&rsquo;ve been working on a .NET project based on legacy code which was - how can I put it delicately - based on the best practice of yesteryear! I have a pressing incentive to find clean, expressive and sexy ways to enhance the code-base and architecture. Obviously, I&rsquo;m breathless with anticipation of Linq in all its forms, but I have a job to do now with the tools at hand.</p>
+<p>I don&rsquo;t think I&rsquo;ve ever seen syntactic and idiomatic support in any framework to better STL as it stood a decade ago. Don&rsquo;t get me wrong - I love C# - but I regret that I can&rsquo;t combine the best of both worlds. Are generics in C# 2.0 too impoverished to be able to provide the power of STL? Are we able to provide the full power that has until now been the exclusive reserve of STL developers?</p>
+<h2 style="font-size:13pt;" id="algorithms--data-structures--programs-">Algorithms + Data Structures = Programs[ ]</h2>
+<p>The STL stems from work done by Alex Stepanov and Meng Lee, and earlier work on generic programming by Stepanov and Musser. Their object was to produce a set of general purpose container classes and associated algorithms that could exist independently. In languages that don&rsquo;t support generics, you have four choices when you want to provide standard algorithms on containers:</p>
+<ul>
+<li>you implement every method that you need on each container class (The MFC approach).</li>
+<li>you code all containers and algorithms in terms of some common data type (the .NET System.Collections approach)</li>
+<li>you implement a code generation system that creates strongly typed containers and algorithms (the solution in GCC prior to the introduction of templates in C++)</li>
+<li>you don&rsquo;t bother implementing algorithms at all (The C5 approach).</li>
+</ul>
+<p>None of these options is particularly desirable, so Stepanov &amp; Co developed an idiom for coding in C++ that allowed algorithms to be developed independently of data structures. This is an important point - you can develop a sort method that will sort a linked list as easily as an array. It&rsquo;s not easy. His approach was to employ <em>iterators</em>, a set of coding conventions, and type exports.</p>
+<h2 id="iterators">Iterators</h2>
+<p>Iterators are vital - they provide the topology independent mechanism for getting at the elements in a collection. The Iterators in STL are based on pointer semantics, and in the case of arrays may actually be implemented using a pointer. The key feature of a pointer is that it provides a way to dereference a collection element (using [operator *]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;}) to move forward and backward through the collection ([operator +]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;}+ and [operator &ndash;]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;}). in .NET, [IEnumerator&lt;T&gt;]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;} provides roughly the same functionality, and in general it is provided as a nested class within a collection. There&rsquo;s nothing sacred about pointer syntax. We can implement an iterator without using operator overloading. The key thing is pointer <em>semantics.</em> Pointers treat a block of memory as ordered, contiguous and typed. By being typed you know how far to move forward to get to the beginning of the next object. In other words, you can easily move forward through the ordered collection of objects. In the case of C/C++ pointers by using the operator++ method, but it could just as easily be by using a MoveNext method.</p>
+<p>Option 2 is what we are currently faced with in C#&rsquo;s System.Collections - all container classes store references to System.Object. If you want to ensure type safety in your system you&rsquo;ll probably find yourself with all accesses to the container using casts and try-catch blocks to ensure no foreign bodies are introduced by accident. It&rsquo;s nasty, messy and these days unnecessary when you have generics. The burning question is - if you can have generic data structures does that mean you can also have generic algorithms?</p>
+<p>The answer to that is a resounding NO! Which is the reason why a lot of ex C++ programmers were sceptical at the usefulness of generics in C#. Sure they can help you store stuff easier, but they alone can&rsquo;t provide a rich language in which to define generally useful reusable functionality. In STL, iterators are hand-coded nested classes in a collection. Their behaviour is dictated by the iterator category to which they belong. Iterators are classified as forward, reverse, bi-directional, or random access. They can also be const or non-const.</p>
+<p>It&rsquo;s worth quickly noting at this point that we can&rsquo;t tack iterators onto the collection classes using external methods. We can attach methods such as Begin and End to the collections, but the iterators can&rsquo;t access the storage managed by those collections – they&rsquo;re strictly limited to accessing public methods, properties and fields. They are limited by the accessors already provided by the collections. The iterators could potentially be limited to one form of iteration – the forward iterator of IEnumerator&lt;T&gt;. That isn&rsquo;t a hard and fast rule, but it is a concern!</p>
+<p>In C#, the standard collection classes define iterators by implementing the IEnumerable&lt;T&gt; interface. IEnumerable&lt;T&gt; provides a means for algorithms to get at the IEnumerator&lt;T&gt; interface which is the actual iterator. However, STL would classify the in-built iterators as &lsquo;<em>Trivial Iterators</em>&rsquo;. With the advent of the <em><strong>yield</strong></em> keyword, we can now define more than one iterator on a collection. This overcomes one hurdle to generic algorithms – different algorithms will require different types of iterator – if the framework only supports one kind, then some algorithms may be ruled out.</p>
+<p>The interface to IEnumerator&lt;T&gt; is very simple.
+<code> public interface IEnumerator&lt;T&gt; {   bool MoveNext();   T Current { get; }   void Reset(); }</code></p>
+<p>It&rsquo;s clear that we can&rsquo;t do random access with this type of iterator, and we can&rsquo;t move backwards through the collection either. Since yield allows only trivial iterators we will probably have to use an alternative mechanism to iterate collections. Perhaps we need to expand the capabilities of IEnumerator&lt;T&gt;? The iterators will need to be constrained by coding conventions (of which more later on). There is nothing in principle to stop us doing whatever was possible with iterators in C++, in the same way - after all there is no in-built runtime support for iterators in C++, yet it copes well.</p>
+<h2 id="generic-algorithms">Generic Algorithms</h2>
+<p>In generic methods you often define your method signatures in terms of iterators. If you defined (in C++) a vector of integers like so:</p>
+<p><code>vector&lt;int&gt; vint = new vector&lt;int&gt;(); </code></p>
+<p>and you defined an algorithm called [Double]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;} like so:
+<code>void Double&lt;Iterator&gt;(Iterator start, Iterator end) {   for(Iterator i = start; i != end; i++){     i *= 2;   } }</code></p>
+<p>Then you could double the elements in the collection like so:</p>
+<p><code>Double(vint.begin(), vint.end());</code></p>
+<p>This performs an in-place doubling of each element between start and end inclusive. Sadly, [you ]{style=&ldquo;text-decoration:underline;&quot;}[just can&rsquo;t do this]{style=&ldquo;font-size:9pt;font-family:Tahoma;&quot;} in C#. It&rsquo;s not possible. The C# compiler doesn&rsquo;t know at compile time whether the elements returned by an Iterator are numerical and can support the &lsquo;*=&rsquo; operator. We cannot define operators on an interface, and therefore we cannot constrain the iterators to those defined on collections that store objects that support the &lsquo;*=&rsquo; operator. Numerical types don&rsquo;t share a common base class that we could use to distinguish them from other structs. Besides, we couldn&rsquo;t define a constraint against a type argument of another generic class. For example, say you defined a List of Integers, and you passed a pair of iterators to Double, Double would not know that they were iterators over a collection containing integers, because all it knows is that it has a type argument called Iterator that could be anything at all.</p>
+<p>Lets summarise the list of problems with this simple example for later reference:</p>
+<ol>
+<li>Can&rsquo;t define operators on an interface , thus you can&rsquo;t constrain to types that support operators</li>
+<li>Can&rsquo;t issue constraints against type arguments of type arguments</li>
+<li>No consistent last item</li>
+<li>No static type checking</li>
+</ol>
+<p>It would be nice to write some code like this:</p>
+<p><code>if(Iterator.T is Numeric){   for(Iterator i = start; i != end; i++){     i *= 2;   } }</code></p>
+<p>Or, better still</p>
+<p><code>void Double(Iterator start, Iterator end) where Iterator.T : Numeric {   // ... }</code></p>
+<p>But it is not to be - at least in this version. Even if we could define constraints that specified the operators, we would not be able to retroactively attach the interfaces to types in the framework. Oh, and another thing - [IEnumerator&lt;T&gt;]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;} doesn&rsquo;t support Equality comparison, that rules out iteration between ranges. Iterators in STL support the &lsquo;[<em>one beyond the end&rsquo;</em> ]{style=&ldquo;font-size:9pt;font-family:Tahoma;&quot;}concept that enables a collection to have a definite immutable value for the end of a collection that doesn&rsquo;t get out of date if new elements are added to the end of a collection. Contrast that with the following implementation of [System.CharEnumerator.Current]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;}.<code> </code></p>
+<p><code>public char Current {   get {     if (this.index == -1) {       throw new InvalidOperationException (Environment.GetResourceString( &quot;InvalidOperation_EnumNotStarted&quot;));     }     if (this.index &gt;= this.str.Length) {       throw new InvalidOperationException (Environment.GetResourceString( &quot;InvalidOperation_EnumEnded&quot;));     }     return this.currentElement;   } }</code></p>
+<p>As soon as the iterator gets to the end of the collection it will not allow a dereference of collection elements. Instead it begins to throw exceptions. If this is typical of the framework, it doesn&rsquo;t bode well for algorithms like Double above, since you can&rsquo;t dereference one beyond the end of the collection without throwing exceptions.</p>
+<p>Without a common, immutable end of collection marker that can be passed to an algorithm, we are going to have problems. Firstly, we will have to provide algorithms for both the whole collection and for a range within that collection. Perhaps that&rsquo;s why the canonical generic algorithm in System.Collections.List is ForEach? Without a guaranteed end of collection iterator value, we can&rsquo;t be sure of iterating the whole of a collection that is being inserted to while it is being iterated.</p>
+<h2 style="font-family:Tahoma;" id="shortcomings-of-c-">[Shortcomings of C# ]</h2>
+<p>Using a convention about how collections expose their type parameters, STL allows a thorough introspection into data types used in a collection and its contained elements, without any prior knowledge of the types.  In a Genetic Algorithm, I never need to know how my Genomes are encoded to be able to evolve them. In C# I can get an iterator such as [IEnumerable&lt;T&gt;]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;}, but if T has further detail inside it, I have no easy way to get at it, because there are no typedefs or their equivalent inside IEnumerable. The code in my example above is completely illegal. You can&rsquo;t do Iterator.T because T is not accessible from Double. All it knows about is Iterator. It could define a constraint to say that its iterators must be [IEnumerator&lt;T&gt;]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;} but even then, it still can&rsquo;t work without explicitly specifying the types iterated over.</p>
+<p>Some collection libraries use a pattern of defining T (the element type) on the generic method, and then define their interfaces to accept IList&lt;T&gt;or IEnumerator&lt;T&gt;. This is partially generic – it allows the iterated elements to be parameterised, but not the collection types or their iterators.</p>
+<p>What&rsquo;s so bad about that, you might ask. Well, the type parameters would contain redundant type definitions which would be messy and would make the code brittle. In addition, that approach would only be useful if you knew how many levels you would need to dig into the type definitions. If you wanted to look inside T of IEnumerator&lt;T&gt;, you would have to provide extra parameters in the cases where T was itself generic. Obviously, messing with the parameter lists of a generic type or method won&rsquo;t help. So, we need some sort of type export mechanism.</p>
+<p>So, how do I find out more about the type parameter of IEnumerable&lt;T&gt; without using reflection, or what elegant workarounds and/or conventions could I adopt to make such type access easy? These problems are not specific to the realm of evolutionary programming - I just chose that because it&rsquo;s fun - there is currently <a href="http://blogs.msdn.com/ericgu/archive/2003/11/14/52852.aspx">[work]{style=&ldquo;font-size:9pt;font-family:Tahoma;&quot;}</a> being done by Anders Hejlsberg and the rest of the C# design team to find (or bake in) ways to achieve this in future versions of C#.</p>
+<h3 style="font-family:Tahoma;" id="exporting-types-">[Exporting Types ]</h3>
+<p>One feature of C++ that is used liberally in the STL is typedefs. <em>typedef</em> in C++ is useful for allowing type parameters to be inspected by algorithms. I&rsquo;ll show a few examples of typedefs at work below. This is a critical difference between the template system of C++ and the generics system of C#. In C# there is very little information flow between the generic type argument and the type constraints. C++ uses <em>static type checking</em> to check for type errors at compile time. It does not do this by checking type arguments against a lookup table of permissible types as is the case with C#. Instead it attempts to find bindings for methods, fields and typedefs for each specific <em>constructed type</em>. Consider the following example. I&rsquo;ve defined a class [A]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;} with a public method [Foo]{style=&ldquo;font-family:Courier New;&quot;}. I&rsquo;ve then defined a template method [Bar]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;}[
+]{style=&ldquo;font-size:13pt;&quot;}that takes a vector of T.<code> </code></p>
+<p><code>class A {public: int Foo(){/* ... */}} // ... template&lt;typename T, typename R&gt; R Bar(vector&lt;T&gt; arg1){return arg1.Foo();} // ... int result = Bar&lt;A, int&gt;(someVector); </code></p>
+<p>There is nothing about the definition of [Bar]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;}[
+]{style=&ldquo;font-size:13pt;&quot;}that tells it that it is dealing with objects of type A. A C#[
+]{style=&ldquo;font-size:10pt;color:black;font-family:Arial;&quot;}compiler would produce a compile-time error for code like this. There is no constraint that it should restrict [Bar]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;} to classes of type A or its descendants. C++ gets around this problem using static type checking. It can see that when we invoke [Bar]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;}[
+]{style=&ldquo;font-size:13pt;&quot;}with a [vector&lt;A&gt;]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;}[
+]{style=&ldquo;font-size:13pt;&quot;}we are OK, but with some other type we are not. It will only issue compilation errors in the case where you try to invoke [Bar]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;}[
+]{style=&ldquo;font-size:13pt;&quot;}with a vector of some other type. This static type checking is powerful. It allows generic methods to access typedefs in its type arguments. Imagine you were writing a genetic algorithm, and you wanted to do a random mutation on randomly chosen population members.</p>
+<p><code>template&lt;typename PopType&gt; PopType::GenomeType MutatePopulation(PopType population){  for(PopType::iterator i = population.begin(); i != population.end(); i++){   PopType::GenomeType gen = StochasticInvoke(Mutate(*i), PopType.MutationProbability);   *i = gen;  }</code></p>
+<p>In the above example I have accessed type definitions to get iterators, and genome types used to declare local variables. Without this kind of thing we are forced to add internal types on generic parameter lists:</p>
+<p><code>GenomeType MutatePopulation&lt;PopulationType, PopulationIteratorType, GenomeType&gt;( PopulationType pop){  for(PopulationIteratorType i = pop.begin(); i != pop.end(); i.MoveNext()){   GenomeType gen = StochasticInvoke(Mutate(i.Current), pop.MutationProbability);   *i = gen;  } }</code></p>
+<p>As explained earlier this is nasty. It means that if I were to find a different way to represent GenomeType, I would have to change every place that uses a genome, rather than just the one place that stores the genomes. With the aid of typedefs I can just modify the declaration of my population collection, and the type will flow out into every generic method that works with populations. I want to be able to define the data type of a variable once and thereafter not have to mention it again, since clients can get it from the parameters I pass around.</p>
+<h4 id="type-exporting-using-external-methods">Type exporting using external methods</h4>
+<p>The lack of static type checking in C# means we can&rsquo;t declare variables of types exported inside of type arguments. We can pass them around, though. Using extension methods (that are currently in pre-alpha release in the May CTP of C# 3.0) we can augment [System.Type]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;} to provide access, with the aid of reflection.</p>
+<p><code>namespace System{   public class TypedefAttribute : Attribute { }   public static class TypeExtensions {     public static IDictionary&lt;string, Type&gt; typedefs;     public static Type GetTypedef(this Type source, string typedef) {       if (typedefs == null) {         typedefs = ReflectTypeExports(source);       }       if (typedefs.ContainsKey(typedef))         return typedefs[typedef];       else         throw new ApplicationException(&quot;No type export named '&quot; + typedef + &quot;'&quot;);     }``````    public static IDictionary&lt;string, Type&gt; ReflectTypeExports(Type source) {       Dictionary&lt;string, Type&gt; result = new Dictionary&lt;string, Type&gt;();       // Get all properties adorned with TypedefAttribute from source       var q = from p in source.GetProperties()               where p.GetCustomAttributes(typeof(TypedefAttribute), rue)                  .Length &gt; 0               select p;       foreach (System.Reflection.PropertyInfo pi in q) {         result[pi.Name] = (Type)pi.GetValue(null, null);       }       return result;     }   } }``````namespace extensions {</code></p>
+<p>public class A&lt;T&gt; {
+    [Typedef] public static Type TType { get { return typeof(T); } }
+  }
+  public class B&lt;T&gt; {
+    [Typedef] public static Type TType { get { return typeof(T); } }
+  }<code>  class Program {     static void Main(string[] args) {       Console.WriteLine(typeof(A&lt;B&lt;int&gt;&gt;).GetTypedef(&quot;TType&quot;).       GetTypedef(&quot;TType&quot;).ToString());       Console.Read();     }   } }</code>
+This is fine for passing types around, but you can&rsquo;t do much with it other than treat it as a variable. You can&rsquo;t <em>declare</em> a variable like so</p>
+<p><code>typeof(PopulationType).GetTypedef(&quot;GenomeType&quot;).GetTypedef(&quot;AlleleType&quot;) allele = GetRandomAllele(iterator.Current);</code></p>
+<p>You could use the old</p>
+<p><code>Activator.CreateInstance(typeof(PopulationType).GetTypedef(&quot;GenomeType&quot;).GetTypedef(&quot;AlleleType&quot;));</code></p>
+<p>trick, but then you&rsquo;ve got a System.Object, and what do you cast it to? There&rsquo;s no type safety.</p>
+<p>Lets take a look at a good collection of generic algorithms. The PowerCollections library from Wintellect. Here&rsquo;s a typical example from the generic methods class Algorithms:</p>
+<p><code>public static IEnumerable&lt;T&gt; Rotate&lt;T&gt;(IList&lt;T&gt; source, int amountToRotate) {   if (source == null)     throw new ArgumentNullException(&quot;source&quot;);   int count = source.Count;   if (count != 0) {     amountToRotate = amountToRotate % count;   if (amountToRotate &lt; 0)     amountToRotate += count;``````  // Do it in two parts.   for (int i = amountToRotate; i &lt; count; ++i)     yield return source[i];   for (int i = 0; i &lt; amountToRotate; ++i)     yield return source[i];   } }</code></p>
+<p>The method declares type parameters for the collected type, and then fixes the type for the collection. That is pretty much all you can do in C# without typedefs. What happens if you decide that your algorithm could be applied to any ordered type that can be iterated, rather than just ILists? Well, you could use iterators, but we know from the earlier discussion that currently, IEnumerator&lt;T&gt; doesn&rsquo;t use a fixed end point for the end of a collection. We may run into consistency and thread safety issues, because the end of a collection could change continually, so it can&rsquo;t be passed around.</p>
+<h2 id="conclusions">Conclusions</h2>
+<p>We&rsquo;ve seen that the standard template library is a product of convention and integrated language support. You can get a long way with just iterators. Do those iterators need to be stable in a multithreaded environment? Probably. I attended a talk at TechEd Sydney given by Joel Pobar a few weeks back, where he pointed out that for developers to exploit the coming multi-core machines, they would have to embrace multi-threading. That implies that our generic algorithms will have to be designed to work in a thread safe way. You can sacrifice flexibility in your choice of containers to allow iteration, as has been done in the PowerCollections library. You could try to augment the iterator mechanisms to allow the integrated language support of C# to dovetail with a better collections library design. This was done in the C5 library, where const iterators and bi-directional iterators have been grafted onto the existing collection iteration mechanism.</p>
+<p>For truly generic algorithms (rather than shallow transformative operations such as the PowerCollections' Rotate method given above) we need types to be flexible and informative. They are informative, but only about the type itself. Not about the relationships that the type has with other types. And what relationships the type does have, are not usable at compile time. That&rsquo;s where the typedef mechanism in C++ comes in. In C#, we are hindered by the richness of the reflection mechanism. Types are runtime things passed around just like other objects. We need them to be as flexible and informative at compile time. Currently they aren&rsquo;t. We may be able to do extraordinary things in future releases of C#, but currently we will never have the same degree of genericity as we had in C++. However, with a bit of good design and some compromise, we can produce some very flexible algorithms of lasting value.</p>
+<p>If I could ask for one thing to be included in future versions of C# - it would be static type checking, allowing generic type arguments to carry more information than the minimum required to create a concrete type at runtime. I want typedefs.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
+      
+        mastadon
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

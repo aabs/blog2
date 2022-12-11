@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-au">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Can AOP help fix bad architectures? | The Wandering Glitch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="I recently posted a question on Stack Overflow on the feasibility of using IL rewriting frameworks to rectify bad design after the fact. The confines of the answer comment area were too small to give the subject proper treatment so I though a new blog post was in order. Here&rsquo;s the original question:
+ I&rsquo;ve recently been playing around with PostSharp, and it brought to mind a problem I faced a few years back: A client&rsquo;s developer had produced a web application, but they had not given a lot of thought to how they managed state information - storing it (don&rsquo;t ask me why) statically on the Application instance in IIS.">
+    <meta name="generator" content="Hugo 0.92.2" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Can AOP help fix bad architectures?" />
+<meta property="og:description" content="I recently posted a question on Stack Overflow on the feasibility of using IL rewriting frameworks to rectify bad design after the fact. The confines of the answer comment area were too small to give the subject proper treatment so I though a new blog post was in order. Here&rsquo;s the original question:
+ I&rsquo;ve recently been playing around with PostSharp, and it brought to mind a problem I faced a few years back: A client&rsquo;s developer had produced a web application, but they had not given a lot of thought to how they managed state information - storing it (don&rsquo;t ask me why) statically on the Application instance in IIS." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://45.89.107.9/posts/2009/can-aop-help-fix-bad-architectures/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="Can AOP help fix bad architectures?">
+<meta itemprop="description" content="I recently posted a question on Stack Overflow on the feasibility of using IL rewriting frameworks to rectify bad design after the fact. The confines of the answer comment area were too small to give the subject proper treatment so I though a new blog post was in order. Here&rsquo;s the original question:
+ I&rsquo;ve recently been playing around with PostSharp, and it brought to mind a problem I faced a few years back: A client&rsquo;s developer had produced a web application, but they had not given a lot of thought to how they managed state information - storing it (don&rsquo;t ask me why) statically on the Application instance in IIS.">
+
+<meta itemprop="wordCount" content="1327">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Can AOP help fix bad architectures?"/>
+<meta name="twitter:description" content="I recently posted a question on Stack Overflow on the feasibility of using IL rewriting frameworks to rectify bad design after the fact. The confines of the answer comment area were too small to give the subject proper treatment so I though a new blog post was in order. Here&rsquo;s the original question:
+ I&rsquo;ve recently been playing around with PostSharp, and it brought to mind a problem I faced a few years back: A client&rsquo;s developer had produced a web application, but they had not given a lot of thought to how they managed state information - storing it (don&rsquo;t ask me why) statically on the Application instance in IIS."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        The Wandering Glitch
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
+      
+        mastadon
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://twitter.com/share?url=http://45.89.107.9/posts/2009/can-aop-help-fix-bad-architectures/&amp;text=Can%20AOP%20help%20fix%20bad%20architectures?" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Can AOP help fix bad architectures?</h1>
+      
+      <p class="tracked">
+        By <strong>aabs</strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>I recently posted a <a href="http://stackoverflow.com/questions/1541697/refactoring-nasty-legacy-systems-via-aop-or-other-automated-means">question</a> on Stack Overflow on the feasibility of using IL rewriting frameworks to rectify bad design after the fact. The confines of the answer comment area were too small to give the subject proper treatment so I though a new blog post was in order. Here&rsquo;s the original question:</p>
+<blockquote>
+<p>I&rsquo;ve recently been playing around with PostSharp, and it brought to mind a problem I faced a few years back: A client&rsquo;s developer had produced a web application, but they had not given a lot of thought to how they managed state information - storing it (don&rsquo;t ask me why) <em>statically</em> on the <a href="http://msdn.microsoft.com/en-us/library/system.web.httpapplicationstate.aspx">Application</a> instance in IIS. Needless to say the system didn&rsquo;t scale and was deeply flawed and unstable. But it was a big and very complex system and thus the cost of redeveloping it was prohibitive. My brief at the time was to try to refactor the code-base to impose proper decoupling between the components.</p>
+<p>At the time I tried to using some kind of abstraction mechanism to allow me to intercept all calls to the static resource and redirect them to a component that would properly manage the state data. The problem was there was about 1000 complex references to be redirected (and I didn&rsquo;t have a lot of time to do it in). Manual coding (even with R#) proved to be just too time consuming - we scrapped the code base and rewrote it properly. it took over a year to rewrite.</p>
+<p>What I wonder now is - had I had access to an assembly rewriter and/or Aspect oriented programming system (such as a PostSharp) could I have easily automated the refactoring process of finding the direct references and converted them to interface references that could be redirected automatically and supplied by factories.</p>
+<p>Has anyone out there used PostSharp or similar systems to rehabilitate pathological legacy systems? How successful were the projects? Did you find after the fact that the effort was worth it? Would you do it again?</p>
+</blockquote>
+<p>I subsequently got into an interesting (though possibly irrelevant) discussion with <a href="http://stackoverflow.com/users/120163/ira-baxter">Ira Baxter</a> on program transformation systems, AOP and the kind of intelligence a program needs to have in order to be able to refactor a system, preserving the business logic whilst rectifying any design flaws in the system.  There&rsquo;s no space to discuss the ideas, so I want to expand the discussion here.</p>
+<p>The system I was referring to had a few major flaws:</p>
+<ol>
+<li>The user session information (of which there was a lot) was stored statically on a specific instance of IIS. This necessitated the use of sticky sessions to ensure the relevant info was around when user requests came along.</li>
+<li>Session information was lost every time IIS recycled the app pool, thus causing the users to lose call control (the app was phone-related).</li>
+<li>State information was glommed into a tight bolus of data that could not be teased apart, so refactoring the app was an all-or-nothing thing.</li>
+</ol>
+<p>As you can guess, tight coupling/lack of abstraction and direct resource dispensation were key flaws that prevented the system from being able to implement fail-over, disaster recovery, scaling, extension and maintenance.</p>
+<p>This product is  in a very competitive market and needs to be able to innovate to stay ahead, so the client could ill afford to waste time rewriting code while others might be catching up. My question was directed in hindsight to the problem of whether one could retroactively fix the problems, without having to track down, analyse and rectify each tightly coupled reference between client code and state information and within the state information itself.</p>
+<p>What I needed at the time was some kind of declarative mechanism whereby I could confer the following properties on a component:</p>
+<ol>
+<li>location independence</li>
+<li>intercepted object creation</li>
+<li>transactional persistence</li>
+</ol>
+<p>Imagine, that we could do it with a mechanism like PostSharp&rsquo;s multicast delegates:</p>
+<pre tabindex="0"><code>[assembly: DecoupledAndSerialized(
+    AspectPriority = -1,
+    AttributeTargetAssemblies = &quot;MyMainAssembly&quot;,
+    AttributeTargetTypes = &quot;MainAssembly.MyStateData&quot;,
+    AttributeTargetMembers = &quot;*&quot;)]
+</code></pre><p><a href="http://11011.net/software/vspaste"></a></p>
+<p>What would this thing have to do to be able to untie the knots that people get themselves into?</p>
+<ol>
+<li>It would have to be able to intercept every reference to MainAssembly.MyStateData and replace the interaction with one that got the instance from some class factory that could go off to a database or some distant server instead.</li>
+</ol>
+<p>that is - introduce an abstraction layer and some <a href="http://en.wikipedia.org/wiki/Inversion_of_Control">IoC</a> framework.
+2.  It must ensure that the component managing object persistence checked into and out of the database appropriately (atomically) and all contention over that data was properly managed.
+3.  It must ensure that all session specific data was properly retrieved and disposed for each request.</p>
+<p>This is not a pipe dream by any means – there are frameworks out there that are designed to place ‘shims’ between layers of a system to allow the the shim to be expanded out into a full-blown proxy that can communicate through some inter-machine protocol or just devolve to plain old in-proc communication while in a dev environment. The question is, can you create a IL rewriter tool that is smart enough to work out how to insert the shims based on its own knowledge of good design principles? Could I load it up with a set of commandments graven in stone, like “<em>never store user session data in <a href="http://msdn.microsoft.com/en-us/library/system.web.httpapplicationstate.aspx">HttpContext.Application</a></em>”? If it found a violation of such a cardinal sin, could it insert a proxy that would redirect the flow away from the violated resource, exploiting some kind of resource allocation mechanism that wasn’t so unscaleable?</p>
+<p>From my own experience, these systems require you to be able to define service boundaries to allow the system to know what parts to make indirect and which parts to leave as-is. <a href="http://www.idesign.net/">Juval Lowy</a> made a strong case for the idea that every object should be treated as a service, and all we lack is a language that will seamlessly allow us to work with services as though they were objects. Imagine if we could do that, providing an ‘abstractor tool’ as part of the build cycle. While I think he made a strong case, my experience of WCF (which was the context of his assertions) is that it would be more onerous to configure the blasted thing than it would be to refactor all those references. But if I could just instruct my IL rewriter to do the heavy lifting, then I might be more likely to consider the idea.</p>
+<p>Perhaps PostSharp has the wherewithal to address this problem without us having to resort to extremes or to refactor a single line? PostSharp has two incredible features that make it a plausible candidate for such a job. the first is the <a href="http://doc.postsharp.org/1.5/##PostSharp.HxS/UserGuide/Laos/Multicasting/Overview.html">Multicast delegate</a> feature that would allow me to designate a group of APIs declaratively as the service boundary of a component. The original code is never touched, but by using an <a href="http://doc.postsharp.org/1.5/##PostSharp.HxS/UserGuide/Laos/AspectKinds/OnMethodInvocationAspect.html">OnMethodInvocationAspect</a> you could intercept every call to the API turning them into remote service invocations. The second part of the puzzle is <a href="http://doc.postsharp.org/1.5/##PostSharp.HxS/UserGuide/Laos/Lifetime.html">compile-time instantiation</a> of an Aspect – in this system your aspects are instantiated at compile time, given an opportunity to perform some analysis and then to serialize the results of that analysis for runtime use when the aspect is invoked as part of a call-chain. The combination of these two allows you to perform an arbitrary amount of compile time analysis prior to generating a runtime proxy object that could intercept those method calls necessary to enforce the rules designated in the multicast delegate. The aspect could perform reflective analysis and comparison against a rules base (just like <a href="http://msdn.microsoft.com/en-us/library/bb429476(VS.80).aspx">FxCop</a>) but with an added collection of refactorings it could take to alleviate the problem. The user might still have to provide hints about where to get and store data, or how the app was to be deployed, but given high level information, perhaps the aspect could self configure?</p>
+<p>Now that would be a useful app – a definite must-have addition to any consultant’s toolkit.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://45.89.107.9/" >
+    &copy;  The Wandering Glitch 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
+      
+        mastadon
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
