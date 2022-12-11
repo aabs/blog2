@@ -1,171 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>
+  Knowledge Graphs 7 - Named Graphs · The Wandering Glitch
+</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Knowledge Graphs 7 - Named Graphs | The Wandering Glitch</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Knowledge Graphs provide a neat and easy way to segment your data, called &lsquo;Named Graphs&rsquo;. This post shows how you access them, and different uses they may be put to.
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="description" content="Knowledge Graphs provide a neat and easy way to segment your data, called &lsquo;Named Graphs&rsquo;. This post shows how you access them, and different uses they may be put to.
 This is part 7 of an ongoing series providing a little background on Knowledge Graphs. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history. Just practical knowledge.">
-    <meta name="generator" content="Hugo 0.108.0">
-    
-    
-    
-    
-      <meta name="robots" content="noindex, nofollow">
-    
+<meta name="keywords" content="">
 
-    
-<link rel="stylesheet" href="/ananke/css/main.min.css" >
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Knowledge Graphs 7 - Named Graphs"/>
+<meta name="twitter:description" content="Knowledge Graphs provide a neat and easy way to segment your data, called &lsquo;Named Graphs&rsquo;. This post shows how you access them, and different uses they may be put to.
+This is part 7 of an ongoing series providing a little background on Knowledge Graphs. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history. Just practical knowledge."/>
 
-
-
-    
-    
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="Knowledge Graphs 7 - Named Graphs" />
+<meta property="og:title" content="Knowledge Graphs 7 - Named Graphs" />
 <meta property="og:description" content="Knowledge Graphs provide a neat and easy way to segment your data, called &lsquo;Named Graphs&rsquo;. This post shows how you access them, and different uses they may be put to.
 This is part 7 of an ongoing series providing a little background on Knowledge Graphs. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history. Just practical knowledge." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://industrialinference.com/1/01/knowledge-graphs-7-named-graphs/" /><meta property="article:section" content="posts" />
 
 
-<meta itemprop="name" content="Knowledge Graphs 7 - Named Graphs">
-<meta itemprop="description" content="Knowledge Graphs provide a neat and easy way to segment your data, called &lsquo;Named Graphs&rsquo;. This post shows how you access them, and different uses they may be put to.
-This is part 7 of an ongoing series providing a little background on Knowledge Graphs. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history. Just practical knowledge.">
 
-<meta itemprop="wordCount" content="1356">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Knowledge Graphs 7 - Named Graphs"/>
-<meta name="twitter:description" content="Knowledge Graphs provide a neat and easy way to segment your data, called &lsquo;Named Graphs&rsquo;. This post shows how you access them, and different uses they may be put to.
-This is part 7 of an ongoing series providing a little background on Knowledge Graphs. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history. Just practical knowledge."/>
 
-	
+
+
+<link rel="canonical" href="https://industrialinference.com/1/01/knowledge-graphs-7-named-graphs/">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<meta name="generator" content="Hugo 0.108.0">
+
+
+
+
+
   </head>
 
-  <body class="ma0 avenir bg-near-white">
 
-    
-   
+
+
+<body class="preload-transitions colorscheme-light">
   
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        The Wandering Glitch
-      
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
     </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-<div class="ananke-socials">
-  
-    
-    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
-      
-        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-</span>
-      
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
-</svg>
-</span></a>
-  
-    
-    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
-      
-        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
-</svg>
-</span>
-      
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
-</svg>
-</span></a>
-  
-    
-    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
-      
-        mastadon
-      
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
-</svg>
-</span></a>
-  
 </div>
 
-    </div>
-  </div>
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      The Wandering Glitch
+    </a>
+    
+  </section>
 </nav>
 
-    </div>
-  </header>
 
-
-
-    <main class="pb7" role="main">
+    <div class="content">
       
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://industrialinference.com/1/01/knowledge-graphs-7-named-graphs/">
+              Knowledge Graphs 7 - Named Graphs
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="0001-01-01T00:00:00Z">
+                January 1, 0001
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              7-minute read
+            </span>
+          </div>
           
-        POSTS
-      </aside>
-      
+          
+          
+        </div>
+      </header>
 
-
-
-
-
-
-
-
-
-
-  <div id="sharing" class="mt3 ananke-socials">
-    
-      
-      <a href="https://twitter.com/share?url=https://industrialinference.com/1/01/knowledge-graphs-7-named-graphs/&amp;text=Knowledge%20Graphs%207%20-%20Named%20Graphs" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+      <div>
         
-        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-</span>
-        
-      </a>
-    
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Knowledge Graphs 7 - Named Graphs</h1>
-      
-      <p class="tracked">
-        By <strong>aabs</strong>
-      </p>
-      
-      
-      
-
-      
-      
-        <span class="f6 mv4 dib tracked"> - 7 minutes read </span>
-        <span class="f6 mv4 dib tracked"> - 1356 words </span>
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>Knowledge Graphs provide a neat and easy way to segment your data, called
+        <p>Knowledge Graphs provide a neat and easy way to segment your data, called
 &lsquo;<em>Named Graphs</em>&rsquo;. This post shows how you access them, and different uses they
 may be put to.</p>
 <p>This is part 7 of an ongoing series providing a little background on <em>Knowledge Graphs</em>. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history. Just practical knowledge.</p>
@@ -179,7 +143,13 @@ may be put to.</p>
 <li><a href="https://aabs.wordpress.com/2019/11/06/knowledge-graphs-7-named-graphs/">Knowledge Graphs 7 - Named graphs</a></li>
 </ul>
 <p>Named graphs are a useful feature, providing ways to segregate and independently managed subsets of the data. At first glance they seem akin to tables in SQL. But they TOTALLY AREN&rsquo;T. Let&rsquo;s take a look at what they are, and how different folks use them.</p>
-<h2 id="inserting-data-into-a-named-graph">Inserting data into a NAMED GRAPH</h2>
+<h2 id="inserting-data-into-a-named-graph">
+  Inserting data into a NAMED GRAPH
+  <a class="heading-link" href="#inserting-data-into-a-named-graph">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
 <p>Inserting data into a named graph is easy - you enclose the triples you wish to create in a graph block:</p>
 <pre tabindex="0"><code>PREFIX s: &lt;http://tempuri.com/soccer/&gt;
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
@@ -204,7 +174,13 @@ INSERT DATA {
     }
 }
 </code></pre><p>This creates three graphs (or adds to them if they already existed) with subsets of the data. Here, we are putting  <code>s:ArsenalFC</code> data just in the graph of the same name. That&rsquo;s convenient, because you only need to know the name of the team to know what graph its data is stored in.</p>
-<h2 id="finding-graphs-and-their-data">Finding Graphs and Their Data</h2>
+<h2 id="finding-graphs-and-their-data">
+  Finding Graphs and Their Data
+  <a class="heading-link" href="#finding-graphs-and-their-data">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
 <p>You can query for the graph URI at the same time as binding any other variable in the data. Here, I will get the team data and the graph URI out together:</p>
 <pre tabindex="0"><code>PREFIX s: &lt;http://tempuri.com/soccer/&gt;
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
@@ -243,7 +219,13 @@ WHERE {
 | s:ArsenalFC | rdf:type   | s:Team         |
 | s:ArsenalFC | rdfs:label | &#34;Arsenal F.C.&#34; |
 ---------------------------------------------
-</code></pre><h3 id="everything-everything">Everything everything</h3>
+</code></pre><h3 id="everything-everything">
+  Everything everything
+  <a class="heading-link" href="#everything-everything">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>If you want to get everything back from your triple store, and this varies somewhat between triple stores, then you need to get the union of named graphs combined with the <strong>default graph</strong>.</p>
 <pre tabindex="0"><code>PREFIX s:
 PREFIX rdfs:
@@ -261,7 +243,13 @@ WHERE {
   }
 }
 </code></pre><p>The way this works is defined in the [SPARQL spec](<a href="https://www.w3.org/TR/sparql11-query/">https://www.w3.org/TR/sparql11-query/</a>#queryDataset), but there still seems to be some variance in implementations between vendors. For example, we see [this](<a href="https://docs.aws.amazon.com/neptune/latest/userguide/best-practices-sparql-query.html">https://docs.aws.amazon.com/neptune/latest/userguide/best-practices-sparql-query.html</a>) guidance from Amazon. They have chosen to return the  <code>RDF Merge </code>of all named graphs in addition to the default graph.</p>
-<h3 id="another-way-to-pull-from-a-named-graph">Another way to pull from a named graph</h3>
+<h3 id="another-way-to-pull-from-a-named-graph">
+  Another way to pull from a named graph
+  <a class="heading-link" href="#another-way-to-pull-from-a-named-graph">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>Another convenient syntax for pulling from a specific named graph is shown here. Let&rsquo;s get back everything from Liverpool this time:</p>
 <pre tabindex="0"><code>PREFIX s: &lt;http://tempuri.com/soccer/&gt;
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
@@ -279,23 +267,65 @@ WHERE {
 | s:LiverpoolFC | rdfs:label | &#34;Liverpool F.C.&#34; |
 -------------------------------------------------
 </code></pre><p>This approach to pulling all the data back from a graph is one of several approaches to <em>bulk retrieval</em>. This is a convenient way to perform local analysis or processing on a cohesive subset of the data.</p>
-<h2 id="common-uses-for-named-graphs">Common Uses for Named Graphs</h2>
+<h2 id="common-uses-for-named-graphs">
+  Common Uses for Named Graphs
+  <a class="heading-link" href="#common-uses-for-named-graphs">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
 <p>Now we&rsquo;ve seen a few different ways to insert and retrieve data from a named graph, let&rsquo;s take a brief, non-judgemental, looks at the various ways that people use the named graph feature.</p>
-<h3 id="bulk-retrieval">Bulk Retrieval</h3>
+<h3 id="bulk-retrieval">
+  Bulk Retrieval
+  <a class="heading-link" href="#bulk-retrieval">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>One simple purpose to named graphs is to lump together a bunch of data that you are likely to want to get back at the same time. SPARQL 1.1 Query standard provides a simple RESTful mechanism to pull the entire contents of a graph in one pass.</p>
 <pre tabindex="0"><code>GET /rdf-graph-store?graph=http%3A//www.example.com/other/graph HTTP/1.1
    Host: example.com
    Accept: text/turtle; charset=utf-8
 </code></pre><p>This is particularly useful if you want to be able to dynamically process the contents of the graph by walking it locally. It allows you to employ graph algorithms that would be prohibitively expensive if you had to factor in network latency for walking each edge of the graph.</p>
-<h3 id="tracking-where-data-came-from">Tracking Where Data Came From</h3>
+<h3 id="tracking-where-data-came-from">
+  Tracking Where Data Came From
+  <a class="heading-link" href="#tracking-where-data-came-from">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>If you can provide information, such as as a URL, to identify where the contents of a graph came from, then it can often be useful to keep track of that for provenance purposes. Many common frameworks will load incoming data from a file loader into a named graph where the URI of the graph identifies where the data came from. This is popular in the Linked Data community, where the gathering and merging of data from multiple sources means the provenance and trustworthiness of data sources must be tracked, in case of disputed conclusions.</p>
-<h3 id="replicate-the-data-in-a-graph">Replicate the data in a Graph</h3>
+<h3 id="replicate-the-data-in-a-graph">
+  Replicate the data in a Graph
+  <a class="heading-link" href="#replicate-the-data-in-a-graph">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>Another way to use a named graph is as a temporary storage mechanism, allowing the state of the graph to be captured, duplicated or transmitted. This might be done to allow in-place modifications with the option of rollback.</p>
-<h3 id="tracking-data-versions-and-updates">Tracking data versions and updates</h3>
+<h3 id="tracking-data-versions-and-updates">
+  Tracking data versions and updates
+  <a class="heading-link" href="#tracking-data-versions-and-updates">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>Similarly, one might systematically label duplicate copies of data to allow the tracking of how the data changed over time. This is similar to approach above.</p>
-<h3 id="control-access-to-data">Control Access to data</h3>
+<h3 id="control-access-to-data">
+  Control Access to data
+  <a class="heading-link" href="#control-access-to-data">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>Some triple store platforms allow the definition of security access controls on a per-graph basis. In that case the named graph can be used to support mechanisms like tenancy and ownership of data.</p>
-<h3 id="attach-metadata-to-the-graph-rather-than-its-contents">Attach Metadata to the graph rather than its contents</h3>
+<h3 id="attach-metadata-to-the-graph-rather-than-its-contents">
+  Attach Metadata to the graph rather than its contents
+  <a class="heading-link" href="#attach-metadata-to-the-graph-rather-than-its-contents">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>Lastly, the cool thing about having all your data in a graph identified by a URI is that you can then make a whole bunch of statements about that graph.</p>
 <pre tabindex="0"><code>PREFIX s: &lt;http://tempuri.com/soccer/&gt;
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
@@ -340,75 +370,74 @@ WHERE {
             dc:description ?description .
     }
 }
-</code></pre><h2 id="summary">Summary</h2>
+</code></pre><h2 id="summary">
+  Summary
+  <a class="heading-link" href="#summary">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
 <p>In this installment, I showed you Named Graphs, how to insert data into them, how to get it back out, then mentioned a few cool ways to use them to help organise your data.</p>
 <p>There&rsquo;s surely a lot more to say about this topic, but I was in danger of getting writer&rsquo;s block. Instead, please let me know what topics you are interested in so I can cover them at some point.</p>
 <p>Next time, I hope to investigate the topic of inference, showing a few ways this can be done, and introducing you to a little side project I have been working on that might one day yield a useful inference engine in .NET.</p>
-<ul class="pa0">
-  
-</ul>
-<div class="mt6 instapaper_ignoref">
-      
-      
+
       </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
     </div>
 
-    <aside class="w-30-l mt6-l">
-
-
-
-
-</aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://industrialinference.com/" >
-    &copy;  Andrew Matthews 2022 
-  </a>
-    <div>
-<div class="ananke-socials">
-  
+    <footer class="footer">
+  <section class="container">
+    ©
     
-    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
-      
-        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-</span>
-      
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
-</svg>
-</span></a>
-  
+    2022
     
-    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
-      
-        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
-</svg>
-</span>
-      
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
-</svg>
-</span></a>
-  
+    ·
     
-    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
-      
-        mastadon
-      
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
-</svg>
-</span></a>
-  
-</div>
-</div>
-  </div>
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
 </footer>
 
-  </body>
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
 </html>

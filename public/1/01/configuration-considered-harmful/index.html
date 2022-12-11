@@ -1,167 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>
+  Configuration considered harmful · The Wandering Glitch
+</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Configuration considered harmful | The Wandering Glitch</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="The configuration of applications is a reflex action these days. Programmers assume the need for a config system without reflection and then move on to wondering howthey will implement it. I&rsquo;ve spent a bit of time lately wondering how many of these standard practices of configuration are ill-pre-conceived opinions. Do they deserve the merit that they have? I con&rsquo;t help but think that most of the times I use config it&rsquo;s out of habit, and the vague idea that it adds to my system somehow.">
-    <meta name="generator" content="Hugo 0.108.0">
-    
-    
-    
-    
-      <meta name="robots" content="noindex, nofollow">
-    
-
-    
-<link rel="stylesheet" href="/ananke/css/main.min.css" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
 
 
 
-    
-    
-    
-      
 
-    
+<meta name="description" content="The configuration of applications is a reflex action these days. Programmers assume the need for a config system without reflection and then move on to wondering howthey will implement it. I&rsquo;ve spent a bit of time lately wondering how many of these standard practices of configuration are ill-pre-conceived opinions. Do they deserve the merit that they have? I con&rsquo;t help but think that most of the times I use config it&rsquo;s out of habit, and the vague idea that it adds to my system somehow.">
+<meta name="keywords" content="">
 
-    
-    
-    <meta property="og:title" content="Configuration considered harmful" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Configuration considered harmful"/>
+<meta name="twitter:description" content="The configuration of applications is a reflex action these days. Programmers assume the need for a config system without reflection and then move on to wondering howthey will implement it. I&rsquo;ve spent a bit of time lately wondering how many of these standard practices of configuration are ill-pre-conceived opinions. Do they deserve the merit that they have? I con&rsquo;t help but think that most of the times I use config it&rsquo;s out of habit, and the vague idea that it adds to my system somehow."/>
+
+<meta property="og:title" content="Configuration considered harmful" />
 <meta property="og:description" content="The configuration of applications is a reflex action these days. Programmers assume the need for a config system without reflection and then move on to wondering howthey will implement it. I&rsquo;ve spent a bit of time lately wondering how many of these standard practices of configuration are ill-pre-conceived opinions. Do they deserve the merit that they have? I con&rsquo;t help but think that most of the times I use config it&rsquo;s out of habit, and the vague idea that it adds to my system somehow." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://industrialinference.com/1/01/configuration-considered-harmful/" /><meta property="article:section" content="posts" />
 
 
-<meta itemprop="name" content="Configuration considered harmful">
-<meta itemprop="description" content="The configuration of applications is a reflex action these days. Programmers assume the need for a config system without reflection and then move on to wondering howthey will implement it. I&rsquo;ve spent a bit of time lately wondering how many of these standard practices of configuration are ill-pre-conceived opinions. Do they deserve the merit that they have? I con&rsquo;t help but think that most of the times I use config it&rsquo;s out of habit, and the vague idea that it adds to my system somehow.">
 
-<meta itemprop="wordCount" content="2092">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Configuration considered harmful"/>
-<meta name="twitter:description" content="The configuration of applications is a reflex action these days. Programmers assume the need for a config system without reflection and then move on to wondering howthey will implement it. I&rsquo;ve spent a bit of time lately wondering how many of these standard practices of configuration are ill-pre-conceived opinions. Do they deserve the merit that they have? I con&rsquo;t help but think that most of the times I use config it&rsquo;s out of habit, and the vague idea that it adds to my system somehow."/>
 
-	
+
+
+<link rel="canonical" href="https://industrialinference.com/1/01/configuration-considered-harmful/">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css" integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<meta name="generator" content="Hugo 0.108.0">
+
+
+
+
+
   </head>
 
-  <body class="ma0 avenir bg-near-white">
 
-    
-   
+
+
+<body class="preload-transitions colorscheme-light">
   
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        The Wandering Glitch
-      
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
     </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-<div class="ananke-socials">
-  
-    
-    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
-      
-        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-</span>
-      
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
-</svg>
-</span></a>
-  
-    
-    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
-      
-        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
-</svg>
-</span>
-      
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
-</svg>
-</span></a>
-  
-    
-    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
-      
-        mastadon
-      
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
-</svg>
-</span></a>
-  
 </div>
 
-    </div>
-  </div>
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      The Wandering Glitch
+    </a>
+    
+  </section>
 </nav>
 
-    </div>
-  </header>
 
-
-
-    <main class="pb7" role="main">
+    <div class="content">
       
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://industrialinference.com/1/01/configuration-considered-harmful/">
+              Configuration considered harmful
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="0001-01-01T00:00:00Z">
+                January 1, 0001
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              10-minute read
+            </span>
+          </div>
           
-        POSTS
-      </aside>
-      
+          
+          
+        </div>
+      </header>
 
-
-
-
-
-
-
-
-
-
-  <div id="sharing" class="mt3 ananke-socials">
-    
-      
-      <a href="https://twitter.com/share?url=https://industrialinference.com/1/01/configuration-considered-harmful/&amp;text=Configuration%20considered%20harmful" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+      <div>
         
-        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-</span>
-        
-      </a>
-    
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Configuration considered harmful</h1>
-      
-      <p class="tracked">
-        By <strong>Andrew Matthews</strong>
-      </p>
-      
-      
-      
-
-      
-      
-        <span class="f6 mv4 dib tracked"> - 10 minutes read </span>
-        <span class="f6 mv4 dib tracked"> - 2092 words </span>
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>The configuration of applications is a reflex action these days. Programmers assume the need for a config system without reflection and then move on to wondering <em>how</em>they will implement it. I&rsquo;ve spent a bit of time lately wondering how many of these standard practices of configuration are ill-pre-conceived opinions. Do they deserve the merit that they have? I con&rsquo;t help but think that most of the times I use config it&rsquo;s out of habit, and the vague idea that it adds to my system somehow. But, when I look back on it, I can&rsquo;t see much benefit from having done so. The question I&rsquo;m try to answer here is really simple. What has configuration ever done for us?</p>
+        <p>The configuration of applications is a reflex action these days. Programmers assume the need for a config system without reflection and then move on to wondering <em>how</em>they will implement it. I&rsquo;ve spent a bit of time lately wondering how many of these standard practices of configuration are ill-pre-conceived opinions. Do they deserve the merit that they have? I con&rsquo;t help but think that most of the times I use config it&rsquo;s out of habit, and the vague idea that it adds to my system somehow. But, when I look back on it, I can&rsquo;t see much benefit from having done so. The question I&rsquo;m try to answer here is really simple. What has configuration ever done for us?</p>
 <p>Lets start with a little model to make it easier to reason about configuration data within the wider context of program state data. I&rsquo;m going to think of a program as a state machine, but I will use a more inclusive idea of what constitutes and defines state. Most industrial-scale systems are very complicated, with a huge state-set defined by all the variables that will exist during their lifetimes. The variables of the program include all of the state variables that are reachable by one means or another. This is a vital point.</p>
 <p>Most programmers think of state as whatever is in memory. I&rsquo;m not going to do that for this little rant because I think that the information environment of any non-trivial interactive system extends beyond the physical boundaries of the system to all the data sources that it can reach. That includes you and I. We humans are not only top-level exception handlers but peripheral data storage devices and processing units as well!</p>
 <p>When I say that every piece of reachable data is a part of the state I am being very inclusive - I mean configuration files, database rows, writing on bits of paper, anything and everything. Reachability is key to this little model - if you can get to a bit of data, instantiate it and store it in memory at some stage during the running of the program then it counts as state data.</p>
@@ -204,71 +169,64 @@ public IRuntimeSettings GetSettings(){
 <p>Another situation where inconsistency can take place is if similar changes are rolled out across a class of machines in a cluster progressively. At some point in the process different machines that could take part in a user session are using different configuration settings. That may lead to similar devastating failures or corruptions. It&rsquo;s a kind of thread safety problem that is common in multi-threaded applications. In multithreaded applications, the mutex around a shared data item is the standard way to guarantee consistency. On the config level that means having a mutex around every configuration setting to prevent inconsistency. That is a recipe for poor performance. Putting the config settings in a shared data store adds to the delays, and row locks on frequently used configuration data could lead to terrible performance degradations. One might resort to banning any kind of caching of config data or having a shared configuration server. Both approaches add delays, complicate the model and provide nothing in return.</p>
 <p>We don&rsquo;t escape from this dilemma by providing an object oriented solution. If we recreated a singleton config object at runtime in response to a signal, we still face problems of consistency. Either we have to lock everybody out, and then do it, or we have to restart. Or both. ;-) This is the reason why most of those system out there never got their promised upgrade to allow runtime update of config data.</p>
 <p>So we are faced with a trade-off between performance and consistency. We may be able to come up with a fast way of sharing config between all the machines in a class, but at what cost? Most of the time we will be able to update config settings while we are adding new features or updates to the system so we don&rsquo;t really need to go to all that trouble. Did we need to go to the trouble of creating all those vast complicated configuration frameworks in the first place? I don&rsquo;t think so, I think that we should look for ways to avoid config altogether - it&rsquo;s harmful, to designs, performance, consistency and readability of code. Generally it&rsquo;s evil, and should be allowed out of the house only when dressed up in legacy clothes.</p>
-<ul class="pa0">
-  
-</ul>
-<div class="mt6 instapaper_ignoref">
-      
-      
+
       </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
     </div>
 
-    <aside class="w-30-l mt6-l">
-
-
-
-
-</aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://industrialinference.com/" >
-    &copy;  Andrew Matthews 2022 
-  </a>
-    <div>
-<div class="ananke-socials">
-  
+    <footer class="footer">
+  <section class="container">
+    ©
     
-    <a href="https://twitter.com/aabs" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
-      
-        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-</span>
-      
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
-</svg>
-</span></a>
-  
+    2022
     
-    <a href="https://github.com/aabs" target="_blank" rel="noopener" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" aria-label="follow on GitHub——Opens in a new window">
-      
-        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
-</svg>
-</span>
-      
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
-</svg>
-</span></a>
-  
+    ·
     
-    <a href="https://techhub.social/@aabs" target="_blank" rel="me noopener" class="mastadon ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="mastadon link" aria-label="follow on mastadon——Opens in a new window">
-      
-        mastadon
-      
-<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
-</svg>
-</span></a>
-  
-</div>
-</div>
-  </div>
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
 </footer>
 
-  </body>
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js" integrity="sha256-J6/OOU&#43;2KE9SGz&#43;8n2qDJjQjM8MJImfzlE13BImHb&#43;0="></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
 </html>

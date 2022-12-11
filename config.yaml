@@ -1,10 +1,14 @@
 
 baseURL: https://industrialinference.com
 title: The Wandering Glitch
-theme: ananke
+theme: hugo-coder
 params:
   AuthorName: Andrew Matthews
   GitHubUser: aabs
+  themeColor: pink
+  fullWidthTheme: false
+  centerTheme: true
+  autoCover: true
   show_reading_time: true
   SidebarRecentLimit: 5
   Subtitle: All the amusing things...
