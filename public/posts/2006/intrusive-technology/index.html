@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="What is the ideal of good design?
 There are limitless answers to this question. Most of them focus on the day to day business of writing software – and aim to minimize the effects of bad design choices through application of a simple principle. The patchwork of these principles when applied in a harmonious way is hoped to give health and vigour to a system. When you write software, you generally hope to extend its lifespan beyond the short term - to help it become a living thing.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -35,7 +35,6 @@ There are limitless answers to this question. Most of them focus on the day to d
 There are limitless answers to this question. Most of them focus on the day to day business of writing software – and aim to minimize the effects of bad design choices through application of a simple principle. The patchwork of these principles when applied in a harmonious way is hoped to give health and vigour to a system. When you write software, you generally hope to extend its lifespan beyond the short term - to help it become a living thing." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2006/intrusive-technology/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Intrusive Technology">
@@ -172,8 +171,11 @@ There are limitless answers to this question. Most of them focus on the day to d
 
       
       
+        <span class="f6 mv4 dib tracked"> - 6 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 1093 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>What is the ideal of good design?</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>What is the ideal of good design?</p>
 <p>There are limitless answers to this question. Most of them focus on the day to day business of writing software – and aim to minimize the effects of bad design choices through application of a simple principle. The patchwork of these principles when applied in a harmonious way is hoped to give health and vigour to a system. When you write software, you generally hope to extend its lifespan beyond the short term - to help it become a living thing. You want it to be perfectly adapted to its environment and to be able to cope with the stresses of its environment. There is an element of truth in what I said to Mitch the other day – a new system is like a child. You let go of it reluctantly but with a mixture of hope and misgiving.</p>
 <p>Here is another principle which I want to add to the mix, which I try to apply to my designs. It subsumes the principle of loose coupling, and service orientation. It grows out of object orientation, but where OO is done for its own sake, this principle uses it to forward its own agenda. I&rsquo;m talking about the principle of <em><strong>hiding your design decisions</strong></em>.</p>
 <p>There is a subtle distinction between this principle and that of <em><strong>information hiding</strong></em> (encapsulation). The usual motive for encapsulation is to help enforce interface contracts. If you expose implementation details, you are inviting others to sidestep or ignore the rules of your component, and weakening it. That&rsquo;s a valid use of encapsulation and I use it wherever possible. Hiding design decisions has a similar but broader objective. It seeks to prevent binding you to a technology and the idiomatic designs of that technology. It uses encapsulation to hide features of an implementation so that no features of a design can be explicitly bound to. Binding to a design prevents you from using any other. Can&rsquo;t be good can it? You can&rsquo;t step back if you realize that the design doesn&rsquo;t fulfill all of your requirements.</p>

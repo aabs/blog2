@@ -7,7 +7,7 @@
     <title>A simple semantic web application in C# | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="[digg=http://www.digg.com/programming/A_simple_semantic_web_application_in_C]The latest update of the SemWeb library from Josh Tauberer includes a C# implementation of the Euler reasoner. This reasoner is able to go beyond simplistic RDFS reasoning – being able to navigate the class and property relationships - to make use of rules. The ontology I&rsquo;ve been using to get used to coding in the framework models a simple state machine. The ontology couldn&rsquo;t be simpler. Here&rsquo;s an N3 file that declares the classes and their relationships.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="[digg=http://www.digg.com/programming/A_simple_semantic_web_application_in_C]The latest update of the SemWeb library from Josh Tauberer includes a C# implementation of the Euler reasoner. This reasoner is able to go beyond simplistic RDFS reasoning – being able to navigate the class and property relationships - to make use of rules. The ontology I&rsquo;ve been using to get used to coding in the framework models a simple state machine. The ontology couldn&rsquo;t be simpler. Here&rsquo;s an N3 file that declares the classes and their relationships." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2007/a-simple-semantic-web-application-in-c/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="A simple semantic web application in C#">
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 7 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 1309 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>[digg=http://www.digg.com/programming/A_simple_semantic_web_application_in_C]The
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>[digg=http://www.digg.com/programming/A_simple_semantic_web_application_in_C]The
 latest update of the <a href="http://razor.occams.info/code/semweb/">SemWeb</a> library
 from Josh Tauberer includes a C# implementation of the
 <a href="http://www.agfa.com/w3c/euler/">Euler</a> reasoner. This reasoner is able to go
@@ -180,18 +182,18 @@ be simpler. Here&rsquo;s an <a href="http://www.w3.org/2000/10/swap/Primer.html"
 declares the classes and their relationships.</p>
 <pre tabindex="0"><code>@prefix daml:  . @prefix rdfs:  . @prefix owl:   . @prefix : .
 #Classes :State a owl:Class;
-daml:comment &quot;states the system can be in&quot;;
+daml:comment &#34;states the system can be in&#34;;
 daml:disjointUnionOf ( :S1 :S2 :S3 ).
 :InputToken a owl:Class;
-daml:comment &quot;inputs to the system&quot;;
+daml:comment &#34;inputs to the system&#34;;
 daml:disjointUnionOf ( :INil :I1 :I2 ).
 :Machine a owl:Class. :System a owl:Class.
 #properties :isInState rdfs:domain :Machine;
 rdfs:range  :State;
-owl:cardinality &quot;1&quot;.
+owl:cardinality &#34;1&#34;.
 :hasInput rdfs:domain :System;
 rdfs:range  :InputToken;
-owl:cardinality &quot;1&quot;.
+owl:cardinality &#34;1&#34;.
 #Instances :Machine1 a :Machine;
 :isInState :S1.
 :This a :System;
@@ -214,15 +216,15 @@ variables. That&rsquo;s the wrong approach – treat this as adding facts to wha
 already known. So, rather than saying <em>if X, then do Y,</em> think of it as <em>if I
 know X, then I also know that Y.</em> The program to work with it looks like this:</p>
 <pre tabindex="0"><code>internal class Program {
-    private static readonly string ontologyLocation = @&quot;C:\dev\prototypes\semantic-web\ontologies\20074\states\&quot;;
-    private static string baseUri = @&quot;file:///C:/dev/prototypes/semantic-web/ontologies/2007/04/states/states.rdf#&quot;;
+    private static readonly string ontologyLocation = @&#34;C:\dev\prototypes\semantic-web\ontologies\20074\states\&#34;;
+    private static string baseUri = @&#34;file:///C:/dev/prototypes/semantic-web/ontologies/2007/04/states/states.rdf#&#34;;
     private static MemoryStore store = new MemoryStore();
-    private static Entity Machine1 = new Entity(baseUri + &quot;Machine1&quot;);
-    private static Entity Input1 = new Entity(baseUri + &quot;I1&quot;);
-    private static Entity Input2 = new Entity(baseUri + &quot;I2&quot;);
-    private static Entity theSystem = new Entity(baseUri + &quot;This&quot;);
-    private static string hasInput = baseUri + &quot;hasInput&quot;;
-    private static string isInState = baseUri + &quot;isInState&quot;;
+    private static Entity Machine1 = new Entity(baseUri + &#34;Machine1&#34;);
+    private static Entity Input1 = new Entity(baseUri + &#34;I1&#34;);
+    private static Entity Input2 = new Entity(baseUri + &#34;I2&#34;);
+    private static Entity theSystem = new Entity(baseUri + &#34;This&#34;);
+    private static string hasInput = baseUri + &#34;hasInput&#34;;
+    private static string isInState = baseUri + &#34;isInState&#34;;
     private static void Main(string[] args) {
     InitialiseStore();
     DisplayCurrentStates();
@@ -231,15 +233,15 @@ know X, then I also know that Y.</em> The program to work with it looks like thi
 }
 private static void DisplayCurrentStates() {
     SelectResult ra = store.Select(new Statement(Machine1, new Entity(isInState), null));
-    Debug.Write(&quot;Current states: &quot;);
+    Debug.Write(&#34;Current states: &#34;);
     foreach (Statement resource in ra.ToArray()) {
         Debug.Write(resource.Object.Uri);
     }
-    Debug.WriteLine(&quot;&quot;);
+    Debug.WriteLine(&#34;&#34;);
 }
 private static void InitialiseStore() {
-    string statesLocation = Path.Combine(ontologyLocation, &quot;states.n3&quot;);
-    string rulesLocation = Path.Combine(ontologyLocation, &quot;rules.n3&quot;);
+    string statesLocation = Path.Combine(ontologyLocation, &#34;states.n3&#34;);
+    string rulesLocation = Path.Combine(ontologyLocation, &#34;rules.n3&#34;);
     Euler engine = new Euler(new N3Reader(File.OpenText(rulesLocation)));
     store.Import(new N3Reader(File.OpenText(statesLocation)));
     store.AddReasoner(engine);
@@ -282,7 +284,7 @@ and the actual URIs that it will use are a little unpredictable. Generally they
 are based upon the location that SemWeb got the files from. Instead, choose a
 URL like so:</p>
 <p>[@prefix : &lt;http://aabs.purl.org/ontologies/2007/04/states/states.rdf#&gt;.
-]{style=&ldquo;font-family:Courier New;font-size:10pt;&quot;}</p>
+]{style=&ldquo;font-family:Courier New;font-size:10pt;&rdquo;}</p>
 <p>This was not the location of the file - it was just a URL I was using prior to
 using N3 format. The point is that you just need to give an unambiguous URL so
 that the semweb and its reasoner can distinguish resources properly, when you

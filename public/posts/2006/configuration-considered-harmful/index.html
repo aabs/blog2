@@ -7,7 +7,7 @@
     <title>Configuration considered harmful | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="The configuration of applications is a reflex action these days. Programmers assume the need for a config system without reflection and then move on to wondering howthey will implement it. I&rsquo;ve spent a bit of time lately wondering how many of these standard practices of configuration are ill-pre-conceived opinions. Do they deserve the merit that they have? I con&rsquo;t help but think that most of the times I use config it&rsquo;s out of habit, and the vague idea that it adds to my system somehow.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="The configuration of applications is a reflex action these days. Programmers assume the need for a config system without reflection and then move on to wondering howthey will implement it. I&rsquo;ve spent a bit of time lately wondering how many of these standard practices of configuration are ill-pre-conceived opinions. Do they deserve the merit that they have? I con&rsquo;t help but think that most of the times I use config it&rsquo;s out of habit, and the vague idea that it adds to my system somehow." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2006/configuration-considered-harmful/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Configuration considered harmful">
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 10 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 2092 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>The configuration of applications is a reflex action these days. Programmers assume the need for a config system without reflection and then move on to wondering <em>how</em>they will implement it. I&rsquo;ve spent a bit of time lately wondering how many of these standard practices of configuration are ill-pre-conceived opinions. Do they deserve the merit that they have? I con&rsquo;t help but think that most of the times I use config it&rsquo;s out of habit, and the vague idea that it adds to my system somehow. But, when I look back on it, I can&rsquo;t see much benefit from having done so. The question I&rsquo;m try to answer here is really simple. What has configuration ever done for us?</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>The configuration of applications is a reflex action these days. Programmers assume the need for a config system without reflection and then move on to wondering <em>how</em>they will implement it. I&rsquo;ve spent a bit of time lately wondering how many of these standard practices of configuration are ill-pre-conceived opinions. Do they deserve the merit that they have? I con&rsquo;t help but think that most of the times I use config it&rsquo;s out of habit, and the vague idea that it adds to my system somehow. But, when I look back on it, I can&rsquo;t see much benefit from having done so. The question I&rsquo;m try to answer here is really simple. What has configuration ever done for us?</p>
 <p>Lets start with a little model to make it easier to reason about configuration data within the wider context of program state data. I&rsquo;m going to think of a program as a state machine, but I will use a more inclusive idea of what constitutes and defines state. Most industrial-scale systems are very complicated, with a huge state-set defined by all the variables that will exist during their lifetimes. The variables of the program include all of the state variables that are reachable by one means or another. This is a vital point.</p>
 <p>Most programmers think of state as whatever is in memory. I&rsquo;m not going to do that for this little rant because I think that the information environment of any non-trivial interactive system extends beyond the physical boundaries of the system to all the data sources that it can reach. That includes you and I. We humans are not only top-level exception handlers but peripheral data storage devices and processing units as well!</p>
 <p>When I say that every piece of reachable data is a part of the state I am being very inclusive - I mean configuration files, database rows, writing on bits of paper, anything and everything. Reachability is key to this little model - if you can get to a bit of data, instantiate it and store it in memory at some stage during the running of the program then it counts as state data.</p>

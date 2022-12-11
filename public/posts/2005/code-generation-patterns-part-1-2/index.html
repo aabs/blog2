@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="This time I&rsquo;m going to show you the design pattern that I use for code generation. Generally I use this for analysis of hierarchical structures, such as assemblies or database metadata. You could use it in other scenarios, where data is less structured. If you are familiar with the operation of a SAX parser and .NET events then you&rsquo;ll have no trouble understanding the design.
 SAX-like Parser A SAX parser works by iterating through its material (in this case XML, but that&rsquo;s immaterial) firing off events for everything that it finds.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -35,7 +35,6 @@ SAX-like Parser A SAX parser works by iterating through its material (in this ca
 SAX-like Parser A SAX parser works by iterating through its material (in this case XML, but that&rsquo;s immaterial) firing off events for everything that it finds." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2005/code-generation-patterns-part-1-2/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Code Generation Patterns - Part 1">
@@ -172,8 +171,11 @@ SAX-like Parser A SAX parser works by iterating through its material (in this ca
 
       
       
+        <span class="f6 mv4 dib tracked"> - 4 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 802 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>This time I&rsquo;m going to show you the design pattern that I use for code generation. Generally I use this for analysis of hierarchical structures, such as assemblies or database metadata. You could use it in other scenarios, where data is less structured. If you are familiar with the operation of a SAX parser and .NET events then you&rsquo;ll have no trouble understanding the design.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>This time I&rsquo;m going to show you the design pattern that I use for code generation. Generally I use this for analysis of hierarchical structures, such as assemblies or database metadata. You could use it in other scenarios, where data is less structured. If you are familiar with the operation of a SAX parser and .NET events then you&rsquo;ll have no trouble understanding the design.</p>
 <h4 id="sax-like-parser">SAX-like Parser</h4>
 <p>A SAX parser works by iterating through its material (in this case XML, but that&rsquo;s immaterial) firing off events for everything that it finds. It doesn&rsquo;t do anything with what it finds, it just acts as an event generator that embodies some knowledge of the internal structure of the incoming material. It is up to whoever is listening to the events to do something with them. In the case of a SAX parser an XML DOM tree is probably built up, but not necessary, and that is the point. You have the option to tailor your processing of the sequence of events according to your requirements.</p>
 <h4 id="event-scanner--generator">event scanner &amp; generator</h4>

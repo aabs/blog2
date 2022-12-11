@@ -7,7 +7,7 @@
     <title>Automata-Based Programming With Petri Nets - Part 1 | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="Petri Nets are extremely powerful and expressive, but they are not as widely used in the software development community as deterministic state machines. That&rsquo;s a pity - they allow us to solve problems beyond the reach of conventional state machines. This is the first in a mini-series on software development with Petri Nets. All of the code for a full feature-complete Petri Net library is available online at GitHub. You&rsquo;re welcome to take a copy, play with it and use it in your own projects.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="Petri Nets are extremely powerful and expressive, but they are not as widely used in the software development community as deterministic state machines. That&rsquo;s a pity - they allow us to solve problems beyond the reach of conventional state machines. This is the first in a mini-series on software development with Petri Nets. All of the code for a full feature-complete Petri Net library is available online at GitHub. You&rsquo;re welcome to take a copy, play with it and use it in your own projects." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2010/programming-with-petri-nets/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Automata-Based Programming With Petri Nets - Part 1">
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 9 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 1872 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p><em>Petri Nets are extremely powerful and expressive, but they are not as widely used in the software development community as deterministic state machines. That&rsquo;s a pity - they allow us to solve problems beyond the reach of conventional state machines. This is the first in a mini-series on software development with Petri Nets. All of the code for a full feature-complete Petri Net library is available online at GitHub. You&rsquo;re welcome to take a copy, play with it and use it in your own projects. Code for this and subsequent articles can be found at</em> <a href="http://github.com/aabs/PetriNets"><em>http://github.com/aabs/PetriNets</em></a>*.
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p><em>Petri Nets are extremely powerful and expressive, but they are not as widely used in the software development community as deterministic state machines. That&rsquo;s a pity - they allow us to solve problems beyond the reach of conventional state machines. This is the first in a mini-series on software development with Petri Nets. All of the code for a full feature-complete Petri Net library is available online at GitHub. You&rsquo;re welcome to take a copy, play with it and use it in your own projects. Code for this and subsequent articles can be found at</em> <a href="http://github.com/aabs/PetriNets"><em>http://github.com/aabs/PetriNets</em></a>*.
 *</p>
 <p>I didn&rsquo;t realize, but there&rsquo;s a paradigm for what I&rsquo;ve spent the last few years doing: <a href="http://en.wikipedia.org/wiki/Automata-based_programming">Automata Based Programming</a>. Despite the warm glow of knowing I work within a really cool (not to mention venerable) paradigm, I&rsquo;ve come to realize there are flaws in how I used my automata. I’ve been exploring the possibilities of <a href="http://en.wikipedia.org/wiki/Petri_net">Petri Nets</a> with a view to overhauling my DFA based systems.</p>
 <p>Every week, I’m asked for the code of a <a href="http://aabs.wordpress.com/2008/06/26/state-machines-in-c-30-using-t4-templates/">state machine system</a> I blogged about a few years back. I no longer have a copy of the code I used in that post, and I no longer recommend the models I used anyway. It was based on <a href="http://en.wikipedia.org/wiki/Deterministic_finite-state_machine">Deterministic Finite Automata</a> (DFAs), C# and T4 templates. I’m revising the approach I used in ‘06 in favour of a more powerful one based on <em><strong>High Level</strong></em> <em><strong>Petri Nets</strong></em>. In this series, I’ll look at the benefits and pitfalls of the techniques I used and suggest better alternatives. This time, I’ve made the code permanently accessible via GitHub. I’d welcome feedback, feature requests and collaborators.</p>
@@ -190,7 +192,7 @@
 <p><a href="%7Bstatic%7D2010/03/img21-e1267435371101.png"><img src="%7Bstatic%7D2010/03/img21-e1267435371101.png" alt="" title="img2.1">{.size-full .wp-image-699 width=&ldquo;265&rdquo; height=&ldquo;72&rdquo;}</a></p>
 <p>A transition is <em>active</em> or <em>enabled</em> if all places with edges leading <em>into</em> it have tokens. In this case $latex T_0$ is active because it has an input place ($latex P_0$) and $latex P_0$ has a token. There may be more than one input place to a transition.</p>
 <p><a href="%7Bstatic%7D2010/03/img3.png"><img src="%7Bstatic%7D2010/03/img3.png" alt="" title="img3">{.size-full .wp-image-700 width=&ldquo;265&rdquo; height=&ldquo;149&rdquo;}</a></p>
-<p>In this case $latex T_0$ is not enabled, because not all of its input places have tokens. $latex P_2$ is missing a token. If you interpret the petri net as sets of conditions, then $latex T_0$ can be interpreted as &lsquo;$latex P_0$ and $latex P_2$&rsquo;. If $latex P_2$ is the condition that the other end hung up, then $latex T_0$ can be interpreted as &lsquo;the user was on a call and the other end hung up&rsquo;. It&rsquo;s a bit contrived, but you can see what I mean. If we placed a token in $latex P_2$, then $latex T_0$ would be enabled again.</p>
+<p>In this case $latex T_0$ is not enabled, because not all of its input places have tokens. $latex P_2$ is missing a token. If you interpret the petri net as sets of conditions, then $latex T_0$ can be interpreted as &lsquo;$latex P_0$ and $latex P_2$&rsquo;. If $latex P_2$ is the condition that the other end hung up, then $latex T_0$ can be interpreted as &rsquo;the user was on a call and the other end hung up&rsquo;. It&rsquo;s a bit contrived, but you can see what I mean. If we placed a token in $latex P_2$, then $latex T_0$ would be enabled again.</p>
 <p>The complete set of tokens in places is known as the &lsquo;<em>marking</em>&rsquo; of the Petri Net, and represents the current state of the system. Again, if you interpret it as a set of conditions, the markings represents the set of all things that you know to be true.</p>
 <p>When an active transition &lsquo;<em>fires</em>&rsquo;, it takes one token from each of its input places and inserts one token in each of its output places. When the Petri Net fires, it performs a transition from one state to another. This can be thought of as representing the outcome of some computation or as the implication of what we know. If $latex P_1$ was something like &lsquo;we are playing the dial tone&rsquo;, then the whole above example can be interpreted as &lsquo;if we are on a call and the other end hung up then we should start to play the dial tone&rsquo;.</p>
 <p>If we started with this</p>

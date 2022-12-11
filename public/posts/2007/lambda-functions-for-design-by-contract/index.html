@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="This is sadly not one of those blog posts where I show you what I have managed to achieve. Instead it&rsquo;s one where I ask you if you have a solution for what I am after.
 When I was at university, my professor convinced me that the benefits of design by contract were worth the cost of the implementation. In every language that I have worked with ever since, I have implemented some sort of veneer over the top of the language to enable design by contract.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -35,7 +35,6 @@ When I was at university, my professor convinced me that the benefits of design 
 When I was at university, my professor convinced me that the benefits of design by contract were worth the cost of the implementation. In every language that I have worked with ever since, I have implemented some sort of veneer over the top of the language to enable design by contract." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2007/lambda-functions-for-design-by-contract/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Lambda Functions for Design By Contract">
@@ -172,8 +171,11 @@ When I was at university, my professor convinced me that the benefits of design 
 
       
       
+        <span class="f6 mv4 dib tracked"> - 3 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 546 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>This is sadly not one of those blog posts where I show you what I have managed to achieve. Instead it&rsquo;s one where I ask you if <em><strong>you</strong></em> have a solution for what I am after.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>This is sadly not one of those blog posts where I show you what I have managed to achieve. Instead it&rsquo;s one where I ask you if <em><strong>you</strong></em> have a solution for what I am after.</p>
 <p>When I was at university, my professor convinced me that the benefits of design by contract were worth the cost of the implementation. In every language that I have worked with ever since, I have implemented some sort of veneer over the top of the language to enable design by contract. I&rsquo;ve used all sorts of code generators or AOP systems to do it for me. As you may have seen from my last post, I&rsquo;ve been on the WCF Masterclass with Juval Lowy, and I&rsquo;ve been inspired by the pretty extensibility model of WCF to give DBC in C# another stab.</p>
 <p>WCF provides class construction behavior that is nicely extensible through the use of attributes. If an attribute, for example, derives from IServiceBehaviour, then WCF will  run a method on the attribute, passing in the object that the attribute was attached to. This gives the attribute (or a helper class that it uses) the opportunity to modify some of the settings for the context of the service. This is a perfect model for me to do the same thing using predicates in a DBC system. First I just need to designate an interface class that marks a derived attribute as worth paying attention to by my class factory. Lets call it IExtensibilityBehaviour. If the class factory spots an attribute on a type it&rsquo;s trying to dispense, it can provide special behavior for the class such as wrapping it, or running something like PostSharp over it to insert some code to run pre and post condition predicates. here&rsquo;s an example attribute that I want to attach to a class:</p>
 <pre><code>[AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = true)]

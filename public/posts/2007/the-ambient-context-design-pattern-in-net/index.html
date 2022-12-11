@@ -7,7 +7,7 @@
     <title>The Ambient Context Design Pattern in .NET | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="For a piece of agent related work I&rsquo;m doing at the moment I am making heavy use of multi-threaded development. I&rsquo;m developing a little special purpose Agent Framework to manage some data that I maintain. As part of that work, I need to have an ambient context object to hold details about the currently active agent and the tasks that it is performing. This is a common pattern that we see used throughout the .">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="For a piece of agent related work I&rsquo;m doing at the moment I am making heavy use of multi-threaded development. I&rsquo;m developing a little special purpose Agent Framework to manage some data that I maintain. As part of that work, I need to have an ambient context object to hold details about the currently active agent and the tasks that it is performing. This is a common pattern that we see used throughout the ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2007/the-ambient-context-design-pattern-in-net/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="The Ambient Context Design Pattern in .NET">
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 9 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 1730 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>For a piece of agent related work I&rsquo;m doing at the moment I am making heavy use of multi-threaded development. I&rsquo;m developing a little special purpose Agent Framework to manage some data that I maintain. As part of that work, I need to have an ambient context object to hold details about the currently active agent and the tasks that it is performing. This is a common <a href="http://en.wikipedia.org/wiki/Design_Patterns">pattern</a> that we see used throughout the .NET framework. They&rsquo;re a powerful mechanism to keep useful data around, to define scopes and to provide cross-cutting capabilities. They provide functionality and a non-intrusive management mechanism without having to clutter the components that need them with additional parameters or static variables. In effect they are a form of controlled global variable that exists to maintain scoped information.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>For a piece of agent related work I&rsquo;m doing at the moment I am making heavy use of multi-threaded development. I&rsquo;m developing a little special purpose Agent Framework to manage some data that I maintain. As part of that work, I need to have an ambient context object to hold details about the currently active agent and the tasks that it is performing. This is a common <a href="http://en.wikipedia.org/wiki/Design_Patterns">pattern</a> that we see used throughout the .NET framework. They&rsquo;re a powerful mechanism to keep useful data around, to define scopes and to provide cross-cutting capabilities. They provide functionality and a non-intrusive management mechanism without having to clutter the components that need them with additional parameters or static variables. In effect they are a form of controlled global variable that exists to maintain scoped information.</p>
 <p>Since I haven&rsquo;t seen this pattern documented in any detail elsewhere, I thought I might make a first attempt to describe it in pattern language terms. in what follows, I&rsquo;ll try to stick to the Gang of Four (<a href="http://www.awprofessional.com/title/0201633612">GoF94</a>) format wherever possible, but I may make a few digressions for the sake of drawing parallels with comparable facilities in the framework (.NET 3.5). I&rsquo;ll also highlight when one of the characteristics I describe is not a universal feature of a context class, but is commonly enough used to be worth a mention.</p>
 <h2 id="pattern-name-and-classification">Pattern Name and Classification</h2>
 <p>Ambient Context</p>

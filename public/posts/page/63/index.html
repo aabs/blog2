@@ -7,7 +7,7 @@
     <title>The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="All the amusing things">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -38,7 +38,6 @@
 <meta property="og:description" content="All the amusing things" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://45.89.107.9/posts/" />
-
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="All the amusing things"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -130,8 +129,25 @@
     <main class="pb7" role="main">
       
   <article class="pa3 pa4-ns nested-copy-line-height">
-    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy #000000"></section>
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy fg_black"></section>
     <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/2008/semantic-development-environments/" class="link black dim">
+        Semantic Development Environments
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The semantic web is a GOOD THING by definition - anything that enables us to create smarter software without also having to create Byzantine application software must be a step in the right direction. The problem is - many people have trouble translating the generic term &ldquo;smarter&rdquo; into a concrete idea of what they would have to do to achieve that palladian dream. I think a few concrete ideas might help to firm up people&rsquo;s understanding of how the semantic web can help to deliver smarter products.
+    </div>
+  </div>
+</div>
+
+        </div>
       
         <div class="relative w-100 w-30-l mb4 bg-white">
           <div class="relative w-100 mb4 bg-white nested-copy-line-height">
@@ -182,8 +198,8 @@ So far, I&rsquo;ve got it producing N3 notation from models, like so:
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       This little script uses the JQuery getScript command, enforcing sequential loading order to ensure script dependencies are honoured:
-function LoadScriptsSequentially(scriptUrls, callback) { if (typeof scriptUrls == 'undefined') throw &quot;Argument Error: URL array is unusable&quot;; if (scriptUrls.length == 0 &amp;&amp; typeof callback == 'function') callback(); $.getScript(scriptUrls.shift(), function() { LoadScriptsSequentially(scriptUrls, callback); }); }  Here&rsquo;s how you use it:
-function InitialiseQueryFramework(runTests) { LoadScriptsSequentially([ &quot;/js/inheritance.js&quot;, &quot;/js/expressions.js&quot;, &quot;/js/refData.js&quot;, &quot;/js/queryRenderer.js&quot;, &quot;/js/sha1.js&quot;, &quot;/js/queryCache.js&quot;, &quot;/js/unit-tests.js&quot;], function() { queryFramework = new QueryManager(&quot;#query&quot;); if (runTests) RunTestSuite(); }); }  I love java script now and can&rsquo;t understand why I avoided it for years.
+function LoadScriptsSequentially(scriptUrls, callback) { if (typeof scriptUrls == 'undefined') throw &quot;Argument Error: URL array is unusable&quot;; if (scriptUrls.length == 0 &amp;&amp; typeof callback == 'function') callback(); $.getScript(scriptUrls.shift(), function() { LoadScriptsSequentially(scriptUrls, callback); }); } Here&rsquo;s how you use it:
+function InitialiseQueryFramework(runTests) { LoadScriptsSequentially([ &quot;/js/inheritance.js&quot;, &quot;/js/expressions.js&quot;, &quot;/js/refData.js&quot;, &quot;/js/queryRenderer.js&quot;, &quot;/js/sha1.js&quot;, &quot;/js/queryCache.js&quot;, &quot;/js/unit-tests.js&quot;], function() { queryFramework = new QueryManager(&quot;#query&quot;); if (runTests) RunTestSuite(); }); } I love java script now and can&rsquo;t understand why I avoided it for years.
     </div>
   </div>
 </div>
@@ -202,23 +218,6 @@ function InitialiseQueryFramework(runTests) { LoadScriptsSequentially([ &quot;/j
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       {width=&ldquo;244&rdquo; height=&ldquo;343&rdquo;}For the non-Java developer, like me, setting up and configuring SDB can be tricky. While it&rsquo;s fresh in my mind I&rsquo;ll commit it to blog so that those who come after will not tear their hair out like I just did.
 SDB sits below Jena providing it with database support for a triple store rather than the more restrictive RDF XML file. The benefits of using a database are obvious, but the difficulties are not.
-    </div>
-  </div>
-</div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/posts/2006/sharpreader-is-still-the-best/" class="link black dim">
-        SharpReader is still the best
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Like a faithless lover, I went off to sample the market of feed aggregators - I was off having a fling with Omea Reader, , leaving SharpReader to languish in a distant directory of rejection. Omea was new and exciting, but sadly was a little bit slow. Pity really, because Omea is produced by Jetbrains, makers of the indispensible Resharper, without which my life would be a barren waste of multiple edits.
     </div>
   </div>
 </div>

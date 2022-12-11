@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="With this installment we finally get to the part of knowledge graphs that I personally find really exciting: Semantics. In this installment, I will introduce some of the simple rules of entailment that are a part of the RDFS standard.
 This is part 6 of an ongoing series providing a little background on ‘knowledge graphs‘. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -35,7 +35,6 @@ This is part 6 of an ongoing series providing a little background on ‘knowledg
 This is part 6 of an ongoing series providing a little background on ‘knowledge graphs‘. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2019/knowledge-graphs-6-semantics/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Knowledge Graphs 6 - Semantics">
@@ -172,8 +171,11 @@ This is part 6 of an ongoing series providing a little background on ‘knowledg
 
       
       
+        <span class="f6 mv4 dib tracked"> - 8 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 1503 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>With this installment we finally get to the part of knowledge graphs that I
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>With this installment we finally get to the part of knowledge graphs that I
 personally find really exciting: Semantics. In this installment, I will
 introduce some of the simple rules of entailment that are a part of the RDFS
 standard.</p>
@@ -232,7 +234,7 @@ WHERE
 </code></pre><p>Initially, you can&rsquo;t do much with the data other than store and retrieve it. But once you start to annotate your data with further relationships, things can get interesting. Imagine we say later on that a Player is a kind of Person. We don&rsquo;t need to modify any of our data, just add another triple:</p>
 <pre tabindex="0"><code>:Player rdfs:subClassOf :Person .
 </code></pre><p>Now, whenever we query for all people, we get back the players as well. I can&rsquo;t overstate how important this is! Suddenly, we are getting different fuller results because entailment allowed us to deduce new facts from our data.</p>
-<pre tabindex="0"><code class="language-{.wp-block-verse}" data-lang="{.wp-block-verse}">We didn't change our data, nor our applications or data access code to get this.  All we had to do was supply more details about our types and their relationships.
+<pre tabindex="0"><code>We didn&#39;t change our data, nor our applications or data access code to get this.  All we had to do was supply more details about our types and their relationships.
 </code></pre><p>There is a similar rule to  <code>rdfs11</code> called  <code>rdfs5</code> that applies the same transitive reasoning to property relationships:</p>
 <pre tabindex="0"><code>if (xxx rdfs:subPropertyOf yyy &amp;&amp; yyy rdfs:subPropertyOf zzz )
 then (xxx rdfs:subPropertyOf zzz)

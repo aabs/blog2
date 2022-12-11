@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="As promised last time, I have extended the query mechanism of my little application with a LINQ Query Provider. I based my initial design on the method published by Bart De Smet, but have extended that framework, cleaned it up and tied it in with the original object deserialiser for SemWeb (a semantic web library by Joshua Tauberer).
 In this post I&rsquo;ll give you some edited highlights of what was involved.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -35,7 +35,6 @@ In this post I&rsquo;ll give you some edited highlights of what was involved.">
 In this post I&rsquo;ll give you some edited highlights of what was involved." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2007/creating-a-linq-query-provider/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Creating A LINQ Query Provider">
@@ -172,8 +171,11 @@ In this post I&rsquo;ll give you some edited highlights of what was involved."/>
 
       
       
+        <span class="f6 mv4 dib tracked"> - 9 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 1916 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>As promised last time, I have extended the query mechanism of my little
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>As promised last time, I have extended the query mechanism of my little
 application with a LINQ Query Provider. I based my initial design on the method
 published by
 <a href="http://community.bartdesmet.net/blogs/bart/archive/2007/04/05/the-iqueryable-tales-linq-to-ldap-part-0.aspx">Bart De Smet</a>,

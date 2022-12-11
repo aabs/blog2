@@ -7,7 +7,7 @@
     <title>DBC &amp; AOP don&#39;t mix | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="This time I&rsquo;m going to explore some of the issues I&rsquo;ve found in converting the prototype over to work in a JIT environment. If you&rsquo;ve seen any of my previous posts, you&rsquo;ll know that I have a working prototype that uses static code generation to produce proxies to wrap objects that identify themselves with the DbcAttribute. These proxies are produced solely for those objects, so the developer has to know which items have predicates on them in order to instantiate the proxies rather than the target objects.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="This time I&rsquo;m going to explore some of the issues I&rsquo;ve found in converting the prototype over to work in a JIT environment. If you&rsquo;ve seen any of my previous posts, you&rsquo;ll know that I have a working prototype that uses static code generation to produce proxies to wrap objects that identify themselves with the DbcAttribute. These proxies are produced solely for those objects, so the developer has to know which items have predicates on them in order to instantiate the proxies rather than the target objects." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2005/dbc-aop-dont-mix-2/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="DBC &amp; AOP don&#39;t mix">
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 11 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 2152 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>This time I&rsquo;m going to explore some of the issues I&rsquo;ve found in converting the prototype over to work in a JIT environment. If you&rsquo;ve seen any of my previous posts, you&rsquo;ll know that I have a working prototype that uses static code generation to produce proxies to wrap objects that identify themselves with the DbcAttribute. These proxies are produced solely for those objects, so the developer has to know which items have predicates on them in order to instantiate the proxies rather than the target objects. If the programmer forgets, or doesn&rsquo;t know, that an object has predicates, he may create the target object and not benefit from the DbcProxy capabilities.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>This time I&rsquo;m going to explore some of the issues I&rsquo;ve found in converting the prototype over to work in a JIT environment. If you&rsquo;ve seen any of my previous posts, you&rsquo;ll know that I have a working prototype that uses static code generation to produce proxies to wrap objects that identify themselves with the DbcAttribute. These proxies are produced solely for those objects, so the developer has to know which items have predicates on them in order to instantiate the proxies rather than the target objects. If the programmer forgets, or doesn&rsquo;t know, that an object has predicates, he may create the target object and not benefit from the DbcProxy capabilities.</p>
 <p>I&rsquo;ve therefore been looking at ways to guarantee that the proxy gets generated if the library designer has used DBC. There are a lot of ways to do this, and having not explored all of them, I want to find a way to construct the proxies that will allow any of these approaches to be employed at run time. That naturally makes me think of abstract class factories and abstraction frameworks. It is nice to allow the library designer to define predicates on interfaces, but that may not fit the design they are working on, so I don&rsquo;t want to mandate it.</p>
 <p>The solution I&rsquo;ve looking at uses the code injection system that comes with the System.Enterprise namespace&rsquo;s ContextBoundObject classes. This framework guarantees that the object gets a proxy if it has an attribute that derives from ProxyAttributes. I would derive my DbcAttribute from ProxyAttribute and get an automatic request to create a proxy. Sounds perfect? Yes! But as you will see, there is a gotcha that will prevent this approach. Read on to find out more&hellip;</p>
 <h4 id="status-of-the-prototype">Status of the prototype</h4>

@@ -2,22 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://45.89.107.9/posts/2022/2022-12-11-triple-store-3-introducing-b-trees/</loc>
+    <lastmod>2022-12-11T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://45.89.107.9/posts/</loc>
+    <lastmod>2022-12-11T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://45.89.107.9/</loc>
+    <lastmod>2022-12-11T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://45.89.107.9/posts/2021/2021-12-08-triple-store-1-introduction/</loc>
     <lastmod>2021-12-08T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://45.89.107.9/posts/2021/2021-12-08-triple-store-2-memory-mapped-files/</loc>
-    <lastmod>2021-12-08T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://45.89.107.9/posts/</loc>
-    <lastmod>2021-12-08T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://45.89.107.9/</loc>
     <lastmod>2021-12-08T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -57,15 +62,15 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://45.89.107.9/posts/2007/2000-year-old-computer-recreated/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>http://45.89.107.9/posts/2006/drool-nanotube-muscle-fibres-create-superhuman-strength/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://45.89.107.9/posts/2005/drools/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://45.89.107.9/posts/2007/2000-year-old-computer-recreated/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -113,11 +118,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://45.89.107.9/posts/2005/a-sign-of-things-to-come-2/</loc>
+    <loc>http://45.89.107.9/posts/2005/a-sign-of-things-to-come/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://45.89.107.9/posts/2005/a-sign-of-things-to-come/</loc>
+    <loc>http://45.89.107.9/posts/2005/a-sign-of-things-to-come-2/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -149,11 +154,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://45.89.107.9/posts/2006/agile-programming-gripe/</loc>
+    <loc>http://45.89.107.9/posts/2007/agile-%e2%80%93-what-happens-if-you-don%e2%80%99t-think-ahead/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://45.89.107.9/posts/2007/agile-%e2%80%93-what-happens-if-you-don%e2%80%99t-think-ahead/</loc>
+    <loc>http://45.89.107.9/posts/2006/agile-programming-gripe/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -873,11 +878,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://45.89.107.9/posts/2005/linguistic-development/</loc>
+    <loc>http://45.89.107.9/posts/2007/linguistic-development-2/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://45.89.107.9/posts/2007/linguistic-development-2/</loc>
+    <loc>http://45.89.107.9/posts/2005/linguistic-development/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -1325,6 +1330,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://45.89.107.9/posts/2008/s%c3%b8ren-on-dbc/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://45.89.107.9/posts/2006/sorry-to-waste-your-time/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -1346,10 +1355,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://45.89.107.9/posts/2010/surreal-graham-norton-moment/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://45.89.107.9/posts/2008/s%c3%b8ren-on-dbc/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>

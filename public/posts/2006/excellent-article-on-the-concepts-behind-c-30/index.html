@@ -7,7 +7,7 @@
     <title>Excellent Article on the Concepts behind C# 3.0 | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="Thomas Petricek has written a very interesting article on the new concepts behind C# 3.0 (here). It shows the origin of many of the functional programming features found in C# 3.0 from Cω and F#. Having explored a little of the code that backs up the functional programming aspects, I understand that although the extension run with the basic features of C# 2.0, there is a huge amount of C# code required to deliver the functional paradigm to C#.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="Thomas Petricek has written a very interesting article on the new concepts behind C# 3.0 (here). It shows the origin of many of the functional programming features found in C# 3.0 from Cω and F#. Having explored a little of the code that backs up the functional programming aspects, I understand that although the extension run with the basic features of C# 2.0, there is a huge amount of C# code required to deliver the functional paradigm to C#." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2006/excellent-article-on-the-concepts-behind-c-30/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Excellent Article on the Concepts behind C# 3.0">
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - One minute read </span>
+        <span class="f6 mv4 dib tracked"> - 206 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>Thomas Petricek has written a very interesting article on the new concepts behind C# 3.0 (<a href="http://www.tomasp.net/articles/csharp3-concepts.aspx">here</a>). It shows the origin of many of the functional programming features found in C# 3.0 from <a href="http://research.microsoft.com/Comega/">Cω</a> and <a href="http://research.microsoft.com/fsharp/">F#</a>. Having explored a little of the code that backs up the functional programming aspects, I understand that although the extension run with the basic features of C# 2.0, there is a huge amount of C# code required to deliver the functional paradigm to C#. Most of that code provides complex code generation, type inference and declarative programming support.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>Thomas Petricek has written a very interesting article on the new concepts behind C# 3.0 (<a href="http://www.tomasp.net/articles/csharp3-concepts.aspx">here</a>). It shows the origin of many of the functional programming features found in C# 3.0 from <a href="http://research.microsoft.com/Comega/">Cω</a> and <a href="http://research.microsoft.com/fsharp/">F#</a>. Having explored a little of the code that backs up the functional programming aspects, I understand that although the extension run with the basic features of C# 2.0, there is a huge amount of C# code required to deliver the functional paradigm to C#. Most of that code provides complex code generation, type inference and declarative programming support.</p>
 <p>In the first section on first class function support – I found on closer inspection (within LINQ at least) that these first class functions, are actually delivered through calls to the <a href="http://msdn2.microsoft.com/en-us/system.reflection.emit.dynamicmethod.aspx">DynamicMethod</a> method of System.Reflection.Emit. If you disassemble its code, you&rsquo;ll see that the relationship between the imperative and functional programming in C# is through &lsquo;<em>runtime support</em>&rsquo;. The functional programming extensions are a runtime extension to the CLR that generates code to fulfill declarative requirements. That is – there&rsquo;s no new radical paradigm at work in the core code, but the way it&rsquo;s exposed will simplify things so much that it might as well be called a new paradigm.</p>
 <p>Well worth a read.</p>
 <ul class="pa0">

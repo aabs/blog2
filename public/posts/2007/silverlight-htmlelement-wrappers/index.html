@@ -7,7 +7,7 @@
     <title>Silverlight HtmlElement wrappers | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="I&rsquo;ve been glancing at the HtmlElement class in Silverlight today. It&rsquo;s a nice system, but it&rsquo;s clearly a work in progress. Everything I&rsquo;ve said in the past about lumping all of your object model into a single class applies to this. The thing that irritated me was that it wouldn&rsquo;t have been hard for the Silverlight 1.1 team to make the developer experience more palatable even if they were using the one class under the hood.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="I&rsquo;ve been glancing at the HtmlElement class in Silverlight today. It&rsquo;s a nice system, but it&rsquo;s clearly a work in progress. Everything I&rsquo;ve said in the past about lumping all of your object model into a single class applies to this. The thing that irritated me was that it wouldn&rsquo;t have been hard for the Silverlight 1.1 team to make the developer experience more palatable even if they were using the one class under the hood." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2007/silverlight-htmlelement-wrappers/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Silverlight HtmlElement wrappers">
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 2 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 325 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>I&rsquo;ve been glancing at the HtmlElement class in Silverlight today. It&rsquo;s a nice system, but it&rsquo;s clearly a work in progress. Everything I&rsquo;ve said in the past about lumping all of your object model into a single class applies to this. The thing that irritated me was that it wouldn&rsquo;t have been hard for the Silverlight 1.1 team to make the developer experience more palatable even if they were using the one class under the hood.` [sourcecode language=&lsquo;csharp&rsquo;]private void Test1() {   HtmlDocument document = HtmlPage.Document;   document.GetElementByID(&ldquo;Submit1&rdquo;).AttachEvent(&ldquo;onclick&rdquo;,     (object obj, EventArgs args) =&gt;       {         Text1.SetAttribute(&ldquo;value&rdquo;, (++counter).ToString());         Text1.SetStyleAttribute(&ldquo;color&rdquo;, &ldquo;blue&rdquo;);       }     ); }</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>I&rsquo;ve been glancing at the HtmlElement class in Silverlight today. It&rsquo;s a nice system, but it&rsquo;s clearly a work in progress. Everything I&rsquo;ve said in the past about lumping all of your object model into a single class applies to this. The thing that irritated me was that it wouldn&rsquo;t have been hard for the Silverlight 1.1 team to make the developer experience more palatable even if they were using the one class under the hood.` [sourcecode language=&lsquo;csharp&rsquo;]private void Test1() {   HtmlDocument document = HtmlPage.Document;   document.GetElementByID(&ldquo;Submit1&rdquo;).AttachEvent(&ldquo;onclick&rdquo;,     (object obj, EventArgs args) =&gt;       {         Text1.SetAttribute(&ldquo;value&rdquo;, (++counter).ToString());         Text1.SetStyleAttribute(&ldquo;color&rdquo;, &ldquo;blue&rdquo;);       }     ); }</p>
 <p>Not a lot you can say about this other than &ldquo;<em>Where&rsquo;s the classes, dude?</em>&rdquo;. It wouldn&rsquo;t have been hard, to give us something like this:</p>
 <pre><code>private void Test1() {   HtmlDocument document = HtmlPage.Document;   document.GetElementByID(&quot;Submit1&quot;).AttachEvent(&quot;onclick&quot;,     (object obj, EventArgs args) =&gt;       {       Text1.Text = (++counter).ToString();       Text1.Style[&quot;color&quot;] = &quot;blue&quot;;       }     ); }
 </code></pre>

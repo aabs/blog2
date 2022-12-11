@@ -7,7 +7,7 @@
     <title>Preparing a Project Gutenberg ebook for use on a 6&#34; ereader | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="For a while I&rsquo;ve been trying to find a nice way to convert project Gutenberg books to look pleasant on a BeBook One. I&rsquo;ve finally hit on the perfect combination of tools, that produces documents ideally suited to 6&quot; eInk ebook readers like my BeBook. The tool chain involves using GutenMark to convert the file into LaTeX and then TeXworks to modify the geometry and typography of the LaTeX file to suit the dimensions of the document to suit the small screen of the BeBook, then MiKTeX to convert the resultant LaTeX files into PDF (using pdfLaTeX).">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="For a while I&rsquo;ve been trying to find a nice way to convert project Gutenberg books to look pleasant on a BeBook One. I&rsquo;ve finally hit on the perfect combination of tools, that produces documents ideally suited to 6&quot; eInk ebook readers like my BeBook. The tool chain involves using GutenMark to convert the file into LaTeX and then TeXworks to modify the geometry and typography of the LaTeX file to suit the dimensions of the document to suit the small screen of the BeBook, then MiKTeX to convert the resultant LaTeX files into PDF (using pdfLaTeX)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2011/preparing-a-project-gutenberg-book-for-use-on-a-6-ereader/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Preparing a Project Gutenberg ebook for use on a 6&#34; ereader">
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 2 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 370 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>For a while I&rsquo;ve been trying to find a nice way to convert project Gutenberg books to look pleasant on a <a href="http://www.mybebook.com">BeBook</a> One. I&rsquo;ve finally hit on the perfect combination of tools, that produces documents ideally suited to 6&quot; eInk ebook readers like my BeBook. The tool chain involves using GutenMark to convert the file into LaTeX and then TeXworks to modify the geometry and typography of the LaTeX file to suit the dimensions of the document to suit the small screen of the BeBook, then MiKTeX to convert the resultant LaTeX files into PDF (using pdfLaTeX).  Go to <a href="http://aabs.wordpress.com/wp-admin/www.sandroid.org/GutenMark/">GutenMark (plus GUItenMark</a>) for windows, <a href="http://miktex.org">MikTeX</a> which includes the powerful TeX editor <a href="http://code.google.com/p/texworks">TeXworks</a>, install them, and ensure they are on the path.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>For a while I&rsquo;ve been trying to find a nice way to convert project Gutenberg books to look pleasant on a <a href="http://www.mybebook.com">BeBook</a> One. I&rsquo;ve finally hit on the perfect combination of tools, that produces documents ideally suited to 6&quot; eInk ebook readers like my BeBook. The tool chain involves using GutenMark to convert the file into LaTeX and then TeXworks to modify the geometry and typography of the LaTeX file to suit the dimensions of the document to suit the small screen of the BeBook, then MiKTeX to convert the resultant LaTeX files into PDF (using pdfLaTeX).  Go to <a href="http://aabs.wordpress.com/wp-admin/www.sandroid.org/GutenMark/">GutenMark (plus GUItenMark</a>) for windows, <a href="http://miktex.org">MikTeX</a> which includes the powerful TeX editor <a href="http://code.google.com/p/texworks">TeXworks</a>, install them, and ensure they are on the path.</p>
 <p>Here&rsquo;s an example of the usual LaTeX output gtom GUItenMark. Note that this is configured for double-sided printed output.</p>
 <p>[sourcecode language=&ldquo;text&rdquo; toolbar=&ldquo;true&rdquo;]
 \documentclass{book}
@@ -203,7 +205,7 @@ s/tmargin=0.75in/tmargin=0.5in/
 s/lmargin=1in/lmargin=0.2in/
 s/rmargin=1in/rmargin=0.2in/
 s/\\oddsidemargin/%\\oddsidemargin/
-s/\\evensidemargin/%\\evensidemargin/' &lt;&quot;$1.tex&quot; &gt;&quot;$1.bebook.tex&quot;</p>
+s/\\evensidemargin/%\\evensidemargin/&rsquo; &lt;&quot;$1.tex&quot; &gt;&quot;$1.bebook.tex&quot;</p>
 <p>pdflatex -interaction nonstopmode &ldquo;$1.bebook.tex&rdquo;</p>
 <p>rm *.aux *.log *.toc *.tex
 [/sourcecode]</p>

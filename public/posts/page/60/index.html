@@ -7,7 +7,7 @@
     <title>The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="All the amusing things">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -38,7 +38,6 @@
 <meta property="og:description" content="All the amusing things" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://45.89.107.9/posts/" />
-
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="All the amusing things"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -130,8 +129,26 @@
     <main class="pb7" role="main">
       
   <article class="pa3 pa4-ns nested-copy-line-height">
-    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy #000000"></section>
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy fg_black"></section>
     <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/2005/predicates-and-expressions-part-2-3/" class="link black dim">
+        Predicates and Expressions - Part 2
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Last time I started discussing the expression language used to define predicates on types and members. My conclusions were:
+C# expression syntax used since code must be transformed to that in the end, and the more similar the syntaxes of the expression language - the easier the transformation will be. No side-effects. Side effect within the predicates complicate the tasks of determining whether a temporal comparison is actually effective. If the snapshots can&rsquo;t be guaranteed to be faithful representations of the state before and after the test, then you can&rsquo;t trust the tests, and you might as well not have bothered with them in the first place.
+    </div>
+  </div>
+</div>
+
+        </div>
       
         <div class="relative w-100 w-30-l mb4 bg-white">
           <div class="relative w-100 mb4 bg-white nested-copy-line-height">
@@ -162,7 +179,7 @@
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       I recently installed Vista on my laptop and needed to install Virtual Server 2005 R2. I ran into loads of problems, such as &ldquo;std::wstring::find() failed&rdquo; and &ldquo;LsaRegisterLogonProcess()&rdquo; failed.
 If you experience any of those problems, please check that you have done the following:
- Done all of the recommendations in this post: http://blogs.technet.com/mattmcspirit/archive/2006/10/18/running-virtual-server-on-vista.aspx?CommentPosted=true#commentmessage Set up the VirtualServer virtual directory to use the &ldquo;Classic .NET AppPool&rdquo; Check that the Classic .NET AppPool is using LocalSystem identity Check that ONLY Windows Authentication is set for the virtual directory.
+Done all of the recommendations in this post: http://blogs.technet.com/mattmcspirit/archive/2006/10/18/running-virtual-server-on-vista.aspx?CommentPosted=true#commentmessage Set up the VirtualServer virtual directory to use the &ldquo;Classic .NET AppPool&rdquo; Check that the Classic .NET AppPool is using LocalSystem identity Check that ONLY Windows Authentication is set for the virtual directory.
     </div>
   </div>
 </div>
@@ -180,7 +197,7 @@ If you experience any of those problems, please check that you have done the fol
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       I think this one requires no disparaging commentary, it&rsquo;s funereal dissatisfactoryness stands as a balefire to all of you who want to write code that is both tenebrous and brittle.
-adCol.Add(new Advertisement(dr.GetString(0), dr.GetDateTime(1),dr.GetString(2), dr.GetString(3), dr.GetInt32(4), dr.GetBoolean(5), dr.GetFloat(6), dr.GetString(7), dr.GetString(8), dr.GetString(9), dr.GetDateTime(10), (int)dr.GetInt16(11), (int)dr.GetInt16(12), (int)dr.GetInt16(13), dr.GetString(14), dr.GetString(15), dr.GetString(16), dr.GetString(17), dr.GetInt32(18), dr.GetString(19), dr.GetString(20), dr.GetString(21).ToCharArray()[0], dr.GetString(22).ToCharArray()[0], dr.GetString(23)));  This example has been formatted for extra readability - it was on a single line. I would also like to point out that I had ABSOLUTELY NOTHING TO DO WITH THE PRODUCTION OF THIS PIECE OF CODE!
+adCol.Add(new Advertisement(dr.GetString(0), dr.GetDateTime(1),dr.GetString(2), dr.GetString(3), dr.GetInt32(4), dr.GetBoolean(5), dr.GetFloat(6), dr.GetString(7), dr.GetString(8), dr.GetString(9), dr.GetDateTime(10), (int)dr.GetInt16(11), (int)dr.GetInt16(12), (int)dr.GetInt16(13), dr.GetString(14), dr.GetString(15), dr.GetString(16), dr.GetString(17), dr.GetInt32(18), dr.GetString(19), dr.GetString(20), dr.GetString(21).ToCharArray()[0], dr.GetString(22).ToCharArray()[0], dr.GetString(23))); This example has been formatted for extra readability - it was on a single line. I would also like to point out that I had ABSOLUTELY NOTHING TO DO WITH THE PRODUCTION OF THIS PIECE OF CODE!
     </div>
   </div>
 </div>
@@ -199,24 +216,6 @@ adCol.Add(new Advertisement(dr.GetString(0), dr.GetDateTime(1),dr.GetString(2), 
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Last year, a company called DWave Systems announced their quantum computer (the &lsquo;Orion&rsquo;) - another milestone on the road to practical quantum computing. Their controversial claims seem worthy in their own right but they are particularly important to the semantic web (SW) community. The significance to the SW community was that their quantum computer solved problems akin to Grover&rsquo;s Algorithm speeding up queries of disorderly databases.
 Semantic web databases are not (completely) disorderly and there are many ways to optimize the search for matching triples to a graph pattern.
-    </div>
-  </div>
-</div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/posts/2005/quote-of-the-day-2/" class="link black dim">
-        Quote of the day
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      The question of whether a computer can think is no more interesting than the question of whether a submarine can swim.
-Edsger Dijkstra
     </div>
   </div>
 </div>

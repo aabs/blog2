@@ -7,7 +7,7 @@
     <title>Code Generation Patterns - Part 3 | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="This time I&rsquo;m going to describe the source snippet that I posted last time. In previous posts I showed the implementation that I use of the Observer pattern to fire off events notifying the code generator about code structures that it has found. The code generator was shown last time, and you can see that there are a whole bunch of event handlers that take note of the code structures and perform code generation tasks as required.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="This time I&rsquo;m going to describe the source snippet that I posted last time. In previous posts I showed the implementation that I use of the Observer pattern to fire off events notifying the code generator about code structures that it has found. The code generator was shown last time, and you can see that there are a whole bunch of event handlers that take note of the code structures and perform code generation tasks as required." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2005/code-generation-patterns-part-3-3/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Code Generation Patterns - Part 3">
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 6 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 1254 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>This time I&rsquo;m going to describe the source snippet that I posted last time. In previous posts I showed the implementation that I use of the Observer pattern to fire off events notifying the code generator about code structures that it has found. The code generator was shown last time, and you can see that there are a whole bunch of event handlers that take note of the code structures and perform code generation tasks as required.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>This time I&rsquo;m going to describe the source snippet that I posted last time. In previous posts I showed the implementation that I use of the Observer pattern to fire off events notifying the code generator about code structures that it has found. The code generator was shown last time, and you can see that there are a whole bunch of event handlers that take note of the code structures and perform code generation tasks as required.</p>
 <p>A typical example is the handler <em>NewType</em> that generated code for classes, structures and interfaces. As you will recall from my last post, I am using depth-first recursion in my scanner, to allow my code generator to generate in one pass. That means that there will be a lot of generated code knocking about from all of the invariant predicates, methods, events, fields and properties that were detected before the type event was invoked.</p>
 <p>The first thing the CG does is add the namespace of the type to a list of Namespaces that is being kept for addition at the top of the code for the proxy. Obviously the proxy needs to know about the target object. As a general rule you should use the fully qualified name of any type that you refere to in argument lists, return types etc. Readability is not an issue here (very much) but not having to keep track of all the namespace references that could be needed is worth this stricture.</p>
 <p>Following the namespace manipulations the generated code is added to the context variables for the NVelocity template. The generated code is kept in the context vars between lines 10 and 21. For common code structures such as assemblies, types and methods the generated code is added to an ArrayList and when the next most senior CG template needs to include them, it just iterates through the list, inserting everything that it finds. The HashTables are an implementation convenience that helps the CG to maintain a unique list of variables that need to have snapshots taken.</p>

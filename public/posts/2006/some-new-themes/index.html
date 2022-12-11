@@ -7,7 +7,7 @@
     <title>Some new themes. | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="No, not display themes in my blog. I&rsquo;m going to start some new themes on design and development issues. There&rsquo;s a few things that I felt I ought to give a systematic treatment to. I&rsquo;ve had a few conversations lately that brought my mind back to the issues of code generation and its related patterns. I&rsquo;ve also been playing with generic algorithms in C# 2.0 for type introspection in my DBC system.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="No, not display themes in my blog. I&rsquo;m going to start some new themes on design and development issues. There&rsquo;s a few things that I felt I ought to give a systematic treatment to. I&rsquo;ve had a few conversations lately that brought my mind back to the issues of code generation and its related patterns. I&rsquo;ve also been playing with generic algorithms in C# 2.0 for type introspection in my DBC system." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2006/some-new-themes/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Some new themes.">
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 3 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 481 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>No, not display themes in my blog. I&rsquo;m going to start some new themes on design and development issues. There&rsquo;s a few things that I felt I ought to give a systematic treatment to.  I&rsquo;ve had a few conversations lately that brought my mind back to the issues of code generation and its related patterns. I&rsquo;ve also been playing with generic algorithms in C# 2.0 for type introspection in my DBC system. It seemed natural for me to explore the idea of using generic algorithms at the heart of code generation frameworks since a generic algorithm would allow me to reuse my code generator regardless of the metadata format or the output stream.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>No, not display themes in my blog. I&rsquo;m going to start some new themes on design and development issues. There&rsquo;s a few things that I felt I ought to give a systematic treatment to.  I&rsquo;ve had a few conversations lately that brought my mind back to the issues of code generation and its related patterns. I&rsquo;ve also been playing with generic algorithms in C# 2.0 for type introspection in my DBC system. It seemed natural for me to explore the idea of using generic algorithms at the heart of code generation frameworks since a generic algorithm would allow me to reuse my code generator regardless of the metadata format or the output stream.</p>
 <p>Consider this:</p>
 <pre><code>public class CodeGenerator&lt;DataSource, TemplateSource, CodeGenerationPolicy&gt;{
 // ...

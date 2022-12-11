@@ -7,7 +7,7 @@
     <title>Truly abstracting a persistence mechanism | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="The initial design that I used when I made the ancestor of norm was based upon designs by Scott Ambler - The initial intent of Ambler&rsquo;s designs was definitely to provide an abstraction around the logic of a relational database. What I want to do with norm is to abstract the very notion of a data structure. When we persist an object into a row on a RDB it is almost irrelevant that the data is persistent.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="The initial design that I used when I made the ancestor of norm was based upon designs by Scott Ambler - The initial intent of Ambler&rsquo;s designs was definitely to provide an abstraction around the logic of a relational database. What I want to do with norm is to abstract the very notion of a data structure. When we persist an object into a row on a RDB it is almost irrelevant that the data is persistent." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2005/truly-abstracting-a-persistence-mechanism-2/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Truly abstracting a persistence mechanism">
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 4 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 724 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>The initial design that I used when I made the ancestor of norm was based upon designs by Scott Ambler - The initial intent of Ambler&rsquo;s designs was definitely to provide an abstraction around the logic of a relational database. What I want to do with norm is to abstract the very notion of a data structure. When we persist an object into a row on a RDB it is almost irrelevant that the data is persistent. Of course its not truly irrelevant, else why bother at all? What I mean is that the persistence of the data store in an RDB is irrelevant - it&rsquo;s the concepts that are used that make ORM such a complicated enterprise, the notion of a relationship is subtly different from that used in the object domain. Therein lies the &ldquo;object/relational impedance mismatch&rdquo; that Ambler identifies in his hugely influential paper, <em><a href="http://www.ambysoft.com/downloads/persistenceLayer.pdf">the design of a robust persistence layer for relational databases</a></em>.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>The initial design that I used when I made the ancestor of norm was based upon designs by Scott Ambler - The initial intent of Ambler&rsquo;s designs was definitely to provide an abstraction around the logic of a relational database. What I want to do with norm is to abstract the very notion of a data structure. When we persist an object into a row on a RDB it is almost irrelevant that the data is persistent. Of course its not truly irrelevant, else why bother at all? What I mean is that the persistence of the data store in an RDB is irrelevant - it&rsquo;s the concepts that are used that make ORM such a complicated enterprise, the notion of a relationship is subtly different from that used in the object domain. Therein lies the &ldquo;object/relational impedance mismatch&rdquo; that Ambler identifies in his hugely influential paper, <em><a href="http://www.ambysoft.com/downloads/persistenceLayer.pdf">the design of a robust persistence layer for relational databases</a></em>.</p>
 <p><a href="http://photos1.blogger.com/blogger/6860/929/1600/persMech.jpg"><img src="http://photos1.blogger.com/blogger/6860/929/320/persMech.jpg" alt=""></a></p>
 <p>As you can see the persistence mechanism is deliberately kept very simple, since there is little in the way of overlap (conceptually) between the APIs for a flat file persistence store and a relational database. In fact the notion of connection means different things in each mechanism.</p>
 <p>So what I&rsquo;m after is a way to bridge the gap between persistence stores so that mappings can be made between two different object models as easily as they can between object models and relational databases. What I&rsquo;m wondering is whether Ambler&rsquo;s model is the right one to use for such an abstraction. My first task is to purge any domain pollution from the mapping system, the transaction manager and the command system.</p>

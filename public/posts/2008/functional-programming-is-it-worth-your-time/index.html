@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="Short Answer: Yes!
 Regular readers of the The Wandering Glitch know I focused lots of attention on LINQ and the new wave of language innovation in C# 3.0. I&rsquo;m intrigued by functional programming in C#. At university, I focused on languages like C, C&#43;&#43;, Eiffel and Ada. I&rsquo;ve never since needed to learn functional programming techniques - who uses them, after all? Functional programming had always seemed like a distant offshoot of some Bourbakiste school of mathematical programming unconcerned with practical issues of software development.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -35,7 +35,6 @@ Regular readers of the The Wandering Glitch know I focused lots of attention on 
 Regular readers of the The Wandering Glitch know I focused lots of attention on LINQ and the new wave of language innovation in C# 3.0. I&rsquo;m intrigued by functional programming in C#. At university, I focused on languages like C, C&#43;&#43;, Eiffel and Ada. I&rsquo;ve never since needed to learn functional programming techniques - who uses them, after all? Functional programming had always seemed like a distant offshoot of some Bourbakiste school of mathematical programming unconcerned with practical issues of software development." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2008/functional-programming-is-it-worth-your-time/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Functional programming - Is it worth your time?">
@@ -172,8 +171,11 @@ Regular readers of the The Wandering Glitch know I focused lots of attention on 
 
       
       
+        <span class="f6 mv4 dib tracked"> - 7 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 1368 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>Short Answer: Yes!</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>Short Answer: Yes!</p>
 <p>Regular readers of the The Wandering Glitch know I focused lots of attention on LINQ and the new wave of language innovation in C# 3.0. I&rsquo;m intrigued by functional programming in C#. At university, I focused on languages like C, C++, Eiffel and Ada. I&rsquo;ve never since needed to learn functional programming techniques - who uses them, after all? Functional programming had always seemed like a distant offshoot of some  <a href="http://en.wikipedia.org/wiki/Nicolas_Bourbaki#cite_note-0">Bourbakiste</a> school of mathematical programming unconcerned with practical issues of software development. Don&rsquo;t get me wrong - I find that attractive, but it was always hard to justify the time, when there was so much else of practical worth that I needed to study. So the years passed, and I never came near. Functional programming was suffering from bad PR. But times change.</p>
 <p>A fundamental change is under way in how we develop software. Declarative, Functional, Model-driven, Aspect-oriented and Logic Programming are all examples where new ways of representing and solving problems can pay huge dividends in programmer productivity and system maintainability.  Suddenly, it no longer seems that functional programming is a means to try out obscure new forms of lambda calculus. Now it seems that there are fast, powerful, easy to understand techniques to be learnt that will make my systems more robust and smaller.</p>
 <p>I regretted not learning functional programming - I felt that there were ideas I was missing out on. And that made me envious. So, now is as good a time as any to address that deficiency. Another deficiency I want to address is the dearth of posts on the Glitch. I got tied up in producing a SPARQL tutorial for IBM which swallowed up my evenings. After that I had in mind to pursue an idea for a blog post on the relationships between LINQ, and Meta-mathematical structures like Groups and Categories. I got a major dose of intellectual indigestion, which stopped me from producing anything. The only way I&rsquo;ll get productive again is to break the topics I want to cover into bite-sized chunks. that&rsquo;s enough apologia - here&rsquo;s the post.</p>
@@ -194,7 +196,7 @@ Regular readers of the The Wandering Glitch know I focused lots of attention on 
 <li>They can be returned as values of procedures.</li>
 <li>They can be incorporated into data structures. [<a href="http://mitpress.mit.edu/catalog/item/default.asp?ttype=2&amp;tid=3305">1</a>]</li>
 </ul>
-<p>It should also mean that you can compose your own functions as I did with &lsquo;f&rsquo; and &lsquo;g&rsquo; earlier. Another possibly less vital feature to empower this charter for the rights and privileges of functions is the &lsquo;lambda&rsquo; (or λ) function. A lambda function is simply a way to create function on the fly, without having to give it a name. Compare this C# function:</p>
+<p>It should also mean that you can compose your own functions as I did with &lsquo;f&rsquo; and &lsquo;g&rsquo; earlier. Another possibly less vital feature to empower this charter for the rights and privileges of functions is the &rsquo;lambda&rsquo; (or λ) function. A lambda function is simply a way to create function on the fly, without having to give it a name. Compare this C# function:</p>
 <pre><code>int f(int x){return x + 5;}
 </code></pre>
 <p>With this one:</p>

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="I recently used Matthew Podwyszocki&rsquo;s pattern matching classes for a top level exception handler in an App I&rsquo;m writing. Matthew&rsquo;s classes are a really nice fluent interface attaching predicates to functions generating results. I used it as a class factory to select between handlers for exceptions. Here&rsquo;s an example of how I used it:
 ExceptionHandler handler = ex.Match() // . . . .With(e =&gt; e.GetType().Equals(typeof(SoapException)), e=&gt; new ReallocateEndpointHandler() as ExceptionHandler) .">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -35,7 +35,6 @@ ExceptionHandler handler = ex.Match() // . . . .With(e =&gt; e.GetType().Equals(
 ExceptionHandler handler = ex.Match() // . . . .With(e =&gt; e.GetType().Equals(typeof(SoapException)), e=&gt; new ReallocateEndpointHandler() as ExceptionHandler) ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2008/patternmatching/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Pattern Matching in C#">
@@ -172,8 +171,11 @@ ExceptionHandler handler = ex.Match() // . . . .With(e =&gt; e.GetType().Equals(
 
       
       
+        <span class="f6 mv4 dib tracked"> - 3 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 621 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>I recently used Matthew Podwyszocki&rsquo;s <a href="http://weblogs.asp.net/podwysocki/archive/2008/09/16/functional-c-pattern-matching.aspx">pattern matching</a> classes for a top level exception handler in an App I&rsquo;m writing. Matthew&rsquo;s classes are a really nice fluent interface attaching predicates to functions generating results. I used it as a class factory to select between handlers for exceptions. Here&rsquo;s an example of how I used it:</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>I recently used Matthew Podwyszocki&rsquo;s <a href="http://weblogs.asp.net/podwysocki/archive/2008/09/16/functional-c-pattern-matching.aspx">pattern matching</a> classes for a top level exception handler in an App I&rsquo;m writing. Matthew&rsquo;s classes are a really nice fluent interface attaching predicates to functions generating results. I used it as a class factory to select between handlers for exceptions. Here&rsquo;s an example of how I used it:</p>
 <pre><code>ExceptionHandler handler = ex.Match()
     // . . .
     .With(e =&gt; e.GetType().Equals(typeof(SoapException)),
@@ -184,7 +186,7 @@ ExceptionHandler handler = ex.Match() // . . . .With(e =&gt; e.GetType().Equals(
     .Else(e=&gt;new ExceptionSwallowingHandler() as ExceptionHandler)
     .Do();
 </code></pre>
-<p>Clearly a very useful API to provide complex pattern matching against a value. It has two drawbacks that prevented me from using it to do health checking and validation: caching of the pattern matcher and parameterisation of the function with incomming values. You use the above handler on a given value &lsquo;ex&rsquo; in a catch block. I have a whole SOAP API that I&rsquo;m working with that can return similar exceptions, so presently I&rsquo;d need to replicate the above code wherever I wanted to trap exceptions. This is too verbose, so I looked at stripping out some of the components that prevented me from reusing a pattern matcher. Here&rsquo;s an example of what I came up with:</p>
+<p>Clearly a very useful API to provide complex pattern matching against a value. It has two drawbacks that prevented me from using it to do health checking and validation: caching of the pattern matcher and parameterisation of the function with incomming values. You use the above handler on a given value &rsquo;ex&rsquo; in a catch block. I have a whole SOAP API that I&rsquo;m working with that can return similar exceptions, so presently I&rsquo;d need to replicate the above code wherever I wanted to trap exceptions. This is too verbose, so I looked at stripping out some of the components that prevented me from reusing a pattern matcher. Here&rsquo;s an example of what I came up with:</p>
 <pre><code>int x = 5;
 var fn = SwitchOn&lt;T&gt;.Match()
     .Case(y =&gt; y  y &gt;= 5 &amp;&amp; y  y &gt;10, High)

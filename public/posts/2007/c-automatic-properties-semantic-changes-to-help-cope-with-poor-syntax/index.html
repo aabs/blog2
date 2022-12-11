@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="Steve Eichert and Bart de Smet both posted last November about a new C# feature: Automatic Properties.
 The language enhancement will convert code like this in a class definition:
-[public string MyProperty { get; set; } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&quot;}
+[public string MyProperty { get; set; } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&rdquo;}
 Into something like this:
-[private string myProperty; public string MyProperty { get{return myProperty;} set{myProperty = value;} } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&quot;}
+[private string myProperty; public string MyProperty { get{return myProperty;} set{myProperty = value;} } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&rdquo;}
 I&rsquo;ve got to admit that I view this with a few misgivings. Primarily, I worry about how to interpret MyProperty in an abstract or virtual class.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -37,21 +37,20 @@ I&rsquo;ve got to admit that I view this with a few misgivings. Primarily, I wor
     <meta property="og:title" content="C# Automatic Properties: Semantic changes to help cope with poor syntax?" />
 <meta property="og:description" content="Steve Eichert and Bart de Smet both posted last November about a new C# feature: Automatic Properties.
 The language enhancement will convert code like this in a class definition:
-[public string MyProperty { get; set; } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&quot;}
+[public string MyProperty { get; set; } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&rdquo;}
 Into something like this:
-[private string myProperty; public string MyProperty { get{return myProperty;} set{myProperty = value;} } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&quot;}
+[private string myProperty; public string MyProperty { get{return myProperty;} set{myProperty = value;} } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&rdquo;}
 I&rsquo;ve got to admit that I view this with a few misgivings. Primarily, I worry about how to interpret MyProperty in an abstract or virtual class." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2007/c-automatic-properties-semantic-changes-to-help-cope-with-poor-syntax/" /><meta property="article:section" content="posts" />
 
 
-
 <meta itemprop="name" content="C# Automatic Properties: Semantic changes to help cope with poor syntax?">
 <meta itemprop="description" content="Steve Eichert and Bart de Smet both posted last November about a new C# feature: Automatic Properties.
 The language enhancement will convert code like this in a class definition:
-[public string MyProperty { get; set; } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&quot;}
+[public string MyProperty { get; set; } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&rdquo;}
 Into something like this:
-[private string myProperty; public string MyProperty { get{return myProperty;} set{myProperty = value;} } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&quot;}
+[private string myProperty; public string MyProperty { get{return myProperty;} set{myProperty = value;} } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&rdquo;}
 I&rsquo;ve got to admit that I view this with a few misgivings. Primarily, I worry about how to interpret MyProperty in an abstract or virtual class.">
 
 <meta itemprop="wordCount" content="503">
@@ -59,9 +58,9 @@ I&rsquo;ve got to admit that I view this with a few misgivings. Primarily, I wor
 <meta name="twitter:title" content="C# Automatic Properties: Semantic changes to help cope with poor syntax?"/>
 <meta name="twitter:description" content="Steve Eichert and Bart de Smet both posted last November about a new C# feature: Automatic Properties.
 The language enhancement will convert code like this in a class definition:
-[public string MyProperty { get; set; } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&quot;}
+[public string MyProperty { get; set; } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&rdquo;}
 Into something like this:
-[private string myProperty; public string MyProperty { get{return myProperty;} set{myProperty = value;} } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&quot;}
+[private string myProperty; public string MyProperty { get{return myProperty;} set{myProperty = value;} } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&rdquo;}
 I&rsquo;ve got to admit that I view this with a few misgivings. Primarily, I worry about how to interpret MyProperty in an abstract or virtual class."/>
 
 	
@@ -188,11 +187,14 @@ I&rsquo;ve got to admit that I view this with a few misgivings. Primarily, I wor
 
       
       
+        <span class="f6 mv4 dib tracked"> - 3 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 503 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p><a href="http://steve.emxsoftware.com/LINQ/C+Automatic+Properties">Steve Eichert</a> and <a href="http://community.bartdesmet.net/blogs/bart/archive/2006/11/08/C_2300_-Automatic-Properties.aspx">Bart de Smet</a> both posted last November about a new C# feature: Automatic Properties.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p><a href="http://steve.emxsoftware.com/LINQ/C+Automatic+Properties">Steve Eichert</a> and <a href="http://community.bartdesmet.net/blogs/bart/archive/2006/11/08/C_2300_-Automatic-Properties.aspx">Bart de Smet</a> both posted last November about a new C# feature: Automatic Properties.</p>
 <p>The language enhancement will convert code like this in a class definition:</p>
 <p>[public string MyProperty { get; set; }
-]{style=&ldquo;font-family:Courier New;font-size:8pt;&quot;}</p>
+]{style=&ldquo;font-family:Courier New;font-size:8pt;&rdquo;}</p>
 <p>Into something like this:</p>
 <p>[private string myProperty;
 public string MyProperty
@@ -200,19 +202,19 @@ public string MyProperty
 get{return myProperty;}
 set{myProperty = value;}
 }
-]{style=&ldquo;font-family:Courier New;font-size:8pt;&quot;}</p>
-<p>I&rsquo;ve got to admit that I view this with a few misgivings. Primarily, I worry about how to interpret MyProperty in an abstract or virtual class. Will there be an implementation generated for an abstract class? Is the code generation skipped if the property is virtual? At first glance, it doesn&rsquo;t seem to enhance to the clarity of the language. Currently [{ get; set; }]{style=&ldquo;font-family:Courier New;font-size:10pt;&quot;} has only one meaning – <em>no implementation provided</em>! Now we will have to look at the context of the declaration to know if it really means that at all! What will this do for those porting C# 2 code to C# 3?</p>
+]{style=&ldquo;font-family:Courier New;font-size:8pt;&rdquo;}</p>
+<p>I&rsquo;ve got to admit that I view this with a few misgivings. Primarily, I worry about how to interpret MyProperty in an abstract or virtual class. Will there be an implementation generated for an abstract class? Is the code generation skipped if the property is virtual? At first glance, it doesn&rsquo;t seem to enhance to the clarity of the language. Currently [{ get; set; }]{style=&ldquo;font-family:Courier New;font-size:10pt;&rdquo;} has only one meaning – <em>no implementation provided</em>! Now we will have to look at the context of the declaration to know if it really means that at all! What will this do for those porting C# 2 code to C# 3?</p>
 <p>Some of the commenters on Steve&rsquo;s post suggested adding a new keyword to the language so that you could get code like this:</p>
 <p>[public property string MyProperty;
-]{style=&ldquo;font-family:Courier New;font-size:8pt;&quot;}</p>
+]{style=&ldquo;font-family:Courier New;font-size:8pt;&rdquo;}</p>
 <p>or</p>
 <p>[public readonly property string MyProperty;
-]{style=&ldquo;font-family:Courier New;font-size:8pt;&quot;}</p>
+]{style=&ldquo;font-family:Courier New;font-size:8pt;&rdquo;}</p>
 <p>It&rsquo;s definitely less ambiguous than the syntax proposed by Anders Hejlsberg. I just wonder why it is necessary at all. What encapsulation is provided by such a feature? What are you getting? A property provides a degree of encapsulation to a field, which is why people declare properties to wrap fields. It allows you to add validation or some other source for the data. I have no objection to the C# team providing as much syntactic sugar as they like, but when they change the semantics of the language, I think they should definitely look before they leap! The only advantage to be gained from it is less typing. Hejlsberg must <em>really</em> hate typing! You can&rsquo;t define a field in an interface so the <em>empty property anti-pattern</em> is obligatory in C# 2.0. Why enshrine it in the language though?</p>
 <p>Are empty properties another one of those half-understood injunctions that developers pay lip service to? (I lump <a href="http://aabs.wordpress.com/configuration/">configuration</a> in this category) After all, the only point of a property is if you do something in it other than turn a private variable into a public one. Why not make fields declarable in interfaces? That way, we&rsquo;d only have to encapsulate them if they weren&rsquo;t stored in the class or if we wanted to do something with them prior to changing state? It wouldn&rsquo;t change the semantics of the language either, and it would be backwards compatible.</p>
 <p>If I was obliged to add Automatic Properties to the language I might be tempted to make use of an attribute to annotate a field instead:</p>
 <p>[[Property(&ldquo;MyProperty&rdquo;)] private string myField;
-]{style=&ldquo;font-family:Courier New;font-size:8pt;&quot;}</p>
+]{style=&ldquo;font-family:Courier New;font-size:8pt;&rdquo;}</p>
 <p>Attributes are an excellent way to pass on hints to the compiler. They are more versatile than keywords, and wouldn&rsquo;t require syntax changes. Keeping the language definition stable would probably please tool vendors too.</p>
 <ul class="pa0">
   

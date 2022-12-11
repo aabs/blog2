@@ -7,7 +7,7 @@
     <title>PostSharp Laos - Beautiful AOP. | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="I&rsquo;ve recently been using PostSharp 1.5 (Laos) to implement various features such as logging, tracing, API performance counter recording, and repeatability on the softphone app I&rsquo;ve been developing. Previously, we&rsquo;d been either using hand-rolled code generation systems to augment the APIs with IDisposable-style wrappers, or hand coded the wrappers within the implementation code. The problem was that by the time we&rsquo;d added all of the above, there were hundreds of lines of code to maintain around the few lines of code that actually provided a business benefit.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="I&rsquo;ve recently been using PostSharp 1.5 (Laos) to implement various features such as logging, tracing, API performance counter recording, and repeatability on the softphone app I&rsquo;ve been developing. Previously, we&rsquo;d been either using hand-rolled code generation systems to augment the APIs with IDisposable-style wrappers, or hand coded the wrappers within the implementation code. The problem was that by the time we&rsquo;d added all of the above, there were hundreds of lines of code to maintain around the few lines of code that actually provided a business benefit." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2009/postsharp-laos-beautiful-aop/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="PostSharp Laos - Beautiful AOP.">
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 4 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 661 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>I&rsquo;ve recently been using <a href="http://msdn.microsoft.com/en-us/library/dd140063.aspx">PostSharp</a> 1.5 (<a href="http://doc.postsharp.org/1.5/##PostSharp.HxS/UserGuide/Laos/Overview.html">Laos</a>) to implement various features such as logging, tracing, API performance counter recording, and repeatability on the softphone app I&rsquo;ve been developing. Previously, we&rsquo;d been either using hand-rolled code generation systems to augment the APIs with IDisposable-style wrappers, or hand coded the wrappers within the implementation code. The problem was that by the time we&rsquo;d added all of the above, there were hundreds of lines of code to maintain around the few lines of code that actually provided a business benefit.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>I&rsquo;ve recently been using <a href="http://msdn.microsoft.com/en-us/library/dd140063.aspx">PostSharp</a> 1.5 (<a href="http://doc.postsharp.org/1.5/##PostSharp.HxS/UserGuide/Laos/Overview.html">Laos</a>) to implement various features such as logging, tracing, API performance counter recording, and repeatability on the softphone app I&rsquo;ve been developing. Previously, we&rsquo;d been either using hand-rolled code generation systems to augment the APIs with IDisposable-style wrappers, or hand coded the wrappers within the implementation code. The problem was that by the time we&rsquo;d added all of the above, there were hundreds of lines of code to maintain around the few lines of code that actually provided a business benefit.</p>
 <p>Several years ago, when I worked for Avanade, I worked on a very large scale project that used the Avanade Connected Architecture (<a href="http://www.avanade.com/delivery/acanet/">ACA.NET</a>) - a proprietary competitor for PostSharp. We found <a href="http://en.wikipedia.org/wiki/Aspect-oriented_programming">Aspect Oriented Programming</a> (AOP) to be a great way to focus on the job at hand and reliably dot all the &lsquo;i&rsquo;s and cross all the &rsquo;t&rsquo;s in a single step at a later date.</p>
 <p>ACA.NET, at that time, used a precursor of the <a href="http://msdn.microsoft.com/en-us/library/dd140063.aspx">P&amp;P Configuration Application Block</a> and performed a form of post build step to create external wrappers that instantiated the aspect call chain prior to invoking your service method. That was a very neat step that could allow configurable specifications of applicable aspects. It allowed us to develop the code in a very naive in-proc way, and then augment the code with top level exception handlers, transactionality etc at the same time that we changed the physical deployment architecture. Since that time, I&rsquo;ve missed the lack of such a tool, so it was a pleasure to finally acquaint myself  with PostSharp.</p>
 <p>I&rsquo;d always been intending to introduce PostSharp here, but I&rsquo;d just never had time to do it. Well, I finally found the time in recent weeks and was able to do that most gratifying thing - remove and simplify code, improve performance and code quality, reduced maintenance costs and increased the ease with I introduce new code <a href="http://en.wikipedia.org/wiki/Policy-based_design">policies</a> all in a single step. And all without even scratching the surface of what PostSharp is capable of.</p>
@@ -204,19 +206,19 @@ public class PureAttribute : OnMethodInvocationAspect
 <p>I love what I achieved here, not least for the fact that it took me no more than about 20 lines of code to do it. But that&rsquo;s not the real killer feature, for me. It&rsquo;s the fact that PostSharp Laos has <a href="http://doc.postsharp.org/1.5/##PostSharp.HxS/UserGuide/Laos/Multicasting/Overview.html">MulticastAttributes</a>, that allow me to apply the advice to numerous methods in a single instruction, or even numerous classes or even every method of every class of an assembly. I can specify what to attach the aspects to by using regular expressions, or wildcards. Here&rsquo;s an example that applies an aspect to all public methods in class MyServiceClass.</p>
 <pre tabindex="0"><code>[assembly: Pure(
     AspectPriority = 2,
-    AttributeTargetAssemblies = &quot;MyAssembly&quot;,
-    AttributeTargetTypes = &quot;UiFacade.MyServiceClass&quot;,
+    AttributeTargetAssemblies = &#34;MyAssembly&#34;,
+    AttributeTargetTypes = &#34;UiFacade.MyServiceClass&#34;,
     AttributeTargetMemberAttributes = MulticastAttributes.Public,
-    AttributeTargetMembers = &quot;*&quot;)]
+    AttributeTargetMembers = &#34;*&#34;)]
 </code></pre><p><a href="http://11011.net/software/vspaste"></a></p>
 <p>Here&rsquo;s an example that uses a wildcard to NOT apply the aspect to those methods that end in &ldquo;Impl&rdquo;.</p>
 <pre tabindex="0"><code>[assembly: Pure(
     AspectPriority = 2,
-    AttributeTargetAssemblies = &quot;MyAssembly&quot;,
-    AttributeTargetTypes = &quot;UiFacade.MyServiceClass&quot;,
+    AttributeTargetAssemblies = &#34;MyAssembly&#34;,
+    AttributeTargetTypes = &#34;UiFacade.MyServiceClass&#34;,
     AttributeTargetMemberAttributes = MulticastAttributes.Public,
     AttributeExclude = true,
-    AttributeTargetMembers = &quot;*Impl&quot;)]
+    AttributeTargetMembers = &#34;*Impl&#34;)]
 </code></pre><p>Do you use AOP? What aspects do you use, other than the usual suspects above?</p>
 <ul class="pa0">
   

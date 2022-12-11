@@ -7,7 +7,7 @@
     <title>Using Mock Objects When Testing LINQ Code | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="I was wondering the other day whether LINQ could be used with NMock easily. One problem with testing code that has not been written to work with unit tests is that if you test business logic, you often end up making multiple round-trips to the database for each test run. With a very large test suite that can turn a few minute&rsquo;s work into hours for a test suite. the best approach to this is to use mock data access components to dispense canned results, rather than going all the way through to the database.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="I was wondering the other day whether LINQ could be used with NMock easily. One problem with testing code that has not been written to work with unit tests is that if you test business logic, you often end up making multiple round-trips to the database for each test run. With a very large test suite that can turn a few minute&rsquo;s work into hours for a test suite. the best approach to this is to use mock data access components to dispense canned results, rather than going all the way through to the database." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2007/using-mock-objects-when-testing-linq-code/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Using Mock Objects When Testing LINQ Code">
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 5 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 1044 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>I was wondering the other day whether LINQ could be used with NMock easily. One problem with testing code that has not been written to work with unit tests is that if you test business logic, you often end up making multiple round-trips to the database for each test run. With a very large test suite that can turn a few minute&rsquo;s work into hours for a test suite. the best approach to this is to use mock data access components to dispense canned results, rather than going all the way through to the database.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>I was wondering the other day whether LINQ could be used with NMock easily. One problem with testing code that has not been written to work with unit tests is that if you test business logic, you often end up making multiple round-trips to the database for each test run. With a very large test suite that can turn a few minute&rsquo;s work into hours for a test suite. the best approach to this is to use mock data access components to dispense canned results, rather than going all the way through to the database.</p>
 <p>After a little thought it became clear that all you have to do is override the <em><strong>IOrderedQueryable&lt;T&gt;.GetEnumerator()</strong></em> method to return an enumerator to a set of canned results and you could pretty much impersonate a LINQ to SQL Table (which is the <em><strong>IOrderedQueryable</strong></em> implementation for LINQ to SQL). I had a spare few minutes the other day while the kids were going to sleep and I decided to give it a go, to see what was involved.</p>
 <p>I&rsquo;m a great believer in the medicinal uses of mock objects. Making your classes testable using mocking enforces a level of encapsulation that adds good structure to your code. I find that the end results are often much cleaner if you design your systems with mocking in mind.</p>
 <p>Lets start with a class that you were querying over in your code. This is the type that you are expecting to get back from your query.</p>

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="Knowledge Graphs provide a neat and easy way to segment your data, called &lsquo;Named Graphs&rsquo;. This post shows how you access them, and different uses they may be put to.
 This is part 7 of an ongoing series providing a little background on Knowledge Graphs. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history. Just practical knowledge.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -35,7 +35,6 @@ This is part 7 of an ongoing series providing a little background on Knowledge G
 This is part 7 of an ongoing series providing a little background on Knowledge Graphs. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history. Just practical knowledge." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2019/knowledge-graphs-7-named-graphs/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Knowledge Graphs 7 - Named Graphs">
@@ -172,8 +171,11 @@ This is part 7 of an ongoing series providing a little background on Knowledge G
 
       
       
+        <span class="f6 mv4 dib tracked"> - 7 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 1356 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>Knowledge Graphs provide a neat and easy way to segment your data, called
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>Knowledge Graphs provide a neat and easy way to segment your data, called
 &lsquo;<em>Named Graphs</em>&rsquo;. This post shows how you access them, and different uses they
 may be put to.</p>
 <p>This is part 7 of an ongoing series providing a little background on <em>Knowledge Graphs</em>. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history. Just practical knowledge.</p>
@@ -196,19 +198,19 @@ INSERT DATA {
     GRAPH s:ArsenalFC {
         s:ArsenalFC a s:Team;
             s:homeCity s:London;
-            rdfs:label &quot;Arsenal F.C.&quot; .
+            rdfs:label &#34;Arsenal F.C.&#34; .
     }
 
     GRAPH s:ChelseaFC {
         s:ChelseaFC a s:Team;
             s:homeCity s:London;
-            rdfs:label &quot;Chelsea F.C.&quot; .
+            rdfs:label &#34;Chelsea F.C.&#34; .
     }
 
     GRAPH s:LiverpoolFC {
         s:LiverpoolFC a s:Team;
             s:homeCity s:Liverpool;
-            rdfs:label &quot;Liverpool F.C.&quot; .
+            rdfs:label &#34;Liverpool F.C.&#34; .
     }
 }
 </code></pre><p>This creates three graphs (or adds to them if they already existed) with subsets of the data. Here, we are putting  <code>s:ArsenalFC</code> data just in the graph of the same name. That&rsquo;s convenient, because you only need to know the name of the team to know what graph its data is stored in.</p>
@@ -229,9 +231,9 @@ WHERE {
 <pre tabindex="0"><code>------------------------------------------------------------------
 | team          | graph         | city        | name             |
 ==================================================================
-| s:ArsenalFC   | s:ArsenalFC   | s:London    | &quot;Arsenal F.C.&quot;   |
-| s:ChelseaFC   | s:ChelseaFC   | s:London    | &quot;Chelsea F.C.&quot;   |
-| s:LiverpoolFC | s:LiverpoolFC | s:Liverpool | &quot;Liverpool F.C.&quot; |
+| s:ArsenalFC   | s:ArsenalFC   | s:London    | &#34;Arsenal F.C.&#34;   |
+| s:ChelseaFC   | s:ChelseaFC   | s:London    | &#34;Chelsea F.C.&#34;   |
+| s:LiverpoolFC | s:LiverpoolFC | s:Liverpool | &#34;Liverpool F.C.&#34; |
 ------------------------------------------------------------------
 </code></pre><p>So, quite naturally, if I wanted to restrict myself to everything we know about Arsenal, that&rsquo;s quite easy:</p>
 <pre tabindex="0"><code>PREFIX s: &lt;http://tempuri.com/soccer/&gt;
@@ -249,7 +251,7 @@ WHERE {
 =============================================
 | s:ArsenalFC | s:homeCity | s:London       |
 | s:ArsenalFC | rdf:type   | s:Team         |
-| s:ArsenalFC | rdfs:label | &quot;Arsenal F.C.&quot; |
+| s:ArsenalFC | rdfs:label | &#34;Arsenal F.C.&#34; |
 ---------------------------------------------
 </code></pre><h3 id="everything-everything">Everything everything</h3>
 <p>If you want to get everything back from your triple store, and this varies somewhat between triple stores, then you need to get the union of named graphs combined with the <strong>default graph</strong>.</p>
@@ -284,7 +286,7 @@ WHERE {
 =================================================
 | s:LiverpoolFC | s:homeCity | s:Liverpool      |
 | s:LiverpoolFC | rdf:type   | s:Team           |
-| s:LiverpoolFC | rdfs:label | &quot;Liverpool F.C.&quot; |
+| s:LiverpoolFC | rdfs:label | &#34;Liverpool F.C.&#34; |
 -------------------------------------------------
 </code></pre><p>This approach to pulling all the data back from a graph is one of several approaches to <em>bulk retrieval</em>. This is a convenient way to perform local analysis or processing on a cohesive subset of the data.</p>
 <h2 id="common-uses-for-named-graphs">Common Uses for Named Graphs</h2>
@@ -314,20 +316,20 @@ INSERT DATA {
     GRAPH s:ArsenalFC_Imported {
         s:ArsenalFC a s:Team;
             s:homeCity s:London;
-            rdfs:label &quot;Arsenal F.C.&quot; .
+            rdfs:label &#34;Arsenal F.C.&#34; .
         # etc etc etc
     }
     # . . .
     GRAPH s:Stats_Import_Metadata {
         s:ArsenalFC_Imported a :Graph;
-            s:statsKind &quot;Goal Averages&quot;;
+            s:statsKind &#34;Goal Averages&#34;;
             s:keyEntityDescribed s:ArsenalFC;
             dc:creator staff:andrewm;
-            dc:publisher &quot;Football Association&quot;;
-            dc:date  &quot;2017-01-07&quot;;
-            dc:title &quot;Arsenal Stats&quot;;
-            dc:description &quot;Arsenal Stats from FA site&quot; ;
-            dc:language &quot;en&quot; .
+            dc:publisher &#34;Football Association&#34;;
+            dc:date  &#34;2017-01-07&#34;;
+            dc:title &#34;Arsenal Stats&#34;;
+            dc:description &#34;Arsenal Stats from FA site&#34; ;
+            dc:language &#34;en&#34; .
         # etc etc etc
     }
 }
@@ -339,7 +341,7 @@ SELECT *
 WHERE {
     GRAPH s:Stats_Import_Metadata {
         ?statsDataSet
-            s:statsKind &quot;Goal Averages&quot;;
+            s:statsKind &#34;Goal Averages&#34;;
             s:keyEntityDescribed s:ArsenalFC;
             dc:creator ?creator;
             dc:publisher ?publisher;

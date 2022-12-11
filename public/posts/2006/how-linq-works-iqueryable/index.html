@@ -7,7 +7,7 @@
     <title>How LINQ Works - IQueryable | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="My last post explored the implementation of the Where extension method on IEnumerator and IQueryable. I showed that the filter method on enumerators visits every element in the collection. I also showed that calling Where on a Queryable just adds a new root to the expression tree. I ended with a promise to show how the queryable gets turned into a sequence of object references. This is the really innovative part of LINQ - If we want to provide a LINQ-style query language on some data store of our own, we need to understand how this stuff works.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="My last post explored the implementation of the Where extension method on IEnumerator and IQueryable. I showed that the filter method on enumerators visits every element in the collection. I also showed that calling Where on a Queryable just adds a new root to the expression tree. I ended with a promise to show how the queryable gets turned into a sequence of object references. This is the really innovative part of LINQ - If we want to provide a LINQ-style query language on some data store of our own, we need to understand how this stuff works." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2006/how-linq-works-iqueryable/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="How LINQ Works - IQueryable">
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 5 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 999 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>My last post explored the implementation of the Where extension method on IEnumerator and IQueryable. I showed that the filter method on enumerators visits every element in the collection. I also showed that calling Where on a Queryable just adds a new root to the expression tree. I ended with a promise to show how the queryable gets turned into a sequence of object references. This is the really innovative part of LINQ - If we want to provide a LINQ-style query language on some data store of our own, we need to understand how this stuff works. Unfortunately, it’s undocumented except in this document.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>My last post explored the implementation of the Where extension method on IEnumerator and IQueryable. I showed that the filter method on enumerators visits every element in the collection. I also showed that calling Where on a Queryable just adds a new root to the expression tree. I ended with a promise to show how the queryable gets turned into a sequence of object references. This is the really innovative part of LINQ - If we want to provide a LINQ-style query language on some data store of our own, we need to understand how this stuff works. Unfortunately, it’s undocumented except in this document.</p>
 <p>Probably the best way to see that process in action is to examine GetEnumerator() in SequenceQuery. SequenceQuery is the primary concrete implementation of IQueryable. It gets returned when we use Where in conjunction with something like a Lambda Expression. A Lambda expression in C# has the form</p>
 <p>(a, b) =&gt; a.DestinationCity.ToUpper() != b.DepartureCity.ToUpper()</p>
 <p>I’m not going to show so much code as the last post for a couple of reasons. The first is that there is SO much of it that the post would be tedious in the extreme. The other reason is that I am not completely convinced that Reflector is showing me everything that is going on. I’ve tried to get access to the source of LINQ, and if it is forthcoming I will explain in more detail what is happening under the hood. For now, I can give an outline based on my understanding of what has to happen for LINQ to work.</p>

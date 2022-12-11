@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="Recently I attempted to implement a declarative predicate checking system to allow design by contract (DBC) within C# 3.0. I was not successful due to a limitation in the kind of parameters one can pass to an Attribute constructor in .NET (no lambdas). I thought I&rsquo;d just follow that up with a simpler model based on extension methods.
 public static class Predicates { public static void Assert&lt;T&gt;(this T obj, Func&lt;T, bool&gt; pred) { if (!">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -35,7 +35,6 @@ public static class Predicates { public static void Assert&lt;T&gt;(this T obj, 
 public static class Predicates { public static void Assert&lt;T&gt;(this T obj, Func&lt;T, bool&gt; pred) { if (!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2008/complex-assertions-using-c-30/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Complex Assertions in C#">
@@ -172,8 +171,11 @@ public static class Predicates { public static void Assert&lt;T&gt;(this T obj, 
 
       
       
+        <span class="f6 mv4 dib tracked"> - 3 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 611 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>Recently I <a href="http://aabs.wordpress.com/2007/10/20/lambda-functions-for-design-by-contract/">attempted</a> to implement a declarative predicate checking system to allow design by contract (DBC) within C# 3.0. I was not successful due to a limitation in the kind of parameters one can pass to an Attribute constructor in .NET (no lambdas). I thought I&rsquo;d just follow that up with a simpler model based on extension methods.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>Recently I <a href="http://aabs.wordpress.com/2007/10/20/lambda-functions-for-design-by-contract/">attempted</a> to implement a declarative predicate checking system to allow design by contract (DBC) within C# 3.0. I was not successful due to a limitation in the kind of parameters one can pass to an Attribute constructor in .NET (no lambdas). I thought I&rsquo;d just follow that up with a simpler model based on extension methods.</p>
 <pre tabindex="0"><code>public static class Predicates
 {
     public static void Assert&lt;T&gt;(this T obj, Func&lt;T, bool&gt; pred)
@@ -251,7 +253,7 @@ public void MyMethod()
     public static T before&lt;T&gt;(this T obj) where T : class
     {
         if (obj == null)
-            throw new ArgumentNullException(&quot;obj cannot be null&quot;);
+            throw new ArgumentNullException(&#34;obj cannot be null&#34;);
 
         PredicateScope ctx = PredicateScope.Scopes.Peek();
         if (ctx == null) return default(T);

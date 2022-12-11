@@ -12,7 +12,7 @@ It&rsquo;s a familiar thing to most programmers. And most programmers never stop
 if(SomeConfiguration.ShouldUseXyzService){…}
 Why is it better?
 Type Safety. The key reason is automatic type safety. Type safety ensures that when you make a call to another component you get the data you are after in the format you wanted.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -43,7 +43,6 @@ Why is it better?
 Type Safety. The key reason is automatic type safety. Type safety ensures that when you make a call to another component you get the data you are after in the format you wanted." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2006/why-type-safety-in-configuration-is-a-good-thing/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Why type safety in configuration is a good thing">
@@ -188,14 +187,17 @@ Type Safety. The key reason is automatic type safety. Type safety ensures that w
 
       
       
+        <span class="f6 mv4 dib tracked"> - 4 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 684 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>How many times have you seen a piece of code like this?</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>How many times have you seen a piece of code like this?</p>
 <p><code>bool shouldUseXyzService = bool.Parse(WebConfiguration.AppSettings[&quot;shouldUseXyzService&quot;]); if(shouldUseXyzService){…}</code></p>
 <p>It&rsquo;s a familiar thing to most programmers. And most programmers never stop to think about just how evil it is. In my last few posts I&rsquo;ve been suggesting that we ought to be using something like this:</p>
 <p><code>if(SomeConfiguration.ShouldUseXyzService){…}</code></p>
 <p>Why is it better?</p>
 <h5 id="type-safety">Type Safety.</h5>
-<p>The key reason is automatic type safety. Type safety ensures that when you make a call to another component you get the data you are after in the format you wanted. Imagine if you had to check for &lsquo;y&rsquo;, &lsquo;yes&rsquo;, &lsquo;true&rsquo;, &lsquo;1&rsquo; and so on. It wouldn&rsquo;t take you long before you started making sure that you had a single representation of true. And that&rsquo;s what type safety ensures in the case of a config system.</p>
+<p>The key reason is automatic type safety. Type safety ensures that when you make a call to another component you get the data you are after in the format you wanted. Imagine if you had to check for &lsquo;y&rsquo;, &lsquo;yes&rsquo;, &rsquo;true&rsquo;, &lsquo;1&rsquo; and so on. It wouldn&rsquo;t take you long before you started making sure that you had a single representation of true. And that&rsquo;s what type safety ensures in the case of a config system.</p>
 <p>There is another form of type safety at stake. The config data might be in the wrong format. You code ought to have looked like this:</p>
 <p><code>try{    bool shouldUseXyzService = bool.Parse(WebConfiguration.AppSettings[&quot;shouldUseXyzService&quot;] .Trim().ToLower());    if(shouldUseXyzService){…} }catch(FormatException e){…}</code></p>
 <p>What do you do if the config is in the wrong format? Rethrow? Set a default value? Rethrowing means your app is toast. Setting a default value will yield unpredictable behavior, especially when the config files are different between production and release builds. You never have this kind of production weirdness with typed configuration objects because that sort of syntactic error never makes it through a compilation.</p>

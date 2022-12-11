@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="It&rsquo;s been a while since I last blogged. I moved to Readify, and have been burning the midnight oil ever since! But I wrote some code the other day that I thought might come in handy in future, so I thought I&rsquo;d blog it.
 What I needed to do was kick off a few activities that run periodically in their own thread. As ever, I started out by writing code to manage signaling to between the main thread and the worker thread with sleep periods when there was nothing to do, till it was time to start again.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -35,7 +35,6 @@ What I needed to do was kick off a few activities that run periodically in their
 What I needed to do was kick off a few activities that run periodically in their own thread. As ever, I started out by writing code to manage signaling to between the main thread and the worker thread with sleep periods when there was nothing to do, till it was time to start again." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2006/a-simple-interface-to-timercallback/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="A Simple Interface to TimerCallback">
@@ -172,8 +171,11 @@ What I needed to do was kick off a few activities that run periodically in their
 
       
       
+        <span class="f6 mv4 dib tracked"> - 3 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 561 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>It&rsquo;s been a while since I last blogged. I moved to <a href="http://www.readify.net">Readify</a>, and have been burning the midnight oil ever since! But I wrote some code the other day that I thought might come in handy in future, so I thought I&rsquo;d blog it.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>It&rsquo;s been a while since I last blogged. I moved to <a href="http://www.readify.net">Readify</a>, and have been burning the midnight oil ever since! But I wrote some code the other day that I thought might come in handy in future, so I thought I&rsquo;d blog it.</p>
 <p>What I needed to do was kick off a few activities that run periodically in their own thread. As ever, I started out by writing code to manage signaling to between the main thread and the worker thread with sleep periods when there was nothing to do, till it was time to start again. Needless to say, it all got very repetitive and messy. So I rewrote it focusing on making the developer work as simple as possible, with no repetitions.</p>
 <p>Here&rsquo;s how it works. I define an interface called ITimerActivity which has a single method returning a void and taking an object. The TaskHandler method matches the delegate expected by the TimerCallback constructor. Your worker function implements this method, to perform the activity you want run, and the TimerHandler class passes your TaskHandler method as a delegate to the TimerCallback method. It then manages the timer using a simpler mechanism of Start and Stop. So, all you need to do to make use of timers is to implement thus ITimerActivity interface and use it inside a TimerHandler.</p>
 <p>public interface ITimerActivity

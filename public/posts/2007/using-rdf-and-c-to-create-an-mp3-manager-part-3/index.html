@@ -7,7 +7,7 @@
     <title>Using RDF and C# to create an MP3 Manager - Part 3 | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="Last time I hurriedly showed you how you can perform the next step of converting a triple store into an ORM system of sorts. The purpose of all this activity, and the reason I left off blogging about LINQ was that I am working on a system to allow me to use LINQ with a triple store and reasoner. The benefit of doing so is that we should have a lot of the benefits of the modern relational world with the power and connectivity of the new world of the semantic web.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="Last time I hurriedly showed you how you can perform the next step of converting a triple store into an ORM system of sorts. The purpose of all this activity, and the reason I left off blogging about LINQ was that I am working on a system to allow me to use LINQ with a triple store and reasoner. The benefit of doing so is that we should have a lot of the benefits of the modern relational world with the power and connectivity of the new world of the semantic web." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2007/using-rdf-and-c-to-create-an-mp3-manager-part-3/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Using RDF and C# to create an MP3 Manager - Part 3">
@@ -168,12 +167,15 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 3 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 522 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>Last time I hurriedly showed you how you can perform the next step of converting a triple store into an ORM system of sorts. The purpose of all this activity, and the reason I left off blogging about LINQ was that I am working on a system to allow me to use LINQ with a triple store and reasoner. The benefit of doing so is that we should have a lot of the benefits of the modern relational world with the power and connectivity of the new world of the semantic web. In this post I shall outline the steps required to start working with LINQ to RDF (as I&rsquo;ve chosen to call it through lack of imagination).</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>Last time I hurriedly showed you how you can perform the next step of converting a triple store into an ORM system of sorts. The purpose of all this activity, and the reason I left off blogging about LINQ was that I am working on a system to allow me to use LINQ with a triple store and reasoner. The benefit of doing so is that we should have a lot of the benefits of the modern relational world with the power and connectivity of the new world of the semantic web. In this post I shall outline the steps required to start working with LINQ to RDF (as I&rsquo;ve chosen to call it through lack of imagination).</p>
 <p>I&rsquo;ve been using test driven development throughout, so I already have a few &lsquo;integration&rsquo; unit tests to show you:</p>
 <p><code>[TestMethod] public void Query() {   string urlToRemoteSparqlEndpoint = &quot;http://localhost/MyMusicService/SparqlQuery.ashx&quot;;   RdfContext&lt;Track&gt; ctx = new RdfSparqlContext&lt;Track&gt;(urlToRemoteSparqlEndpoint);   var titles = from t in ctx     where t.Year &gt; 1998 &amp;&amp;     t.GenreName == &quot;Ambient Techno&quot; ||     t.GenreName == &quot;Chillout&quot;     select t.Title;   foreach(string title in titles)     Console.WriteLine(title); }</code></p>
 <p>In English, this means that rather than manipulating a local triple store, I want the RdfSparqlContext to compose a SPARQL query and present it to the query endpoint found at location urlToRemoteSparqlEndpoint. I then want it to deserialise the results returned and store them in titles. This is a nice mixture of new features from .NET 3.5, combined with some of the features I&rsquo;ve already developed for object deserialisation.</p>
-<p>With the example above I am concerned more with the querying aspect of LINQ (it being a query language n' all!) but that is not much use to me in the world of transactional web development where I find myself mired for the moment, so we need full CRUD behaviour from this system. Here&rsquo;s a unit test for object update.</p>
+<p>With the example above I am concerned more with the querying aspect of LINQ (it being a query language n&rsquo; all!) but that is not much use to me in the world of transactional web development where I find myself mired for the moment, so we need full CRUD behaviour from this system. Here&rsquo;s a unit test for object update.</p>
 <p><code>[TestMethod] public void Update() {   string urlToRemoteSparqlEndpoint = @&quot;http://localhost/MyMusicService/SparqlQuery.ashx&quot;;   RdfContext&lt;Track&gt; ctx = new RdfSparqlContext&lt;Track&gt;(urlToRemoteSparqlEndpoint);   var q = from t in ctx     where t.Year &gt; 1998 &amp;&amp;     t.GenreName == &quot;Ambient Techno&quot; ||     t.GenreName == &quot;Chillout&quot;     select t;   foreach (Track t in q)     t.Rating = 5;   ctx.AcceptChanges(); }</code></p>
 <p>Here, I&rsquo;m getting a bunch of objects back from the triple store, modifying their Rating property and then asking for those changes to be stored. This follows the usage patterns for LINQ to SQL.</p>
 <p>To satisfy these unit tests (plus ones for the rest of the CRUD behaviour and with support for N3, in-memory and RDBMS based local triple stores is what I&rsquo;m aiming to complete - eventually. Here&rsquo;s the general scheme for implementing querying using LINQ. It assumes that RDF data structures are taken unmodified from the SemWeb library.</p>

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="C# in Orcas will provide a bunch of really useful tools for those who want to perform tasks involving reflection. The reflection APIs in C# are already excellent but with the new query capabilities provided by LINQ, Reflection will be a real pleasure. There’ve been a few excellent posts on the topic.
 In this post I’ll show you how to use the attribute metadata system to filter types using LINQ. In past posts I’ve talked about the Design By Contract (DBC) system I used to generate pre and post conditions for methods on a class.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -35,7 +35,6 @@ In this post I’ll show you how to use the attribute metadata system to filter 
 In this post I’ll show you how to use the attribute metadata system to filter types using LINQ. In past posts I’ve talked about the Design By Contract (DBC) system I used to generate pre and post conditions for methods on a class." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2006/using-c-30-for-reflection/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Using C# 3.0 For Reflection">
@@ -172,10 +171,13 @@ In this post I’ll show you how to use the attribute metadata system to filter 
 
       
       
+        <span class="f6 mv4 dib tracked"> - 5 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 914 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>C# in Orcas will provide a bunch of really useful tools for those who want to perform tasks involving reflection. The reflection APIs in C# are already excellent but with the new query capabilities provided by LINQ, Reflection will be a real pleasure. There’ve been a few excellent posts on the topic.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>C# in Orcas will provide a bunch of really useful tools for those who want to perform tasks involving reflection. The reflection APIs in C# are already excellent but with the new query capabilities provided by LINQ, Reflection will be a real pleasure. There’ve been a few excellent posts on the topic.</p>
 <p>In this post I’ll show you how to use the attribute metadata system to filter types using LINQ. In past posts I’ve talked about the Design By Contract (DBC) system I used to generate pre and post conditions for methods on a class. In the post I’ll use Queries, Extension Methods, and iterators to show you how to get types for inserting into the code generation system. Just to recap, here’s how I annotate a class:</p>
-<p>[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}</p>
+<p>[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}</p>
 <pre><code>[Dbc, Invariant(&quot;Prop1 &gt;= 1&quot;)]
 public class MyTestClass
 {
@@ -209,13 +211,13 @@ public class MyTestClass
 }
 </code></pre>
 <p>The class is annotated by a DbcAttribute plus some optional InvariantAttribute attributes. The members are optionally annotated with InvariantAttribute, RequiresAttribute and EnsuresAttribute. The code generator needs to create proxies for any classes that contain any of these attributes, but by convention I wrap only those classes that are adorned with the DbcAttribute to make life simpler. With queries we can do away with the DbcAttribute, but at the cost of having to do more itieration which will affect performance. This will be an issue if you are using the queries for dynamic proxy generation. If you perform static code generation it’s less of an issue. We first need a query to check whether a class has the DbcAttribute.</p>
-<p>[]{style=&ldquo;font-size:10pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:10pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:10pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:10pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:10pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:10pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:10pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:10pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:10pt;font-family:&lsquo;Courier New&rsquo;;&quot;}</p>
+<p>[]{style=&ldquo;font-size:10pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:10pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:10pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:10pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:10pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:10pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:10pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:10pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:10pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}</p>
 <pre><code>public static bool HasAttribute(this Type t, Type attrType)
 {
     return t.GetCustomAttributes(attrType, true).Count() &gt; 0;
 }
 </code></pre>
-<p>HasAttribute is an extension method that uses the Count() extension method from System.Query to get the number of elements in the collection returned. It just declares if there is more than one of them. Now we can perform a query to get all classes that have the attribute:[ ]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}</p>
+<p>HasAttribute is an extension method that uses the Count() extension method from System.Query to get the number of elements in the collection returned. It just declares if there is more than one of them. Now we can perform a query to get all classes that have the attribute:[ ]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}</p>
 <pre><code>private void Example1()
 {
     IEnumerable&lt;Type&gt; annotated =
@@ -227,7 +229,7 @@ public class MyTestClass
 }
 </code></pre>
 <p>This is now every class that needs to have code generated for it. Now we can enumerate the collection of members of the classes.</p>
-<p>[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}</p>
+<p>[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}</p>
 <pre><code>private static void Example2()
 {
     Type T = typeof(MyTestClass);
@@ -277,7 +279,7 @@ private static IEnumerable&lt;AttrType&gt; GetAllAttributes&lt;AttrType&gt;(Memb
 }
 </code></pre>
 <p>Now we have iterators for all classes that are adorned with a specific attribute, and likewise for all members of those classes. Each member can have specific attributes iterated as well. That’s nice, but we really need a clean interface to provide iterators over a class.</p>
-<p>[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}</p>
+<p>[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}</p>
 <pre><code>public static class DbcClassIterator
 {
     public static IEnumerable&lt;Type&gt; DbcTypes(this Assembly asm)
@@ -323,7 +325,7 @@ private static IEnumerable&lt;AttrType&gt; GetAllAttributes&lt;AttrType&gt;(Memb
     }
 }
 </code></pre>
-<p>This class makes heavy use of Extension methods to allow the comfortable treatment of framework classes for our reflection tasks. Now we can iterate over the collections in various ways.[ ]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&quot;}</p>
+<p>This class makes heavy use of Extension methods to allow the comfortable treatment of framework classes for our reflection tasks. Now we can iterate over the collections in various ways.[ ]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}[]{style=&ldquo;font-size:8pt;font-family:&lsquo;Courier New&rsquo;;&rdquo;}</p>
 <pre><code>private static void Example3()
 {
     Type t = typeof(MyTestClass);

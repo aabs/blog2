@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="Virtualization is a craze in the making. All the warning signs are there – you have to throw all your machines away, and replace them with several hundred thousand dollars worth of new ones. Effectively you have to ditch your distributed system and replace it with a distributed system simulated on a supercomputer. Wow. That&rsquo;s Cool!!! But is it a good idea?
 The first time I had the technology (and its capabilities) explained to me, I was captivated.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -35,7 +35,6 @@ The first time I had the technology (and its capabilities) explained to me, I wa
 The first time I had the technology (and its capabilities) explained to me, I was captivated." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2006/virtualization-%e2%80%93-good-or-bad/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Virtualization – Good or Bad?">
@@ -172,8 +171,11 @@ The first time I had the technology (and its capabilities) explained to me, I wa
 
       
       
+        <span class="f6 mv4 dib tracked"> - 3 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 516 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>Virtualization is a craze in the making. All the warning signs are there – you have to throw all your machines away, and replace them with several hundred thousand dollars worth of new ones. Effectively you have to ditch your distributed system and replace it with a distributed system simulated on a supercomputer. Wow. That&rsquo;s Cool!!! But is it a good idea?</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>Virtualization is a craze in the making. All the warning signs are there – you have to throw all your machines away, and replace them with several hundred thousand dollars worth of new ones. Effectively you have to ditch your distributed system and replace it with a distributed system simulated on a supercomputer. Wow. That&rsquo;s Cool!!! But is it a good idea?</p>
 <p>The first time I had the technology (and its capabilities) explained to me, I was captivated. But I&rsquo;ve spent the last few weeks thinking about what it means to me as a designer and developer of enterprise web applications and I&rsquo;m beginning to question the wisdom of virtualization as a technology.</p>
 <p>The latency of all inter-tier calls will shrink massively from milliseconds to microseconds. That will allow the server to render pages at a MUCH higher rate. Its threads are not waiting on calls to external services like RDBMSs. If that is the case – what effect does that have on the design of typical distributed systems? Can we dispense with the usual strictures against chatty interfaces? Can we avoid using cursors and other programmatic methods to avoid network usage?</p>
 <p>The beauty of virtualization is that it allows us to undo some of that overzealous use of remoting and web services that we all used a few years back, because it was the craze at the time. Physical deployment wasn&rsquo;t a benefit of n-tier design; it was just what people thought they ought to be doing to their n-tier designs – to allow scaling. The problem was that people never took the time to do stress and volume testing and capacity planning, so they didn&rsquo;t know where their time was being wasted – they just deployed across a web farm in case. The end result was that simple pages could take a large chunk of a second to render because of all this needless communication across the network.</p>

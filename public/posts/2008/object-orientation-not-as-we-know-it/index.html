@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="{width=&ldquo;274&rdquo; height=&ldquo;169&rdquo;}
 I thought I&rsquo;d start with a lyric:
- That one&rsquo;s my mother and That one&rsquo;s my father and The one in the hat, that&rsquo;s me.
- You could be forgiven for wondering what Ani Difranco has to do with this blog&rsquo;s usual themes, but rest assured, I won&rsquo;t stray too far. My theme today is the limitations of the object oriented paradigm that I alluded to in my post about mapping ontologies.">
-    <meta name="generator" content="Hugo 0.92.2" />
+That one&rsquo;s my mother and That one&rsquo;s my father and The one in the hat, that&rsquo;s me.
+You could be forgiven for wondering what Ani Difranco has to do with this blog&rsquo;s usual themes, but rest assured, I won&rsquo;t stray too far. My theme today is the limitations of the object oriented paradigm that I alluded to in my post about mapping ontologies.">
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -35,26 +35,25 @@ I thought I&rsquo;d start with a lyric:
     <meta property="og:title" content="Object Orientation? Not as we know it." />
 <meta property="og:description" content="{width=&ldquo;274&rdquo; height=&ldquo;169&rdquo;}
 I thought I&rsquo;d start with a lyric:
- That one&rsquo;s my mother and That one&rsquo;s my father and The one in the hat, that&rsquo;s me.
- You could be forgiven for wondering what Ani Difranco has to do with this blog&rsquo;s usual themes, but rest assured, I won&rsquo;t stray too far. My theme today is the limitations of the object oriented paradigm that I alluded to in my post about mapping ontologies." />
+That one&rsquo;s my mother and That one&rsquo;s my father and The one in the hat, that&rsquo;s me.
+You could be forgiven for wondering what Ani Difranco has to do with this blog&rsquo;s usual themes, but rest assured, I won&rsquo;t stray too far. My theme today is the limitations of the object oriented paradigm that I alluded to in my post about mapping ontologies." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2008/object-orientation-not-as-we-know-it/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Object Orientation? Not as we know it.">
 <meta itemprop="description" content="{width=&ldquo;274&rdquo; height=&ldquo;169&rdquo;}
 I thought I&rsquo;d start with a lyric:
- That one&rsquo;s my mother and That one&rsquo;s my father and The one in the hat, that&rsquo;s me.
- You could be forgiven for wondering what Ani Difranco has to do with this blog&rsquo;s usual themes, but rest assured, I won&rsquo;t stray too far. My theme today is the limitations of the object oriented paradigm that I alluded to in my post about mapping ontologies.">
+That one&rsquo;s my mother and That one&rsquo;s my father and The one in the hat, that&rsquo;s me.
+You could be forgiven for wondering what Ani Difranco has to do with this blog&rsquo;s usual themes, but rest assured, I won&rsquo;t stray too far. My theme today is the limitations of the object oriented paradigm that I alluded to in my post about mapping ontologies.">
 
 <meta itemprop="wordCount" content="1489">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Object Orientation? Not as we know it."/>
 <meta name="twitter:description" content="{width=&ldquo;274&rdquo; height=&ldquo;169&rdquo;}
 I thought I&rsquo;d start with a lyric:
- That one&rsquo;s my mother and That one&rsquo;s my father and The one in the hat, that&rsquo;s me.
- You could be forgiven for wondering what Ani Difranco has to do with this blog&rsquo;s usual themes, but rest assured, I won&rsquo;t stray too far. My theme today is the limitations of the object oriented paradigm that I alluded to in my post about mapping ontologies."/>
+That one&rsquo;s my mother and That one&rsquo;s my father and The one in the hat, that&rsquo;s me.
+You could be forgiven for wondering what Ani Difranco has to do with this blog&rsquo;s usual themes, but rest assured, I won&rsquo;t stray too far. My theme today is the limitations of the object oriented paradigm that I alluded to in my post about mapping ontologies."/>
 
 	
   </head>
@@ -180,8 +179,11 @@ I thought I&rsquo;d start with a lyric:
 
       
       
+        <span class="f6 mv4 dib tracked"> - 7 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 1489 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p><img src="http://www.usask.ca/education/coursework/skaalid/theory/gestalt/gestaltimages/horses2.jpg" alt="">{width=&ldquo;274&rdquo; height=&ldquo;169&rdquo;}</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p><img src="http://www.usask.ca/education/coursework/skaalid/theory/gestalt/gestaltimages/horses2.jpg" alt="">{width=&ldquo;274&rdquo; height=&ldquo;169&rdquo;}</p>
 <p>I thought I&rsquo;d start with a lyric:</p>
 <blockquote>
 <p>That one&rsquo;s my mother and
@@ -203,20 +205,20 @@ that one&rsquo;s my father</p>
 <p>This next line is a little more difficult to handle in a language like C#. What it does is identify an instance by virtue of its properties (wearing a hat). I could retrieve instances based on the value of properties using LINQ:</p>
 <blockquote>
 <p>[var q = (from entity in collection where entity.hat != null select entity).Single();
-]{style=&ldquo;font-family:Courier New;&quot;}</p>
+]{style=&ldquo;font-family:Courier New;&rdquo;}</p>
 </blockquote>
 <p>But, let&rsquo;s think about it for a moment. In this case it&rsquo;s OK to define an instance like that, since she is referring to a specific instance of type &ldquo;Person&rdquo; in the song. But what if she&rsquo;d been referring to a type of Person? The C# Type of the collection is defined elsewhere by a class (in the programming sense) specifying the properties that define the class (in the philosophical sense). What if I need to define the class of those entities that wear hats? We&rsquo;re getting into a kind of impedance mismatch between the world of object orientation and the world of philosophy.</p>
-<p>Set definitions in mathematics are infinitely more malleable than those of the object oriented world. A &lsquo;thing&rsquo; can exist in multiple classes at the same time. For example, the integer &lsquo;5&rsquo; is in the set &lsquo;Odd Numbers&rsquo; as well as the sets &lsquo;Prime Numbers&rsquo; and &lsquo;Numbers less than ten&rsquo;. Its identity is not dependent on the sets or classes to which it belongs. That is how class definitions work in the world of the semantic web, but not in the world of object orientation.</p>
+<p>Set definitions in mathematics are infinitely more malleable than those of the object oriented world. A &rsquo;thing&rsquo; can exist in multiple classes at the same time. For example, the integer &lsquo;5&rsquo; is in the set &lsquo;Odd Numbers&rsquo; as well as the sets &lsquo;Prime Numbers&rsquo; and &lsquo;Numbers less than ten&rsquo;. Its identity is not dependent on the sets or classes to which it belongs. That is how class definitions work in the world of the semantic web, but not in the world of object orientation.</p>
 <p>Back in the world of object orientation, I might derive a class from &ldquo;Person&rdquo; called &ldquo;PersonWearingHat&rdquo;, but I&rsquo;d quickly run into problems since a Person wears hats optionally – that is a person is not defined by the set membership of PersonWearingHat-ness. I could instead provide a property &ldquo;hat&rdquo; to be populated with a value or not. If not, then it would not be retrieved by our query above. So far, I&rsquo;ve managed to define a C# collection, but it is not a C# Type, and therefore cannot be used by the compiler or runtime for type checking and validation. Clearly, we need something either more dynamic or static and implicit but more sophisticated.</p>
 <p>From a philosophical or mathematical standpoint, there is little difference between a class and a set. We normally treat them as synonymous. We define each using a language describing what is in the class/set and what is not. That&rsquo;s not so different from how I define the collection of people wearing hats above. It&rsquo;s the richness of <em>THAT</em> class definition*
-*language which varies between OO and OWL. In OO, you can only define a class as something that can or must have a given set of properties. In OWL you can define a class in the same way, [<em><strong>or</strong></em>]{style=&ldquo;text-decoration:underline;&quot;} by saying that the class is those entities with such and such properties and with values for the properties defined in an expression. In fact you can use expressions to define classes using a special idiom that I&rsquo;ll demonstrate shortly.</p>
+*language which varies between OO and OWL. In OO, you can only define a class as something that can or must have a given set of properties. In OWL you can define a class in the same way, [<em><strong>or</strong></em>]{style=&ldquo;text-decoration:underline;&rdquo;} by saying that the class is those entities with such and such properties and with values for the properties defined in an expression. In fact you can use expressions to define classes using a special idiom that I&rsquo;ll demonstrate shortly.</p>
 <p>One requirement of the RDF framework is that it provides an open ended model for describing the things you know about an entity. By open ended, I mean limitless and unconstrained. If you define a C# class in terms of the properties that it has, then you effectively limit that class to have only those properties. Clearly that won&rsquo;t work for a system that wants to provide a distributed representation of knowledge about entities. But what does it mean to be a member of a class that is not defined in terms of attributes or methods?</p>
 <p>Being a class in RDF Schema simply means defining a triple of the form</p>
 <blockquote>
 <p>[&lt;instance&gt; rdf:type &lt;class URI&gt; .
-]{style=&ldquo;font-family:Courier New;&quot;}</p>
+]{style=&ldquo;font-family:Courier New;&rdquo;}</p>
 </blockquote>
-<p>Or defining it with predicate [owl:subClassOf]{style=&ldquo;font-family:Courier New;&quot;} with an object that is a class (again we find closure at work). In other words you are either a class because you are of type class or because you are derived from a thing that is of type class. That&rsquo;s a very simple way to represent classhood. You still define properties of a class in much the same way as in object oriented languages.</p>
+<p>Or defining it with predicate [owl:subClassOf]{style=&ldquo;font-family:Courier New;&rdquo;} with an object that is a class (again we find closure at work). In other words you are either a class because you are of type class or because you are derived from a thing that is of type class. That&rsquo;s a very simple way to represent classhood. You still define properties of a class in much the same way as in object oriented languages.</p>
 <p>OWL provides a restriction mechanism for complex type definitions using the contents of properties. Here&rsquo;s an example made using the <a href="http://www.w3.org/TeamSubmission/n3/">N3 format</a> of RDF.</p>
 <blockquote>
 <p>[ :V8Car
@@ -226,7 +228,7 @@ rdfs:subClassOf
 owl:onProperty :cylinders ;
 owl:hasValue 8
 ] .
-]{style=&ldquo;font-family:Courier New;&quot;}</p>
+]{style=&ldquo;font-family:Courier New;&rdquo;}</p>
 </blockquote>
 <p>I&rsquo;ve defined the class V8Car as anything of type Car that also has 8 cylinders. This is impossible in a mainstream record-oriented language. Once the type is assigned it cannot be unassigned. In this example an entity of type V6Car could have its engine replaced with one that had 8 cylinders and would immediately become an instance of the V8Car class while leaving class V6Car.</p>
 <p>That&rsquo;s just one example of class specifications that are not available to us in object-oriented languages. Remember <em>Figure and Ground</em> by MC Escher? Or Necker cubes? Your mind can flip flop between seeing the image in one way or the other. In OWL, you can define classes in that way too. To paraphrase the lyric at the top: <em>the one whose head is not bare, that&rsquo;s me.</em> Here&rsquo;s an example of using a negative class definition.</p>
@@ -236,7 +238,7 @@ rdfs:subClassOf :Place ;
 rdfs:subClassOf
 [ owl:ComplementOf
 [:isLocationOf :Me] ].
-]{style=&ldquo;font-family:Courier New;&quot;}</p>
+]{style=&ldquo;font-family:Courier New;&rdquo;}</p>
 </blockquote>
 <p>Elsewhere, for me, is anything where I am not. Class membership for everything else may change as I move around. Tell me of any programming language that can do that! There are plenty of other examples that I can bring forth from the OWL and RDF Schema specs, but I imagine you get the point now. Type membership is entirely static in the OO world, and it needn&rsquo;t be. The question is, how could you implement a programming language based on such protean class definitions? Obviously the old C record approach will not do. I&rsquo;ll save that for a future discussion, since it&rsquo;s getting late.</p>
 <ul class="pa0">

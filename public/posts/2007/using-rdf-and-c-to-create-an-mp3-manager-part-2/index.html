@@ -7,7 +7,7 @@
     <title>Using RDF and C# to create an MP3 Manager - Part 2 | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="I&rsquo;ve been off the air for a week or two - I&rsquo;ve been hard at work on the final stages of a project at work that will go live next week. I&rsquo;ve been on this project for almost 6 months now, and next week I&rsquo;ll get a well earned rest. What that means is I get to do some dedicated Professional Development (PD) time which I have opted to devote to Semantic Web technologies.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="I&rsquo;ve been off the air for a week or two - I&rsquo;ve been hard at work on the final stages of a project at work that will go live next week. I&rsquo;ve been on this project for almost 6 months now, and next week I&rsquo;ll get a well earned rest. What that means is I get to do some dedicated Professional Development (PD) time which I have opted to devote to Semantic Web technologies." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2007/using-rdf-and-c-to-create-an-mp3-manager-part-2/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Using RDF and C# to create an MP3 Manager - Part 2">
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 5 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 941 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>I&rsquo;ve been off the air for a week or two - I&rsquo;ve been hard at work on the final stages of a project at work that will go live next week. I&rsquo;ve been on this project for almost 6 months now, and next week I&rsquo;ll get a well earned rest. What that means is I get to do some dedicated Professional Development (PD) time which I have opted to devote to Semantic Web technologies. That was a hard sell to the folks at Readify, what with Silverlight and .NET 3 there to be worked on. I think I persuaded them that consultancies without SW skills will be at a disadvantage in years to come.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>I&rsquo;ve been off the air for a week or two - I&rsquo;ve been hard at work on the final stages of a project at work that will go live next week. I&rsquo;ve been on this project for almost 6 months now, and next week I&rsquo;ll get a well earned rest. What that means is I get to do some dedicated Professional Development (PD) time which I have opted to devote to Semantic Web technologies. That was a hard sell to the folks at Readify, what with Silverlight and .NET 3 there to be worked on. I think I persuaded them that consultancies without SW skills will be at a disadvantage in years to come.</p>
 <p>Anyway, enough of that - onto the subject of the post, which is the next stage of my mini-series about using semantic web technologies in the production of a little MP3 file manager.</p>
 <p>At the end of the last post we had a simple mechanism for serialising objects into a triple store, with a set of services for extracting relevant information out of an object, and to tie it to predicates defined in on ontology. In this post I will show you the other end of the process. We need to be able to query against the triple store and get a collection of objects back.</p>
 <p>The query I&rsquo;ll show you is very simple, since the main task for this post is object deserialisation, once we can shuttle objects in and out of the triple store then we can focus on beefing up the query process.</p>

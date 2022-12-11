@@ -7,7 +7,7 @@
     <title>A Generic Class Factory for C# 3.0 | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="For years I&rsquo;ve been using a design pattern I picked up back in my Java days to help me make legacy classes more testable with Mock objects. I&rsquo;ve always had a few doubts about it, but it&rsquo;s been useful so many times that I&rsquo;ve never bothered to change it. I always keep a handy code snippet for it on my dev machines and I can knock them out in seconds. I don&rsquo;t like it because I have to create a new class factory for every type that I want to control.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="For years I&rsquo;ve been using a design pattern I picked up back in my Java days to help me make legacy classes more testable with Mock objects. I&rsquo;ve always had a few doubts about it, but it&rsquo;s been useful so many times that I&rsquo;ve never bothered to change it. I always keep a handy code snippet for it on my dev machines and I can knock them out in seconds. I don&rsquo;t like it because I have to create a new class factory for every type that I want to control." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2007/a-generic-class-factory-for-c-30/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="A Generic Class Factory for C# 3.0">
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 5 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 865 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>For years I&rsquo;ve been using a design pattern I picked up back in my Java days to help me make legacy classes more testable with Mock objects. I&rsquo;ve always had a few doubts about it, but it&rsquo;s been useful so many times that I&rsquo;ve never bothered to change it. I always keep a handy code snippet for it on my dev machines and I can knock them out in seconds. I don&rsquo;t like it because I have to create a new class factory for every type that I want to control. This evening I decided it was about time that I brought it up to date with C# 3.0 and .NET 3.5.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>For years I&rsquo;ve been using a design pattern I picked up back in my Java days to help me make legacy classes more testable with Mock objects. I&rsquo;ve always had a few doubts about it, but it&rsquo;s been useful so many times that I&rsquo;ve never bothered to change it. I always keep a handy code snippet for it on my dev machines and I can knock them out in seconds. I don&rsquo;t like it because I have to create a new class factory for every type that I want to control. This evening I decided it was about time that I brought it up to date with C# 3.0 and .NET 3.5.</p>
 <p>My old system looked like this:</p>
 <pre><code>public class MyClassClassFactory
 {

@@ -9,7 +9,7 @@
     <meta name="description" content="Attachments: 2007/01/ndfa.pdf
 Download the source: Example 1.
 Sad to say, but my holidays are over, and I’m back to work. I tried pretty hard to keep my hands away from the laptop while I was off, but I got itchy fingers towards the end so I had a stab at implementing a non-deterministic finite automaton (NDFA). I implemented it to give me an excuse to play with the C5 collections library.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -39,13 +39,12 @@ Sad to say, but my holidays are over, and I’m back to work. I tried pretty har
 <meta property="og:url" content="http://45.89.107.9/posts/2007/342/" /><meta property="article:section" content="posts" />
 
 
-
 <meta itemprop="name" content="Nondeterministic Finite Automaton (NDFA) in C#">
 <meta itemprop="description" content="Attachments: 2007/01/ndfa.pdf
 Download the source: Example 1.
 Sad to say, but my holidays are over, and I’m back to work. I tried pretty hard to keep my hands away from the laptop while I was off, but I got itchy fingers towards the end so I had a stab at implementing a non-deterministic finite automaton (NDFA). I implemented it to give me an excuse to play with the C5 collections library.">
 
-<meta itemprop="wordCount" content="651">
+<meta itemprop="wordCount" content="652">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Nondeterministic Finite Automaton (NDFA) in C#"/>
 <meta name="twitter:description" content="Attachments: 2007/01/ndfa.pdf
@@ -176,8 +175,11 @@ Sad to say, but my holidays are over, and I’m back to work. I tried pretty har
 
       
       
+        <span class="f6 mv4 dib tracked"> - 4 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 652 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>Attachments: 2007/01/ndfa.pdf</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>Attachments: 2007/01/ndfa.pdf</p>
 <p>Download the source: <a href="%7Bstatic%7D2007/01/ndfa.pdf">Example 1.</a></p>
 <p>Sad to say, but my holidays are over, and I’m back to work. I tried pretty hard to keep my hands away from the laptop while I was off, but I got itchy fingers towards the end so I had a stab at implementing a non-deterministic finite automaton (NDFA). I implemented it to give me an excuse to play with the <a href="http://www.itu.dk/research/c5/">C5 collections library</a>. As it turned out the class was relatively easy to implement as a deterministic finite automaton (DFA) but required a bit more finesse to extend it to the general case of the NDFA. Anyhow I got it working OK. Here&rsquo;s how you might use it:</p>
 <p>::: {.csharpcode}</p>
@@ -316,7 +318,7 @@ The Rec&lt;A,B&gt; class is a record class (tuple) that is defined in C5 for ass
 18:  }
 :::</p>
 <p>Example 3. A comparer to allow QState to be used with the C5 TreeSet, HashBag and HashDictionary collections.</p>
-<p>In example 1, line 14, I use an anonymous delegate to create a <em>&lsquo;transition function&rsquo;</em>. Sorry to use contradictory terminology - transition function is a term used to describe the function that is used to find the next state to be transitioned to. In my case though I have augmented the NDFA to allow a delegate to be invoked as each transition is made. This allows the NDFA to do useful work as it goes. In the case of the function on line 14, it just says what happened to cause the transition, without doing anything.</p>
+<p>In example 1, line 14, I use an anonymous delegate to create a <em>&rsquo;transition function&rsquo;</em>. Sorry to use contradictory terminology - transition function is a term used to describe the function that is used to find the next state to be transitioned to. In my case though I have augmented the NDFA to allow a delegate to be invoked as each transition is made. This allows the NDFA to do useful work as it goes. In the case of the function on line 14, it just says what happened to cause the transition, without doing anything.</p>
 <ul class="pa0">
   
 </ul>

@@ -7,8 +7,8 @@
     <title>Continue if not null operator? Yes please! | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="Olmo made a very worthwhile suggestion on the LINQ forums recently. His suggestion was for a new operator to be added to the C# language to allow us to do away with the following kind of pesky construct:
- [sourcecode language=&#39;csharp&#39;]string x; if(a != null &amp;amp;&amp;amp; a.Address != null &amp;amp;&amp;amp; a.Address.FirstLine != null) x = a.Address.FirstLine;[/sourcecode]  instead he suggested a new ?. operator so that we could produce something like this:">
-    <meta name="generator" content="Hugo 0.92.2" />
+[sourcecode language=&#39;csharp&#39;]string x; if(a != null &amp;amp;&amp;amp; a.Address != null &amp;amp;&amp;amp; a.Address.FirstLine != null) x = a.Address.FirstLine;[/sourcecode] instead he suggested a new ?. operator so that we could produce something like this:">
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -32,21 +32,20 @@
     
     <meta property="og:title" content="Continue if not null operator? Yes please!" />
 <meta property="og:description" content="Olmo made a very worthwhile suggestion on the LINQ forums recently. His suggestion was for a new operator to be added to the C# language to allow us to do away with the following kind of pesky construct:
- [sourcecode language=&#39;csharp&#39;]string x; if(a != null &amp;amp;&amp;amp; a.Address != null &amp;amp;&amp;amp; a.Address.FirstLine != null) x = a.Address.FirstLine;[/sourcecode]  instead he suggested a new ?. operator so that we could produce something like this:" />
+[sourcecode language=&#39;csharp&#39;]string x; if(a != null &amp;amp;&amp;amp; a.Address != null &amp;amp;&amp;amp; a.Address.FirstLine != null) x = a.Address.FirstLine;[/sourcecode] instead he suggested a new ?. operator so that we could produce something like this:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2007/continue-if-not-null-operator-yes-please/" /><meta property="article:section" content="posts" />
 
 
-
 <meta itemprop="name" content="Continue if not null operator? Yes please!">
 <meta itemprop="description" content="Olmo made a very worthwhile suggestion on the LINQ forums recently. His suggestion was for a new operator to be added to the C# language to allow us to do away with the following kind of pesky construct:
- [sourcecode language=&#39;csharp&#39;]string x; if(a != null &amp;amp;&amp;amp; a.Address != null &amp;amp;&amp;amp; a.Address.FirstLine != null) x = a.Address.FirstLine;[/sourcecode]  instead he suggested a new ?. operator so that we could produce something like this:">
+[sourcecode language=&#39;csharp&#39;]string x; if(a != null &amp;amp;&amp;amp; a.Address != null &amp;amp;&amp;amp; a.Address.FirstLine != null) x = a.Address.FirstLine;[/sourcecode] instead he suggested a new ?. operator so that we could produce something like this:">
 
 <meta itemprop="wordCount" content="138">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Continue if not null operator? Yes please!"/>
 <meta name="twitter:description" content="Olmo made a very worthwhile suggestion on the LINQ forums recently. His suggestion was for a new operator to be added to the C# language to allow us to do away with the following kind of pesky construct:
- [sourcecode language=&#39;csharp&#39;]string x; if(a != null &amp;amp;&amp;amp; a.Address != null &amp;amp;&amp;amp; a.Address.FirstLine != null) x = a.Address.FirstLine;[/sourcecode]  instead he suggested a new ?. operator so that we could produce something like this:"/>
+[sourcecode language=&#39;csharp&#39;]string x; if(a != null &amp;amp;&amp;amp; a.Address != null &amp;amp;&amp;amp; a.Address.FirstLine != null) x = a.Address.FirstLine;[/sourcecode] instead he suggested a new ?. operator so that we could produce something like this:"/>
 
 	
   </head>
@@ -172,8 +171,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - One minute read </span>
+        <span class="f6 mv4 dib tracked"> - 138 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p><a href="http://forums.microsoft.com/MSDN/User/Profile.aspx?UserID=695544&amp;SiteID=1">Olmo</a> made a very worthwhile <a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2033762&amp;SiteID=1">suggestion</a> on the LINQ forums recently. His suggestion was for a new operator to be added to the C# language to allow us to do away with the following kind of pesky construct:</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p><a href="http://forums.microsoft.com/MSDN/User/Profile.aspx?UserID=695544&amp;SiteID=1">Olmo</a> made a very worthwhile <a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2033762&amp;SiteID=1">suggestion</a> on the LINQ forums recently. His suggestion was for a new operator to be added to the C# language to allow us to do away with the following kind of pesky construct:</p>
 <pre><code> [sourcecode language='csharp']string x;
 if(a != null &amp;amp;&amp;amp; a.Address != null &amp;amp;&amp;amp; a.Address.FirstLine != null)
     x = a.Address.FirstLine;[/sourcecode]

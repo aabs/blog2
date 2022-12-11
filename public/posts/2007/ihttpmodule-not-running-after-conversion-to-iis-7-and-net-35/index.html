@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="I recently ran into this problem with one of our clients. It&rsquo;s the sort of thing that I take ages to track down a solution to, and then once I have solved it, I immediately forget what the solution is. So I&rsquo;m putting it here as an aid memoire.
 The client had a module that they were using to create a custom Principal object derived from a FormsPrincipal. I found that after I had converted the project to work with VS.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -35,7 +35,6 @@ The client had a module that they were using to create a custom Principal object
 The client had a module that they were using to create a custom Principal object derived from a FormsPrincipal. I found that after I had converted the project to work with VS." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2007/ihttpmodule-not-running-after-conversion-to-iis-7-and-net-35/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="IHttpModule not running after conversion to IIS 7 and .NET 3.5">
@@ -172,8 +171,11 @@ The client had a module that they were using to create a custom Principal object
 
       
       
+        <span class="f6 mv4 dib tracked"> - 2 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 367 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>I recently ran into this problem with one of our clients. It&rsquo;s the sort of thing that I take ages to track down a solution to, and then once I have solved it, I immediately forget what the solution is. So I&rsquo;m putting it here as an aid memoire.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>I recently ran into this problem with one of our clients. It&rsquo;s the sort of thing that I take ages to track down a solution to, and then once I have solved it, I immediately forget what the solution is. So I&rsquo;m putting it here as an aid memoire.</p>
 <p>The client had a module that they were using to create a custom Principal object derived from a FormsPrincipal. I found that after I had converted the project to work with VS.NET 2008 beta 2, it stopped working, giving me a GenericPrincipal instead. I had converted the client&rsquo;s project to .NET 3.5 from .NET 2.0 and I was also using IIS 7 where they were using IIS 6 in production and IIS 5 for dev. There were a few variables that made it not very straightforward to solve, not least of which is that nothing is easy to find in IIS 7 (when you&rsquo;re so used to IIS 6).</p>
 <p>First step: find the blasted thing that shows you what managed modules you&rsquo;ve got.</p>
 <p><a href="%7Bstatic%7D2007/11/image.png"><img src="%7Bstatic%7D2007/11/image-thumb.png" alt="image">{width=&ldquo;239&rdquo; height=&ldquo;355&rdquo;}</a></p>

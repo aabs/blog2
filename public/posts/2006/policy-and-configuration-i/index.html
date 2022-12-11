@@ -7,7 +7,7 @@
     <title>Policy and Configuration I | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="A couple of posts ago, I said I&rsquo;d explore the issues of code generation, DBC and ORM. The first thing I wanted to do is address the issue of &lsquo;policy vs configuration&rsquo;. Every project has to address this issue in some way, most systems are developed on a platform that varies from its deployment environment. Most software must be tailored to behave differently on different platforms. Typically, a developer environment is different from a production environment, with some resources replaced by mock objects or stubs.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="A couple of posts ago, I said I&rsquo;d explore the issues of code generation, DBC and ORM. The first thing I wanted to do is address the issue of &lsquo;policy vs configuration&rsquo;. Every project has to address this issue in some way, most systems are developed on a platform that varies from its deployment environment. Most software must be tailored to behave differently on different platforms. Typically, a developer environment is different from a production environment, with some resources replaced by mock objects or stubs." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2006/policy-and-configuration-i/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Policy and Configuration I">
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 9 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 1762 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>A couple of posts ago, I said I&rsquo;d explore the issues of code generation, DBC and ORM. The first thing I wanted to do is address the issue of &lsquo;<em>policy vs configuration</em>&rsquo;. Every project has to address this issue in some way, most systems are developed on a platform that varies from its deployment environment. Most software must be tailored to behave differently on different platforms. Typically, a developer environment is different from a production environment, with some resources replaced by mock objects or stubs. The differences have to be communicated to the software and that&rsquo;s where configuration comes in.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>A couple of posts ago, I said I&rsquo;d explore the issues of code generation, DBC and ORM. The first thing I wanted to do is address the issue of &lsquo;<em>policy vs configuration</em>&rsquo;. Every project has to address this issue in some way, most systems are developed on a platform that varies from its deployment environment. Most software must be tailored to behave differently on different platforms. Typically, a developer environment is different from a production environment, with some resources replaced by mock objects or stubs. The differences have to be communicated to the software and that&rsquo;s where configuration comes in.</p>
 <p>I&rsquo;ve seen the following strategies employed in the past:</p>
 <ul>
 <li>Configuration file stored in a well-known location that is loaded at system start-up.</li>

@@ -7,7 +7,7 @@
     <title>The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="All the amusing things">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -38,7 +38,6 @@
 <meta property="og:description" content="All the amusing things" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://45.89.107.9/posts/" />
-
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="All the amusing things"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -130,8 +129,25 @@
     <main class="pb7" role="main">
       
   <article class="pa3 pa4-ns nested-copy-line-height">
-    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy #000000"></section>
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy fg_black"></section>
     <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/2005/truly-abstracting-a-persistence-mechanism-2/" class="link black dim">
+        Truly abstracting a persistence mechanism
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      The initial design that I used when I made the ancestor of norm was based upon designs by Scott Ambler - The initial intent of Ambler&rsquo;s designs was definitely to provide an abstraction around the logic of a relational database. What I want to do with norm is to abstract the very notion of a data structure. When we persist an object into a row on a RDB it is almost irrelevant that the data is persistent.
+    </div>
+  </div>
+</div>
+
+        </div>
       
         <div class="relative w-100 w-30-l mb4 bg-white">
           <div class="relative w-100 mb4 bg-white nested-copy-line-height">
@@ -198,23 +214,6 @@ Alec wrote the other day that, due to driver problems, he was thinking that he m
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       C# in Orcas will provide a bunch of really useful tools for those who want to perform tasks involving reflection. The reflection APIs in C# are already excellent but with the new query capabilities provided by LINQ, Reflection will be a real pleasure. There’ve been a few excellent posts on the topic.
 In this post I’ll show you how to use the attribute metadata system to filter types using LINQ. In past posts I’ve talked about the Design By Contract (DBC) system I used to generate pre and post conditions for methods on a class.
-    </div>
-  </div>
-</div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/posts/2007/using-mock-objects-when-testing-linq-code/" class="link black dim">
-        Using Mock Objects When Testing LINQ Code
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      I was wondering the other day whether LINQ could be used with NMock easily. One problem with testing code that has not been written to work with unit tests is that if you test business logic, you often end up making multiple round-trips to the database for each test run. With a very large test suite that can turn a few minute&rsquo;s work into hours for a test suite. the best approach to this is to use mock data access components to dispense canned results, rather than going all the way through to the database.
     </div>
   </div>
 </div>

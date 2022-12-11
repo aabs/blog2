@@ -7,8 +7,8 @@
     <title>Can AOP help fix bad architectures? | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="I recently posted a question on Stack Overflow on the feasibility of using IL rewriting frameworks to rectify bad design after the fact. The confines of the answer comment area were too small to give the subject proper treatment so I though a new blog post was in order. Here&rsquo;s the original question:
- I&rsquo;ve recently been playing around with PostSharp, and it brought to mind a problem I faced a few years back: A client&rsquo;s developer had produced a web application, but they had not given a lot of thought to how they managed state information - storing it (don&rsquo;t ask me why) statically on the Application instance in IIS.">
-    <meta name="generator" content="Hugo 0.92.2" />
+I&rsquo;ve recently been playing around with PostSharp, and it brought to mind a problem I faced a few years back: A client&rsquo;s developer had produced a web application, but they had not given a lot of thought to how they managed state information - storing it (don&rsquo;t ask me why) statically on the Application instance in IIS.">
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -32,21 +32,20 @@
     
     <meta property="og:title" content="Can AOP help fix bad architectures?" />
 <meta property="og:description" content="I recently posted a question on Stack Overflow on the feasibility of using IL rewriting frameworks to rectify bad design after the fact. The confines of the answer comment area were too small to give the subject proper treatment so I though a new blog post was in order. Here&rsquo;s the original question:
- I&rsquo;ve recently been playing around with PostSharp, and it brought to mind a problem I faced a few years back: A client&rsquo;s developer had produced a web application, but they had not given a lot of thought to how they managed state information - storing it (don&rsquo;t ask me why) statically on the Application instance in IIS." />
+I&rsquo;ve recently been playing around with PostSharp, and it brought to mind a problem I faced a few years back: A client&rsquo;s developer had produced a web application, but they had not given a lot of thought to how they managed state information - storing it (don&rsquo;t ask me why) statically on the Application instance in IIS." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2009/can-aop-help-fix-bad-architectures/" /><meta property="article:section" content="posts" />
 
 
-
 <meta itemprop="name" content="Can AOP help fix bad architectures?">
 <meta itemprop="description" content="I recently posted a question on Stack Overflow on the feasibility of using IL rewriting frameworks to rectify bad design after the fact. The confines of the answer comment area were too small to give the subject proper treatment so I though a new blog post was in order. Here&rsquo;s the original question:
- I&rsquo;ve recently been playing around with PostSharp, and it brought to mind a problem I faced a few years back: A client&rsquo;s developer had produced a web application, but they had not given a lot of thought to how they managed state information - storing it (don&rsquo;t ask me why) statically on the Application instance in IIS.">
+I&rsquo;ve recently been playing around with PostSharp, and it brought to mind a problem I faced a few years back: A client&rsquo;s developer had produced a web application, but they had not given a lot of thought to how they managed state information - storing it (don&rsquo;t ask me why) statically on the Application instance in IIS.">
 
 <meta itemprop="wordCount" content="1327">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Can AOP help fix bad architectures?"/>
 <meta name="twitter:description" content="I recently posted a question on Stack Overflow on the feasibility of using IL rewriting frameworks to rectify bad design after the fact. The confines of the answer comment area were too small to give the subject proper treatment so I though a new blog post was in order. Here&rsquo;s the original question:
- I&rsquo;ve recently been playing around with PostSharp, and it brought to mind a problem I faced a few years back: A client&rsquo;s developer had produced a web application, but they had not given a lot of thought to how they managed state information - storing it (don&rsquo;t ask me why) statically on the Application instance in IIS."/>
+I&rsquo;ve recently been playing around with PostSharp, and it brought to mind a problem I faced a few years back: A client&rsquo;s developer had produced a web application, but they had not given a lot of thought to how they managed state information - storing it (don&rsquo;t ask me why) statically on the Application instance in IIS."/>
 
 	
   </head>
@@ -172,8 +171,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 7 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 1327 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>I recently posted a <a href="http://stackoverflow.com/questions/1541697/refactoring-nasty-legacy-systems-via-aop-or-other-automated-means">question</a> on Stack Overflow on the feasibility of using IL rewriting frameworks to rectify bad design after the fact. The confines of the answer comment area were too small to give the subject proper treatment so I though a new blog post was in order. Here&rsquo;s the original question:</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>I recently posted a <a href="http://stackoverflow.com/questions/1541697/refactoring-nasty-legacy-systems-via-aop-or-other-automated-means">question</a> on Stack Overflow on the feasibility of using IL rewriting frameworks to rectify bad design after the fact. The confines of the answer comment area were too small to give the subject proper treatment so I though a new blog post was in order. Here&rsquo;s the original question:</p>
 <blockquote>
 <p>I&rsquo;ve recently been playing around with PostSharp, and it brought to mind a problem I faced a few years back: A client&rsquo;s developer had produced a web application, but they had not given a lot of thought to how they managed state information - storing it (don&rsquo;t ask me why) <em>statically</em> on the <a href="http://msdn.microsoft.com/en-us/library/system.web.httpapplicationstate.aspx">Application</a> instance in IIS. Needless to say the system didn&rsquo;t scale and was deeply flawed and unstable. But it was a big and very complex system and thus the cost of redeveloping it was prohibitive. My brief at the time was to try to refactor the code-base to impose proper decoupling between the components.</p>
 <p>At the time I tried to using some kind of abstraction mechanism to allow me to intercept all calls to the static resource and redirect them to a component that would properly manage the state data. The problem was there was about 1000 complex references to be redirected (and I didn&rsquo;t have a lot of time to do it in). Manual coding (even with R#) proved to be just too time consuming - we scrapped the code base and rewrote it properly. it took over a year to rewrite.</p>
@@ -198,9 +200,9 @@
 <p>Imagine, that we could do it with a mechanism like PostSharp&rsquo;s multicast delegates:</p>
 <pre tabindex="0"><code>[assembly: DecoupledAndSerialized(
     AspectPriority = -1,
-    AttributeTargetAssemblies = &quot;MyMainAssembly&quot;,
-    AttributeTargetTypes = &quot;MainAssembly.MyStateData&quot;,
-    AttributeTargetMembers = &quot;*&quot;)]
+    AttributeTargetAssemblies = &#34;MyMainAssembly&#34;,
+    AttributeTargetTypes = &#34;MainAssembly.MyStateData&#34;,
+    AttributeTargetMembers = &#34;*&#34;)]
 </code></pre><p><a href="http://11011.net/software/vspaste"></a></p>
 <p>What would this thing have to do to be able to untie the knots that people get themselves into?</p>
 <ol>

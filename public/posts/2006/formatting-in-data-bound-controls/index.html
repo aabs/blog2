@@ -6,8 +6,8 @@
     
     <title>Formatting in Data Bound Controls | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="I recently ran across a problem with data bound controls in ASP.NET, where I set the string formatting specification (by the book) and nothing happened. If you come across this problem you are probably missing the HtmlEncode attribute on your column specification. Without this the braces are probably encoded and thus the formatting string is unrecognisable to the control. Consider adding the []{style=&ldquo;font-size:10px;font-family:Courier New;&quot;}[HtmlEncode]{style=&ldquo;color:red;&quot;}[=&ldquo;false&rdquo; ]{style=&ldquo;color:blue;&quot;}to your binding specifications - it worked for me.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="description" content="I recently ran across a problem with data bound controls in ASP.NET, where I set the string formatting specification (by the book) and nothing happened. If you come across this problem you are probably missing the HtmlEncode attribute on your column specification. Without this the braces are probably encoded and thus the formatting string is unrecognisable to the control. Consider adding the []{style=&ldquo;font-size:10px;font-family:Courier New;&rdquo;}[HtmlEncode]{style=&ldquo;color:red;&rdquo;}[=&ldquo;false&rdquo; ]{style=&ldquo;color:blue;&quot;}to your binding specifications - it worked for me.">
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -30,19 +30,18 @@
     
     
     <meta property="og:title" content="Formatting in Data Bound Controls" />
-<meta property="og:description" content="I recently ran across a problem with data bound controls in ASP.NET, where I set the string formatting specification (by the book) and nothing happened. If you come across this problem you are probably missing the HtmlEncode attribute on your column specification. Without this the braces are probably encoded and thus the formatting string is unrecognisable to the control. Consider adding the []{style=&ldquo;font-size:10px;font-family:Courier New;&quot;}[HtmlEncode]{style=&ldquo;color:red;&quot;}[=&ldquo;false&rdquo; ]{style=&ldquo;color:blue;&quot;}to your binding specifications - it worked for me." />
+<meta property="og:description" content="I recently ran across a problem with data bound controls in ASP.NET, where I set the string formatting specification (by the book) and nothing happened. If you come across this problem you are probably missing the HtmlEncode attribute on your column specification. Without this the braces are probably encoded and thus the formatting string is unrecognisable to the control. Consider adding the []{style=&ldquo;font-size:10px;font-family:Courier New;&rdquo;}[HtmlEncode]{style=&ldquo;color:red;&rdquo;}[=&ldquo;false&rdquo; ]{style=&ldquo;color:blue;&quot;}to your binding specifications - it worked for me." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2006/formatting-in-data-bound-controls/" /><meta property="article:section" content="posts" />
 
 
-
 <meta itemprop="name" content="Formatting in Data Bound Controls">
-<meta itemprop="description" content="I recently ran across a problem with data bound controls in ASP.NET, where I set the string formatting specification (by the book) and nothing happened. If you come across this problem you are probably missing the HtmlEncode attribute on your column specification. Without this the braces are probably encoded and thus the formatting string is unrecognisable to the control. Consider adding the []{style=&ldquo;font-size:10px;font-family:Courier New;&quot;}[HtmlEncode]{style=&ldquo;color:red;&quot;}[=&ldquo;false&rdquo; ]{style=&ldquo;color:blue;&quot;}to your binding specifications - it worked for me.">
+<meta itemprop="description" content="I recently ran across a problem with data bound controls in ASP.NET, where I set the string formatting specification (by the book) and nothing happened. If you come across this problem you are probably missing the HtmlEncode attribute on your column specification. Without this the braces are probably encoded and thus the formatting string is unrecognisable to the control. Consider adding the []{style=&ldquo;font-size:10px;font-family:Courier New;&rdquo;}[HtmlEncode]{style=&ldquo;color:red;&rdquo;}[=&ldquo;false&rdquo; ]{style=&ldquo;color:blue;&quot;}to your binding specifications - it worked for me.">
 
 <meta itemprop="wordCount" content="73">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Formatting in Data Bound Controls"/>
-<meta name="twitter:description" content="I recently ran across a problem with data bound controls in ASP.NET, where I set the string formatting specification (by the book) and nothing happened. If you come across this problem you are probably missing the HtmlEncode attribute on your column specification. Without this the braces are probably encoded and thus the formatting string is unrecognisable to the control. Consider adding the []{style=&ldquo;font-size:10px;font-family:Courier New;&quot;}[HtmlEncode]{style=&ldquo;color:red;&quot;}[=&ldquo;false&rdquo; ]{style=&ldquo;color:blue;&quot;}to your binding specifications - it worked for me."/>
+<meta name="twitter:description" content="I recently ran across a problem with data bound controls in ASP.NET, where I set the string formatting specification (by the book) and nothing happened. If you come across this problem you are probably missing the HtmlEncode attribute on your column specification. Without this the braces are probably encoded and thus the formatting string is unrecognisable to the control. Consider adding the []{style=&ldquo;font-size:10px;font-family:Courier New;&rdquo;}[HtmlEncode]{style=&ldquo;color:red;&rdquo;}[=&ldquo;false&rdquo; ]{style=&ldquo;color:blue;&quot;}to your binding specifications - it worked for me."/>
 
 	
   </head>
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - One minute read </span>
+        <span class="f6 mv4 dib tracked"> - 73 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>I recently ran across a problem with data bound controls in ASP.NET, where I set the string formatting specification (by the book) and nothing happened. If you come across this problem you are probably missing the HtmlEncode attribute on your column specification. Without this the braces are probably encoded and thus the formatting string is unrecognisable to the control. Consider adding the []{style=&ldquo;font-size:10px;font-family:Courier New;&quot;}[HtmlEncode]{style=&ldquo;color:red;&quot;}[=&ldquo;false&rdquo; ]{style=&ldquo;color:blue;&quot;}to your binding specifications - it worked for me.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>I recently ran across a problem with data bound controls in ASP.NET, where I set the string formatting specification (by the book) and nothing happened. If you come across this problem you are probably missing the HtmlEncode attribute on your column specification. Without this the braces are probably encoded and thus the formatting string is unrecognisable to the control. Consider adding the []{style=&ldquo;font-size:10px;font-family:Courier New;&rdquo;}[HtmlEncode]{style=&ldquo;color:red;&rdquo;}[=&ldquo;false&rdquo; ]{style=&ldquo;color:blue;&quot;}to your binding specifications - it worked for me.</p>
 <ul class="pa0">
   
 </ul>

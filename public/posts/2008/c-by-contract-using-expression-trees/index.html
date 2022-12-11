@@ -7,7 +7,7 @@
     <title>C# by Contract - Using Expression Trees | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="Last time I created a simple, but powerful, little design by contract library in C# 3.0. It took hardly any lines of code, and covered a broad range of possible usage scenarios. See here, for more on DBC. One thing that bothered me was the fact that if something failed a check, it wouldn&rsquo;t tell what went wrong. I had a little free time today, so I thought I&rsquo;d fix that.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="Last time I created a simple, but powerful, little design by contract library in C# 3.0. It took hardly any lines of code, and covered a broad range of possible usage scenarios. See here, for more on DBC. One thing that bothered me was the fact that if something failed a check, it wouldn&rsquo;t tell what went wrong. I had a little free time today, so I thought I&rsquo;d fix that." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2008/c-by-contract-using-expression-trees/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="C# by Contract - Using Expression Trees">
@@ -168,16 +167,19 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 5 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 855 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p><a href="http://aabs.wordpress.com/2008/01/16/complex-assertions-using-c-30/">Last time</a> I created a simple, but powerful, little <a href="http://en.wikipedia.org/wiki/Design_by_contract">design by contract</a> library in C# 3.0. It took hardly any lines of code, and covered a broad range of possible usage scenarios. See <a href="http://archive.eiffel.com/doc/manuals/technology/contract/">here</a>, for more on DBC. One thing that bothered me was the fact that if something failed a check, it wouldn&rsquo;t tell what went wrong. I had a little free time today, so I thought I&rsquo;d fix that. I wanted the exceptions it threw to have the text of the check we were performing. Developers need to see exactly what test failed. Generic &ldquo;<em>assertion failed</em>&rdquo; error messages are useless.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p><a href="http://aabs.wordpress.com/2008/01/16/complex-assertions-using-c-30/">Last time</a> I created a simple, but powerful, little <a href="http://en.wikipedia.org/wiki/Design_by_contract">design by contract</a> library in C# 3.0. It took hardly any lines of code, and covered a broad range of possible usage scenarios. See <a href="http://archive.eiffel.com/doc/manuals/technology/contract/">here</a>, for more on DBC. One thing that bothered me was the fact that if something failed a check, it wouldn&rsquo;t tell what went wrong. I had a little free time today, so I thought I&rsquo;d fix that. I wanted the exceptions it threw to have the text of the check we were performing. Developers need to see exactly what test failed. Generic &ldquo;<em>assertion failed</em>&rdquo; error messages are useless.</p>
 <p>In my previous <a href="http://aabs.wordpress.com/2005/08/04/dbc-in-use-3/">efforts</a> at .NET DBC, I used strings to pass around the predicate body that I wished to evaluate. That allowed me to have a copy of the text handy, but with lots of drawbacks. In those frameworks, I created a new class that derived from the one being tested, but with the predicates inserted at the beginning and end of the methods they were attached to. That allowed me to do things like this:</p>
-<pre tabindex="0"><code>[Requires(&quot;arg1 &gt; 10&quot;)]
-[Requires(&quot;arg2 &lt; 100&quot;)]
-[Ensures(&quot;$after(Prop1) == $before(Prop1) + 1&quot;)]
+<pre tabindex="0"><code>[Requires(&#34;arg1 &gt; 10&#34;)]
+[Requires(&#34;arg2 &lt; 100&#34;)]
+[Ensures(&#34;$after(Prop1) == $before(Prop1) + 1&#34;)]
 public void TestMethod(int arg1, int arg2, string arg3)
 {
     Prop1 = Prop1 + 1;
-    System.Diagnostics.Debug.WriteLine(&quot;MyTestClass.TestMethod.Prop1 == &quot; + prop1.ToString());
+    System.Diagnostics.Debug.WriteLine(&#34;MyTestClass.TestMethod.Prop1 == &#34; + prop1.ToString());
 }
 </code></pre><p>This let me to test private fields and properties, but on the other hand it stopped me from testing sealed classes. There&rsquo;s trade-offs no matter what you do unless you control the compiler, as is the case of <a href="http://en.wikipedia.org/wiki/Spec_sharp">Spec#</a>, <a href="http://en.wikipedia.org/wiki/Eiffel_%28programming_language%29">Eiffel</a> or <a href="http://en.wikipedia.org/wiki/D_%28programming_language%29#Example_3">D</a>. The attribute based approach is not dissimilar to <a href="http://research.microsoft.com/specsharp/">Spec#</a>, where a contract specification is part of the method signature rather than in the body of the method.</p>
 <pre tabindex="0"><code>int BinarySearch(object[ ]! a, object o, int lo, int hi)
@@ -193,7 +195,7 @@ public void TestMethod(int arg1, int arg2, string arg3)
 }
 </code></pre><p><a href="http://11011.net/software/vspaste"></a>All I had to do was convert the Func&lt;T, bool&gt; into an Expression&lt;Func&lt;T, bool&gt;&gt;. The compiler, seeing the method signature, knows that it needs to do some background conversion. It doesn&rsquo;t convert and pre-compile the lambda function that you pass into the extension method. Instead it first converts it to an expression tree. The Expression&lt;Func&lt;T, bool&gt;&gt; has a Compile method that will convert it to an anonymous method, which we call just before invoking it. You may be wondering why we would bother?</p>
 <p>Because Expression&lt;Func&lt;T, bool&gt;&gt; also overrides ToString() giving the source code of the lambda function that it was created from. That&rsquo;s so cool! Now I can pass the code I was trying to run into the exception class if the code fails!. Here&rsquo;s the kind of output you get if the check fails.</p>
-<pre tabindex="0"><code>TestCase 'Tests.TestPredicates.MyFailingMethod'
+<pre tabindex="0"><code>TestCase &#39;Tests.TestPredicates.MyFailingMethod&#39;
 failed: Contracts.ContractException : x =&gt; (value(Tests.TestPredicates).MyInt = x.before().MyInt)
 </code></pre><p>That&rsquo;s more readable than a plain old &lsquo;ApplicationException&rsquo;, don&rsquo;t you think?  The predicates needn&rsquo;t be one-liners either; you can have very complex predicates in this system too. Here&rsquo;s an example from another project I&rsquo;m working on. The use of scopes is more like the DBC implementation in the <a href="http://en.wikipedia.org/wiki/D_%28programming_language%29#Example_3">D Programming Language</a>.</p>
 <pre tabindex="0"><code>public bool Insert(string location, string xmlFragment)

@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="This installment leaves the CLI behind to show how we consume a knowledge graph within our programmatic environments. The framework I use to work with RDF is dotNetRdf.
 This is part 4 of an ongoing series providing a little background on &lsquo;knowledge graphs&rsquo;. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history, just practical knowledge.
- Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using .">
-    <meta name="generator" content="Hugo 0.92.2" />
+Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using .">
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -34,23 +34,22 @@ This is part 4 of an ongoing series providing a little background on &lsquo;know
     <meta property="og:title" content="Knowledge Graphs 4 - Querying your knowledge graph using .NET" />
 <meta property="og:description" content="This installment leaves the CLI behind to show how we consume a knowledge graph within our programmatic environments. The framework I use to work with RDF is dotNetRdf.
 This is part 4 of an ongoing series providing a little background on &lsquo;knowledge graphs&rsquo;. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history, just practical knowledge.
- Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using ." />
+Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2019/knowledge-graphs-4-querying-your-knowledge-graph-using-net/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Knowledge Graphs 4 - Querying your knowledge graph using .NET">
 <meta itemprop="description" content="This installment leaves the CLI behind to show how we consume a knowledge graph within our programmatic environments. The framework I use to work with RDF is dotNetRdf.
 This is part 4 of an ongoing series providing a little background on &lsquo;knowledge graphs&rsquo;. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history, just practical knowledge.
- Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using .">
+Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using .">
 
 <meta itemprop="wordCount" content="1789">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Knowledge Graphs 4 - Querying your knowledge graph using .NET"/>
 <meta name="twitter:description" content="This installment leaves the CLI behind to show how we consume a knowledge graph within our programmatic environments. The framework I use to work with RDF is dotNetRdf.
 This is part 4 of an ongoing series providing a little background on &lsquo;knowledge graphs&rsquo;. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history, just practical knowledge.
- Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using ."/>
+Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using ."/>
 
 	
   </head>
@@ -176,8 +175,11 @@ This is part 4 of an ongoing series providing a little background on &lsquo;know
 
       
       
+        <span class="f6 mv4 dib tracked"> - 9 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 1789 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>This installment leaves the CLI behind to show how we consume a knowledge graph
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>This installment leaves the CLI behind to show how we consume a knowledge graph
 within our programmatic environments. The framework I use to work with RDF is
 <a href="http://www.dotnetrdf.org/">dotNetRdf</a>.</p>
 <p>This is part 4 of an ongoing series providing a little background on &lsquo;<em>knowledge graphs</em>&rsquo;. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history, just practical knowledge.</p>
@@ -196,24 +198,24 @@ within our programmatic environments. The framework I use to work with RDF is
 <pre tabindex="0"><code>dotnet add package dotNetRDF --version 2.2.0
 </code></pre><h2 id="remote-connections-and-connection-strings">Remote Connections and Connection Strings</h2>
 <p>When working with SPARQL in dotNetRdf, the easiest way to go is to create a</p>
-<pre tabindex="0"><code>var rqp = new RemoteQueryProcessor(new SparqlRemoteEndpoint(new Uri(&quot;https://my.remote.endpoint/sparql&quot;)))
+<pre tabindex="0"><code>var rqp = new RemoteQueryProcessor(new SparqlRemoteEndpoint(new Uri(&#34;https://my.remote.endpoint/sparql&#34;)))
 </code></pre><p>Similarly, when you are aiming to insert or update data, you use a remote update processor.</p>
-<pre tabindex="0"><code>var rup = new RemoteUpdateProcessor(new SparqlRemoteUpdateEndpoint(new Uri(&quot;https://my.remote.endpoint/sparql&quot;)))
+<pre tabindex="0"><code>var rup = new RemoteUpdateProcessor(new SparqlRemoteUpdateEndpoint(new Uri(&#34;https://my.remote.endpoint/sparql&#34;)))
 </code></pre><h2 id="how-to-perform-a-basic-query">How to perform a basic query</h2>
 <p>When you query, all the same principles apply as when you work with a relational database in SQL. You establish a connection to the remote store. Then, you build queries using predefined templates. You use a dedicated API to insert variables and params into the query as you build it. As with SQL, don&rsquo;t allow SQL/SPARQL injection attacks. Instead, use the automatic escaping facilities of the query API to convert your query parameters to a format compatible with SPARQL.</p>
 <pre tabindex="0"><code>var QueryProcessor = new RemoteQueryProcessor(
     new SparqlRemoteEndpoint(
-        new Uri(&quot;https://my.remote.endpoint/sparql&quot;)));
+        new Uri(&#34;https://my.remote.endpoint/sparql&#34;)));
 SparqlParameterizedString queryString = new SparqlParameterizedString(); //1
-queryString.Namespaces.AddNamespace(&quot;ex&quot;, new Uri(&quot;http://example.org/ns#&quot;)); //2
-queryString.CommandText = &quot;SELECT * WHERE { ?s ex:property @value }&quot;;//3
-queryString.SetUri(&quot;value&quot;, new Uri(&quot;http://example.org/value&quot;));//4
+queryString.Namespaces.AddNamespace(&#34;ex&#34;, new Uri(&#34;http://example.org/ns#&#34;)); //2
+queryString.CommandText = &#34;SELECT * WHERE { ?s ex:property @value }&#34;;//3
+queryString.SetUri(&#34;value&#34;, new Uri(&#34;http://example.org/value&#34;));//4
 SparqlQueryParser parser = new SparqlQueryParser();//5
 SparqlQuery query = parser.ParseFromString(queryString);//6
 var results = (SparqlResultSet) QueryProcessor.ProcessQuery(query); //7
 foreach (var result in results)//8
 {
-    Console.WriteLine($&quot;s is {result[&quot;s&quot;].ToValuedNode()}&quot;);//9
+    Console.WriteLine($&#34;s is {result[&#34;s&#34;].ToValuedNode()}&#34;);//9
 }
 </code></pre><p>Let&rsquo;s take each of these things in turn.</p>
 <ol>
@@ -232,19 +234,19 @@ foreach (var result in results)//8
 <p>Inserting data into the knowledge graph is similar:</p>
 <pre tabindex="0"><code>var UpdateProcessor = new RemoteUpdateProcessor(
     new SparqlRemoteUpdateEndpoint(
-        new Uri(&quot;https://my.remote.endpoint/sparql&quot;))); //1
+        new Uri(&#34;https://my.remote.endpoint/sparql&#34;))); //1
 SparqlParameterizedString queryString = new SparqlParameterizedString();
-queryString.Namespaces.AddNamespace(&quot;ex&quot;, new Uri(&quot;http://example.org/ns#&quot;));
-queryString.CommandText = @&quot;INSERT DATA
+queryString.Namespaces.AddNamespace(&#34;ex&#34;, new Uri(&#34;http://example.org/ns#&#34;));
+queryString.CommandText = @&#34;INSERT DATA
                     {
                         @playerId rdf:type n:Player ;
                             foaf:givenName @givenName;
                             foaf:familyName @familyName.
                     }
-                &quot;; //2
-queryString.SetUri(&quot;playerId&quot;, new Uri(&quot;http://example.org/player/5&quot;));
-queryString.SetLiteral(&quot;givenName&quot;, &quot;eric&quot;);//3
-queryString.SetLiteral(&quot;familyName&quot;, &quot;Cantona);
+                &#34;; //2
+queryString.SetUri(&#34;playerId&#34;, new Uri(&#34;http://example.org/player/5&#34;));
+queryString.SetLiteral(&#34;givenName&#34;, &#34;eric&#34;);//3
+queryString.SetLiteral(&#34;familyName&#34;, &#34;Cantona);
 var parser = new SparqlUpdateParser();
 var query = parser.ParseFromString(queryString);
 query.Process(UpdateProcessor);//4
@@ -306,23 +308,23 @@ query.Process(UpdateProcessor);//4
         return vn.AsTimeSpan();
     }
 
-    throw new RdfTypeUnknownException($&quot;Unable to inject RDF literals into properties of type: {propertyType.FullName}&quot;);
+    throw new RdfTypeUnknownException($&#34;Unable to inject RDF literals into properties of type: {propertyType.FullName}&#34;);
 }
 </code></pre><p>These low level data conversion APIs I quickly hide behind a higher level fluent API, to allow me to build a function to quickly extract the data repeatably:</p>
 <pre tabindex="0"><code>private void CreateProjectors()
 {
     teamProjector = Project.Onto&lt;TeamOfPlayer&gt;()
-        .WithInstanceId(&quot;PlayerId&quot;)
-        .Mapping(&quot;rdfs:label&quot;, &quot;Name&quot;)
+        .WithInstanceId(&#34;PlayerId&#34;)
+        .Mapping(&#34;rdfs:label&#34;, &#34;Name&#34;)
         ;
 
     playerProjector = Project.Onto&lt;Player&gt;()
-        .WithInstanceId(&quot;PlayerId&quot;)
-        .Mapping(&quot;foaf:givenName&quot;, &quot;GivenName&quot;)
-        .Mapping(&quot;foaf:familyName&quot;, &quot;FamilyName&quot;)
-        .Filling(&quot;Teams&quot;,
+        .WithInstanceId(&#34;PlayerId&#34;)
+        .Mapping(&#34;foaf:givenName&#34;, &#34;GivenName&#34;)
+        .Mapping(&#34;foaf:familyName&#34;, &#34;FamilyName&#34;)
+        .Filling(&#34;Teams&#34;,
                     teamProjector.BuildSequence(),
-                    wc =&gt; wc.Incoming(&quot;n:withPlayer&quot;).Outgoing(&quot;n:withTeam&quot;));
+                    wc =&gt; wc.Incoming(&#34;n:withPlayer&#34;).Outgoing(&#34;n:withTeam&#34;));
 }
 </code></pre><p>This mapper example also uses a graph walking system I will cover in a later installment.</p>
 <h2 id="pulling-graphs-to-avoid-cross-product-result-sets">Pulling graphs to avoid cross-product result sets</h2>

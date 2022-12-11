@@ -7,7 +7,7 @@
     <title>Søren on DBC | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="Recently, Søren Skovsbøll wrote a excellent follow up to a little post I did a while back on using C# 3.0 expression trees for representing predicates in design by contract. The conclusion of that series was that C# was inadequate in lots of ways to the task of doing design by contract. Having said that, you can still achieve a lot using serialisation of object states and storage of predicates for running before and after a scope.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="Recently, Søren Skovsbøll wrote a excellent follow up to a little post I did a while back on using C# 3.0 expression trees for representing predicates in design by contract. The conclusion of that series was that C# was inadequate in lots of ways to the task of doing design by contract. Having said that, you can still achieve a lot using serialisation of object states and storage of predicates for running before and after a scope." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2008/s%c3%b8ren-on-dbc/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Søren on DBC">
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - One minute read </span>
+        <span class="f6 mv4 dib tracked"> - 181 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>Recently, <a href="http://skarpt.dk/blog">Søren Skovsbøll</a> wrote a excellent follow up to a little post I did a while back on using <a href="http://aabs.wordpress.com/2008/01/16/complex-assertions-using-c-30/">C# 3.0 expression trees</a> for representing predicates in design by contract. The conclusion of that series was that C# was inadequate in lots of ways to the task of doing design by contract. Having said that, you can still achieve a lot using serialisation of object states and storage of predicates for running before and after a scope.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>Recently, <a href="http://skarpt.dk/blog">Søren Skovsbøll</a> wrote a excellent follow up to a little post I did a while back on using <a href="http://aabs.wordpress.com/2008/01/16/complex-assertions-using-c-30/">C# 3.0 expression trees</a> for representing predicates in design by contract. The conclusion of that series was that C# was inadequate in lots of ways to the task of doing design by contract. Having said that, you can still achieve a lot using serialisation of object states and storage of predicates for running before and after a scope.</p>
 <p>Søren was not happy with the format of errors being reported, nor the potential for massive serialisation blowout. Rather than comment on the blog, he went away and did something about it. And it&rsquo;s pretty good! Go <a href="http://skarpt.dk/blog/?p=14">take a look</a>, and then pick up the baton from him. Your challenge is to extract the parmeter objects from the expression trees of the predicates and take lightweight snapshots of the objects refered to. You also need a &ldquo;platform independent&rdquo; way to serialize objects for this scheme (i.e. one that doesn&rsquo;t depend on XmlSerialisation or WCF data contracts.</p>
 <p>Think you can do it? Apply here! :P</p>
 <ul class="pa0">

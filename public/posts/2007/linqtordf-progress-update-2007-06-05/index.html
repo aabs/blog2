@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="I&rsquo;ve been given a week by work to try to make some progress on the LINQ to RDF query provider, and I&rsquo;m glad to say that the query generation phase is now pretty much complete for SPARQL. It&rsquo;s amazing what a difference a full day can make to your progress, compared to trying to get as much done as I can when I&rsquo;m on the train.
 Last week when I blogged, I had the rough outlines of a SPARQL query, but it was missing quite a bit.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -35,7 +35,6 @@ Last week when I blogged, I had the rough outlines of a SPARQL query, but it was
 Last week when I blogged, I had the rough outlines of a SPARQL query, but it was missing quite a bit." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2007/linqtordf-progress-update-2007-06-05/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="LinqToRdf - Progress Update 2007-06-05">
@@ -172,8 +171,11 @@ Last week when I blogged, I had the rough outlines of a SPARQL query, but it was
 
       
       
+        <span class="f6 mv4 dib tracked"> - 2 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 348 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>I&rsquo;ve been given a week by work to try to make some progress on the LINQ to RDF query provider, and I&rsquo;m glad to say that the query generation phase is now pretty much complete for SPARQL. It&rsquo;s amazing what a difference a full day can make to your progress, compared to trying to get as much done as I can when I&rsquo;m on the train.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>I&rsquo;ve been given a week by work to try to make some progress on the LINQ to RDF query provider, and I&rsquo;m glad to say that the query generation phase is now pretty much complete for SPARQL. It&rsquo;s amazing what a difference a full day can make to your progress, compared to trying to get as much done as I can when I&rsquo;m on the train.</p>
 <p>Last week when I blogged, I had the rough outlines of a SPARQL query, but it was missing quite a bit. There were also a few bits that were just plain wrong, such as commas separating SELECT parameters. That&rsquo;s been corrected now. The properties in the GraphPattern are also restricted to those that are mentioned in the FILTER clause, or the projection.</p>
 <p>I&rsquo;ve also added support for the OrderBy, Take and Skip operators, which correspond to the &ldquo;ORDER BY&rdquo;, &ldquo;LIMIT&rdquo; and &ldquo;OFFSET&rdquo; clauses in SPARQL. The unit test I&rsquo;m working with is looking pretty overweight now:</p>
 <pre><code>[TestMethod]

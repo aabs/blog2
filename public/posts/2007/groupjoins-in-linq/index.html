@@ -10,7 +10,7 @@
 OWL defines two types of property: DatatypeProperty and ObjectProperty. An object property links instances from two Classes, just like a reference in .NET between two objects. In OWL you define it like this:
 &lt;owl:ObjectProperty rdf:ID=&ldquo;isOnAlbum&rdquo;&gt; &lt;rdfs:domain rdf:resource=&quot;#Track&quot;/&gt; &lt;rdfs:range rdf:resource=&quot;#Album&quot;/&gt; &lt;/owl:ObjectProperty&gt;
 A DatatypeProperty is similar to a .NET property that stores some kind of primitive type like a string or an int. In OWL it looks like this:">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -39,7 +39,6 @@ OWL defines two types of property: DatatypeProperty and ObjectProperty. An objec
 A DatatypeProperty is similar to a .NET property that stores some kind of primitive type like a string or an int. In OWL it looks like this:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2007/groupjoins-in-linq/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="GroupJoins in LINQ">
@@ -180,8 +179,11 @@ A DatatypeProperty is similar to a .NET property that stores some kind of primit
 
       
       
+        <span class="f6 mv4 dib tracked"> - 4 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 777 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>Attachments: 2007/06/img.06-20-2007.3.png, 2007/06/img.06-20-2007.3-thumb.png</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>Attachments: 2007/06/img.06-20-2007.3.png, 2007/06/img.06-20-2007.3-thumb.png</p>
 <p>OWL defines two types of property: DatatypeProperty and ObjectProperty. An object property links instances from two Classes, just like a reference in .NET between two objects. In OWL you define it like this:</p>
 <p>&lt;owl:ObjectProperty rdf:ID=&ldquo;isOnAlbum&rdquo;&gt;
   &lt;rdfs:domain rdf:resource=&quot;#Track&quot;/&gt;
@@ -239,7 +241,7 @@ WHERE {
     _:t a:albumName ?Name .
 </code></pre>
 <p>We achieve the same as equality, since two things that are equal to the same are equal to each other. That restricts the tracks to those that are part of an album at the same time.</p>
-<p>I&rsquo;m not sure yet what I will do about the projection, since there is an intermediate task that needs to be performed: to insert the temporary variable &lsquo;tracks&rsquo; into the Album object after it has been instantiated. More on that once I&rsquo;ve found out more.</p>
+<p>I&rsquo;m not sure yet what I will do about the projection, since there is an intermediate task that needs to be performed: to insert the temporary variable &rsquo;tracks&rsquo; into the Album object after it has been instantiated. More on that once I&rsquo;ve found out more.</p>
 <ul class="pa0">
   
 </ul>

@@ -7,7 +7,7 @@
     <title>LinqToRdf - Designing a Query Provider | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="When I started implementing the SPARQL support in LINQ to RDF, I decided that I needed to implement as much of the standard query operators as possible. SPARQL is a very rich query language that bears a passing syntactical resemblance to SQL. It didn&rsquo;t seem unreasonable to expect most of the operators of LINQ to SQL to be usable with SPARQL. With this post I thought I&rsquo;d pass on a few design notes that I have gathered during the work to date on the SPARQL query provider.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -33,7 +33,6 @@
 <meta property="og:description" content="When I started implementing the SPARQL support in LINQ to RDF, I decided that I needed to implement as much of the standard query operators as possible. SPARQL is a very rich query language that bears a passing syntactical resemblance to SQL. It didn&rsquo;t seem unreasonable to expect most of the operators of LINQ to SQL to be usable with SPARQL. With this post I thought I&rsquo;d pass on a few design notes that I have gathered during the work to date on the SPARQL query provider." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2007/linqtordf-designing-a-query-provider/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="LinqToRdf - Designing a Query Provider">
@@ -168,8 +167,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 4 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 732 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>When I started implementing the SPARQL support in LINQ to RDF, I decided that I needed to implement as much of the <a href="http://download.microsoft.com/download/5/8/6/5868081c-68aa-40de-9a45-a3803d8134b8/standard_query_operators.doc">standard query operators</a> as possible. SPARQL is a very rich query language that bears a passing syntactical resemblance to SQL. It didn&rsquo;t seem unreasonable to expect most of the operators of LINQ to SQL to be usable with SPARQL. With this post I thought I&rsquo;d pass on a few design notes that I have gathered during the work to date on the SPARQL query provider.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>When I started implementing the SPARQL support in LINQ to RDF, I decided that I needed to implement as much of the <a href="http://download.microsoft.com/download/5/8/6/5868081c-68aa-40de-9a45-a3803d8134b8/standard_query_operators.doc">standard query operators</a> as possible. SPARQL is a very rich query language that bears a passing syntactical resemblance to SQL. It didn&rsquo;t seem unreasonable to expect most of the operators of LINQ to SQL to be usable with SPARQL. With this post I thought I&rsquo;d pass on a few design notes that I have gathered during the work to date on the SPARQL query provider.</p>
 <p>The different components of a LINQ query get converted into successive calls to your query class. My class is called SparqlQuery&lt;T&gt;. If you had a query like this:</p>
 <pre><code>[TestMethod]
 public void SparqlQueryOrdered()

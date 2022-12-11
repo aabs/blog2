@@ -7,8 +7,8 @@
     <title>Policy and Configuration II | The Wandering Glitch</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="The last time I gave some thought to some of the limitations of configuration systems, I was concerned that people use configuration without thought about the consequences. Configuration seems to be a solution of first resort. I was trying to argue that that is probably an unwarranted strategy. It needs to be thought out. I argued in favour of a limitation on configuration. The points I made were:
- The implementation of configuration systems intrude into their client systems unnecessarily.">
-    <meta name="generator" content="Hugo 0.92.2" />
+The implementation of configuration systems intrude into their client systems unnecessarily.">
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -32,21 +32,20 @@
     
     <meta property="og:title" content="Policy and Configuration II" />
 <meta property="og:description" content="The last time I gave some thought to some of the limitations of configuration systems, I was concerned that people use configuration without thought about the consequences. Configuration seems to be a solution of first resort. I was trying to argue that that is probably an unwarranted strategy. It needs to be thought out. I argued in favour of a limitation on configuration. The points I made were:
- The implementation of configuration systems intrude into their client systems unnecessarily." />
+The implementation of configuration systems intrude into their client systems unnecessarily." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2006/policy-and-configuration-ii/" /><meta property="article:section" content="posts" />
 
 
-
 <meta itemprop="name" content="Policy and Configuration II">
 <meta itemprop="description" content="The last time I gave some thought to some of the limitations of configuration systems, I was concerned that people use configuration without thought about the consequences. Configuration seems to be a solution of first resort. I was trying to argue that that is probably an unwarranted strategy. It needs to be thought out. I argued in favour of a limitation on configuration. The points I made were:
- The implementation of configuration systems intrude into their client systems unnecessarily.">
+The implementation of configuration systems intrude into their client systems unnecessarily.">
 
 <meta itemprop="wordCount" content="3044">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Policy and Configuration II"/>
 <meta name="twitter:description" content="The last time I gave some thought to some of the limitations of configuration systems, I was concerned that people use configuration without thought about the consequences. Configuration seems to be a solution of first resort. I was trying to argue that that is probably an unwarranted strategy. It needs to be thought out. I argued in favour of a limitation on configuration. The points I made were:
- The implementation of configuration systems intrude into their client systems unnecessarily."/>
+The implementation of configuration systems intrude into their client systems unnecessarily."/>
 
 	
   </head>
@@ -172,8 +171,11 @@
 
       
       
+        <span class="f6 mv4 dib tracked"> - 15 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 3044 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>The last time I gave some thought to some of the limitations of configuration systems, I was concerned that people use configuration without thought about the consequences. Configuration seems to be a solution of <em>first resort</em>. I was trying to argue that that is probably an unwarranted strategy. It needs to be thought out. I argued in favour of a limitation on configuration. The points I made were:</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>The last time I gave some thought to some of the limitations of configuration systems, I was concerned that people use configuration without thought about the consequences. Configuration seems to be a solution of <em>first resort</em>. I was trying to argue that that is probably an unwarranted strategy. It needs to be thought out. I argued in favour of a limitation on configuration. The points I made were:</p>
 <ol>
 <li>The implementation of configuration systems intrude into their client systems unnecessarily.</li>
 <li>Configuration systems should produce typed objects, not name-value containers as is all too often the case.</li>
@@ -206,7 +208,7 @@
 <p>Modular software systems tend to follow the &lsquo;<em>transaction script</em>&rsquo; pattern in making state changes. That means that at any stage they are working on making modifications to a specific subset of the data that is in the system. In outlook, you wouldn&rsquo;t expect that when you add a new task that it would be also making modifications to the archived messages, or setting up new appointments. That principle is called the <em>principle of locality of temporal reference</em> (PLTR). If like or related data are kept together then changes and references to data will tend over time to cluster together. That is – if you access a variable now, the chances are you&rsquo;re going to need it again soon. That&rsquo;s the principle on which working sets in virtual memory systems are based. If you are working on a piece of data, bring it into memory for a while along with other data nearby. That way when you need to update a related piece of data it will probably be to hand.</p>
 <p>A memory pyramid defines areas of access relative to chances of access. Therefore if you expect to refer to or change a piece of data frequently, don&rsquo;t put it out to disk. Keep it in memory, so that you don&rsquo;t incur unnecessary delays when you want to get to it. The concept of the memory pyramid stems from the insight of the PLTR in deciding where to put state data in a system with memory constraints. In a memory pyramid data is inherently mobile, since it moves up and down the memory pyramid as the chances of accessing it rise or fall. In many case the operating system takes care of moving data between levels of the pyramid. In some key cases, such as configuration you have to do it yourself. If you do not to make a choice, you still have made a choice – probably not one you were counting on.</p>
 <p><img src="http://static.flickr.com/82/274215346_2f741304b3_o_d.png" alt="">
-[<strong>Figure 1. A Memory Pyramid, showing types of data according to how much we can store there, and how fast we can get at it.</strong> ]{style=&ldquo;font-size:9pt;color:#4f81bd;&quot;}</p>
+[<strong>Figure 1. A Memory Pyramid, showing types of data according to how much we can store there, and how fast we can get at it.</strong> ]{style=&ldquo;font-size:9pt;color:#4f81bd;&rdquo;}</p>
 <p>The majority of configuration data is incorrectly placed in the local disk tier of the memory pyramid. The majority is also generally stuck where the developer puts it, and cannot move. By drawing the distinction between policy variables and normal state variables, I hope to highlight that some configuration should be elevated to RAM and others should be relegated to remote servers.</p>
 <h2 id="locality-of-spatial-reference--or-use-case-for-short--">Locality of Spatial Reference – or <em>Use Case</em> for short ;-)</h2>
 <p>Most of us write modular code these days. With the help that modern refactoring tools provide, we can easily factor out duplication in our code, and move it about till we have a tidier, more normalised, class design. Which brings me to another kind of locality of reference principle – the <em>principle of locality of spatial reference</em> (PLSR). This is related to the PLTR, and works in the same way. When you access a piece of data, you are likely to access pieces of data nearby or related to it. That means you should cluster semantically related data together, and move it around in the memory pyramid as a chunk. So, another criticism of standard configuration systems such as that natively provided by .NET is that all configuration is treated as an undifferentiated mass without semantic linkage. Perhaps something like RDF should be used to store configuration data. That way, we could at least know what goes together and how to treat it.</p>

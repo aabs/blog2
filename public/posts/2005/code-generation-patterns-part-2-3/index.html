@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="Last time I described typed and un-typed events, and multicasting events to several listeners. One of those listeners would be a code generator. This time I&rsquo;ll go on to describe some of the necessary infrastructure that such a design requires. Generally this information is all about tieing the events together. The context in which an event takes place is as important as the event itself.
 When you&rsquo;re generating code progressively, you need to keep track of what you have done, and what still needs to be done.">
-    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="generator" content="Hugo 0.108.0">
     
     
     
@@ -35,7 +35,6 @@ When you&rsquo;re generating code progressively, you need to keep track of what 
 When you&rsquo;re generating code progressively, you need to keep track of what you have done, and what still needs to be done." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://45.89.107.9/posts/2005/code-generation-patterns-part-2-3/" /><meta property="article:section" content="posts" />
-
 
 
 <meta itemprop="name" content="Code Generation Patterns - Part 2">
@@ -172,8 +171,11 @@ When you&rsquo;re generating code progressively, you need to keep track of what 
 
       
       
+        <span class="f6 mv4 dib tracked"> - 6 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 1229 words </span>
+      
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links #000000 pr4-l w-two-thirds-l"><p>Last time I described typed and un-typed events, and multicasting events to several listeners. One of those listeners would be a code generator. This time I&rsquo;ll go on to describe some of the necessary infrastructure that such a design requires. Generally this information is all about tieing the events together. The context in which an event takes place is as important as the event itself.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links fg_black pr4-l w-two-thirds-l"><p>Last time I described typed and un-typed events, and multicasting events to several listeners. One of those listeners would be a code generator. This time I&rsquo;ll go on to describe some of the necessary infrastructure that such a design requires. Generally this information is all about tieing the events together. The context in which an event takes place is as important as the event itself.</p>
 <p>When you&rsquo;re generating code progressively, you need to keep track of what you have done, and what still needs to be done. In this case that means the code already generated, and the messages already received, but have not generated code for. It also indicates what code structure(s) an incoming predicate applies to.</p>
 <p>There are two complementary modes of operation that a scanner/code-generator system can use for <em>broadcasting</em> events. They are variations of tree search algorithms. In the first case, the most senior element is broadcast first. that means that an event would be generated for a type before the events for its methods are fired. I shall call this (for want of a better name) the &ldquo;<em><strong>depth-last recursive search</strong></em>&rdquo;. The second approach is a true &ldquo;<em><strong>depth-first search</strong></em>&rdquo; since elements that are lowest in the object tree are announced sooner. These two modes support different code-generation plan. The choice will have an effect on what sort of state one has to keep, and how long it has to hang around. More on that later.</p>
 <p>With depth-first recursion a <em>method event</em> will be broadcast before the corresponding <em>type event</em> , and a predicate such as an <em><strong>Ensure</strong></em> attribute, will be received before the method on which it was attached. Therefore, when you are generating code, you can&rsquo;t just slot what you get into what you already have, because you don&rsquo;t have anywhere to put it.</p>
