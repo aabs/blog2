@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on The Wandering Glitch</title>
+    <link>https://industrialinference.com/pages/</link>
+    <description>Recent content in Pages on The Wandering Glitch</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Andrew Matthews</copyright>
+    <lastBuildDate>Mon, 07 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://industrialinference.com/pages/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Industrial Inference</title>
+      <link>https://industrialinference.com/pages/industrial-inference/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/pages/industrial-inference/</guid>
+      <description>I offer a range of services to help early adopters get started with Knowledge Graph and Semantic Web technologies. Not sure what you need, or what it costs? I can explain how to start small and gradually expand the intelligence of your systems. Get in touch below.
+::: {.wp-block-spacer .desktop-only style=&amp;ldquo;height:32px;&amp;rdquo; aria-hidden=&amp;ldquo;true&amp;rdquo;} :::
+::: {.wp-block-columns .alignwide .has-3-columns} ::: {.wp-block-column} ::: {.wp-block-image} {.wp-image-7565} :::
+Consulting I have many years of Architecture and Engineering experience, I can guide you on ways to enhance your technology with knowledge graphs, and show the easy path to building it.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://industrialinference.com/pages/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/pages/about/</guid>
+      <description>I’ve been writing about knowledge graph and semantic web technologies for over a decade. My blog contains not only thought pieces, but also material to use in training.</description>
+    </item>
+    
+  </channel>
+</rss>

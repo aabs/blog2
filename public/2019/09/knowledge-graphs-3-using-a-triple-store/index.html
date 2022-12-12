@@ -7,16 +7,16 @@
   <meta property="og:title" content="Knowledge Graphs 3 - Using a Triple Store - The Wandering Glitch" />
   <meta name="twitter:title" content="Knowledge Graphs 3 - Using a Triple Store - The Wandering Glitch" />
   <meta name="description" content="Last time I showed you how to use CLI tools to build out your RDF data to more depth using Turtle files and how to query it using the Apache Jena CLI toolchain using SPARQL Query language. This time I&rsquo;ll show how to insert and retrieve data from a remote triple store. I&rsquo;ll continue using the CLI tools for now.
-Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using .">
+ Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using .">
   <meta property="og:description" content="Last time I showed you how to use CLI tools to build out your RDF data to more depth using Turtle files and how to query it using the Apache Jena CLI toolchain using SPARQL Query language. This time I&rsquo;ll show how to insert and retrieve data from a remote triple store. I&rsquo;ll continue using the CLI tools for now.
-Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using .">
+ Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using .">
   <meta name="twitter:description" content="Last time I showed you how to use CLI tools to build out your RDF data to more depth using Turtle files and how to query it using the Apache Jena CLI toolchain using SPARQL Query language. This time …">
-  <meta name="author" content=""/>
+  <meta name="author" content="Andrew Matthews"/>
   <meta property="og:site_name" content="The Wandering Glitch" />
   <meta property="og:url" content="https://industrialinference.com/2019/09/knowledge-graphs-3-using-a-triple-store/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.108.0">
+  <meta name="generator" content="Hugo 0.92.2" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -33,6 +33,10 @@ Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 
   <nav class="site-navi">
     <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
     <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
     </ul>
   </nav>
 </header>
@@ -47,6 +51,30 @@ Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 
       <hr class="article-title-bottom">
       <ul class="article-meta">
         <li class="article-meta-date"><time>September 13, 2019</time></li>
+        <li class="article-meta-tags">
+          <a href="/tags/rdf/">
+            <i class="fas fa-tag"></i>
+            rdf
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/blazegraph/">
+            <i class="fas fa-tag"></i>
+            blazegraph
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/knowledge-graphs/">
+            <i class="fas fa-tag"></i>
+            knowledge graphs
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/sparql/">
+            <i class="fas fa-tag"></i>
+            sparql
+          </a>&nbsp;
+        </li>
       </ul>
       
 <aside class="toc">
@@ -76,22 +104,22 @@ Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 
 <h2 id="start-a-triple-store">Start a Triple Store</h2>
 <p>A quick recap - a Triple Store is a type of graph database conforming to standards provided by the W3C, for storing RDF data. The standards proscribe various aspects of how the DB behaves, including how it responds to queries, formats result set and how it supports bulk data transport. I may dig into that in more detail in a later post.</p>
 <p>To get up and running quickly, get yourself a copy of docker and docker-compose. Once you have done so, create a  <code>docker-compose.yaml</code> with this manifest. This installs Blazegraph DB. The technology in Blazegraph is rumoured to be the same technology behind AWS Neptune (since AWS is rumoured to have hire a bunch of engineers from the company behind Blazegraph).</p>
-<pre tabindex="0"><code>version: &#39;3.7&#39;
+<pre tabindex="0"><code>version: '3.7'
 services:
     blazegraph:
         image: metaphacts/blazegraph-basic:2.2.0-20160908.003514-6
         hostname: blazegraph
         container_name: blazegraph
         ports:
-            - &#34;8889:8080&#34;
-            - &#34;8890:80&#34;
+            - &quot;8889:8080&quot;
+            - &quot;8890:80&quot;
 </code></pre><p>To run the triple store, in-memory, invoke docker-compose like so:</p>
 <pre tabindex="0"><code>$&gt; docker-compose up -d
 
-Creating network &#34;blog_default&#34; with the default driver
+Creating network &quot;blog_default&quot; with the default driver
 Creating blazegraph ... done
 </code></pre><p>Let&rsquo;s hit the store with a query. I don&rsquo;t expect to get anything back yet, but I do expect not to get any errors:</p>
-<pre tabindex="0"><code>rsparql --service=&#39;http://localhost:8889/blazegraph/namespace/kb/sparql/update&#39; --query=./soccer/queries/get_teams.rq
+<pre tabindex="0"><code>rsparql --service='http://localhost:8889/blazegraph/namespace/kb/sparql/update' --query=./soccer/queries/get_teams.rq
 
 --------
 | team |
@@ -104,20 +132,20 @@ PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 INSERT DATA {
     s:ArsenalFC a s:Team;
         s:homeCity s:London;
-        rdfs:label &#34;Arsenal F.C.&#34; .
+        rdfs:label &quot;Arsenal F.C.&quot; .
 
     s:ChelseaFC a s:Team;
         s:homeCity s:London;
-        rdfs:label &#34;Chelsea F.C.&#34; .
+        rdfs:label &quot;Chelsea F.C.&quot; .
 
     s:LiverpoolFC a s:Team;
         s:homeCity s:Liverpool;
-        rdfs:label &#34;Liverpool F.C.&#34; .
+        rdfs:label &quot;Liverpool F.C.&quot; .
 }
 </code></pre><p>This we will use to push some data into the store. We use another tool from the Jena tool set, called  <code>rupdate </code>, which allows the use of the <a href="https://www.w3.org/TR/sparql11-update/">SPARQL Update</a> class of operations - in other words, it allows us to insert, update and delete RDF in our triple store.</p>
-<pre tabindex="0"><code>rupdate --service=&#39;http://localhost:8889/blazegraph/namespace/kb/sparql/update&#39; --update=./add_teams.rq
+<pre tabindex="0"><code>rupdate --service='http://localhost:8889/blazegraph/namespace/kb/sparql/update' --update=./add_teams.rq
 </code></pre><p>Now when we re-present our query earlier, it should give us something interesting back.</p>
-<pre tabindex="0"><code>rsparql --service=&#39;http://localhost:8889/blazegraph/namespace/kb/sparql/update&#39; --query=./get_teams.rq
+<pre tabindex="0"><code>rsparql --service='http://localhost:8889/blazegraph/namespace/kb/sparql/update' --query=./get_teams.rq
 
 ----------------
 | team         |
@@ -133,38 +161,38 @@ PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
 
 INSERT DATA {
     s:BerndLeno a s:Footballer;
-        foaf:givenName &#34;Bernd&#34;;
-        foaf:familyName &#34;Leno&#34;.
+        foaf:givenName &quot;Bernd&quot;;
+        foaf:familyName &quot;Leno&quot;.
 
     s:HectorBellerin a s:Footballer;
-        foaf:givenName &#34;Hector&#34;;
-        foaf:familyName &#34;Bellerin&#34;.
+        foaf:givenName &quot;Hector&quot;;
+        foaf:familyName &quot;Bellerin&quot;.
 
     s:KieranTierney a s:Footballer;
-        foaf:givenName &#34;Kieran&#34;;
-        foaf:familyName &#34;Tierney&#34;.
+        foaf:givenName &quot;Kieran&quot;;
+        foaf:familyName &quot;Tierney&quot;.
 
     s:KepaArrizabalaga a s:Footballer;
-        foaf:givenName &#34;Kepa&#34;;
-        foaf:familyName &#34;Arrizabalaga&#34;.
+        foaf:givenName &quot;Kepa&quot;;
+        foaf:familyName &quot;Arrizabalaga&quot;.
 
     s:AntonioRudiger a s:Footballer;
-        foaf:givenName &#34;Antonio&#34;;
-        foaf:familyName &#34;Rudiger&#34;.
+        foaf:givenName &quot;Antonio&quot;;
+        foaf:familyName &quot;Rudiger&quot;.
 
     s:MarcosAlonso a s:Footballer;
-        foaf:givenName &#34;Marcos&#34;;
-        foaf:familyName &#34;Alonso&#34;.
+        foaf:givenName &quot;Marcos&quot;;
+        foaf:familyName &quot;Alonso&quot;.
 
     s:Alisson a s:Footballer;
-        foaf:givenName &#34;Alisson&#34;.
+        foaf:givenName &quot;Alisson&quot;.
 
     s:NathanielClyne a s:Footballer;
-        foaf:givenName &#34;Nathaniel&#34;;
-        foaf:familyName &#34;Clyne&#34;.
+        foaf:givenName &quot;Nathaniel&quot;;
+        foaf:familyName &quot;Clyne&quot;.
 
     s:Fabinho a s:Footballer;
-        foaf:givenName &#34;Fabinho&#34;.
+        foaf:givenName &quot;Fabinho&quot;.
 }
 </code></pre><p>We should now be able to pull back the player data. Again, create an  <code>rq</code> file and send it to Blazegraph using  <code>rsparql </code>.</p>
 <pre tabindex="0"><code>PREFIX s: &lt;http://tempuri.com/soccer/&gt;
@@ -174,7 +202,7 @@ WHERE {
     ?player a s:Footballer .
 }
 LIMIT 10
-</code></pre><pre tabindex="0"><code>rsparql --service=&#39;http://localhost:8889/blazegraph/namespace/kb/sparql&#39; --query=./queries/get_players.rq
+</code></pre><pre tabindex="0"><code>rsparql --service='http://localhost:8889/blazegraph/namespace/kb/sparql' --query=./queries/get_players.rq
 
 ----------------------
 | player             |
@@ -192,10 +220,10 @@ LIMIT 10
 </code></pre><h3 id="beware-of-non-unicode-tooling">Beware of non-unicode tooling</h3>
 <p>All of the RDF standards are designed to be Unicode aware from the bottom up. When using Jena, though, you may find it doesn&rsquo;t understand Unicode. I initially wrote some RDF with accented characters.</p>
 <pre tabindex="0"><code>    s:AntonioRüdiger a s:Footballer;
-        foaf:givenName &#34;Antonio&#34;;
-        foaf:familyName &#34;Rüdiger&#34;.
+        foaf:givenName &quot;Antonio&quot;;
+        foaf:familyName &quot;Rüdiger&quot;.
 </code></pre><p>When I tried to update the triple store I got the following, not very useful, error message.</p>
-<pre tabindex="0"><code>rupdate --service=&#39;http://localhost:8889/blazegraph/namespace/kb/sparql/update&#39; --update=./queries/02.add-players.rq
+<pre tabindex="0"><code>rupdate --service='http://localhost:8889/blazegraph/namespace/kb/sparql/update' --update=./queries/02.add-players.rq
 org.apache.jena.atlas.web.HttpException: 400 - Bad Request
         at org.apache.jena.riot.web.HttpOp.exec(HttpOp.java:1093)
         at org.apache.jena.riot.web.HttpOp.execHttpPost(HttpOp.java:721)
@@ -220,25 +248,25 @@ INSERT DATA
 {
 
     [] a s:PlayerContract; s:withTeam s:ArsenalFC; s:withPlayer s:BerndLeno;
-        s:from &#34;2019-01-01&#34;^^xsd:date; s:to &#34;2020-01-01&#34;^^xsd:date.
+        s:from &quot;2019-01-01&quot;^^xsd:date; s:to &quot;2020-01-01&quot;^^xsd:date.
     [] a s:PlayerContract; s:withTeam s:ArsenalFC; s:withPlayer s:HectorBellerin;
-        s:from &#34;2019-01-01&#34;^^xsd:date; s:to &#34;2020-01-01&#34;^^xsd:date.
+        s:from &quot;2019-01-01&quot;^^xsd:date; s:to &quot;2020-01-01&quot;^^xsd:date.
     [] a s:PlayerContract; s:withTeam s:ArsenalFC; s:withPlayer s:KieranTierney;
-        s:from &#34;2019-01-01&#34;^^xsd:date; s:to &#34;2020-01-01&#34;^^xsd:date.
+        s:from &quot;2019-01-01&quot;^^xsd:date; s:to &quot;2020-01-01&quot;^^xsd:date.
 
     [] a s:PlayerContract; s:withTeam s:ChelseaFC; s:withPlayer s:KepaArrizabalaga;
-        s:from &#34;2019-01-01&#34;^^xsd:date; s:to &#34;2020-01-01&#34;^^xsd:date.
+        s:from &quot;2019-01-01&quot;^^xsd:date; s:to &quot;2020-01-01&quot;^^xsd:date.
     [] a s:PlayerContract; s:withTeam s:ChelseaFC; s:withPlayer s:AntonioRudiger;
-        s:from &#34;2019-01-01&#34;^^xsd:date; s:to &#34;2020-01-01&#34;^^xsd:date.
+        s:from &quot;2019-01-01&quot;^^xsd:date; s:to &quot;2020-01-01&quot;^^xsd:date.
     [] a s:PlayerContract; s:withTeam s:ChelseaFC; s:withPlayer s:MarcosAlonso;
-        s:from &#34;2019-01-01&#34;^^xsd:date; s:to &#34;2020-01-01&#34;^^xsd:date.
+        s:from &quot;2019-01-01&quot;^^xsd:date; s:to &quot;2020-01-01&quot;^^xsd:date.
 
     [] a s:PlayerContract; s:withTeam s:LiverpoolFC; s:withPlayer s:Alisson;
-        s:from &#34;2019-01-01&#34;^^xsd:date; s:to &#34;2020-01-01&#34;^^xsd:date.
+        s:from &quot;2019-01-01&quot;^^xsd:date; s:to &quot;2020-01-01&quot;^^xsd:date.
     [] a s:PlayerContract; s:withTeam s:LiverpoolFC; s:withPlayer s:NathanielClyne;
-        s:from &#34;2019-01-01&#34;^^xsd:date; s:to &#34;2020-01-01&#34;^^xsd:date.
+        s:from &quot;2019-01-01&quot;^^xsd:date; s:to &quot;2020-01-01&quot;^^xsd:date.
     [] a s:PlayerContract; s:withTeam s:LiverpoolFC; s:withPlayer s:Fabinho;
-        s:from &#34;2019-01-01&#34;^^xsd:date; s:to &#34;2020-01-01&#34;^^xsd:date.
+        s:from &quot;2019-01-01&quot;^^xsd:date; s:to &quot;2020-01-01&quot;^^xsd:date.
 }
 </code></pre><p>This contract data links the team with the player, allowing us to ask some more interesting questions. Let&rsquo;s start off by finding all the players who play for Arsenal.</p>
 <pre tabindex="0"><code>PREFIX s: &lt;http://tempuri.com/soccer/&gt;
@@ -252,7 +280,7 @@ WHERE {
 }
 LIMIT 10
 </code></pre><p>This is pretty straightforward, requiring little traversal of the graph.</p>
-<pre tabindex="0"><code>rsparql --service=&#39;http://localhost:8889/blazegraph/namespace/kb/sparql&#39; --query=./queries/arsenal_players.rq
+<pre tabindex="0"><code>rsparql --service='http://localhost:8889/blazegraph/namespace/kb/sparql' --query=./queries/arsenal_players.rq
 
 --------------------
 | player           |
@@ -280,17 +308,17 @@ LIMIT 10
 </code></pre><p>Remember from last time, how I mentioned that the way to think of query writing in SPARQL is to show what structures from the graph you want, providing what you know and leaving blanks (in the form of variables) for what you don&rsquo;t.</p>
 <p>In the query above, the only concrete thing I provide is that the team home city must be London. From there it navigates the graph to find what matches.  <code>London - team - contract - player - givenName </code></p>
 <p>The queries are now starting to look a bit less trivial.</p>
-<pre tabindex="0"><code>rsparql --service=&#39;http://localhost:8889/blazegraph/namespace/kb/sparql&#39; --query=./queries/london_players.rq
+<pre tabindex="0"><code>rsparql --service='http://localhost:8889/blazegraph/namespace/kb/sparql' --query=./queries/london_players.rq
 
 ------------------------------
 | givenName | familyName     |
 ==============================
-| &#34;Antonio&#34; | &#34;Rudiger&#34;      |
-| &#34;Bernd&#34;   | &#34;Leno&#34;         |
-| &#34;Hector&#34;  | &#34;Bellerin&#34;     |
-| &#34;Kepa&#34;    | &#34;Arrizabalaga&#34; |
-| &#34;Kieran&#34;  | &#34;Tierney&#34;      |
-| &#34;Marcos&#34;  | &#34;Alonso&#34;       |
+| &quot;Antonio&quot; | &quot;Rudiger&quot;      |
+| &quot;Bernd&quot;   | &quot;Leno&quot;         |
+| &quot;Hector&quot;  | &quot;Bellerin&quot;     |
+| &quot;Kepa&quot;    | &quot;Arrizabalaga&quot; |
+| &quot;Kieran&quot;  | &quot;Tierney&quot;      |
+| &quot;Marcos&quot;  | &quot;Alonso&quot;       |
 ------------------------------
 </code></pre><p>Needless to say, it wouldn&rsquo;t be that much more difficult to link in more info about the national side these players play for. We could then ask fruity questions like &ldquo;<em>Get me the personal details of danish footballers playing for a london based club</em>&rdquo;.</p>
 <h2 id="summary">Summary</h2>
@@ -300,6 +328,22 @@ LIMIT 10
     </article>
 
     
+<ul class="article-share">
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https://industrialinference.com/2019/09/knowledge-graphs-3-using-a-triple-store/" target="_blank" rel="noopener" aria-label="Facebook">
+      <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg></div>Facebook</div>
+    </a>
+  </li>
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=Knowledge%20Graphs%203%20-%20Using%20a%20Triple%20Store%20-%20The%20Wandering%20Glitch&amp;url=https://industrialinference.com/2019/09/knowledge-graphs-3-using-a-triple-store/" target="_blank" rel="noopener" aria-label="Twitter">
+      <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg></div>Twitter</div>
+    </a>
+  </li>
+</ul>
 
 
     <ul class="pager article-pager">

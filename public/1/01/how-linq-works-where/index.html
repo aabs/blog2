@@ -12,12 +12,12 @@ I went digging under the surface of the LINQ query extension and iterators recen
 I went digging under the surface of the LINQ query extension and iterators recently - I wanted to know how much I pay for the simplicity I get with APIs from the System.Query namespace. This post explores a little of the implementation of one of the key parts of the LINQ system. I&rsquo;m starting out with the System.Query.Sequence.Where extension method because it follows on nicely from the last post on LINQ and Reflection.">
   <meta name="twitter:description" content="Attachments: 2006/11/expression.PNG
 I went digging under the surface of the LINQ query extension and iterators recently - I wanted to know how much I pay for the simplicity I get with APIs from the …">
-  <meta name="author" content=""/>
+  <meta name="author" content="Andrew Matthews"/>
   <meta property="og:site_name" content="The Wandering Glitch" />
   <meta property="og:url" content="https://industrialinference.com/1/01/how-linq-works-where/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.108.0">
+  <meta name="generator" content="Hugo 0.92.2" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -34,6 +34,10 @@ I went digging under the surface of the LINQ query extension and iterators recen
   <nav class="site-navi">
     <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
     <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
     </ul>
   </nav>
 </header>
@@ -58,8 +62,8 @@ I went digging under the surface of the LINQ query extension and iterators recen
 <p>An extension method is just a syntactic alternative to a normal static method that takes as its first argument a type that it will manipulate. An extension can&rsquo;t do anything that a normal static method can&rsquo;t, therefore we can ignore the method itself – it&rsquo;s the object model that counts in LINQ, and the framework of expressions and iterators that it depends on.</p>
 <p>I&rsquo;ll start out by exploring the implementation of Sequence.Where. I will use the convention of referring to it as IEnumerable&lt;T&gt;.Where in places because, being an extension method, it extends IEnumerable&lt;T&gt; because that&rsquo;s its first argument. The Where method doesn&rsquo;t do a whole lot before delegating to an internal WhereIterator object that iterates the collection:</p>
 <p><code>[Extension] public static IEnumerable&lt;T&gt; Where&lt;T&gt;(IEnumerable&lt;T&gt; source, Func&lt;T, bool&gt;predicate) {   if (source == null)   {     throw Error.ArgumentNull(&quot;source&quot;);   }   if (predicate == null)   {     throw Error.ArgumentNull(&quot;predicate&quot;);   }   return Sequence.WhereIterator&lt;T&gt;(source, predicate); }</code></p>
-<p>[All it does is a bit of validation before invoking Sequence.WhereIterator&lt;T&gt;. The WhereIterator method does the same with a code-generated class that Reflector reports as <a href="http://www.aisto.com/roeder/dotnet/Default.aspx?Object=7">[Sequence]{style=&ldquo;color:#006018;&rdquo;}</a>.<a href="http://www.aisto.com/roeder/dotnet/Default.aspx?Object=8" title="System.Query.Sequence+&lt;WhereIterator&gt;d__0&lt;T&gt;.&lt;WhereIterator&gt;d__0&lt;T&gt;(int);">[&lt;WhereIterator&gt;d__0]{style=&ldquo;color:#006018;&rdquo;}</a>&lt;T&gt;. This is just a conversion of the C# syntax for iteration into plainer fare. If we take a peek at the relevant piece of decompiled code for the iterator we see the code for the iteration. It&rsquo;s pretty ugly, and not much worth reading except to get an idea of how the iteration takes place.
-]{style=&ldquo;font-size:8pt;font-family:Tahoma;&rdquo;}</p>
+<p>[All it does is a bit of validation before invoking Sequence.WhereIterator&lt;T&gt;. The WhereIterator method does the same with a code-generated class that Reflector reports as <a href="http://www.aisto.com/roeder/dotnet/Default.aspx?Object=7">[Sequence]{style=&ldquo;color:#006018;&quot;}</a>.<a href="http://www.aisto.com/roeder/dotnet/Default.aspx?Object=8" title="System.Query.Sequence+&lt;WhereIterator&gt;d__0&lt;T&gt;.&lt;WhereIterator&gt;d__0&lt;T&gt;(int);">[&lt;WhereIterator&gt;d__0]{style=&ldquo;color:#006018;&quot;}</a>&lt;T&gt;. This is just a conversion of the C# syntax for iteration into plainer fare. If we take a peek at the relevant piece of decompiled code for the iterator we see the code for the iteration. It&rsquo;s pretty ugly, and not much worth reading except to get an idea of how the iteration takes place.
+]{style=&ldquo;font-size:8pt;font-family:Tahoma;&quot;}</p>
 <pre><code>private bool MoveNext()
 {
       bool flag1;
@@ -151,13 +155,29 @@ source.Expression, predicate }));
 <p>At this point we have created a new Expression object with a new root of type MethodCallExpression. It has branches that are the reference to the initial Expression passed as a parameter to the Where method and the predicate that we plan to use later on. Interestingly the Expression.Call method takes a parameter called obj that is not used in this case. You might have expected it to be passed the initial Expression as this parameter since that argument calls for an Expression, but instead the original expression is stored as an element in the parameters collection of the new root node.</p>
 <p><a href="%7Bstatic%7D2006/11/expression.PNG" title="The Expression Tree"><img src="%7Bstatic%7D2006/11/expression.PNG" alt="The Expression Tree"></a></p>
 <p>[**Figure 1. The New Expression tree created by a call to Queryable.Where
-**]{style=&ldquo;font-size:9pt;color:#4f81bd;&rdquo;}</p>
+**]{style=&ldquo;font-size:9pt;color:#4f81bd;&quot;}</p>
 <p>It&rsquo;s just added a node to an expression tree, and done no iteration at all. This is why Queryable.Where is so different from the first extension on IEnumerable&lt;T&gt;. It leaves the interpretation of the expression tree till later. This is very cool because it means you can create these expression trees, store them, serialize them, and pass them around. You invoke them later like a normal iterator when you&rsquo;re ready for the data. A key scenario for this sort of capability is ad-hoc querying. You can build these queries up as the user chooses search criteria to be added to the expression tree, and then go get the results later on.</p>
 <p>Next time, I&rsquo;ll show you how the iteration works on normal Sequences such as we might get from reflection, and we&rsquo;ll take a peek at how things work in the case of DLINQ (LINQ to SQL). In DLINQ a lot of ORM intelligence is hidden under the hood of the iterator and the Expression tree. We&rsquo;ll see that the beauty of LINQ is that it manages to cleanly encapsulate the technology we need to get to the data we&rsquo;re working with. As I said in a <a href="http://aabs.wordpress.com/2006/11/01/intrusive-technology/">previous post</a>, it&rsquo;s vitally important to creating robust and maintainable code.</p>
 
     </article>
 
     
+<ul class="article-share">
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https://industrialinference.com/1/01/how-linq-works-where/" target="_blank" rel="noopener" aria-label="Facebook">
+      <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg></div>Facebook</div>
+    </a>
+  </li>
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=How%20LINQ%20Works%20%e2%80%93%20Where%20-%20The%20Wandering%20Glitch&amp;url=https://industrialinference.com/1/01/how-linq-works-where/" target="_blank" rel="noopener" aria-label="Twitter">
+      <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg></div>Twitter</div>
+    </a>
+  </li>
+</ul>
 
 
     <ul class="pager article-pager">

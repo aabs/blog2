@@ -6,12 +6,12 @@
   <title>Posts - The Wandering Glitch</title>
   <meta property="og:title" content="Posts - The Wandering Glitch" />
   <meta name="twitter:title" content="Posts - The Wandering Glitch" />
-  <meta name="author" content=""/>
+  <meta name="author" content="Andrew Matthews"/>
   <meta property="og:site_name" content="The Wandering Glitch" />
   <meta property="og:url" content="https://industrialinference.com/posts/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.108.0">
+  <meta name="generator" content="Hugo 0.92.2" />
   <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="The Wandering Glitch" />
   <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="The Wandering Glitch" />
 
@@ -30,6 +30,10 @@
   <nav class="site-navi">
     <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
     <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
     </ul>
   </nav>
 </header>
@@ -40,20 +44,6 @@
   </div>
   <div class="main" role="main">
     <section class="list section-list">
-      <article class="article">
-        <a href="/1/01/semantic-development-environments/" class="article-titles">
-          <h2 class="article-title">Semantic Development Environments</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>January 1, 0001</time></li>
-        </ul>
-        <div class="article-content">
-          The semantic web is a GOOD THING by definition - anything that enables us to create smarter software without also having to create Byzantine application software must be a step in the right direction. The problem is - many people have trouble translating the generic term &ldquo;smarter&rdquo; into a concrete idea of what they would have to do to achieve that palladian dream. I think a few concrete ideas might help to firm up people&rsquo;s understanding of how the semantic web can help to deliver smarter products.
-        </div>
-        <div class="article-readmore"><a href="/1/01/semantic-development-environments/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
       <article class="article">
         <a href="/1/01/semantic-overflow-highlights-i/" class="article-titles">
           <h2 class="article-title">Semantic Overflow Highlights I</h2>
@@ -96,8 +86,8 @@ So far, I&rsquo;ve got it producing N3 notation from models, like so:
         </ul>
         <div class="article-content">
           This little script uses the JQuery getScript command, enforcing sequential loading order to ensure script dependencies are honoured:
-function LoadScriptsSequentially(scriptUrls, callback) { if (typeof scriptUrls == 'undefined') throw &quot;Argument Error: URL array is unusable&quot;; if (scriptUrls.length == 0 &amp;&amp; typeof callback == 'function') callback(); $.getScript(scriptUrls.shift(), function() { LoadScriptsSequentially(scriptUrls, callback); }); } Here&rsquo;s how you use it:
-function InitialiseQueryFramework(runTests) { LoadScriptsSequentially([ &quot;/js/inheritance.js&quot;, &quot;/js/expressions.js&quot;, &quot;/js/refData.js&quot;, &quot;/js/queryRenderer.js&quot;, &quot;/js/sha1.js&quot;, &quot;/js/queryCache.js&quot;, &quot;/js/unit-tests.js&quot;], function() { queryFramework = new QueryManager(&quot;#query&quot;); if (runTests) RunTestSuite(); }); } I love java script now and can&rsquo;t understand why I avoided it for years.
+function LoadScriptsSequentially(scriptUrls, callback) { if (typeof scriptUrls == 'undefined') throw &quot;Argument Error: URL array is unusable&quot;; if (scriptUrls.length == 0 &amp;&amp; typeof callback == 'function') callback(); $.getScript(scriptUrls.shift(), function() { LoadScriptsSequentially(scriptUrls, callback); }); }  Here&rsquo;s how you use it:
+function InitialiseQueryFramework(runTests) { LoadScriptsSequentially([ &quot;/js/inheritance.js&quot;, &quot;/js/expressions.js&quot;, &quot;/js/refData.js&quot;, &quot;/js/queryRenderer.js&quot;, &quot;/js/sha1.js&quot;, &quot;/js/queryCache.js&quot;, &quot;/js/unit-tests.js&quot;], function() { queryFramework = new QueryManager(&quot;#query&quot;); if (runTests) RunTestSuite(); }); }  I love java script now and can&rsquo;t understand why I avoided it for years.
         </div>
         <div class="article-readmore"><a href="/1/01/sequential-script-loading-on-demand/">Read more...</a></div>
         <div class="article-floatclear"></div>
@@ -195,6 +185,22 @@ The purpose of speech is to cause increased activity in certain conceptually spe
 Swords are more frightening than Atomic bombs. Atomic bombs show evidence that some people are unwilling to fight in person.
         </div>
         <div class="article-readmore"><a href="/1/01/so-much-froth/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/1/01/some-beautiful-images-from-derek/" class="article-titles">
+          <h2 class="article-title">Some beautiful images from Derek</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>January 1, 0001</time></li>
+        </ul>
+        <div class="article-content">
+          <p><a href="http://www.asra18.dsl.pipex.com/gallery/gallery18/Cobweb%20and%20dewdrops.jpg"><img src="http://www.asra18.dsl.pipex.com/gallery/gallery18/Cobweb%20and%20dewdrops.jpg" alt=""></a></p>
+<p>I&rsquo;m not sure that this image does the original on Derek&rsquo;s site justice, but click on it and it should take you there.</p>
+
+        </div>
+        <div class="article-readmore"><a href="/1/01/some-beautiful-images-from-derek/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
     </section>

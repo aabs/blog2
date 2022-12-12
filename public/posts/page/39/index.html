@@ -6,12 +6,12 @@
   <title>Posts - The Wandering Glitch</title>
   <meta property="og:title" content="Posts - The Wandering Glitch" />
   <meta name="twitter:title" content="Posts - The Wandering Glitch" />
-  <meta name="author" content=""/>
+  <meta name="author" content="Andrew Matthews"/>
   <meta property="og:site_name" content="The Wandering Glitch" />
   <meta property="og:url" content="https://industrialinference.com/posts/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.108.0">
+  <meta name="generator" content="Hugo 0.92.2" />
   <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="The Wandering Glitch" />
   <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="The Wandering Glitch" />
 
@@ -30,6 +30,10 @@
   <nav class="site-navi">
     <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
     <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
     </ul>
   </nav>
 </header>
@@ -41,21 +45,6 @@
   <div class="main" role="main">
     <section class="list section-list">
       <article class="article">
-        <a href="/1/01/white-paper-exploiting-the-rdf-based-linked-data-web-using-.net-via-linq/" class="article-titles">
-          <h2 class="article-title">White Paper: Exploiting the RDF-based Linked Data Web using .NET via LINQ</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>January 1, 0001</time></li>
-        </ul>
-        <div class="article-content">
-          OpenLink has recently posted an excellent white paper on using LinqToRdf with Virtuoso and the Virtuoso Sponger:
-Recently OpenLink has been investigating LinqToRdf{#link-id0x20d8a248}, an exciting project from Andrew Matthews{#link-id0x21f48218} which aims to bring the Semantic Web to .NET. Because of their language bindings and heritage, existing RDF APIs such as Sesame, Jena and Redland predominantly favour non-Windows clients. Conversely Microsoft&rsquo;s ADO.NET Data Services provides a Redmond vision of exposing data on the Web but has no support for RDF.
-        </div>
-        <div class="article-readmore"><a href="/1/01/white-paper-exploiting-the-rdf-based-linked-data-web-using-.net-via-linq/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
         <a href="/1/01/who-should-you-vote-for/" class="article-titles">
           <h2 class="article-title">Who should you vote for?</h2>
           
@@ -65,7 +54,7 @@ Recently OpenLink has been investigating LinqToRdf{#link-id0x20d8a248}, an excit
         </ul>
         <div class="article-content">
           Who should I vote for? Your expected outcome: Liberal Democrat
-Your actual outcome: Labour -4 ![](http://www.whoshouldyouvotefor.com/tiny_grey_light.gif){width=&quot;8&quot; height=&quot;20&quot;} Conservative -28 ![](http://www.whoshouldyouvotefor.com/tiny_grey_light.gif){width=&quot;56&quot; height=&quot;20&quot;} ![](http://www.whoshouldyouvotefor.com/tiny_grey_dark.gif){width=&quot;92&quot; height=&quot;20&quot;} Liberal Democrat 46 UK Independence Party -7 ![](http://www.whoshouldyouvotefor.com/tiny_grey_light.gif){width=&quot;14&quot; height=&quot;20&quot;} ![](http://www.whoshouldyouvotefor.com/tiny_grey_dark.gif){width=&quot;66&quot; height=&quot;20&quot;} Green 33 You should vote: Liberal Democrat
+Your actual outcome:   Labour -4 ![](http://www.whoshouldyouvotefor.com/tiny_grey_light.gif){width=&quot;8&quot; height=&quot;20&quot;} Conservative -28 ![](http://www.whoshouldyouvotefor.com/tiny_grey_light.gif){width=&quot;56&quot; height=&quot;20&quot;} ![](http://www.whoshouldyouvotefor.com/tiny_grey_dark.gif){width=&quot;92&quot; height=&quot;20&quot;} Liberal Democrat 46 UK Independence Party -7 ![](http://www.whoshouldyouvotefor.com/tiny_grey_light.gif){width=&quot;14&quot; height=&quot;20&quot;} ![](http://www.whoshouldyouvotefor.com/tiny_grey_dark.gif){width=&quot;66&quot; height=&quot;20&quot;} Green 33   You should vote: Liberal Democrat
 The LibDems take a strong stand against tax cuts and a strong one in favour of public services: they would make long-term residential care for the elderly free across the UK, and scrap university tuition fees.
         </div>
         <div class="article-readmore"><a href="/1/01/who-should-you-vote-for/">Read more...</a></div>
@@ -189,10 +178,26 @@ Type Safety. The key reason is automatic type safety. Type safety ensures that w
           <li class="article-meta-date"><time>January 1, 0001</time></li>
         </ul>
         <div class="article-content">
-          [Here&rsquo;s an example I pasted from LinqToRdf.]{style=&ldquo;color:rgb(0,0,255);&rdquo;}
-private void GenerateBinaryExpression(Expression e, string op) { if (e == null) throw new ArgumentNullException(&quot;e was null&quot;); if (op == null) throw new ArgumentNullException(&quot;op was null&quot;); if (op.Length == 0) throw new ArgumentNullException(&quot;op.Length was empty&quot;); BinaryExpression be = e as BinaryExpression; if (be != null) { QueryAppend(&quot;(&quot;); Dispatch(be.Left); QueryAppend(&quot;)&quot;+op+&quot;(&quot;); Dispatch(be.Right); QueryAppend(&quot;)&quot;); Log(&quot;+ :{0} Handled&quot;, e.NodeType); } } If this displays properly for you, then I am a happy man.
+          [Here&rsquo;s an example I pasted from LinqToRdf.]{style=&ldquo;color:rgb(0,0,255);&quot;}
+private void GenerateBinaryExpression(Expression e, string op) { if (e == null) throw new ArgumentNullException(&quot;e was null&quot;); if (op == null) throw new ArgumentNullException(&quot;op was null&quot;); if (op.Length == 0) throw new ArgumentNullException(&quot;op.Length was empty&quot;); BinaryExpression be = e as BinaryExpression; if (be != null) { QueryAppend(&quot;(&quot;); Dispatch(be.Left); QueryAppend(&quot;)&quot;+op+&quot;(&quot;); Dispatch(be.Right); QueryAppend(&quot;)&quot;); Log(&quot;+ :{0} Handled&quot;, e.NodeType); } }  If this displays properly for you, then I am a happy man.
         </div>
         <div class="article-readmore"><a href="/1/01/windows-live-writer-beta-2-vs-paste-and-wordpress/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/1/01/wireless-power-transmission/" class="article-titles">
+          <h2 class="article-title">Wireless Power Transmission</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>January 1, 0001</time></li>
+        </ul>
+        <div class="article-content">
+          Attachments: 2007/06/cables.jpg, 2007/06/cables-thumb.jpg
+I spent years bemoaning the fact that the laws of physics didn&rsquo;t allow the wireless transmission of power. Now it seems that I bemoaned prematurely. Researchers at MIT have a found a way to use inductance to power a 60W (think similar power rating to a laptop) lightbulb from a distance of up to 2 metres.
+I know it doesn&rsquo;t sound like much, but as I look at my desk I can&rsquo;t help thinking that a short range power transmitter would help.
+        </div>
+        <div class="article-readmore"><a href="/1/01/wireless-power-transmission/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
     </section>

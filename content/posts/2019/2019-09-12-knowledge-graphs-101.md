@@ -3,7 +3,7 @@ title: Knowledge Graphs 101
 date: 2019-09-12
 author: aabs
 category: Semantic Web, SemanticWeb
-ignored-tags: knowledge graphs, RDF, sparql
+tags: ["rdf", "knowledge graphs", "sparql"]
 slug: knowledge-graphs-101
 status: published
 attachments: 2019/09/su-san-lee-vft8w5vfhw8-unsplash.jpg

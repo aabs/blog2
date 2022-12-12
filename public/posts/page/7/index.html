@@ -6,12 +6,12 @@
   <title>Posts - The Wandering Glitch</title>
   <meta property="og:title" content="Posts - The Wandering Glitch" />
   <meta name="twitter:title" content="Posts - The Wandering Glitch" />
-  <meta name="author" content=""/>
+  <meta name="author" content="Andrew Matthews"/>
   <meta property="og:site_name" content="The Wandering Glitch" />
   <meta property="og:url" content="https://industrialinference.com/posts/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.108.0">
+  <meta name="generator" content="Hugo 0.92.2" />
   <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="The Wandering Glitch" />
   <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="The Wandering Glitch" />
 
@@ -30,6 +30,10 @@
   <nav class="site-navi">
     <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
     <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
     </ul>
   </nav>
 </header>
@@ -40,20 +44,6 @@
   </div>
   <div class="main" role="main">
     <section class="list section-list">
-      <article class="article">
-        <a href="/1/01/big-business-and-the-semantic-web/" class="article-titles">
-          <h2 class="article-title">Big Business and the Semantic Web</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>January 1, 0001</time></li>
-        </ul>
-        <div class="article-content">
-          It&rsquo;s clear that the unofficial policy of both Microsoft and Google is &ldquo;we don&rsquo;t believe in the semantic web&rdquo;. It may not be clear why. The answer is unsurprising when you give it some thought, though: Big Business. Semantic search holds out the hope of users being able to compose meaningful queries and get relevant results. The price is that someone somewhere has to write down the answers in a meaningful way.
-        </div>
-        <div class="article-readmore"><a href="/1/01/big-business-and-the-semantic-web/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
       <article class="article">
         <a href="/1/01/blissful-relief/" class="article-titles">
           <h2 class="article-title">Blissful Relief</h2>
@@ -77,7 +67,7 @@
           <li class="article-meta-date"><time>January 1, 0001</time></li>
         </ul>
         <div class="article-content">
-          It appears that Boo has reincarnated to drag us down, once again. Of course, it won&rsquo;t be possible without the help of Aggy Finn who was with them at the time[*]{style=&ldquo;font-size:9pt;&rdquo;}.
+          It appears that Boo has reincarnated to drag us down, once again. Of course, it won&rsquo;t be possible without the help of Aggy Finn who was with them at the time[*]{style=&ldquo;font-size:9pt;&quot;}.
 This is how he escaped last time:
 If the contractor wages go down to 10GBP/hr again, Aggy, I shall be blaming you!!!!!
 [* Needless to say, most this is a pack of lies. Especially the bit about Aggy being responsible.
@@ -159,7 +149,7 @@ You are at very severe risk of burnout - do something about this urgently</em></
         </ul>
         <div class="article-content">
           Is it a coincidence that in the mid-evening news there was a report that the US was doing everything in its power to broker detente between Turkey and Iraq, and an hour later I heard reports of Bush pushing the House of Representatives not to pass a bill acknowledging the Armenian Massacre?
-Given the recent history of US administrations to &lsquo;reclassify&rsquo; atrocities as &rsquo;not genocide&rsquo; to not be morally obligated, I wouldn&rsquo;t be surprised.
+Given the recent history of US administrations to &lsquo;reclassify&rsquo; atrocities as &lsquo;not genocide&rsquo; to not be morally obligated, I wouldn&rsquo;t be surprised.
         </div>
         <div class="article-readmore"><a href="/1/01/bush-a-holocaust-denier/">Read more...</a></div>
         <div class="article-floatclear"></div>
@@ -190,12 +180,26 @@ Given the recent history of US administrations to &lsquo;reclassify&rsquo; atroc
         <div class="article-content">
           Steve Eichert and Bart de Smet both posted last November about a new C# feature: Automatic Properties.
 The language enhancement will convert code like this in a class definition:
-[public string MyProperty { get; set; } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&rdquo;}
+[public string MyProperty { get; set; } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&quot;}
 Into something like this:
-[private string myProperty; public string MyProperty { get{return myProperty;} set{myProperty = value;} } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&rdquo;}
+[private string myProperty; public string MyProperty { get{return myProperty;} set{myProperty = value;} } ]{style=&ldquo;font-family:Courier New;font-size:8pt;&quot;}
 I&rsquo;ve got to admit that I view this with a few misgivings. Primarily, I worry about how to interpret MyProperty in an abstract or virtual class.
         </div>
         <div class="article-readmore"><a href="/1/01/c#-automatic-properties-semantic-changes-to-help-cope-with-poor-syntax/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/1/01/c#-by-contract-using-expression-trees/" class="article-titles">
+          <h2 class="article-title">C# by Contract - Using Expression Trees</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>January 1, 0001</time></li>
+        </ul>
+        <div class="article-content">
+          Last time I created a simple, but powerful, little design by contract library in C# 3.0. It took hardly any lines of code, and covered a broad range of possible usage scenarios. See here, for more on DBC. One thing that bothered me was the fact that if something failed a check, it wouldn&rsquo;t tell what went wrong. I had a little free time today, so I thought I&rsquo;d fix that.
+        </div>
+        <div class="article-readmore"><a href="/1/01/c#-by-contract-using-expression-trees/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
     </section>

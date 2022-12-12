@@ -2,34 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://industrialinference.com/2022/12/hell-world/</loc>
-    <lastmod>2022-12-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://industrialinference.com/posts/</loc>
-    <lastmod>2022-12-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://industrialinference.com/</loc>
-    <lastmod>2022-12-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://industrialinference.com/2021/12/implementing-a-triple-store-from-the-ground-up-part-1/</loc>
-    <lastmod>2021-12-08T00:00:00+00:00</lastmod>
+    <loc>https://industrialinference.com/tags/graph-databases/</loc>
+    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://industrialinference.com/2021/12/memory-mapped-files/</loc>
+    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/posts/</loc>
+    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/tags/rdf/</loc>
+    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/tags/rdf-databases/</loc>
+    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/tags/</loc>
+    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/2021/12/implementing-a-triple-store-from-the-ground-up-part-1/</loc>
     <lastmod>2021-12-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://industrialinference.com/2021/10/note-to-self-how-to-reclaim-disk-space-in-a-hurry-windows-10/</loc>
     <lastmod>2021-10-20T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://industrialinference.com/tags/sysops/</loc>
+    <lastmod>2021-10-20T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://industrialinference.com/2020/07/fishdots-plugins-get-a-new-lease-of-life/</loc>
     <lastmod>2020-07-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://industrialinference.com/industrial-inference/</loc>
+    <loc>https://industrialinference.com/</loc>
     <lastmod>2019-10-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/tags/blazegraph/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/tags/knowledge-graphs/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://industrialinference.com/2019/09/knowledge-graphs-2-playing-on-the-cli/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://industrialinference.com/2019/09/knowledge-graphs-3-using-a-triple-store/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/tags/sparql/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://industrialinference.com/2019/09/knowledge-graphs-101/</loc>
@@ -38,11 +56,16 @@
     <loc>https://industrialinference.com/2005/03/welcome-to-my-blog/</loc>
     <lastmod>2005-03-15T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://industrialinference.com/archives/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>https://industrialinference.com/tags/.net/</loc>
+  </url><url>
+    <loc>https://industrialinference.com/1/01/2000-year-old-computer-recreated/</loc>
+  </url><url>
     <loc>https://industrialinference.com/1/01/drool-nanotube-muscle-fibres-create-superhuman-strength/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/drools/</loc>
-  </url><url>
-    <loc>https://industrialinference.com/1/01/2000-year-old-computer-recreated/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/a-chip-off-the-old-block/</loc>
   </url><url>
@@ -66,9 +89,9 @@
   </url><url>
     <loc>https://industrialinference.com/1/01/a-nocturnal-visitor-saturday/</loc>
   </url><url>
-    <loc>https://industrialinference.com/1/01/a-sign-of-things-to-come/</loc>
-  </url><url>
     <loc>https://industrialinference.com/1/01/a-sign-of-things-to-come.../</loc>
+  </url><url>
+    <loc>https://industrialinference.com/1/01/a-sign-of-things-to-come/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/a-simple-interface-to-timercallback/</loc>
   </url><url>
@@ -84,9 +107,9 @@
   </url><url>
     <loc>https://industrialinference.com/1/01/after-two-weeks-of-processing-time/</loc>
   </url><url>
-    <loc>https://industrialinference.com/1/01/agile-what-happens-if-you-dont-think-ahead/</loc>
-  </url><url>
     <loc>https://industrialinference.com/1/01/agile-programming-gripe/</loc>
+  </url><url>
+    <loc>https://industrialinference.com/1/01/agile-what-happens-if-you-dont-think-ahead/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/almost-ready-to-go-open-source/</loc>
   </url><url>
@@ -268,6 +291,8 @@
   </url><url>
     <loc>https://industrialinference.com/1/01/emily-took-her-first-steps-yesterday/</loc>
   </url><url>
+    <loc>https://industrialinference.com/tags/entailment/</loc>
+  </url><url>
     <loc>https://industrialinference.com/1/01/erik-werenskiold/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/excellent-article-on-the-concepts-behind-c#-3.0/</loc>
@@ -398,6 +423,8 @@
   </url><url>
     <loc>https://industrialinference.com/1/01/in-case-you-wondered.../</loc>
   </url><url>
+    <loc>https://industrialinference.com/tags/inference/</loc>
+  </url><url>
     <loc>https://industrialinference.com/1/01/insight-into-the-mind-of-a-savant/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/interesting-stats/</loc>
@@ -444,7 +471,7 @@
   </url><url>
     <loc>https://industrialinference.com/1/01/let-the-flame-wars-begin/</loc>
   </url><url>
-    <loc>https://industrialinference.com/1/01/lightning--golem-pay-per-lambda/</loc>
+    <loc>https://industrialinference.com/1/01/lightning-golem-pay-per-lambda/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/linguistic-development/</loc>
   </url><url>
@@ -489,6 +516,8 @@
     <loc>https://industrialinference.com/1/01/may-was-a-quiet-month/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/meta-evolution-evolving-the-capacity-to-learn/</loc>
+  </url><url>
+    <loc>https://industrialinference.com/tags/modelling/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/moderate-drinking-can-improve-memory/</loc>
   </url><url>
@@ -556,7 +585,7 @@
   </url><url>
     <loc>https://industrialinference.com/1/01/note-to-self/</loc>
   </url><url>
-    <loc>https://industrialinference.com/1/01/note-to-self-convert-utf-8-w/-bom-to-ascii-wix--db-using-gnu-uconv/</loc>
+    <loc>https://industrialinference.com/1/01/note-to-self-convert-utf-8-w/-bom-to-ascii-wix-db-using-gnu-uconv/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/now-heres-something-id-trade-in-the-hyundai-to-own/</loc>
   </url><url>
@@ -573,6 +602,8 @@
     <loc>https://industrialinference.com/1/01/orcas-beta-2-features-apply-style/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/orcas-beta-2-features-split-view/</loc>
+  </url><url>
+    <loc>https://industrialinference.com/tags/owl/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/owl2-snippets-for-vscode/</loc>
   </url><url>
@@ -630,6 +661,8 @@
   </url><url>
     <loc>https://industrialinference.com/1/01/quote-of-the-day-chris-sells-on-cocktail-parties/</loc>
   </url><url>
+    <loc>https://industrialinference.com/tags/rdfs/</loc>
+  </url><url>
     <loc>https://industrialinference.com/1/01/relational-modeling-not-as-we-know-it/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/rip-arnie-humour/</loc>
@@ -648,9 +681,13 @@
   </url><url>
     <loc>https://industrialinference.com/1/01/semantic-overflow-highlights-i/</loc>
   </url><url>
+    <loc>https://industrialinference.com/tags/semantic-web/</loc>
+  </url><url>
     <loc>https://industrialinference.com/1/01/semantic-web-visual-designer-for-visual-studio-.net/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/sequential-script-loading-on-demand/</loc>
+  </url><url>
+    <loc>https://industrialinference.com/series/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/setting-up-sdb-on-sql-server-2005/</loc>
   </url><url>
@@ -662,6 +699,8 @@
   </url><url>
     <loc>https://industrialinference.com/1/01/small-child-wreaks-havoc.-again./</loc>
   </url><url>
+    <loc>https://industrialinference.com/tags/snippets/</loc>
+  </url><url>
     <loc>https://industrialinference.com/1/01/so-much-froth/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/some-beautiful-images-from-derek/</loc>
@@ -671,8 +710,6 @@
     <loc>https://industrialinference.com/1/01/some-pictures-of-carlton-gardens/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/somebody-else-who-despises-pencil-neck-double-talk.../</loc>
-  </url><url>
-    <loc>https://industrialinference.com/1/01/s%C3%B8ren-on-dbc/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/sorry-to-waste-your-time/</loc>
   </url><url>
@@ -686,7 +723,7 @@
   </url><url>
     <loc>https://industrialinference.com/1/01/surreal-graham-norton-moment/</loc>
   </url><url>
-    <loc>https://industrialinference.com/tags/</loc>
+    <loc>https://industrialinference.com/1/01/s%C3%B8ren-on-dbc/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/taki-says.../</loc>
   </url><url>
@@ -757,6 +794,8 @@
     <loc>https://industrialinference.com/1/01/using-task-scheduler-for-gtd-with-onenote-2007/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/virtualization-good-or-bad/</loc>
+  </url><url>
+    <loc>https://industrialinference.com/tags/vscode/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/wanky-statement-of-the-day/</loc>
   </url><url>

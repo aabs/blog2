@@ -6,14 +6,15 @@
     <description>Recent content in Posts on The Wandering Glitch</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Andrew Matthews</copyright>
-    <lastBuildDate>Sun, 11 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://industrialinference.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://industrialinference.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>hell world</title>
-      <link>https://industrialinference.com/2022/12/hell-world/</link>
-      <pubDate>Sun, 11 Dec 2022 00:00:00 +0000</pubDate>
+      <title>Memory Mapped Files</title>
+      <link>https://industrialinference.com/2021/12/memory-mapped-files/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://industrialinference.com/2022/12/hell-world/</guid>
-      <description>Hello, World.</description>
+      <guid>https://industrialinference.com/2021/12/memory-mapped-files/</guid>
+      <description>The first thing we need to do to build a database is to find a fast way to read from and write to disk. Whether we are doing I/O on a hard drive or an SSD, the interface to the disk typically works the same. It transfers data into and out of the disk in &amp;lsquo;pages&amp;rsquo; or blocks of data.
+It makes sense to keep data we are likely to access together in the same page so that it is already in memory when we need to access it.</description>
     </item>
     
     <item>
@@ -27,23 +28,13 @@ In this new article series, I&amp;rsquo;ll implement a triple store using techni
     </item>
     
     <item>
-      <title>Memory Mapped Files</title>
-      <link>https://industrialinference.com/2021/12/memory-mapped-files/</link>
-      <pubDate>Wed, 08 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://industrialinference.com/2021/12/memory-mapped-files/</guid>
-      <description>The first thing we need to do to build a database is to find a fast way to read from and write to disk. Whether we are doing I/O on a hard drive or an SSD, the interface to the disk typically works the same. It transfers data into and out of the disk in &amp;lsquo;pages&amp;rsquo; or blocks of data.
-It makes sense to keep data we are likely to access together in the same page so that it is already in memory when we need to access it.</description>
-    </item>
-    
-    <item>
       <title>Note To Self - How to Reclaim Disk Space in a Hurry (Windows 10)</title>
       <link>https://industrialinference.com/2021/10/note-to-self-how-to-reclaim-disk-space-in-a-hurry-windows-10/</link>
       <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/2021/10/note-to-self-how-to-reclaim-disk-space-in-a-hurry-windows-10/</guid>
       <description>When you suddenly discover that your disk is full, consider doing the following:
-Work out where the disk is being used, with tree size free $ cinst -y treesizefree If you don&amp;rsquo;t use hibernation on your machine you could save a lot of space by turning it off $ powercfg.exe /hibernate off Compact the WSL disk if you use WSL $ wsl --shutdown $ optimize-vhd -Path &amp;#34;C:\Users\a30006806\AppData\Local\Docker\wsl\data\ext4.vhdx&amp;#34; -Mode full Purge unwanted docker images and containers $ docker system prune If that still doesn&amp;rsquo;t reclaim enough space, then there is the &amp;lsquo;nuclear options&amp;rsquo;, described here by Marc Roussy.</description>
+ Work out where the disk is being used, with tree size free  $ cinst -y treesizefree If you don&amp;rsquo;t use hibernation on your machine you could save a lot of space by turning it off  $ powercfg.exe /hibernate off Compact the WSL disk if you use WSL  $ wsl --shutdown $ optimize-vhd -Path &amp;quot;C:\Users\a30006806\AppData\Local\Docker\wsl\data\ext4.</description>
     </item>
     
     <item>
@@ -54,11 +45,11 @@ Work out where the disk is being used, with tree size free $ cinst -y treesizefr
       <guid>https://industrialinference.com/2020/07/fishdots-plugins-get-a-new-lease-of-life/</guid>
       <description>Last week I mentioned that I was starting a rewrite of Fishdots. Well, a few of the plugins have now been ported over to the new instance of FD, which from now on I will call fd2.
 They are:
-aabs/fish_checklists
+  aabs/fish_checklists
 A fish plugin supporting production of event based checklists
-aabs/fish_git
+  aabs/fish_git
 Simple fish plugin with some helpful git abbrs and functions
-aabs/fish_subcmd
+  aabs/fish_subcmd
 Fish shell plugin providing functions to set up multi-level commands (like git)</description>
     </item>
     
@@ -78,7 +69,7 @@ Fish shell plugin providing functions to set up multi-level commands (like git)<
       
       <guid>https://industrialinference.com/2019/09/knowledge-graphs-3-using-a-triple-store/</guid>
       <description>Last time I showed you how to use CLI tools to build out your RDF data to more depth using Turtle files and how to query it using the Apache Jena CLI toolchain using SPARQL Query language. This time I&amp;rsquo;ll show how to insert and retrieve data from a remote triple store. I&amp;rsquo;ll continue using the CLI tools for now.
-Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using .</description>
+ Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using .</description>
     </item>
     
     <item>
@@ -97,6 +88,15 @@ Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 
       
       <guid>https://industrialinference.com/2005/03/welcome-to-my-blog/</guid>
       <description>Well there is so much to write about, that I thought it was about time I jumped onto the wagon, and told the world what&amp;rsquo;s going on in my life, and in my head. As the saying goes, the more that things change, the more they stay the same. And that&amp;rsquo;s certainly been true for me during the last few years. Change is the only constrant in my life lately (except for Kerry - Oh, and Mosquitoes).</description>
+    </item>
+    
+    <item>
+      <title>2000 Year Old Computer Recreated</title>
+      <link>https://industrialinference.com/1/01/2000-year-old-computer-recreated/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/1/01/2000-year-old-computer-recreated/</guid>
+      <description>[digg=http://digg.com/general_sciences/2000_Year_Old_Computer_Recreated]Archaeologists from the University of Cardiff have finally worked out how to put together a complex mechanism that was found in the 2000 year old ruins of a sunken boat off the coast of Greece. The announcement was impressive because this mechanical calculating device had defied researcher&amp;rsquo;s attempts to understand it for over a hundred years. The device was used to calculate the position of both the moon and the sun during their orbit, and to calculate eclipses with remarkable accuracy.</description>
     </item>
     
     <item>
@@ -119,22 +119,13 @@ This is to wireless digital home entertainment, what the ipod is to the personal
     </item>
     
     <item>
-      <title>2000 Year Old Computer Recreated</title>
-      <link>https://industrialinference.com/1/01/2000-year-old-computer-recreated/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://industrialinference.com/1/01/2000-year-old-computer-recreated/</guid>
-      <description>[digg=http://digg.com/general_sciences/2000_Year_Old_Computer_Recreated]Archaeologists from the University of Cardiff have finally worked out how to put together a complex mechanism that was found in the 2000 year old ruins of a sunken boat off the coast of Greece. The announcement was impressive because this mechanical calculating device had defied researcher&amp;rsquo;s attempts to understand it for over a hundred years. The device was used to calculate the position of both the moon and the sun during their orbit, and to calculate eclipses with remarkable accuracy.</description>
-    </item>
-    
-    <item>
       <title>A chip off the old block</title>
       <link>https://industrialinference.com/1/01/a-chip-off-the-old-block/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/a-chip-off-the-old-block/</guid>
       <description>I would just like to report another milestone in my children&amp;rsquo;s development.
-[THOMAS ATE HIS FIRST WORM TODAY. ]{style=&amp;ldquo;font-size:14pt;&amp;rdquo;}
+[THOMAS ATE HIS FIRST WORM TODAY. ]{style=&amp;ldquo;font-size:14pt;&amp;quot;}
 That&amp;rsquo;s my boy.</description>
     </item>
     
@@ -154,9 +145,9 @@ It shows a very nice example of the new object creation syntax as well.</descrip
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/a-cure-for-cancer/</guid>
-      <description>From KurzweilAI. If this isn&amp;rsquo;t worth blogging about, then nothing is. Could this be the most historic announcement ever to arrive in my inbox? [ ]{style=&amp;ldquo;font-size:9pt;font-family:Arial;&amp;rdquo;}
-Cheap, safe drug kills most cancers [[NewScientist.com news service Jan. 20, 2007]{style=&amp;ldquo;font-size:8pt;&amp;rdquo;}[ ]{style=&amp;ldquo;font-size:9pt;&amp;rdquo;}]{style=&amp;ldquo;font-family:Arial;&amp;rdquo;}
-University of Alberta scientists have tested dichloroacetate (DCA) on human cells cultured outside the body and found that it killed lung, breast and brain cancer cells, but not healthy cells&amp;hellip;. [http://www.kurzweilai.net/email/newsRedirect.html?newsID=6368&amp;amp;m=28179]{style=&amp;ldquo;color:blue;text-decoration:underline;&amp;rdquo;}</description>
+      <description>From KurzweilAI. If this isn&amp;rsquo;t worth blogging about, then nothing is. Could this be the most historic announcement ever to arrive in my inbox? [ ]{style=&amp;ldquo;font-size:9pt;font-family:Arial;&amp;quot;}
+Cheap, safe drug kills most cancers [[NewScientist.com news service Jan. 20, 2007]{style=&amp;ldquo;font-size:8pt;&amp;quot;}[ ]{style=&amp;ldquo;font-size:9pt;&amp;quot;}]{style=&amp;ldquo;font-family:Arial;&amp;quot;}
+ University of Alberta scientists have tested dichloroacetate (DCA) on human cells cultured outside the body and found that it killed lung, breast and brain cancer cells, but not healthy cells&amp;hellip;. [http://www.</description>
     </item>
     
     <item>
@@ -212,7 +203,7 @@ Introduction This document is the basis of a use case analysis of the JEDI syste
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/a-new-end/beginning/</guid>
-      <description>Well, LinkMe is coming to an end. Not literally - just my involvement in it. Yes, I am off again to a new place. This time it is Readify - a smallish consultancy that specialises in emerging .NET technologies. They were recommended to me by Frank Arrigo, the group manager of the Microsoft Australian Evangelists, who rated them as an &amp;rsquo;elite team&amp;rsquo;. Hopefully, now I will get an opportunity to indulge my secret fetish.</description>
+      <description>Well, LinkMe is coming to an end. Not literally - just my involvement in it. Yes, I am off again to a new place. This time it is Readify - a smallish consultancy that specialises in emerging .NET technologies. They were recommended to me by Frank Arrigo, the group manager of the Microsoft Australian Evangelists, who rated them as an &amp;lsquo;elite team&amp;rsquo;. Hopefully, now I will get an opportunity to indulge my secret fetish.</description>
     </item>
     
     <item>
@@ -236,6 +227,18 @@ Beautiful looking creatures though. And we shall have to keep a supply of banana
     </item>
     
     <item>
+      <title>A sign of things to come...</title>
+      <link>https://industrialinference.com/1/01/a-sign-of-things-to-come.../</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/1/01/a-sign-of-things-to-come.../</guid>
+      <description>Finding that we didn&amp;rsquo;t have room for a drying machine, and figuring that Melbourne summers are long and hot and dry, we decided that a clothes horse or two would be a better short term investment. And, keen as she is, Kerry decided to give one a try.
+
+Lots of baby clothes
+It gives me the shivers - I see a future littered with drying stinky babies romper suits. Our neat and minimalist, and even quite stylishly modern on a good day, existence is about to become very biological.</description>
+    </item>
+    
+    <item>
       <title>A sign of things to come?</title>
       <link>https://industrialinference.com/1/01/a-sign-of-things-to-come/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -244,17 +247,6 @@ Beautiful looking creatures though. And we shall have to keep a supply of banana
       <description>I got the following in an email disclaimer that foreshadows interesting times ahead:
 This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed.
 Sounds like humans are only part of the game these days, and &amp;ldquo;entities&amp;rdquo; will be asserting their rights more forcefully in future. Perhaps such entities represent affiliated groups of humans, but perhaps they represent other semi-sentient information agregates such as software agents or epi-phenomena growing out there on the web as viruses or telephone exchanges?</description>
-    </item>
-    
-    <item>
-      <title>A sign of things to come...</title>
-      <link>https://industrialinference.com/1/01/a-sign-of-things-to-come.../</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://industrialinference.com/1/01/a-sign-of-things-to-come.../</guid>
-      <description>Finding that we didn&amp;rsquo;t have room for a drying machine, and figuring that Melbourne summers are long and hot and dry, we decided that a clothes horse or two would be a better short term investment. And, keen as she is, Kerry decided to give one a try.
-Lots of baby clothes
-It gives me the shivers - I see a future littered with drying stinky babies romper suits. Our neat and minimalist, and even quite stylishly modern on a good day, existence is about to become very biological.</description>
     </item>
     
     <item>
@@ -314,6 +306,15 @@ It surprises me that this has not been identified before. Yet another example of
     </item>
     
     <item>
+      <title>Agile Programming Gripe</title>
+      <link>https://industrialinference.com/1/01/agile-programming-gripe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/1/01/agile-programming-gripe/</guid>
+      <description>Alfred Thompson recently blogged about an interesting interview given by Bjarne Stroustrup, the inventor of C++, now professor of computer science at Texas A&amp;amp;M University. As ever the interviewers were after his prescription for the Silver Bullet that will save us all from ourselves. Alfred has already boiled down the interview to a couple of interesting sound bites, and I aim to do the same to his post. The quote that particularly caught my attention was Stroustrup&amp;rsquo;s comment on the &amp;lsquo;pragmatic&amp;rsquo; way in which modern software gets developed.</description>
+    </item>
+    
+    <item>
       <title>Agile – what happens if you don’t think ahead?</title>
       <link>https://industrialinference.com/1/01/agile-what-happens-if-you-dont-think-ahead/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -321,15 +322,6 @@ It surprises me that this has not been identified before. Yet another example of
       <guid>https://industrialinference.com/1/01/agile-what-happens-if-you-dont-think-ahead/</guid>
       <description>Alec, a man of great perspicacity, and wisdom, has granted us another Agile pearl of wisdom. All of which is totally correct. There&amp;rsquo;s no doubt that if you are with The Complicators, then you can screw up a product no matter what method you follow.
 Let&amp;rsquo;s just try a thought experiment though – Imagine you&amp;rsquo;d been disciplined and hadn&amp;rsquo;t thought of the future at all, and you&amp;rsquo;d designed your system solely to work on RJE 2780.</description>
-    </item>
-    
-    <item>
-      <title>Agile Programming Gripe</title>
-      <link>https://industrialinference.com/1/01/agile-programming-gripe/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://industrialinference.com/1/01/agile-programming-gripe/</guid>
-      <description>Alfred Thompson recently blogged about an interesting interview given by Bjarne Stroustrup, the inventor of C++, now professor of computer science at Texas A&amp;amp;M University. As ever the interviewers were after his prescription for the Silver Bullet that will save us all from ourselves. Alfred has already boiled down the interview to a couple of interesting sound bites, and I aim to do the same to his post. The quote that particularly caught my attention was Stroustrup&amp;rsquo;s comment on the &amp;lsquo;pragmatic&amp;rsquo; way in which modern software gets developed.</description>
     </item>
     
     <item>
@@ -347,7 +339,8 @@ Let&amp;rsquo;s just try a thought experiment though – Imagine you&amp;rsquo;d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/an-extension-to-the-family-seat/</guid>
-      <description>Here&amp;rsquo;s some, slightly more accessible, pictures of Mum and Dad&amp;rsquo;s new conservatoire. I&amp;rsquo;m sure you&amp;rsquo;ll all agree that it&amp;rsquo;s very small, I&amp;rsquo;m mean - Is that a conservatoire for ants?</description>
+      <description>Here&amp;rsquo;s some, slightly more accessible, pictures of Mum and Dad&amp;rsquo;s new conservatoire. I&amp;rsquo;m sure you&amp;rsquo;ll all agree that it&amp;rsquo;s very small, I&amp;rsquo;m mean - Is that a conservatoire for ants?
+  </description>
     </item>
     
     <item>
@@ -404,7 +397,7 @@ It uses Context Bound Objects to ensure the interception of all calls by the CLR
       <guid>https://industrialinference.com/1/01/and-were-off/</guid>
       <description>I have set up the sourceforge project. You can find it here. I&amp;rsquo;ve also classified all of the work, and split it up into releases.
 Here&amp;rsquo;s what will go into release one:
-Configuration Use native .NET configuration Configuration Remove existing config assembly Installers WIX installers Runtime Control Add transactional support from COM+ Runtime Control Extend reverse engineering to examine SPs and create wrappers for them. Runtime Control Configurable ID strategy Runtime Control Configurable transaction isolation policy Templates Move core templates into resource assembly Testing Create a proper test database Runtime Control Divide system between runtime and development projects Runtime Control Standardise all names to CamelCase</description>
+ Configuration Use native .NET configuration Configuration Remove existing config assembly Installers WIX installers Runtime Control Add transactional support from COM+ Runtime Control Extend reverse engineering to examine SPs and create wrappers for them. Runtime Control Configurable ID strategy Runtime Control Configurable transaction isolation policy Templates Move core templates into resource assembly Testing Create a proper test database Runtime Control Divide system between runtime and development projects Runtime Control Standardise all names to CamelCase</description>
     </item>
     
     <item>
@@ -415,7 +408,7 @@ Configuration Use native .NET configuration Configuration Remove existing config
       <guid>https://industrialinference.com/1/01/announcing-linqtordf-0.3-and-linqtordf-designer-0.3/</guid>
       <description>The third release of LinqToRdf has been uploaded to GoogleCode. Go to the project web site for links to the latest release.
 LinqToRdf Changes:
-support for SPARQL type casting numerous bug fixes better support for identity projections more SPARQL relational operators latest versions of SemWeb &amp;amp; SPARQL Engine, incorporating recent bug fixes and enhancements of each of them I have also released a new graphical designer to auto-generate C# entity models as well as N3 ontology specifications from UML-like designs.</description>
+ support for SPARQL type casting numerous bug fixes better support for identity projections more SPARQL relational operators latest versions of SemWeb &amp;amp; SPARQL Engine, incorporating recent bug fixes and enhancements of each of them  I have also released a new graphical designer to auto-generate C# entity models as well as N3 ontology specifications from UML-like designs.</description>
     </item>
     
     <item>
@@ -427,7 +420,7 @@ support for SPARQL type casting numerous bug fixes better support for identity p
       <description>[]{#msg_06050fdd438f8b01}The fifth release of LinqToRdf has just been uploaded to Google Code.
 Go to http://code.google.com/p/linqtordf for links to the latest MSI installer.
 LinqToRdf Changes:
-Member access projections like this: from a in c select a.Name initial support for Distinct results latest versions of SemWeb &amp;amp; SPARQL Engine, incorporating the new SqlServer store provider updated the DSL tools to compile on RTM version of VS.NET 2008 Please let me know how you get on.</description>
+ Member access projections like this: from a in c select a.Name initial support for Distinct results latest versions of SemWeb &amp;amp; SPARQL Engine, incorporating the new SqlServer store provider updated the DSL tools to compile on RTM version of VS.NET 2008  Please let me know how you get on.</description>
     </item>
     
     <item>
@@ -438,7 +431,7 @@ Member access projections like this: from a in c select a.Name initial support f
       <guid>https://industrialinference.com/1/01/announcing-linqtordf-v0.6/</guid>
       <description>I&amp;rsquo;ve just uploaded LinqToRdf v0.6 with improved designer support for Visual Studio .NET 2008.
 The release includes the following high-points:
-LinqToRdf Designer and VS.NET 2008 extension completely rewritten LinqToRdf Installer now includes the installer of LinqToRdf Designer (at no extra cost) Project and Item templates now installed as part of LinqToRdf Designer Generated object and data properties now get their own EntitySet or EntityRef. Generates LINQ to SQL-style DataContext objects to hide query creation.</description>
+ LinqToRdf Designer and VS.NET 2008 extension completely rewritten LinqToRdf Installer now includes the installer of LinqToRdf Designer (at no extra cost) Project and Item templates now installed as part of LinqToRdf Designer Generated object and data properties now get their own EntitySet or EntityRef. Generates LINQ to SQL-style DataContext objects to hide query creation.</description>
     </item>
     
     <item>
@@ -496,7 +489,7 @@ I just read a very interesting post by Tony Wright, on the relative cost of fixi
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/appimages-on-wsl2/</guid>
-      <description>This is a reminder to self, for those times when you just gotta have vim and fishdots on a recent version of fish shell (and someone upstream has completely screwed up the CA certificates so you can&amp;rsquo;t use apt or linux brew because they can&amp;rsquo;t be configured to relax cacert security).
+      <description>This is a reminder to self, for those times when you just gotta have vim and fishdots on a recent version of fish shell (and someone upstream has completely screwed up the CA certificates so you can&amp;rsquo;t use apt or linux brew  because they can&amp;rsquo;t be configured to relax cacert security).
 First, create a place for them to live
 mkdir -p ~/bin; cd /tmp Now get fish shell
 wget --no-check-certificate https://download.</description>
@@ -541,7 +534,7 @@ The music began with Allegri&amp;rsquo;s Misereri which blew us both away, but t
       <guid>https://industrialinference.com/1/01/as-the-buddha-said.../</guid>
       <description>&amp;hellip;life is pain.
 And it seems that some of us (and I&amp;rsquo;m including myself in this camp till proven otherwise) are born with an inherited tendency to feel more pain than others. This curse is known as &amp;ldquo;primary erythromelalgia&amp;rdquo;. And is somehow related to a defective sodium channel in the pain signalling neurons. I blame my parents.
-Breaking news It seems that one of the guys that I&amp;rsquo;m working with has a father-in-law who was a body guard for Adolph Hitler.</description>
+ Breaking news It seems that one of the guys that I&amp;rsquo;m working with has a father-in-law who was a body guard for Adolph Hitler.</description>
     </item>
     
     <item>
@@ -629,7 +622,7 @@ Codenamed baby 1 and baby 2 prior to launch.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/boo.com-to-reincorporate-one-for-you-aggy/</guid>
-      <description>It appears that Boo has reincarnated to drag us down, once again. Of course, it won&amp;rsquo;t be possible without the help of Aggy Finn who was with them at the time[*]{style=&amp;ldquo;font-size:9pt;&amp;rdquo;}.
+      <description>It appears that Boo has reincarnated to drag us down, once again. Of course, it won&amp;rsquo;t be possible without the help of Aggy Finn who was with them at the time[*]{style=&amp;ldquo;font-size:9pt;&amp;quot;}.
 This is how he escaped last time:
 If the contractor wages go down to 10GBP/hr again, Aggy, I shall be blaming you!!!!!
 [* Needless to say, most this is a pack of lies. Especially the bit about Aggy being responsible.</description>
@@ -682,7 +675,7 @@ According to this test I am: 60 - 75 You are at very severe risk of burnout - do
       
       <guid>https://industrialinference.com/1/01/bush-a-holocaust-denier/</guid>
       <description>Is it a coincidence that in the mid-evening news there was a report that the US was doing everything in its power to broker detente between Turkey and Iraq, and an hour later I heard reports of Bush pushing the House of Representatives not to pass a bill acknowledging the Armenian Massacre?
-Given the recent history of US administrations to &amp;lsquo;reclassify&amp;rsquo; atrocities as &amp;rsquo;not genocide&amp;rsquo; to not be morally obligated, I wouldn&amp;rsquo;t be surprised.</description>
+Given the recent history of US administrations to &amp;lsquo;reclassify&amp;rsquo; atrocities as &amp;lsquo;not genocide&amp;rsquo; to not be morally obligated, I wouldn&amp;rsquo;t be surprised.</description>
     </item>
     
     <item>
@@ -702,9 +695,9 @@ Given the recent history of US administrations to &amp;lsquo;reclassify&amp;rsqu
       <guid>https://industrialinference.com/1/01/c#-automatic-properties-semantic-changes-to-help-cope-with-poor-syntax/</guid>
       <description>Steve Eichert and Bart de Smet both posted last November about a new C# feature: Automatic Properties.
 The language enhancement will convert code like this in a class definition:
-[public string MyProperty { get; set; } ]{style=&amp;ldquo;font-family:Courier New;font-size:8pt;&amp;rdquo;}
+[public string MyProperty { get; set; } ]{style=&amp;ldquo;font-family:Courier New;font-size:8pt;&amp;quot;}
 Into something like this:
-[private string myProperty; public string MyProperty { get{return myProperty;} set{myProperty = value;} } ]{style=&amp;ldquo;font-family:Courier New;font-size:8pt;&amp;rdquo;}
+[private string myProperty; public string MyProperty { get{return myProperty;} set{myProperty = value;} } ]{style=&amp;ldquo;font-family:Courier New;font-size:8pt;&amp;quot;}
 I&amp;rsquo;ve got to admit that I view this with a few misgivings. Primarily, I worry about how to interpret MyProperty in an abstract or virtual class.</description>
     </item>
     
@@ -752,7 +745,7 @@ struct memory { byte_t* mem; unsigned int size;``memory(unsigned int x = vpc::me
       
       <guid>https://industrialinference.com/1/01/can-aop-help-fix-bad-architectures/</guid>
       <description>I recently posted a question on Stack Overflow on the feasibility of using IL rewriting frameworks to rectify bad design after the fact. The confines of the answer comment area were too small to give the subject proper treatment so I though a new blog post was in order. Here&amp;rsquo;s the original question:
-I&amp;rsquo;ve recently been playing around with PostSharp, and it brought to mind a problem I faced a few years back: A client&amp;rsquo;s developer had produced a web application, but they had not given a lot of thought to how they managed state information - storing it (don&amp;rsquo;t ask me why) statically on the Application instance in IIS.</description>
+ I&amp;rsquo;ve recently been playing around with PostSharp, and it brought to mind a problem I faced a few years back: A client&amp;rsquo;s developer had produced a web application, but they had not given a lot of thought to how they managed state information - storing it (don&amp;rsquo;t ask me why) statically on the Application instance in IIS.</description>
     </item>
     
     <item>
@@ -770,7 +763,7 @@ I&amp;rsquo;ve recently been playing around with PostSharp, and it brought to mi
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/chick-peas/</guid>
-      <description> God knows what kind of tree this is, but it looks like a tree full of chick-peas. </description>
+      <description>God knows what kind of tree this is, but it looks like a tree full of chick-peas.</description>
     </item>
     
     <item>
@@ -837,7 +830,7 @@ public static class Predicates { public static void Assert&amp;lt;T&amp;gt;(this
       
       <guid>https://industrialinference.com/1/01/continue-if-not-null-operator-yes-please/</guid>
       <description>Olmo made a very worthwhile suggestion on the LINQ forums recently. His suggestion was for a new operator to be added to the C# language to allow us to do away with the following kind of pesky construct:
-[sourcecode language=&#39;csharp&#39;]string x; if(a != null &amp;amp;amp;&amp;amp;amp; a.Address != null &amp;amp;amp;&amp;amp;amp; a.Address.FirstLine != null) x = a.Address.FirstLine;[/sourcecode] instead he suggested a new ?. operator so that we could produce something like this:</description>
+ [sourcecode language=&#39;csharp&#39;]string x; if(a != null &amp;amp;amp;&amp;amp;amp; a.Address != null &amp;amp;amp;&amp;amp;amp; a.Address.FirstLine != null) x = a.Address.FirstLine;[/sourcecode]  instead he suggested a new ?. operator so that we could produce something like this:</description>
     </item>
     
     <item>
@@ -873,7 +866,7 @@ public static class Predicates { public static void Assert&amp;lt;T&amp;gt;(this
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/corneliu-caught-a-funnel-web-and-persuaded-it-to-do-a-photo-shoot/</guid>
-      <description>[I doubt he got far with the Austin Powers routine&amp;hellip;]{style=&amp;ldquo;color:rgb(79, 129, 189);font-size:9pt;&amp;rdquo;}</description>
+      <description>[I doubt he got far with the Austin Powers routine&amp;hellip;]{style=&amp;ldquo;color:rgb(79, 129, 189);font-size:9pt;&amp;quot;}</description>
     </item>
     
     <item>
@@ -902,7 +895,7 @@ In this post I&amp;rsquo;ll give you some edited highlights of what was involved
       
       <guid>https://industrialinference.com/1/01/current-lyric/</guid>
       <description>This what I&amp;rsquo;m hearing as I work:
-&amp;ldquo;It must have emerged on the far side of the galaxy!&amp;rdquo;
+&amp;ldquo;It must have emerged on the far side of the galaxy!&amp;quot;
 Network received: 174552186 bytes Server: SHOUTcast Distributed Network Audio Server/Linux v1.9.2 Content-Type: audio/mpeg Metadata received: 21752 bytes Metadata interval: 8192 bytes Stream name: HBR1.com - I.D.M. Tranceponder Current &amp;mdash; title: KahFau in the Mix - The Stars Within Us - CD 2</description>
     </item>
     
@@ -933,7 +926,7 @@ This is a very thought provoking piece of news. To me it seems to point out the 
       
       <guid>https://industrialinference.com/1/01/dad-looking-cheerful/</guid>
       <description>Dad looking cheerful Originally uploaded by Andrew Matthews.
-Is this the ghost of Christmas&amp;rsquo; past or dad feeling left out because the lesbians were all trying to stick their tongues in Derek and Kerry&amp;rsquo;s ears, while the gays were after a dance with him (Prison Style)?</description>
+Is this the ghost of Christmas&#39; past or dad feeling left out because the lesbians were all trying to stick their tongues in Derek and Kerry&amp;rsquo;s ears, while the gays were after a dance with him (Prison Style)?</description>
     </item>
     
     <item>
@@ -1051,7 +1044,7 @@ Yet another beautious offering from Derek. Very Fin de Seicle, sun setting on th
       
       <guid>https://industrialinference.com/1/01/designing-a-linq-query-provider/</guid>
       <description>The process of creating a LINQ query provider is reasonably straightforward. Had it been documented earlier, there would have doubtless been dozens of providers written by now. Here&amp;rsquo;s the broad outline of what you have to do.
-Find the best API to talk to your target data store. Create a factory or context object to build your queries. Create a class for the query object(s). Choose between IQueryable&amp;lt;T&amp;gt; and IOrderedQueryable&amp;lt;T&amp;gt;. Implement this interface on the query class.</description>
+ Find the best API to talk to your target data store. Create a factory or context object to build your queries. Create a class for the query object(s). Choose between IQueryable&amp;lt;T&amp;gt; and IOrderedQueryable&amp;lt;T&amp;gt;.</description>
     </item>
     
     <item>
@@ -1131,7 +1124,7 @@ That got me to thinking, if you can entrain your brainwaves deliberately to give
       
       <guid>https://industrialinference.com/1/01/does-this-seem-nice-to-you/</guid>
       <description>After years of recoiling at the sight of code like this, am I supposed now to embrace it in a spirit of reconciliation?
-namespace ConsoleApplication1 { class Program { static void Main(string[] args) { dynamic blah = GetTheBlah(); Console.WriteLine(blah); } private static dynamic GetTheBlah() { if (DateTime.Now.Millisecond % 3 == 0) return 0; else return &amp;#34;hello world!&amp;#34;; } } } need to wash my hands.</description>
+namespace ConsoleApplication1 { class Program { static void Main(string[] args) { dynamic blah = GetTheBlah(); Console.WriteLine(blah); } private static dynamic GetTheBlah() { if (DateTime.Now.Millisecond % 3 == 0) return 0; else return &amp;quot;hello world!&amp;quot;; } } } need to wash my hands.</description>
     </item>
     
     <item>
@@ -1160,6 +1153,7 @@ One of the current favourite ways to add value to an existing system is through 
       
       <guid>https://industrialinference.com/1/01/dr-chasubles-patent-hair-elixir/</guid>
       <description>Another masterpiece of the art. This one even includes a little error to help make the client feel not only blessed with good fortune at having found the elixir but also heroically perspicatious at having found that their grammatical capacities are as overdeveloped as their hair soon will be.
+
 Thanks to Derek for this gem.</description>
     </item>
     
@@ -1345,7 +1339,7 @@ One thing I love about Flickr (which I&amp;rsquo;ve also come to love about GMai
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/formatting-in-data-bound-controls/</guid>
-      <description>I recently ran across a problem with data bound controls in ASP.NET, where I set the string formatting specification (by the book) and nothing happened. If you come across this problem you are probably missing the HtmlEncode attribute on your column specification. Without this the braces are probably encoded and thus the formatting string is unrecognisable to the control. Consider adding the []{style=&amp;ldquo;font-size:10px;font-family:Courier New;&amp;rdquo;}[HtmlEncode]{style=&amp;ldquo;color:red;&amp;rdquo;}[=&amp;ldquo;false&amp;rdquo; ]{style=&amp;ldquo;color:blue;&amp;quot;}to your binding specifications - it worked for me.</description>
+      <description>I recently ran across a problem with data bound controls in ASP.NET, where I set the string formatting specification (by the book) and nothing happened. If you come across this problem you are probably missing the HtmlEncode attribute on your column specification. Without this the braces are probably encoded and thus the formatting string is unrecognisable to the control. Consider adding the []{style=&amp;ldquo;font-size:10px;font-family:Courier New;&amp;quot;}[HtmlEncode]{style=&amp;ldquo;color:red;&amp;quot;}[=&amp;ldquo;false&amp;rdquo; ]{style=&amp;ldquo;color:blue;&amp;quot;}to your binding specifications - it worked for me.</description>
     </item>
     
     <item>
@@ -1421,7 +1415,7 @@ A 100% crime detection and solving rate is clearly not compatible with most peop
       
       <guid>https://industrialinference.com/1/01/from-kurtzweil-ai-refocusable-pictures/</guid>
       <description>This will be revolutionary:
-A computer science Ph.D. student at Stanford University has outfitted a 16-megapixel camera with a bevy of micro lenses that allows users to take photos and later refocus them on a computer using software he wrote. Ren Ng&#39;s camera pits about 90,000 micro lenses between the main lens and sensor. The mini lenses measure all the rays of incoming... </description>
+ A computer science Ph.D. student at Stanford University has outfitted a 16-megapixel camera with a bevy of micro lenses that allows users to take photos and later refocus them on a computer using software he wrote. Ren Ng&#39;s camera pits about 90,000 micro lenses between the main lens and sensor. The mini lenses measure all the rays of incoming...   </description>
     </item>
     
     <item>
@@ -1431,7 +1425,8 @@ A computer science Ph.D. student at Stanford University has outfitted a 16-megap
       
       <guid>https://industrialinference.com/1/01/from-kurtzweil-ai-refocusable-pictures/</guid>
       <description>This will be revolutionary:
-A computer science Ph.D. student at Stanford University has outfitted a 16-megapixel camera with a bevy of micro lenses that allows users to take photos and later refocus them on a computer using software he wrote. Ren Ng&amp;rsquo;s camera pits about 90,000 micro lenses between the main lens and sensor. The mini lenses measure all the rays of incoming&amp;hellip;</description>
+ A computer science Ph.D. student at Stanford University has outfitted a 16-megapixel camera with a bevy of micro lenses that allows users to take photos and later refocus them on a computer using software he wrote. Ren Ng&amp;rsquo;s camera pits about 90,000 micro lenses between the main lens and sensor. The mini lenses measure all the rays of incoming&amp;hellip;
+ </description>
     </item>
     
     <item>
@@ -1441,7 +1436,7 @@ A computer science Ph.D. student at Stanford University has outfitted a 16-megap
       
       <guid>https://industrialinference.com/1/01/from-kurtzweilai-augmenting-the-animal-kingdom/</guid>
       <description>James Auger in his controversial new book, Augmented Animals, envisions animals, birds, reptiles and even fish using specially engineered gadgets to help them overcome their evolutionary shortcomings. He imagines rodents zooming around with night-vision survival goggles, squirrels hoarding nuts using GPS locators and fish armed with metal&amp;hellip;
-This reminds me so much of Ben Bova&amp;rsquo;s Uplift War, that it&amp;rsquo;s funny. I don&amp;rsquo;t think its an inherently evil idea, unlike those who believe that the word &amp;rsquo;natural&amp;rsquo; should be in capitals.</description>
+This reminds me so much of Ben Bova&amp;rsquo;s Uplift War, that it&amp;rsquo;s funny. I don&amp;rsquo;t think its an inherently evil idea, unlike those who believe that the word &amp;lsquo;natural&amp;rsquo; should be in capitals.</description>
     </item>
     
     <item>
@@ -1450,8 +1445,8 @@ This reminds me so much of Ben Bova&amp;rsquo;s Uplift War, that it&amp;rsquo;s 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/from-kurzweilai-first-general-purpose-quantum-computer/</guid>
-      <description>[D-Wave Systems, Inc. plans to demonstrate a technological first on Feb. 13: an end-to-end quantum computing system powered by a 16-qubit quantum processor, running two commercial applications, live. This is the core of a new quantum computer to be unveiled by D-Wave Systems, says Steve Jurvetson, Managing Director of Draper Fisher Jurvetson,&amp;hellip; [http://www.kurzweilai.net/email/newsRedirect.html?newsID=6385&amp;amp;m=28179]{style=&amp;ldquo;color:blue;text-decoration:underline;&amp;rdquo;} ]{style=&amp;ldquo;font-family:Arial;font-size:9pt;&amp;rdquo;}
-[A 16 qbit processor. Will it be demonstrating the &amp;lsquo;commercial application&amp;rsquo; MS-DOS?]{style=&amp;ldquo;font-family:Arial;font-size:9pt;&amp;rdquo;}</description>
+      <description>[D-Wave Systems, Inc. plans to demonstrate a technological first on Feb. 13: an end-to-end quantum computing system powered by a 16-qubit quantum processor, running two commercial applications, live. This is the core of a new quantum computer to be unveiled by D-Wave Systems, says Steve Jurvetson, Managing Director of Draper Fisher Jurvetson,&amp;hellip; [http://www.kurzweilai.net/email/newsRedirect.html?newsID=6385&amp;amp;m=28179]{style=&amp;ldquo;color:blue;text-decoration:underline;&amp;quot;} ]{style=&amp;ldquo;font-family:Arial;font-size:9pt;&amp;quot;}
+[A 16 qbit processor. Will it be demonstrating the &amp;lsquo;commercial application&amp;rsquo; MS-DOS?]{style=&amp;ldquo;font-family:Arial;font-size:9pt;&amp;quot;}</description>
     </item>
     
     <item>
@@ -1481,8 +1476,8 @@ Regular readers of the The Wandering Glitch know I focused lots of attention on 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/functional-programming-lessons-from-high-school-arithmetic/</guid>
-      <description>[{.size-full .wp-image-534 .aligncenter width=&amp;ldquo;354&amp;rdquo; height=&amp;ldquo;259&amp;rdquo;}]{style=&amp;ldquo;font-size:11pt;font-family:Calibri;&amp;rdquo;}
-[I&amp;rsquo;ll start out with an apology - it was only by writing ]{style=&amp;ldquo;font-size:11pt;font-family:Calibri;&amp;rdquo;}[this ]{style=&amp;ldquo;font-size:11pt;font-style:italic;font-family:Calibri;&amp;rdquo;}[post, that I worked out how to write a shorter post on the same topic. Sometime I&amp;rsquo;ll follow this up with something less full of digressions, explorations or justifications. The topic of the post started out as &amp;lsquo;Closure&amp;rsquo;. It then became &amp;lsquo;Closure plus Rules of Composition&amp;rsquo; and finally ended up as &amp;lsquo;functional programming - lessons from high school arithmetic&amp;rsquo;.</description>
+      <description>[{.size-full .wp-image-534 .aligncenter width=&amp;ldquo;354&amp;rdquo; height=&amp;ldquo;259&amp;rdquo;}]{style=&amp;ldquo;font-size:11pt;font-family:Calibri;&amp;quot;}
+[I&amp;rsquo;ll start out with an apology - it was only by writing ]{style=&amp;ldquo;font-size:11pt;font-family:Calibri;&amp;quot;}[this ]{style=&amp;ldquo;font-size:11pt;font-style:italic;font-family:Calibri;&amp;quot;}[post, that I worked out how to write a shorter post on the same topic. Sometime I&amp;rsquo;ll follow this up with something less full of digressions, explorations or justifications. The topic of the post started out as &amp;lsquo;Closure&amp;rsquo;. It then became &amp;lsquo;Closure plus Rules of Composition&amp;rsquo; and finally ended up as &amp;lsquo;functional programming - lessons from high school arithmetic&amp;rsquo;.</description>
     </item>
     
     <item>
@@ -1491,7 +1486,7 @@ Regular readers of the The Wandering Glitch know I focused lots of attention on 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/functional-programming-in-c#-higher-order-functions/</guid>
-      <description>Functional Programming - Is it worth your time? Functional Programming in C# - Higher-Order Functions This is the second in a series on the basics of functional programming using C#. My topic today is one I touched on last time, when I described the rights and privileges of a function as a first class citizen. I&amp;rsquo;m going to explore Higher-Order Functions this time. Higher-Order Functions are functions that themselves take or return functions.</description>
+      <description>Functional Programming - Is it worth your time? Functional Programming in C# - Higher-Order Functions  This is the second in a series on the basics of functional programming using C#. My topic today is one I touched on last time, when I described the rights and privileges of a function as a first class citizen. I&amp;rsquo;m going to explore Higher-Order Functions this time. Higher-Order Functions are functions that themselves take or return functions.</description>
     </item>
     
     <item>
@@ -1501,7 +1496,7 @@ Regular readers of the The Wandering Glitch know I focused lots of attention on 
       
       <guid>https://industrialinference.com/1/01/funny/</guid>
       <description>I thought this one was so funny I had to immortalise it by posting it here&amp;hellip;
-Donald Rumsfeld is giving the President his daily briefing. He concludes by saying: &amp;ldquo;Yesterday, 3 Brazilian soldiers were killed.&amp;rdquo; &amp;ldquo;OH NO!&amp;rdquo; the President exclaims. &amp;ldquo;That&amp;rsquo;s terrible!&amp;rdquo; As the President sits, head in hands, his staff quietly watch this display of emotion. Finally, the President looks up and asks, &amp;ldquo;How many is a brazillion?&amp;rdquo;</description>
+ Donald Rumsfeld is giving the President his daily briefing. He concludes by saying: &amp;ldquo;Yesterday, 3 Brazilian soldiers were killed.&amp;rdquo; &amp;ldquo;OH NO!&amp;rdquo; the President exclaims. &amp;ldquo;That&amp;rsquo;s terrible!&amp;rdquo; As the President sits, head in hands, his staff quietly watch this display of emotion. Finally, the President looks up and asks, &amp;ldquo;How many is a brazillion?&amp;rdquo;</description>
     </item>
     
     <item>
@@ -1632,7 +1627,7 @@ A DatatypeProperty is similar to a .NET property that stores some kind of primit
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/haiku/</guid>
-      <description>Grey Bunting Hanging limp - Empty car lot.</description>
+      <description>Grey BuntingHanging limp -Empty car lot.</description>
     </item>
     
     <item>
@@ -1690,7 +1685,7 @@ Go back to bed.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/how-linq-works-creating-queries/</guid>
-      <description>Introduction In recent weeks I&amp;rsquo;ve been decompiling LINQ with Reflector to try to better understand how expression trees get converted into code. I had some doubts about Reflector&amp;rsquo;s analysis capabilities, but [Matt Warren]{style=&amp;ldquo;color:#365f91;&amp;rdquo;} and [Nigel Watson]{style=&amp;ldquo;color:#365f91;&amp;rdquo;} assure me that it can resolve everything that gets generated by the C# 3.0 compiler. I am going to continue disassembling typical usage of LINQ to Objects, and will use whatever tools are available to allow me to peer beneath the hood.</description>
+      <description>Introduction In recent weeks I&amp;rsquo;ve been decompiling LINQ with Reflector to try to better understand how expression trees get converted into code. I had some doubts about Reflector&amp;rsquo;s analysis capabilities, but [Matt Warren]{style=&amp;ldquo;color:#365f91;&amp;quot;} and [Nigel Watson]{style=&amp;ldquo;color:#365f91;&amp;quot;} assure me that it can resolve everything that gets generated by the C# 3.0 compiler. I am going to continue disassembling typical usage of LINQ to Objects, and will use whatever tools are available to allow me to peer beneath the hood.</description>
     </item>
     
     <item>
@@ -1769,7 +1764,7 @@ Since Mitch Denny told me the kind of visitor numbers he got on his blog, I&amp;
       
       <guid>https://industrialinference.com/1/01/i-gotta-git-me-some-of-this/</guid>
       <description>The mind boggles at the possibilities of shapelock!
-It is a &amp;lsquo;Ultra-High Molecular Weight Low Temperature Thermoplastic &amp;rsquo; which is to say - a form of modelling plastic that can be made plyable at just above room temperature, and can be moulded to almost any shape, but which when it cools is hard as steel. Now I have my shed, (well I share it with Cockroaches and Huntsmen spiders and moths the size of mice, but I call it mine) and a double garage (not pronounced like Mirage but like Forage) I also have the opportunity (but not the leasure time) to get more &amp;lsquo;practical&amp;rsquo;.</description>
+It is a &amp;lsquo;Ultra-High Molecular Weight Low Temperature Thermoplastic &#39; which is to say - a form of modelling plastic that can be made plyable at just above room temperature, and can be moulded to almost any shape, but which when it cools is hard as steel. Now I have my shed, (well I share it with Cockroaches and Huntsmen spiders and moths the size of mice, but I call it mine) and a double garage (not pronounced like Mirage but like Forage) I also have the opportunity (but not the leasure time) to get more &amp;lsquo;practical&amp;rsquo;.</description>
     </item>
     
     <item>
@@ -1778,9 +1773,9 @@ It is a &amp;lsquo;Ultra-High Molecular Weight Low Temperature Thermoplastic &am
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/i-hope-nathaniel-webster-is-turning-in-his-grave/</guid>
-      <description>[A little known linguistic mangling: ]{style=&amp;ldquo;color:#1f497d;font-family:Calibri;font-size:11pt;&amp;rdquo;}
-[&amp;rsquo;Aluminium&amp;rsquo; was not how Humphrey Davy initially named the element. First he called it Alumium, then he called it &amp;lsquo;Aluminum&amp;rsquo;. So, is Aluminium a case of reverse defrancophonificationism? ]{style=&amp;ldquo;color:#1f497d;font-family:Calibri;font-size:11pt;&amp;rdquo;}
-[Defrancophonificationism is of course a francophonificated coinage itself. Rather like the Euro&amp;hellip; ;^} ]{style=&amp;ldquo;color:#1f497d;font-family:Calibri;font-size:11pt;&amp;rdquo;}</description>
+      <description>[A little known linguistic mangling: ]{style=&amp;ldquo;color:#1f497d;font-family:Calibri;font-size:11pt;&amp;quot;}
+[&#39;Aluminium&#39; was not how Humphrey Davy initially named the element. First he called it Alumium, then he called it &amp;lsquo;Aluminum&amp;rsquo;. So, is Aluminium a case of reverse defrancophonificationism? ]{style=&amp;ldquo;color:#1f497d;font-family:Calibri;font-size:11pt;&amp;quot;}
+[Defrancophonificationism is of course a francophonificated coinage itself. Rather like the Euro&amp;hellip; ;^} ]{style=&amp;ldquo;color:#1f497d;font-family:Calibri;font-size:11pt;&amp;quot;}</description>
     </item>
     
     <item>
@@ -1886,8 +1881,8 @@ There are limitless answers to this question. Most of them focus on the day to d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/is-it-really-impossible-to-choose-between-linq-and-stored-procedures/</guid>
-      <description>For the mathematician there is no [Ignorabimus]{style=&amp;ldquo;font-size:10pt;&amp;rdquo;}, and, in my opinion, not at all for natural science either. &amp;hellip; The true reason why [no one] has succeeded in finding an unsolvable problem is, in my opinion, that there is no unsolvable problem. In contrast to the foolish Ignoramibus, our credo avers: We must know, We shall know.
-It&amp;rsquo;s that time of the month again – when all of the evangelically inclined mavens of Readify gather round to have the traditional debate.</description>
+      <description>For the mathematician there is no [Ignorabimus]{style=&amp;ldquo;font-size:10pt;&amp;quot;}, and, in my opinion, not at all for natural science either. &amp;hellip; The true reason why [no one] has succeeded in finding an unsolvable problem is, in my opinion, that there is no unsolvable problem. In contrast to the foolish Ignoramibus, our credo avers: We must know, We shall know.
+ It&amp;rsquo;s that time of the month again – when all of the evangelically inclined mavens of Readify gather round to have the traditional debate.</description>
     </item>
     
     <item>
@@ -1906,7 +1901,7 @@ It&amp;rsquo;s that time of the month again – when all of the evangelically in
       
       <guid>https://industrialinference.com/1/01/jedi-wish-list/</guid>
       <description>Have any of these wishes become obsolete in the last 8 years?
-Eradicate typographical errors from the development process. Remove source code from the development process. Move the emphasis of the development process from coding to design. Make the development process a visual rather than linguistic one. Move maintenance from code to design. Make debugging easy Make designs directly executable Make viewing levels of abstraction easy. Make moving from one level of abstraction to aqnother easy.</description>
+ Eradicate typographical errors from the development process. Remove source code from the development process. Move the emphasis of the development process from coding to design. Make the development process a visual rather than linguistic one. Move maintenance from code to design. Make debugging easy Make designs directly executable Make viewing levels of abstraction easy. Make moving from one level of abstraction to aqnother easy.</description>
     </item>
     
     <item>
@@ -1998,7 +1993,7 @@ Now, the burning question is - should Kerry go &amp;ldquo;au naturelle&amp;rdquo
       <guid>https://industrialinference.com/1/01/knowledge-graphs-4-querying-your-knowledge-graph-using-.net/</guid>
       <description>This installment leaves the CLI behind to show how we consume a knowledge graph within our programmatic environments. The framework I use to work with RDF is dotNetRdf.
 This is part 4 of an ongoing series providing a little background on &amp;lsquo;knowledge graphs&amp;rsquo;. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history, just practical knowledge.
-Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using .</description>
+ Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using .</description>
     </item>
     
     <item>
@@ -2082,13 +2077,22 @@ I too went through an undergraduate phase of anti-MS zealotry, and adopted obscu
     
     <item>
       <title>Lightning &#43; Golem = Pay per lambda?</title>
-      <link>https://industrialinference.com/1/01/lightning--golem-pay-per-lambda/</link>
+      <link>https://industrialinference.com/1/01/lightning-golem-pay-per-lambda/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://industrialinference.com/1/01/lightning--golem-pay-per-lambda/</guid>
+      <guid>https://industrialinference.com/1/01/lightning-golem-pay-per-lambda/</guid>
       <description>Imagine a secure way to host Docker containers with functions (like Amazon Lambda) on the Golem compute platform, combined with Lightning Network, a massively scalable payment platform fast enough to support pay per use billing.
 That would be a VERY different kind of deployment and orchestration model. Perhaps you might submit a Kubernetes/Docker Swarm YAML file and a secure data source, and dynamically direct hosting to the lowest bidder.
 What would security have to look like for this idea to work?</description>
+    </item>
+    
+    <item>
+      <title>Linguistic Development</title>
+      <link>https://industrialinference.com/1/01/linguistic-development/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/1/01/linguistic-development/</guid>
+      <description>Derek&amp;rsquo;s kittens are displaying behaviour that seems to be hard wired. There is a huge range of examples of linguistic capabilities seeming to follow a strict developmental schedule &amp;ndash; use of verbs, tenses or telegraphic speach all arrive at about the same age in children. Chomsky is the most famous linguist to claim that language, or core parts of it, are inate. His justification was that there appears to be a poverty of input in a child&amp;rsquo;s linguistic environment.</description>
     </item>
     
     <item>
@@ -2102,26 +2106,18 @@ Child Linguistic Development is a document that I wrote when I was at universit
     </item>
     
     <item>
-      <title>Linguistic Development</title>
-      <link>https://industrialinference.com/1/01/linguistic-development/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://industrialinference.com/1/01/linguistic-development/</guid>
-      <description>Derek&amp;rsquo;s kittens are displaying behaviour that seems to be hard wired. There is a huge range of examples of linguistic capabilities seeming to follow a strict developmental schedule &amp;ndash; use of verbs, tenses or telegraphic speach all arrive at about the same age in children. Chomsky is the most famous linguist to claim that language, or core parts of it, are inate. His justification was that there appears to be a poverty of input in a child&amp;rsquo;s linguistic environment.</description>
-    </item>
-    
-    <item>
       <title>links for 2006-04-07</title>
       <link>https://industrialinference.com/1/01/links-for-2006-04-07/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/links-for-2006-04-07/</guid>
-      <description>::: {.delicious-link} LaTeX - the visual FAQ :::
+      <description>  ::: {.delicious-link} LaTeX - the visual FAQ :::
 ::: {.delicious-tags} (tags: latex reference manual documentation) :::
-::: {.delicious-link} The (not so short) introduction to LaTeX :::
+  ::: {.delicious-link} The (not so short) introduction to LaTeX :::
 ::: {.delicious-tags} (tags: latex manual reference typesetting typography) :::
-::: {.delicious-link} LaTeX project: LaTeX documentation :::
-::: {.delicious-tags} (tags: latex documentation latex3) :::</description>
+  ::: {.delicious-link} LaTeX project: LaTeX documentation :::
+::: {.delicious-tags} (tags: latex documentation latex3) :::
+  </description>
     </item>
     
     <item>
@@ -2132,14 +2128,13 @@ Child Linguistic Development is a document that I wrote when I was at universit
       <guid>https://industrialinference.com/1/01/links-for-2006-04-10/</guid>
       <description>::: {.delicious-link} LilyPond - Introduction :::
 ::: {.delicious-tags} (tags: notation music latex) :::
-::: {.delicious-link} arXiv.org e-Print Archive Help (rss) :::
+  ::: {.delicious-link} arXiv.org e-Print Archive Help (rss) :::
 ::: {.delicious-tags} (tags: papers archive RSS web2.0 academia) :::
-::: {.delicious-link} HyperTeX FAQ :::
+  ::: {.delicious-link} HyperTeX FAQ :::
 ::: {.delicious-tags} (tags: latex HTML web) :::
-::: {.delicious-link} The teTeX Homepage :::
+  ::: {.delicious-link} The teTeX Homepage :::
 ::: {.delicious-tags} (tags: tex software typesetting latex linux unix latex3 cygwin) :::
-::: {.delicious-link} teTeX Documentation TOC :::
-::: {.delicious-tags} (tags: documentation latex typography latex3 manual reference typesetting) :::</description>
+  ::: {.</description>
     </item>
     
     <item>
@@ -2148,9 +2143,10 @@ Child Linguistic Development is a document that I wrote when I was at universit
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/links-for-2006-04-12/</guid>
-      <description>::: {.delicious-link} Dereks Photo Gallery :::
+      <description>  ::: {.delicious-link} Dereks Photo Gallery :::
 ::: {.delicious-extended} gorgeous stuff :::
-::: {.delicious-tags} (tags: derek art photography gallery) :::</description>
+::: {.delicious-tags} (tags: derek art photography gallery) :::
+  </description>
     </item>
     
     <item>
@@ -2159,14 +2155,15 @@ Child Linguistic Development is a document that I wrote when I was at universit
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/links-for-2006-04-23/</guid>
-      <description>::: {.delicious-link} SkyServer :::
+      <description>  ::: {.delicious-link} SkyServer :::
 ::: {.delicious-tags} (tags: database astronomy SDSS IVOA) :::
-::: {.delicious-link} Open SkyQuery :::
+  ::: {.delicious-link} Open SkyQuery :::
 ::: {.delicious-tags} (tags: database astronomy) :::
-::: {.delicious-link} TeX Resources on the Web :::
+  ::: {.delicious-link} TeX Resources on the Web :::
 ::: {.delicious-tags} (tags: tex latex reference links) :::
-::: {.delicious-link} The TeX Catalogue OnLine, Preface Home Edition :::
-::: {.delicious-tags} (tags: tex latex database) :::</description>
+  ::: {.delicious-link} The TeX Catalogue OnLine, Preface Home Edition :::
+::: {.delicious-tags} (tags: tex latex database) :::
+  </description>
     </item>
     
     <item>
@@ -2177,12 +2174,11 @@ Child Linguistic Development is a document that I wrote when I was at universit
       <guid>https://industrialinference.com/1/01/links-for-2006-05-05/</guid>
       <description>::: {.delicious-link} ATLAS ASP.NET Web: The Official Microsoft &amp;ldquo;ATLAS&amp;rdquo; Site : Atlas :::
 ::: {.delicious-tags} (tags: ajax ATLAS ASP.NET .NET Programming web2.0 HTML javascript) :::
-::: {.delicious-link} Atlas Project :::
+  ::: {.delicious-link} Atlas Project :::
 ::: {.delicious-tags} (tags: ajax ATLAS ASP.NET .NET Programming web2.0 HTML javascript blog) :::
-::: {.delicious-link} Ajax.NET Professional Examples :::
+  ::: {.delicious-link} Ajax.NET Professional Examples :::
 ::: {.delicious-tags} (tags: ajax AJAX.NET ASP.NET .NET Programming web2.0 HTML javascript) :::
-::: {.delicious-link} Start :::
-::: {.delicious-tags} (tags: ajax ATLAS ASP.</description>
+  ::: {.</description>
     </item>
     
     <item>
@@ -2193,10 +2189,9 @@ Child Linguistic Development is a document that I wrote when I was at universit
       <guid>https://industrialinference.com/1/01/links-for-2006-05-06/</guid>
       <description>::: {.delicious-link} Digital Librarian: Music :::
 ::: {.delicious-tags} (tags: music data) :::
-::: {.delicious-link} Mutopia: Browse by Instrument, Composer or Style :::
+  ::: {.delicious-link} Mutopia: Browse by Instrument, Composer or Style :::
 ::: {.delicious-tags} (tags: music sheetmusic scores) :::
-::: {.delicious-link} Classical Guitar Music Matteo Carcassi Mauro Giuliani Francisco Tarrega Antonio Cano Fernando Sor Dionisio Aguado Heitor Barrios Mangoré Andres Segovia Diatonic Major/Minor Scales Guitar Study Etude Lesson Method School Playing Technique Villa Lobos Guit :::
-::: {.delicious-tags} (tags: music scores guitar villa-lobos etude) :::</description>
+  ::: {.delicious-link} Classical Guitar Music Matteo Carcassi Mauro Giuliani Francisco Tarrega Antonio Cano Fernando Sor Dionisio Aguado Heitor Barrios Mangoré Andres Segovia Diatonic Major/Minor Scales Guitar Study Etude Lesson Method School Playing Technique Villa Lobos Guit :::</description>
     </item>
     
     <item>
@@ -2207,8 +2202,8 @@ Child Linguistic Development is a document that I wrote when I was at universit
       <guid>https://industrialinference.com/1/01/links-for-2006-05-07/</guid>
       <description>::: {.delicious-link} visual basic, vb, active server pages (ASP),java, javscript,c, c++, c__ , vbscript,active server pages, ASP, vbscript,SQL, database, informix, oracle, SQL Server,Perl, CGI,Delphi, PHP,Free source code for the taking. Over five million lines of programs. :::
 ::: {.delicious-tags} (tags: programming Code development source reference) :::
-::: {.delicious-link} VisualBuilder.com - Free Articles, Source Code, Components, Links, Tips, Tutorials, java, asp.net, jsp, c#, tutorial :::
-::: {.delicious-tags} (tags: .NET forum reference) :::</description>
+  ::: {.delicious-link} VisualBuilder.com - Free Articles, Source Code, Components, Links, Tips, Tutorials, java, asp.net, jsp, c#, tutorial :::
+::: {.delicious-tags} (tags: .</description>
     </item>
     
     <item>
@@ -2217,8 +2212,9 @@ Child Linguistic Development is a document that I wrote when I was at universit
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/links-for-2006-05-09/</guid>
-      <description>::: {.delicious-link} The Podcast Network :::
-::: {.delicious-tags} (tags: podcast podcasting podcasts audio mp3 radio iPod) :::</description>
+      <description>  ::: {.delicious-link} The Podcast Network :::
+::: {.delicious-tags} (tags: podcast podcasting podcasts audio mp3 radio iPod) :::
+  </description>
     </item>
     
     <item>
@@ -2442,7 +2438,7 @@ Take a look at this file. You may have to convert the file to have the extension
       <guid>https://industrialinference.com/1/01/new-blog-posting-tool-postxing/</guid>
       <description>Here is a nice thing. A blog posting tool called PostXING.
 Alledgedly it has source code formatting built into it. Lets give it a try.
-public void OnChooseSomething() { IsChosen = true; if(ChooseThingClicked != null) ChooseThingClicked(this, null); } Sweet. It has CodeHTMLer built in. You just hit the syntax highlight button and away it goes:</description>
+ public void OnChooseSomething() { IsChosen = true; if(ChooseThingClicked != null) ChooseThingClicked(this, null); }  Sweet. It has CodeHTMLer built in. You just hit the syntax highlight button and away it goes:</description>
     </item>
     
     <item>
@@ -2472,7 +2468,7 @@ Please visit it, and enrich it! It might become a great source of information in
       
       <guid>https://industrialinference.com/1/01/new-resources-for-linqtordf/</guid>
       <description>John Mueller recently sent through a link to a series of articles on working with RDF. As well as being a useful introduction to working with RDF, they use LinqToRdf for code examples.
-Modeling your Data with RDF (Part 1) Understanding and Using Resource Description Framework Files (Part 2) They provide information on hosting RDF files as well as querying them using LinqToRdf. They show how easy it is to get semantic web applications up and running on .</description>
+ Modeling your Data with RDF (Part 1) Understanding and Using Resource Description Framework Files (Part 2)  They provide information on hosting RDF files as well as querying them using LinqToRdf. They show how easy it is to get semantic web applications up and running on .</description>
     </item>
     
     <item>
@@ -2490,7 +2486,7 @@ Modeling your Data with RDF (Part 1) Understanding and Using Resource Descriptio
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/new-toy/</guid>
-      <description>Somehow, my Samsung laser printer went missing while we were traveling. Doubtless it will be one of those situations I get myself into where I savagely accuse a waiter of over-charging or under-changing me, only to find that I have had too much to drink and can&amp;rsquo;t count. Or to put it another way, it&amp;rsquo;s in a box somewhere. Anyway - to hell with all that!! I&amp;rsquo;m gonna git me some o&amp;rsquo; dat super-groovy, pict-bridge, multi-card reading, printing, scanning, copying, OCRing, contact sheet printing multi-function, picture-editing action.</description>
+      <description>Somehow, my Samsung laser printer went missing while we were traveling. Doubtless it will be one of those situations I get myself into where I savagely accuse a waiter of over-charging or under-changing me, only to find that I have had too much to drink and can&amp;rsquo;t count. Or to put it another way, it&amp;rsquo;s in a box somewhere. Anyway - to hell with all that!! I&amp;rsquo;m gonna git me some o&#39; dat super-groovy, pict-bridge, multi-card reading, printing, scanning, copying, OCRing, contact sheet printing multi-function, picture-editing action.</description>
     </item>
     
     <item>
@@ -2650,15 +2646,15 @@ Why Do I Do It?</description>
       
       <guid>https://industrialinference.com/1/01/note-to-self/</guid>
       <description>The software I couldn&amp;rsquo;t live without, in no particular order:
-winzip gvim plaxo sharpreader cygwin maxthon msn messenger the gimp ms VPC2004 VS.NET 2003 MS antispyware norton antivirus MiKTeX yes, I can feel a brill-o pad session coming on&amp;hellip;</description>
+ winzip gvim plaxo sharpreader cygwin maxthon msn messenger the gimp ms VPC2004 VS.NET 2003 MS antispyware norton antivirus MiKTeX  yes, I can feel a brill-o pad session coming on&amp;hellip;</description>
     </item>
     
     <item>
       <title>Note to Self: Convert UTF-8 w/ BOM to ASCII (WIX &#43; DB) using GNU uconv</title>
-      <link>https://industrialinference.com/1/01/note-to-self-convert-utf-8-w/-bom-to-ascii-wix--db-using-gnu-uconv/</link>
+      <link>https://industrialinference.com/1/01/note-to-self-convert-utf-8-w/-bom-to-ascii-wix-db-using-gnu-uconv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://industrialinference.com/1/01/note-to-self-convert-utf-8-w/-bom-to-ascii-wix--db-using-gnu-uconv/</guid>
+      <guid>https://industrialinference.com/1/01/note-to-self-convert-utf-8-w/-bom-to-ascii-wix-db-using-gnu-uconv/</guid>
       <description>This one took me a long time to work out, and it took a non-latin alphabet user (Russian) to point me at the right tools. Yet again, I&amp;rsquo;m guilty of being a complacent anglophone.
 I was producing a database installer project using WIX 3.5, and ran into all sorts of inexplicable problems, which I finally tracked down to the Byte Order Mark (BOM) on my SQL update files that I was importing into my MSI file.</description>
     </item>
@@ -2701,8 +2697,8 @@ Grrrrrrrrrrrr!!!!</description>
       <guid>https://industrialinference.com/1/01/object-orientation-not-as-we-know-it./</guid>
       <description>{width=&amp;ldquo;274&amp;rdquo; height=&amp;ldquo;169&amp;rdquo;}
 I thought I&amp;rsquo;d start with a lyric:
-That one&amp;rsquo;s my mother and That one&amp;rsquo;s my father and The one in the hat, that&amp;rsquo;s me.
-You could be forgiven for wondering what Ani Difranco has to do with this blog&amp;rsquo;s usual themes, but rest assured, I won&amp;rsquo;t stray too far. My theme today is the limitations of the object oriented paradigm that I alluded to in my post about mapping ontologies.</description>
+ That one&amp;rsquo;s my mother and That one&amp;rsquo;s my father and The one in the hat, that&amp;rsquo;s me.
+ You could be forgiven for wondering what Ani Difranco has to do with this blog&amp;rsquo;s usual themes, but rest assured, I won&amp;rsquo;t stray too far. My theme today is the limitations of the object oriented paradigm that I alluded to in my post about mapping ontologies.</description>
     </item>
     
     <item>
@@ -2754,7 +2750,7 @@ So obvious when you think about it. So welcome now that somebody did.</descripti
 https://github.com/aabs/owl-2-turtle-snippets
 The shortcuts cover most of the OWL2 Reference Card. Enjoy.
 command shortcut
-class /c add label rlab add comment rcom object property ropr time value rtime intersect class rintersect class intersection /ci class union /cu class complement /cc class enumeration /ce subclass /csub equivalent classes /cequ disjoint classes /cd pairwise disjoint classes /cda disjoint union /cdu universal /pru existential /pre individual value /pri local reflexivity /prx exact cardinality /prc qualified exact cardinality /prcqxc maximum cardinality /prcmax qualified maximum cardinality /prcqmax minimum cardinality /prcmin qualified minimum cardinality /prcqmin n-ary universal /prdu n-ary existential /prde inverse property /pv data range complement /drc data range intersection /dri data range union /dru literal enumeration /denum datatype restriction /drs subproperty /ppsub chain inclusion /ppch domain /ppdom range /ppran equivalent properties /ppequ disjoint properties /ppd all disjoint properties /ppdd inverse properties /ppinv functional property /ppfun inverse functional property /ppinfu reflexive property /ppref irreflexive property /ppirref symmetric property /ppsym Asymmetric Property /ppasym Transitive Property /pptrans equality /aeq prinequality /ane individual inequality /aane assertion /ac object property assertion /aprop negative object property assertion /anprop name //l comment //c addition information //ai agent //da information //v deprecation //dep backwards compatibility //bc incompatibility //incomp prior version //pv </description>
+ class /c  add label rlab  add comment rcom  object property ropr  time value rtime  intersect class rintersect  class intersection /ci  class union /cu  class complement /cc  class enumeration /ce  subclass /csub  equivalent classes /cequ  disjoint classes /cd  pairwise disjoint classes /cda  disjoint union /cdu  universal /pru  existential /pre  individual value /pri  local reflexivity /prx  exact cardinality /prc  qualified exact cardinality /prcqxc  maximum cardinality /prcmax  qualified maximum cardinality /prcqmax  minimum cardinality /prcmin  qualified minimum cardinality /prcqmin  n-ary universal /prdu  n-ary existential /prde  inverse property /pv  data range complement /drc  data range intersection /dri  data range union /dru  literal enumeration /denum  datatype restriction /drs  subproperty /ppsub  chain inclusion /ppch  domain /ppdom  range /ppran  equivalent properties /ppequ  disjoint properties /ppd  all disjoint properties /ppdd  inverse properties /ppinv  functional property /ppfun  inverse functional property /ppinfu  reflexive property /ppref  irreflexive property /ppirref  symmetric property /ppsym  Asymmetric Property /ppasym  Transitive Property /pptrans  equality /aeq  prinequality /ane  individual inequality /aane  assertion /ac  object property assertion /aprop  negative object property assertion /anprop  name //l  comment //c  addition information //ai  agent //da  information //v  deprecation //dep  backwards compatibility //bc  incompatibility //incomp  prior version //pv</description>
     </item>
     
     <item>
@@ -2881,7 +2877,7 @@ Taken with ISO400 exposure of 1/2000 at F8.0 then put through a high-pass filter
       
       <guid>https://industrialinference.com/1/01/policy-and-configuration-ii/</guid>
       <description>The last time I gave some thought to some of the limitations of configuration systems, I was concerned that people use configuration without thought about the consequences. Configuration seems to be a solution of first resort. I was trying to argue that that is probably an unwarranted strategy. It needs to be thought out. I argued in favour of a limitation on configuration. The points I made were:
-The implementation of configuration systems intrude into their client systems unnecessarily.</description>
+ The implementation of configuration systems intrude into their client systems unnecessarily.</description>
     </item>
     
     <item>
@@ -2901,7 +2897,7 @@ I find that while abstraction frameworks are essential to allow clean factoring 
       
       <guid>https://industrialinference.com/1/01/post-modernist-left-wing-feminist-lesbian-analysis-step-aside/</guid>
       <description>It appears that what I do for a living is established enough to support parasitic &amp;lsquo;ologies&amp;rsquo;. It&amp;rsquo;s incontravertably so when induhviduals can produce the following, without a trace of irony, or embarassment:
-“New sources of value are laying the groundwork for an entirely new media value chain; one which leverages micromedia to deliver personalized, post-branded attentionstreams of chunked and microchunked disposable and essential media to communities of connected yet ever more hyperpolarized consumers.</description>
+ “New sources of value are laying the groundwork for an entirely new media value chain; one which leverages micromedia to deliver personalized, post-branded attentionstreams of chunked and microchunked disposable and essential media to communities of connected yet ever more hyperpolarized consumers.</description>
     </item>
     
     <item>
@@ -2948,7 +2944,7 @@ I like powershell a lot, and I suspect that it was familiarity with Unix that dr
       
       <guid>https://industrialinference.com/1/01/predicates-and-expressions-part-2/</guid>
       <description>Last time I started discussing the expression language used to define predicates on types and members. My conclusions were:
-C# expression syntax used since code must be transformed to that in the end, and the more similar the syntaxes of the expression language - the easier the transformation will be. No side-effects. Side effect within the predicates complicate the tasks of determining whether a temporal comparison is actually effective. If the snapshots can&amp;rsquo;t be guaranteed to be faithful representations of the state before and after the test, then you can&amp;rsquo;t trust the tests, and you might as well not have bothered with them in the first place.</description>
+ C# expression syntax used since code must be transformed to that in the end, and the more similar the syntaxes of the expression language - the easier the transformation will be. No side-effects. Side effect within the predicates complicate the tasks of determining whether a temporal comparison is actually effective. If the snapshots can&amp;rsquo;t be guaranteed to be faithful representations of the state before and after the test, then you can&amp;rsquo;t trust the tests, and you might as well not have bothered with them in the first place.</description>
     </item>
     
     <item>
@@ -2968,7 +2964,7 @@ C# expression syntax used since code must be transformed to that in the end, and
       <guid>https://industrialinference.com/1/01/problems-with-virtual-server-on-vista/</guid>
       <description>I recently installed Vista on my laptop and needed to install Virtual Server 2005 R2. I ran into loads of problems, such as &amp;ldquo;std::wstring::find() failed&amp;rdquo; and &amp;ldquo;LsaRegisterLogonProcess()&amp;rdquo; failed.
 If you experience any of those problems, please check that you have done the following:
-Done all of the recommendations in this post: http://blogs.technet.com/mattmcspirit/archive/2006/10/18/running-virtual-server-on-vista.aspx?CommentPosted=true#commentmessage Set up the VirtualServer virtual directory to use the &amp;ldquo;Classic .NET AppPool&amp;rdquo; Check that the Classic .NET AppPool is using LocalSystem identity Check that ONLY Windows Authentication is set for the virtual directory.</description>
+ Done all of the recommendations in this post: http://blogs.technet.com/mattmcspirit/archive/2006/10/18/running-virtual-server-on-vista.aspx?CommentPosted=true#commentmessage Set up the VirtualServer virtual directory to use the &amp;ldquo;Classic .NET AppPool&amp;rdquo; Check that the Classic .NET AppPool is using LocalSystem identity Check that ONLY Windows Authentication is set for the virtual directory.</description>
     </item>
     
     <item>
@@ -2978,7 +2974,7 @@ Done all of the recommendations in this post: http://blogs.technet.com/mattmcspi
       
       <guid>https://industrialinference.com/1/01/programming-gem-of-the-day/</guid>
       <description>I think this one requires no disparaging commentary, it&amp;rsquo;s funereal dissatisfactoryness stands as a balefire to all of you who want to write code that is both tenebrous and brittle.
-adCol.Add(new Advertisement(dr.GetString(0), dr.GetDateTime(1),dr.GetString(2), dr.GetString(3), dr.GetInt32(4), dr.GetBoolean(5), dr.GetFloat(6), dr.GetString(7), dr.GetString(8), dr.GetString(9), dr.GetDateTime(10), (int)dr.GetInt16(11), (int)dr.GetInt16(12), (int)dr.GetInt16(13), dr.GetString(14), dr.GetString(15), dr.GetString(16), dr.GetString(17), dr.GetInt32(18), dr.GetString(19), dr.GetString(20), dr.GetString(21).ToCharArray()[0], dr.GetString(22).ToCharArray()[0], dr.GetString(23))); This example has been formatted for extra readability - it was on a single line. I would also like to point out that I had ABSOLUTELY NOTHING TO DO WITH THE PRODUCTION OF THIS PIECE OF CODE!</description>
+adCol.Add(new Advertisement(dr.GetString(0), dr.GetDateTime(1),dr.GetString(2), dr.GetString(3), dr.GetInt32(4), dr.GetBoolean(5), dr.GetFloat(6), dr.GetString(7), dr.GetString(8), dr.GetString(9), dr.GetDateTime(10), (int)dr.GetInt16(11), (int)dr.GetInt16(12), (int)dr.GetInt16(13), dr.GetString(14), dr.GetString(15), dr.GetString(16), dr.GetString(17), dr.GetInt32(18), dr.GetString(19), dr.GetString(20), dr.GetString(21).ToCharArray()[0], dr.GetString(22).ToCharArray()[0], dr.GetString(23)));  This example has been formatted for extra readability - it was on a single line. I would also like to point out that I had ABSOLUTELY NOTHING TO DO WITH THE PRODUCTION OF THIS PIECE OF CODE!</description>
     </item>
     
     <item>
@@ -3017,9 +3013,9 @@ Edsger Dijkstra</description>
       
       <guid>https://industrialinference.com/1/01/quote-of-the-day-chris-sells-on-cocktail-parties/</guid>
       <description>I can relate to this:
-I&amp;rsquo;ll take a lake of fire any day over more than three strangers in a room with which I share no common task and with whom I&amp;rsquo;m expected to socialize
-How to express this to my wife without her thinking that I am suffering from a combination of acrophobia and Downs Syndrome&amp;hellip;?
-BTW: I was surfing Chris&amp;rsquo; blog because I&amp;rsquo;ve finally made the time to explore MGrammar and the &amp;ldquo;OSLO&amp;rdquo; SDK.</description>
+ I&amp;rsquo;ll take a lake of fire any day over more than three strangers in a room with which I share no common task and with whom I&amp;rsquo;m expected to socialize
+ How to express this to my wife without her thinking that I am suffering from a combination of acrophobia and Downs Syndrome&amp;hellip;?
+BTW: I was surfing Chris&#39; blog because I&amp;rsquo;ve finally made the time to explore MGrammar and the &amp;ldquo;OSLO&amp;rdquo; SDK.</description>
     </item>
     
     <item>
@@ -3057,7 +3053,7 @@ Bob and Troy at Backstop are great editors, and their suggestions have kept the 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/roman-page-mnemonic/</guid>
-      <description> This is my memory jogger for Rome. I guess this isn&amp;rsquo;t the sort of thing you post to the public, since each of these phrases has relevance to Kerry and Me, since we were there. Q: Do any of these evoke thoughts of your own? </description>
+      <description>This is my memory jogger for Rome. I guess this isn&amp;rsquo;t the sort of thing you post to the public, since each of these phrases has relevance to Kerry and Me, since we were there. Q: Do any of these evoke thoughts of your own?</description>
     </item>
     
     <item>
@@ -3067,15 +3063,13 @@ Bob and Troy at Backstop are great editors, and their suggestions have kept the 
       
       <guid>https://industrialinference.com/1/01/science-headlines-of-the-day/</guid>
       <description>Some of the low and high points of today&amp;rsquo;s science headlines:
-Smoking and Caffeine inversely associated with Parkinson&amp;rsquo;s disease
-Arsenic in chicken feed may pose health risk to humans
-Guns in homes strongly associated with higher rates of suicide
-Good behaviour, Religiousness may be genetic
-Why small dogs are small
-Study links propensity toward worry to early death
-No, Einstein *wasn&amp;rsquo;t* religious
-Segment of a &amp;ldquo;Quantum Repeater&amp;rdquo; demonstrated
-Solar for 1/10^th^ the cost: Use Haemoglobin</description>
+ Smoking and Caffeine inversely associated with Parkinson&amp;rsquo;s disease
+  Arsenic in chicken feed may pose health risk to humans
+  Guns in homes strongly associated with higher rates of suicide
+  Good behaviour, Religiousness may be genetic
+  Why small dogs are small
+  Study links propensity toward worry to early death
+  No, Einstein *wasn&amp;rsquo;t* religious</description>
     </item>
     
     <item>
@@ -3134,8 +3128,8 @@ So far, I&amp;rsquo;ve got it producing N3 notation from models, like so:</descr
       
       <guid>https://industrialinference.com/1/01/sequential-script-loading-on-demand/</guid>
       <description>This little script uses the JQuery getScript command, enforcing sequential loading order to ensure script dependencies are honoured:
-function LoadScriptsSequentially(scriptUrls, callback) { if (typeof scriptUrls == &#39;undefined&#39;) throw &amp;quot;Argument Error: URL array is unusable&amp;quot;; if (scriptUrls.length == 0 &amp;amp;&amp;amp; typeof callback == &#39;function&#39;) callback(); $.getScript(scriptUrls.shift(), function() { LoadScriptsSequentially(scriptUrls, callback); }); } Here&amp;rsquo;s how you use it:
-function InitialiseQueryFramework(runTests) { LoadScriptsSequentially([ &amp;quot;/js/inheritance.js&amp;quot;, &amp;quot;/js/expressions.js&amp;quot;, &amp;quot;/js/refData.js&amp;quot;, &amp;quot;/js/queryRenderer.js&amp;quot;, &amp;quot;/js/sha1.js&amp;quot;, &amp;quot;/js/queryCache.js&amp;quot;, &amp;quot;/js/unit-tests.js&amp;quot;], function() { queryFramework = new QueryManager(&amp;quot;#query&amp;quot;); if (runTests) RunTestSuite(); }); } I love java script now and can&amp;rsquo;t understand why I avoided it for years.</description>
+function LoadScriptsSequentially(scriptUrls, callback) { if (typeof scriptUrls == &#39;undefined&#39;) throw &amp;quot;Argument Error: URL array is unusable&amp;quot;; if (scriptUrls.length == 0 &amp;amp;&amp;amp; typeof callback == &#39;function&#39;) callback(); $.getScript(scriptUrls.shift(), function() { LoadScriptsSequentially(scriptUrls, callback); }); }  Here&amp;rsquo;s how you use it:
+function InitialiseQueryFramework(runTests) { LoadScriptsSequentially([ &amp;quot;/js/inheritance.js&amp;quot;, &amp;quot;/js/expressions.js&amp;quot;, &amp;quot;/js/refData.js&amp;quot;, &amp;quot;/js/queryRenderer.js&amp;quot;, &amp;quot;/js/sha1.js&amp;quot;, &amp;quot;/js/queryCache.js&amp;quot;, &amp;quot;/js/unit-tests.js&amp;quot;], function() { queryFramework = new QueryManager(&amp;quot;#query&amp;quot;); if (runTests) RunTestSuite(); }); }  I love java script now and can&amp;rsquo;t understand why I avoided it for years.</description>
     </item>
     
     <item>
@@ -3226,8 +3220,8 @@ Swords are more frightening than Atomic bombs. Atomic bombs show evidence that s
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/some-pictures-of-carlton-gardens/</guid>
-      <description>::: {style=&amp;ldquo;overflow:hidden;width:500px;margin:0;padding:0;&amp;rdquo;} :::
-::: {style=&amp;ldquo;font-size:.8em;margin-top:0;margin-bottom:5px;&amp;rdquo;} Carlton Gardens, a set on Flickr. :::
+      <description>::: {style=&amp;ldquo;overflow:hidden;width:500px;margin:0;padding:0;&amp;quot;}     :::
+::: {style=&amp;ldquo;font-size:.8em;margin-top:0;margin-bottom:5px;&amp;quot;} Carlton Gardens, a set on Flickr. :::
 This was my first outing with the Pentax K-x that I got recently. In these pictures, I&amp;rsquo;m trying to get to grips with the camera, so I didn&amp;rsquo;t have any particular objective other than to take pictures.
 The light was so harsh it was very difficult for me to gauge whether the exposures were working - I couldn&amp;rsquo;t see the live views or previews at all!</description>
     </item>
@@ -3238,16 +3232,7 @@ The light was so harsh it was very difficult for me to gauge whether the exposur
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/somebody-else-who-despises-pencil-neck-double-talk.../</guid>
-      <description>Eric Gunnerson, has a very true post about how many of those who manage or participate in software development have caught the &amp;rsquo;lets post-modernise our language to pretend we&amp;rsquo;re innovating, rather then give an extra effort to clarify our thinking&amp;rsquo; bug. Lately, I have been bending poor Kerry&amp;rsquo;s ear about this to the extent that I am now categorised as a grumpy old man. Not that I care what the world thinks, but I think that language has more value if it is clear.</description>
-    </item>
-    
-    <item>
-      <title>Søren on DBC</title>
-      <link>https://industrialinference.com/1/01/s%C3%B8ren-on-dbc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://industrialinference.com/1/01/s%C3%B8ren-on-dbc/</guid>
-      <description>Recently, Søren Skovsbøll wrote a excellent follow up to a little post I did a while back on using C# 3.0 expression trees for representing predicates in design by contract. The conclusion of that series was that C# was inadequate in lots of ways to the task of doing design by contract. Having said that, you can still achieve a lot using serialisation of object states and storage of predicates for running before and after a scope.</description>
+      <description>Eric Gunnerson, has a very true post about how many of those who manage or participate in software development have caught the &amp;lsquo;lets post-modernise our language to pretend we&amp;rsquo;re innovating, rather then give an extra effort to clarify our thinking&amp;rsquo; bug. Lately, I have been bending poor Kerry&amp;rsquo;s ear about this to the extent that I am now categorised as a grumpy old man. Not that I care what the world thinks, but I think that language has more value if it is clear.</description>
     </item>
     
     <item>
@@ -3286,7 +3271,7 @@ The Semantic Web, a knowledge-centric model for the Web&amp;rsquo;s future, supp
       
       <guid>https://industrialinference.com/1/01/state-machines-in-c#-3.0-using-t4-templates/</guid>
       <description>UPDATE: The original code for this post, that used to be available via a link on this page, is no longer available. I&amp;rsquo;m afraid that if you want to try this one out, you&amp;rsquo;ll have to piece it together using the snippets contained in this post. Sorry for the inconvenience - blame it on ISP churn.
-Some time back I wrote about techniques for implementing non-deterministic finite automata (NDFAs) using some of the new features of C# 3.</description>
+ Some time back I wrote about techniques for implementing non-deterministic finite automata (NDFAs) using some of the new features of C# 3.</description>
     </item>
     
     <item>
@@ -3307,6 +3292,15 @@ Hmmmm. Let me know, cos I&amp;rsquo;m stumped!</description>
       <guid>https://industrialinference.com/1/01/surreal-graham-norton-moment/</guid>
       <description>Today I got my first experience of being caught in a storm of golf ball sized hailstones. We&amp;rsquo;d decided to take the day out and visit the Moomba Festival in the city centre. All was well, and the kids were in a cub scouts arena trying their hands at rock climbing. Suddenly, we heard an ominous rumbling and within seconds we were pelted with inch thick hailstones.
 We quickly caught the kids as they fell off the climbing wall, and nobly covered them with our bodies as we hurried them into the canvas awnings that the scoutleaders had erected earlier in the day.</description>
+    </item>
+    
+    <item>
+      <title>Søren on DBC</title>
+      <link>https://industrialinference.com/1/01/s%C3%B8ren-on-dbc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/1/01/s%C3%B8ren-on-dbc/</guid>
+      <description>Recently, Søren Skovsbøll wrote a excellent follow up to a little post I did a while back on using C# 3.0 expression trees for representing predicates in design by contract. The conclusion of that series was that C# was inadequate in lots of ways to the task of doing design by contract. Having said that, you can still achieve a lot using serialisation of object states and storage of predicates for running before and after a scope.</description>
     </item>
     
     <item>
@@ -3409,7 +3403,8 @@ Hwah Hwah Hwah !!!</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/the-first-sample/</guid>
-      <description>Across the bay Click on the picture above to see my first attempt with the new camera. What dya think?</description>
+      <description>Across the bay 
+Click on the picture above to see my first attempt with the new camera. What dya think?</description>
     </item>
     
     <item>
@@ -3437,7 +3432,7 @@ Hwah Hwah Hwah !!!</description>
       
       <guid>https://industrialinference.com/1/01/the-greate-domain-model-debated-continued./</guid>
       <description>I recently got this excellent comment from Jeff Grigg on my domain model debate article. I started to reply with a comment, but the reply got to the point where it became a bit of a blog post in its own right, so I thought it worth giving it first class status. Jeff wrote this:
-Interesting concept: I particularly like the concept of using numeric weights and rankings, rather than just claims of preference.</description>
+ Interesting concept: I particularly like the concept of using numeric weights and rankings, rather than just claims of preference.</description>
     </item>
     
     <item>
@@ -3478,7 +3473,7 @@ Either way, it seems that that would be a fair indicator of the fact that wester
       
       <guid>https://industrialinference.com/1/01/the-latest-inspiring-hard-ai-quote-from-kurzweil/</guid>
       <description>The executive summary is that we will have computing capacity to handle whole brain simulations by around 2020, and that Moores law applies to functional brain mapping as well as to processors.
-&amp;ldquo;I figure we need about 10 quadrillion calculations a second to provide a functional equivalent to all the regions of the brain. IBM&amp;rsquo;s Blue Gene/L computer is already at 100 trillion. If we plug in the semiconductor industry&amp;rsquo;s projections, we can see that 10 quadrillion calculations a second will be available for $1,000 by around 2020.</description>
+ &amp;ldquo;I figure we need about 10 quadrillion calculations a second to provide a functional equivalent to all the regions of the brain. IBM&amp;rsquo;s Blue Gene/L computer is already at 100 trillion. If we plug in the semiconductor industry&amp;rsquo;s projections, we can see that 10 quadrillion calculations a second will be available for $1,000 by around 2020.</description>
     </item>
     
     <item>
@@ -3527,7 +3522,7 @@ These people are those on the very far left of the bell curve. Here&amp;rsquo;s 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/the-power-of-advertising/</guid>
-      <description>I&amp;rsquo;ve always been a believer in the power of good advertising, which is why I was so pleased to see this fantastic example of the art in Melbourne this week. It has it all - it has the doleful situation of the foolish dolt who has so willfully left himself in a state of baldness that is, as we can see by the &amp;ldquo;after&amp;rdquo; photo, so obviously reversible. I salute this masterpiece of modern advertising, and hope that television advertisers can learn from it.</description>
+      <description>I&amp;rsquo;ve always been a believer in the power of good advertising, which is why I was so pleased to see this fantastic example of the art in Melbourne this week.  It has it all - it has the doleful situation of the foolish dolt who has so willfully left himself in a state of baldness that is, as we can see by the &amp;ldquo;after&amp;rdquo; photo, so obviously reversible. I salute this masterpiece of modern advertising, and hope that television advertisers can learn from it.</description>
     </item>
     
     <item>
@@ -3546,7 +3541,7 @@ I finally grew irritated with not being able to categorise my blog entries. So I
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/traumatizing-the-kids/</guid>
-      <description>I knew I&amp;rsquo;d have to watch my tongue when the kids were old enough to be warped by my cynicism. What I didn&amp;rsquo;t realize was that I&amp;rsquo;d have to watch my nose as well. I think I may have traumatized Thomas&amp;rsquo; the other day - I&amp;rsquo;ve convinced him that Daddy&amp;rsquo;s head may explode without warning.
+      <description>I knew I&amp;rsquo;d have to watch my tongue when the kids were old enough to be warped by my cynicism. What I didn&amp;rsquo;t realize was that I&amp;rsquo;d have to watch my nose as well. I think I may have traumatized Thomas&#39; the other day - I&amp;rsquo;ve convinced him that Daddy&amp;rsquo;s head may explode without warning.
 It was during bath-time. I covered my face in bubbles which they both thought was hilarious, if a bit strange.</description>
     </item>
     
@@ -3660,7 +3655,7 @@ The first time I had the technology (and its capabilities) explained to me, I wa
       
       <guid>https://industrialinference.com/1/01/wanky-statement-of-the-day/</guid>
       <description>&amp;quot;&amp;hellip; for the purposes of future proofing this system within a complex software ecology such as is found in &amp;hellip;&amp;quot;
-Sorry Telstra, but I felt the need to upscale my vocalisatory paradigms to include a post-intellectual referent pertaining to edge-type biological phenomena within a pseudo-ecological metaphor scenario.</description>
+ Sorry Telstra, but I felt the need to upscale my vocalisatory paradigms to include a post-intellectual referent pertaining to edge-type biological phenomena within a pseudo-ecological metaphor scenario.</description>
     </item>
     
     <item>
@@ -3679,7 +3674,7 @@ Sorry Telstra, but I felt the need to upscale my vocalisatory paradigms to inclu
       
       <guid>https://industrialinference.com/1/01/we-got-a-new-camera/</guid>
       <description>We got ourselves the Canon PowershotPro1 in readiness for the big day (so that we can preserve the gore in glorious technicolour for all time). It&amp;rsquo;s a (as the Aussies would say) Beaut! Expect to see quite a few landscape and macro photos appearing here in the near future.
-The link above is to the DP Review site, which contains more information on the camera than the manual does (and that took me all weekend to absorb).</description>
+ The link above is to the DP Review site, which contains more information on the camera than the manual does (and that took me all weekend to absorb).</description>
     </item>
     
     <item>
@@ -3740,7 +3735,7 @@ My suggestion is that you do all of the above; but in textual format and in this
       
       <guid>https://industrialinference.com/1/01/what-im-gonna-cover/</guid>
       <description>When I get the time I intend to start off this blog by exploring the following ideas:
-Developing a design by contract system for C# History of Design by Contract Code Generation Systems XSLT vs NVelocity I&amp;rsquo;m producing a Design by contract system that&amp;rsquo;s in early alpha. It uses NVelocity, and declarative programming. It lets you write code like this:
+ Developing a design by contract system for C# History of Design by Contract Code Generation Systems XSLT vs NVelocity  I&amp;rsquo;m producing a Design by contract system that&amp;rsquo;s in early alpha. It uses NVelocity, and declarative programming. It lets you write code like this:
 [Dbc, Invariant(&amp;quot;Prop1 &amp;gt;= 1&amp;quot;)] public class MyTestClass { public MyTestClass() { Prop1 = 10; } #region property Prop1 int prop1 = 0; [Requires(&amp;quot;value !</description>
     </item>
     
@@ -3798,7 +3793,7 @@ I said previously that I had a serviceable NVelocity wrapper, that I could use f
       
       <guid>https://industrialinference.com/1/01/white-paper-exploiting-the-rdf-based-linked-data-web-using-.net-via-linq/</guid>
       <description>OpenLink has recently posted an excellent white paper on using LinqToRdf with Virtuoso and the Virtuoso Sponger:
-Recently OpenLink has been investigating LinqToRdf{#link-id0x20d8a248}, an exciting project from Andrew Matthews{#link-id0x21f48218} which aims to bring the Semantic Web to .NET. Because of their language bindings and heritage, existing RDF APIs such as Sesame, Jena and Redland predominantly favour non-Windows clients. Conversely Microsoft&amp;rsquo;s ADO.NET Data Services provides a Redmond vision of exposing data on the Web but has no support for RDF.</description>
+ Recently OpenLink has been investigating LinqToRdf{#link-id0x20d8a248}, an exciting project from Andrew Matthews{#link-id0x21f48218} which aims to bring the Semantic Web to .NET. Because of their language bindings and heritage, existing RDF APIs such as Sesame, Jena and Redland predominantly favour non-Windows clients. Conversely Microsoft&amp;rsquo;s ADO.NET Data Services provides a Redmond vision of exposing data on the Web but has no support for RDF.</description>
     </item>
     
     <item>
@@ -3808,7 +3803,7 @@ Recently OpenLink has been investigating LinqToRdf{#link-id0x20d8a248}, an excit
       
       <guid>https://industrialinference.com/1/01/who-should-you-vote-for/</guid>
       <description>Who should I vote for? Your expected outcome: Liberal Democrat
-Your actual outcome: Labour -4 ![](http://www.whoshouldyouvotefor.com/tiny_grey_light.gif){width=&amp;quot;8&amp;quot; height=&amp;quot;20&amp;quot;} Conservative -28 ![](http://www.whoshouldyouvotefor.com/tiny_grey_light.gif){width=&amp;quot;56&amp;quot; height=&amp;quot;20&amp;quot;} ![](http://www.whoshouldyouvotefor.com/tiny_grey_dark.gif){width=&amp;quot;92&amp;quot; height=&amp;quot;20&amp;quot;} Liberal Democrat 46 UK Independence Party -7 ![](http://www.whoshouldyouvotefor.com/tiny_grey_light.gif){width=&amp;quot;14&amp;quot; height=&amp;quot;20&amp;quot;} ![](http://www.whoshouldyouvotefor.com/tiny_grey_dark.gif){width=&amp;quot;66&amp;quot; height=&amp;quot;20&amp;quot;} Green 33 You should vote: Liberal Democrat
+Your actual outcome:   Labour -4 ![](http://www.whoshouldyouvotefor.com/tiny_grey_light.gif){width=&amp;quot;8&amp;quot; height=&amp;quot;20&amp;quot;} Conservative -28 ![](http://www.whoshouldyouvotefor.com/tiny_grey_light.gif){width=&amp;quot;56&amp;quot; height=&amp;quot;20&amp;quot;} ![](http://www.whoshouldyouvotefor.com/tiny_grey_dark.gif){width=&amp;quot;92&amp;quot; height=&amp;quot;20&amp;quot;} Liberal Democrat 46 UK Independence Party -7 ![](http://www.whoshouldyouvotefor.com/tiny_grey_light.gif){width=&amp;quot;14&amp;quot; height=&amp;quot;20&amp;quot;} ![](http://www.whoshouldyouvotefor.com/tiny_grey_dark.gif){width=&amp;quot;66&amp;quot; height=&amp;quot;20&amp;quot;} Green 33   You should vote: Liberal Democrat
 The LibDems take a strong stand against tax cuts and a strong one in favour of public services: they would make long-term residential care for the elderly free across the UK, and scrap university tuition fees.</description>
     </item>
     
@@ -3819,7 +3814,8 @@ The LibDems take a strong stand against tax cuts and a strong one in favour of p
       
       <guid>https://industrialinference.com/1/01/why-i-hate-windows-vista-and-cant-wait-to-re-install-xp/</guid>
       <description>To quote Niklaus Wirth:
-Software gets slower faster than hardware gets faster.</description>
+ Software gets slower faster than hardware gets faster.
+ </description>
     </item>
     
     <item>
@@ -3888,8 +3884,8 @@ Type Safety. The key reason is automatic type safety. Type safety ensures that w
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/1/01/windows-live-writer-beta-2-vs-paste-and-wordpress/</guid>
-      <description>[Here&amp;rsquo;s an example I pasted from LinqToRdf.]{style=&amp;ldquo;color:rgb(0,0,255);&amp;rdquo;}
-private void GenerateBinaryExpression(Expression e, string op) { if (e == null) throw new ArgumentNullException(&amp;quot;e was null&amp;quot;); if (op == null) throw new ArgumentNullException(&amp;quot;op was null&amp;quot;); if (op.Length == 0) throw new ArgumentNullException(&amp;quot;op.Length was empty&amp;quot;); BinaryExpression be = e as BinaryExpression; if (be != null) { QueryAppend(&amp;quot;(&amp;quot;); Dispatch(be.Left); QueryAppend(&amp;quot;)&amp;quot;+op+&amp;quot;(&amp;quot;); Dispatch(be.Right); QueryAppend(&amp;quot;)&amp;quot;); Log(&amp;quot;+ :{0} Handled&amp;quot;, e.NodeType); } } If this displays properly for you, then I am a happy man.</description>
+      <description>[Here&amp;rsquo;s an example I pasted from LinqToRdf.]{style=&amp;ldquo;color:rgb(0,0,255);&amp;quot;}
+private void GenerateBinaryExpression(Expression e, string op) { if (e == null) throw new ArgumentNullException(&amp;quot;e was null&amp;quot;); if (op == null) throw new ArgumentNullException(&amp;quot;op was null&amp;quot;); if (op.Length == 0) throw new ArgumentNullException(&amp;quot;op.Length was empty&amp;quot;); BinaryExpression be = e as BinaryExpression; if (be != null) { QueryAppend(&amp;quot;(&amp;quot;); Dispatch(be.Left); QueryAppend(&amp;quot;)&amp;quot;+op+&amp;quot;(&amp;quot;); Dispatch(be.Right); QueryAppend(&amp;quot;)&amp;quot;); Log(&amp;quot;+ :{0} Handled&amp;quot;, e.NodeType); } }  If this displays properly for you, then I am a happy man.</description>
     </item>
     
     <item>

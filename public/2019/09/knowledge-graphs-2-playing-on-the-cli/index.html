@@ -9,12 +9,12 @@
   <meta name="description" content="Last time I showed how to write RDF in Turtle, and how to make very simple queries in SPARQL. What I didn&rsquo;t show was how to get your hands dirty. Specifically, I want to show you how to try things out on the cheap command line. I will show examples of how to build out your RDF data to more depth using Turtle files, and how to use the Jena framework to create queries against that data, so you can work out ahead of time how to navigate your graph of data.">
   <meta property="og:description" content="Last time I showed how to write RDF in Turtle, and how to make very simple queries in SPARQL. What I didn&rsquo;t show was how to get your hands dirty. Specifically, I want to show you how to try things out on the cheap command line. I will show examples of how to build out your RDF data to more depth using Turtle files, and how to use the Jena framework to create queries against that data, so you can work out ahead of time how to navigate your graph of data.">
   <meta name="twitter:description" content="Last time I showed how to write RDF in Turtle, and how to make very simple queries in SPARQL. What I didn&rsquo;t show was how to get your hands dirty. Specifically, I want to show you how to try …">
-  <meta name="author" content=""/>
+  <meta name="author" content="Andrew Matthews"/>
   <meta property="og:site_name" content="The Wandering Glitch" />
   <meta property="og:url" content="https://industrialinference.com/2019/09/knowledge-graphs-2-playing-on-the-cli/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.108.0">
+  <meta name="generator" content="Hugo 0.92.2" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -31,6 +31,10 @@
   <nav class="site-navi">
     <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
     <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
     </ul>
   </nav>
 </header>
@@ -45,6 +49,24 @@
       <hr class="article-title-bottom">
       <ul class="article-meta">
         <li class="article-meta-date"><time>September 13, 2019</time></li>
+        <li class="article-meta-tags">
+          <a href="/tags/rdf/">
+            <i class="fas fa-tag"></i>
+            rdf
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/knowledge-graphs/">
+            <i class="fas fa-tag"></i>
+            knowledge graphs
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/sparql/">
+            <i class="fas fa-tag"></i>
+            sparql
+          </a>&nbsp;
+        </li>
       </ul>
       
 <aside class="toc">
@@ -88,66 +110,66 @@ Jena:       BUILD_DATE: 2019-05-27T16:07:27+0000
 
 :ArsenalFC a :Team;
     :homeCity :London;
-    rdfs:label &#34;Arsenal F.C.&#34; .
+    rdfs:label &quot;Arsenal F.C.&quot; .
 
 :LiverpoolFC a :Team;
     :homeCity :Liverpool;
-    rdfs:label &#34;Liverpool F.C.&#34; .
+    rdfs:label &quot;Liverpool F.C.&quot; .
 
 :PremierLeague a :FootballLeague;
     :hasMember :ArsenalFC, :LiverpoolFC .
 
 :BerndLeno a :Footballer;
-    foaf:givenName &#34;Bernd&#34;;
-    foaf:familyName &#34;Leno&#34;.
+    foaf:givenName &quot;Bernd&quot;;
+    foaf:familyName &quot;Leno&quot;.
 :HectorBellerin a :Footballer;
-    foaf:givenName &#34;Héctor&#34;;
-    foaf:familyName &#34;Bellerín&#34;.
+    foaf:givenName &quot;Héctor&quot;;
+    foaf:familyName &quot;Bellerín&quot;.
 :KieranTierney a :Footballer;
-    foaf:givenName &#34;Kieran&#34;;
-    foaf:familyName &#34;Tierney&#34;.
+    foaf:givenName &quot;Kieran&quot;;
+    foaf:familyName &quot;Tierney&quot;.
 
 :KepaArrizabalaga a :Footballer;
-    foaf:givenName &#34;Kepa&#34;;
-    foaf:familyName &#34;Arrizabalaga&#34;.
+    foaf:givenName &quot;Kepa&quot;;
+    foaf:familyName &quot;Arrizabalaga&quot;.
 
 :AntonioRüdiger a :Footballer;
-    foaf:givenName &#34;Antonio&#34;;
-    foaf:familyName &#34;Rüdiger&#34;.
+    foaf:givenName &quot;Antonio&quot;;
+    foaf:familyName &quot;Rüdiger&quot;.
 
 :MarcosAlonso a :Footballer;
-    foaf:givenName &#34;Marcos&#34;;
-    foaf:familyName &#34;Alonso&#34;.
+    foaf:givenName &quot;Marcos&quot;;
+    foaf:familyName &quot;Alonso&quot;.
 
 
 :Alisson a :Footballer;
-    foaf:givenName &#34;Alisson&#34;.
+    foaf:givenName &quot;Alisson&quot;.
 :NathanielClyne a :Footballer;
-    foaf:givenName &#34;Nathaniel&#34;;
-    foaf:familyName &#34;Clyne&#34;.
+    foaf:givenName &quot;Nathaniel&quot;;
+    foaf:familyName &quot;Clyne&quot;.
 :Fabinho a :Footballer;
-    foaf:givenName &#34;Fabinho&#34;.
+    foaf:givenName &quot;Fabinho&quot;.
 
 [] a :PlayerContract; :withTeam :ArsenalFC; :withPlayer :BerndLeno;
-    :from &#34;2019-01-01&#34;^^xsd:date; :to &#34;2020-01-01&#34;^^xsd:date.
+    :from &quot;2019-01-01&quot;^^xsd:date; :to &quot;2020-01-01&quot;^^xsd:date.
 [] a :PlayerContract; :withTeam :ArsenalFC; :withPlayer :HectorBellerin;
-    :from &#34;2019-01-01&#34;^^xsd:date; :to &#34;2020-01-01&#34;^^xsd:date.
+    :from &quot;2019-01-01&quot;^^xsd:date; :to &quot;2020-01-01&quot;^^xsd:date.
 [] a :PlayerContract; :withTeam :ArsenalFC; :withPlayer :KieranTierney;
-    :from &#34;2019-01-01&#34;^^xsd:date; :to &#34;2020-01-01&#34;^^xsd:date.
+    :from &quot;2019-01-01&quot;^^xsd:date; :to &quot;2020-01-01&quot;^^xsd:date.
 
 [] a :PlayerContract; :withTeam :ChelseaFC; :withPlayer :KepaArrizabalaga;
-    :from &#34;2019-01-01&#34;^^xsd:date; :to &#34;2020-01-01&#34;^^xsd:date.
+    :from &quot;2019-01-01&quot;^^xsd:date; :to &quot;2020-01-01&quot;^^xsd:date.
 [] a :PlayerContract; :withTeam :ChelseaFC; :withPlayer :AntonioRüdiger;
-    :from &#34;2019-01-01&#34;^^xsd:date; :to &#34;2020-01-01&#34;^^xsd:date.
+    :from &quot;2019-01-01&quot;^^xsd:date; :to &quot;2020-01-01&quot;^^xsd:date.
 [] a :PlayerContract; :withTeam :ChelseaFC; :withPlayer :MarcosAlonso;
-    :from &#34;2019-01-01&#34;^^xsd:date; :to &#34;2020-01-01&#34;^^xsd:date.
+    :from &quot;2019-01-01&quot;^^xsd:date; :to &quot;2020-01-01&quot;^^xsd:date.
 
 [] a :PlayerContract; :withTeam :LiverpoolFC; :withPlayer :Alisson;
-    :from &#34;2019-01-01&#34;^^xsd:date; :to &#34;2020-01-01&#34;^^xsd:date.
+    :from &quot;2019-01-01&quot;^^xsd:date; :to &quot;2020-01-01&quot;^^xsd:date.
 [] a :PlayerContract; :withTeam :LiverpoolFC; :withPlayer :NathanielClyne;
-    :from &#34;2019-01-01&#34;^^xsd:date; :to &#34;2020-01-01&#34;^^xsd:date.
+    :from &quot;2019-01-01&quot;^^xsd:date; :to &quot;2020-01-01&quot;^^xsd:date.
 [] a :PlayerContract; :withTeam :LiverpoolFC; :withPlayer :Fabinho;
-    :from &#34;2019-01-01&#34;^^xsd:date; :to &#34;2020-01-01&#34;^^xsd:date.
+    :from &quot;2019-01-01&quot;^^xsd:date; :to &quot;2020-01-01&quot;^^xsd:date.
 </code></pre><p>Now let&rsquo;s write a simple SPARQL query, and store it in a query file (<code>*.rq</code>):</p>
 <pre tabindex="0"><code>PREFIX : &lt;http://tempuri.com/soccer/&gt;
 
@@ -190,6 +212,22 @@ LIMIT 10
     </article>
 
     
+<ul class="article-share">
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https://industrialinference.com/2019/09/knowledge-graphs-2-playing-on-the-cli/" target="_blank" rel="noopener" aria-label="Facebook">
+      <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg></div>Facebook</div>
+    </a>
+  </li>
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=Knowledge%20Graphs%202%20-%20Playing%20on%20the%20CLI%20-%20The%20Wandering%20Glitch&amp;url=https://industrialinference.com/2019/09/knowledge-graphs-2-playing-on-the-cli/" target="_blank" rel="noopener" aria-label="Twitter">
+      <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg></div>Twitter</div>
+    </a>
+  </li>
+</ul>
 
 
     <ul class="pager article-pager">

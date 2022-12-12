@@ -11,12 +11,12 @@ In this new article series, I&rsquo;ll implement a triple store using techniques
   <meta property="og:description" content="I&rsquo;ve long been fascinated with semantic web technologies, the potential of RDF and understanding how to implement a triple store from the ground up. Databases are one of those technologies - like compilers - that we often take for granted, and yet which beneath the hood employs some very sophisticated algorithms and data structures to achieve acceptable levels of performance.
 In this new article series, I&rsquo;ll implement a triple store using techniques introduced in recent years for efficiently storing and processing indexes on large knowledge graphs.">
   <meta name="twitter:description" content="I&rsquo;ve long been fascinated with semantic web technologies, the potential of RDF and understanding how to implement a triple store from the ground up. Databases are one of those technologies - …">
-  <meta name="author" content=""/>
+  <meta name="author" content="Andrew Matthews"/>
   <meta property="og:site_name" content="The Wandering Glitch" />
   <meta property="og:url" content="https://industrialinference.com/2021/12/implementing-a-triple-store-from-the-ground-up-part-1/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.108.0">
+  <meta name="generator" content="Hugo 0.92.2" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -33,6 +33,10 @@ In this new article series, I&rsquo;ll implement a triple store using techniques
   <nav class="site-navi">
     <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
     <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
     </ul>
   </nav>
 </header>
@@ -47,6 +51,24 @@ In this new article series, I&rsquo;ll implement a triple store using techniques
       <hr class="article-title-bottom">
       <ul class="article-meta">
         <li class="article-meta-date"><time>December 8, 2021</time></li>
+        <li class="article-meta-tags">
+          <a href="/tags/rdf/">
+            <i class="fas fa-tag"></i>
+            rdf
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/rdf-databases/">
+            <i class="fas fa-tag"></i>
+            rdf databases
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/graph-databases/">
+            <i class="fas fa-tag"></i>
+            graph databases
+          </a>&nbsp;
+        </li>
       </ul>
       
       <p>I&rsquo;ve long been fascinated with semantic web technologies, the potential of RDF
@@ -78,14 +100,30 @@ usable code as I go.</p>
     </article>
 
     
+<ul class="article-share">
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https://industrialinference.com/2021/12/implementing-a-triple-store-from-the-ground-up-part-1/" target="_blank" rel="noopener" aria-label="Facebook">
+      <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg></div>Facebook</div>
+    </a>
+  </li>
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=Implementing%20a%20Triple%20Store%20from%20the%20Ground%20Up%20-%20Part%201%20-%20The%20Wandering%20Glitch&amp;url=https://industrialinference.com/2021/12/implementing-a-triple-store-from-the-ground-up-part-1/" target="_blank" rel="noopener" aria-label="Twitter">
+      <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg></div>Twitter</div>
+    </a>
+  </li>
+</ul>
 
 
     <ul class="pager article-pager">
       <li class="pager-newer">
-          <a href="/2022/12/hell-world/" data-toggle="tooltip" data-placement="top" title="hell world">&lt; Newer</a>
+          <a href="/2021/12/memory-mapped-files/" data-toggle="tooltip" data-placement="top" title="Memory Mapped Files">&lt; Newer</a>
       </li>
       <li class="pager-older">
-        <a href="/2021/12/memory-mapped-files/" data-toggle="tooltip" data-placement="top" title="Memory Mapped Files">Older &gt;</a>
+        <a href="/2021/10/note-to-self-how-to-reclaim-disk-space-in-a-hurry-windows-10/" data-toggle="tooltip" data-placement="top" title="Note To Self - How to Reclaim Disk Space in a Hurry (Windows 10)">Older &gt;</a>
       </li>
     </ul>
   </div>

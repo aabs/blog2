@@ -6,12 +6,21 @@
   <title>The Wandering Glitch</title>
   <meta property="og:title" content="The Wandering Glitch" />
   <meta name="twitter:title" content="The Wandering Glitch" />
-  <meta name="author" content=""/>
+  <meta name="description" content="I offer a range of services to help early adopters get started with Knowledge Graph and Semantic Web technologies. Not sure what you need, or what it costs? I can explain how to start small and gradually expand the intelligence of your systems. Get in touch below.
+::: {.wp-block-spacer .desktop-only style=&ldquo;height:32px;&rdquo; aria-hidden=&ldquo;true&rdquo;} :::
+::: {.wp-block-columns .alignwide .has-3-columns} ::: {.wp-block-column} ::: {.wp-block-image} {.wp-image-7565} :::
+Consulting I have many years of Architecture and Engineering experience, I can guide you on ways to enhance your technology with knowledge graphs, and show the easy path to building it.">
+  <meta property="og:description" content="I offer a range of services to help early adopters get started with Knowledge Graph and Semantic Web technologies. Not sure what you need, or what it costs? I can explain how to start small and gradually expand the intelligence of your systems. Get in touch below.
+::: {.wp-block-spacer .desktop-only style=&ldquo;height:32px;&rdquo; aria-hidden=&ldquo;true&rdquo;} :::
+::: {.wp-block-columns .alignwide .has-3-columns} ::: {.wp-block-column} ::: {.wp-block-image} {.wp-image-7565} :::
+Consulting I have many years of Architecture and Engineering experience, I can guide you on ways to enhance your technology with knowledge graphs, and show the easy path to building it.">
+  <meta name="twitter:description" content="I offer a range of services to help early adopters get started with Knowledge Graph and Semantic Web technologies. Not sure what you need, or what it costs? I can explain how to start small and …">
+  <meta name="author" content="Andrew Matthews"/>
   <meta property="og:site_name" content="The Wandering Glitch" />
   <meta property="og:url" content="https://industrialinference.com/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.108.0">
+  <meta name="generator" content="Hugo 0.92.2" />
   <link href="/index.xml" rel="alternate" type="application/rss+xml" title="The Wandering Glitch" />
   <link href="/index.xml" rel="feed" type="application/rss+xml" title="The Wandering Glitch" />
 
@@ -30,6 +39,10 @@
   <nav class="site-navi">
     <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
     <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
     </ul>
   </nav>
 </header>
@@ -37,48 +50,6 @@
 
   <div class="main" role="main">
     <section class="list home-list">
-      <article class="article">
-        <a href="/1/01/securing-a-wcf-service-with-certificates/" class="article-titles">
-          <h2 class="article-title">Securing a WCF service with Certificates</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>January 1, 0001</time></li>
-        </ul>
-        <div class="article-content">
-          For a client and server to talk securely with message level encryption, they both require certificates to encrypt and decrypt messages from the other. Those certificates need to be produced and installed on each machine. This post shows how that can be done, and what settings are required to work with the certificates. Thanks to Mitch Denny, who wrote a very good post on the use of certificates, which helped a lot more than some of the official documentation.
-        </div>
-        <div class="article-readmore"><a href="/1/01/securing-a-wcf-service-with-certificates/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/1/01/self-modeling-robots/" class="article-titles">
-          <h2 class="article-title">Self Modeling Robots</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>January 1, 0001</time></li>
-        </ul>
-        <div class="article-content">
-          Eurekalert has an interesting headline today about robots developed at Vermont University that can self heal or adapt if they find something wrong with themselves. The news report highlighted the fact that this could herald a new generation of autonomous robots that can learn to adapt to the harsh environments that they would experience on Mars for example. I was more impressed by the solution that the researchers had developed. The robot maintains a &lsquo;self image&rsquo; which it monitors.
-        </div>
-        <div class="article-readmore"><a href="/1/01/self-modeling-robots/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/1/01/semantic-development-environments/" class="article-titles">
-          <h2 class="article-title">Semantic Development Environments</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>January 1, 0001</time></li>
-        </ul>
-        <div class="article-content">
-          The semantic web is a GOOD THING by definition - anything that enables us to create smarter software without also having to create Byzantine application software must be a step in the right direction. The problem is - many people have trouble translating the generic term &ldquo;smarter&rdquo; into a concrete idea of what they would have to do to achieve that palladian dream. I think a few concrete ideas might help to firm up people&rsquo;s understanding of how the semantic web can help to deliver smarter products.
-        </div>
-        <div class="article-readmore"><a href="/1/01/semantic-development-environments/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
       <article class="article">
         <a href="/1/01/semantic-overflow-highlights-i/" class="article-titles">
           <h2 class="article-title">Semantic Overflow Highlights I</h2>
@@ -121,8 +92,8 @@ So far, I&rsquo;ve got it producing N3 notation from models, like so:
         </ul>
         <div class="article-content">
           This little script uses the JQuery getScript command, enforcing sequential loading order to ensure script dependencies are honoured:
-function LoadScriptsSequentially(scriptUrls, callback) { if (typeof scriptUrls == 'undefined') throw &quot;Argument Error: URL array is unusable&quot;; if (scriptUrls.length == 0 &amp;&amp; typeof callback == 'function') callback(); $.getScript(scriptUrls.shift(), function() { LoadScriptsSequentially(scriptUrls, callback); }); } Here&rsquo;s how you use it:
-function InitialiseQueryFramework(runTests) { LoadScriptsSequentially([ &quot;/js/inheritance.js&quot;, &quot;/js/expressions.js&quot;, &quot;/js/refData.js&quot;, &quot;/js/queryRenderer.js&quot;, &quot;/js/sha1.js&quot;, &quot;/js/queryCache.js&quot;, &quot;/js/unit-tests.js&quot;], function() { queryFramework = new QueryManager(&quot;#query&quot;); if (runTests) RunTestSuite(); }); } I love java script now and can&rsquo;t understand why I avoided it for years.
+function LoadScriptsSequentially(scriptUrls, callback) { if (typeof scriptUrls == 'undefined') throw &quot;Argument Error: URL array is unusable&quot;; if (scriptUrls.length == 0 &amp;&amp; typeof callback == 'function') callback(); $.getScript(scriptUrls.shift(), function() { LoadScriptsSequentially(scriptUrls, callback); }); }  Here&rsquo;s how you use it:
+function InitialiseQueryFramework(runTests) { LoadScriptsSequentially([ &quot;/js/inheritance.js&quot;, &quot;/js/expressions.js&quot;, &quot;/js/refData.js&quot;, &quot;/js/queryRenderer.js&quot;, &quot;/js/sha1.js&quot;, &quot;/js/queryCache.js&quot;, &quot;/js/unit-tests.js&quot;], function() { queryFramework = new QueryManager(&quot;#query&quot;); if (runTests) RunTestSuite(); }); }  I love java script now and can&rsquo;t understand why I avoided it for years.
         </div>
         <div class="article-readmore"><a href="/1/01/sequential-script-loading-on-demand/">Read more...</a></div>
         <div class="article-floatclear"></div>
@@ -182,6 +153,60 @@ SDB sits below Jena providing it with database support for a triple store rather
           [digg=http://digg.com/design/Singleton_the_most_overused_pattern]Recently within Readify we&rsquo;ve been discussing the results of some code reviews we&rsquo;d done with some of our clients. One issue that came to light was the issues introduced by the excessive use of the singleton pattern. If you&rsquo;re not familiar with patterns, it&rsquo;s quite simple. Patterns are a kind of reusable design. The original and most famous book (commonly called the Gang of Four book or just GoF) was itself inspired by the Pattern Language book by Christopher Alexander.
         </div>
         <div class="article-readmore"><a href="/1/01/singleton-the-most-overused-pattern./">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/1/01/small-child-wreaks-havoc.-again./" class="article-titles">
+          <h2 class="article-title">Small Child Wreaks Havoc. Again.</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>January 1, 0001</time></li>
+        </ul>
+        <div class="article-content">
+          <p>Never leave your laptop unattended. If you do, your son will convert this:</p>
+<p><a href="%7Bstatic%7D2007/08/image.png"><img src="%7Bstatic%7D2007/08/image-thumb.png" alt="image">{width=&ldquo;445&rdquo; height=&ldquo;435&rdquo;}</a></p>
+<p>into this:</p>
+<p><a href="%7Bstatic%7D2007/08/image1.png"><img src="%7Bstatic%7D2007/08/image-thumb1.png" alt="image">{width=&ldquo;723&rdquo; height=&ldquo;155&rdquo;}</a></p>
+<p>My son is a living embodiment of the second law of thermodynamics. And is attracted to buttons and keyboards in the same way that a moth is attracted to a flame.</p>
+<p>Thankfully, he doesn&rsquo;t know how to hit the save button yet.</p>
+
+        </div>
+        <div class="article-readmore"><a href="/1/01/small-child-wreaks-havoc.-again./">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/1/01/so-much-froth/" class="article-titles">
+          <h2 class="article-title">So much froth</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>January 1, 0001</time></li>
+        </ul>
+        <div class="article-content">
+          Your unfounded beliefs are the reason why my unfounded opinions seem jaundiced.
+If you don&rsquo;t have unpallatable ideas, what does that say about you?
+Self reliance is not synonymous with Fascism.
+The purpose of speech is to cause increased activity in certain conceptually specific regions of the listener&rsquo;s brain. Does this imply that the command is the basic logical form of natural langauge?
+Swords are more frightening than Atomic bombs. Atomic bombs show evidence that some people are unwilling to fight in person.
+        </div>
+        <div class="article-readmore"><a href="/1/01/so-much-froth/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/1/01/some-beautiful-images-from-derek/" class="article-titles">
+          <h2 class="article-title">Some beautiful images from Derek</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>January 1, 0001</time></li>
+        </ul>
+        <div class="article-content">
+          <p><a href="http://www.asra18.dsl.pipex.com/gallery/gallery18/Cobweb%20and%20dewdrops.jpg"><img src="http://www.asra18.dsl.pipex.com/gallery/gallery18/Cobweb%20and%20dewdrops.jpg" alt=""></a></p>
+<p>I&rsquo;m not sure that this image does the original on Derek&rsquo;s site justice, but click on it and it should take you there.</p>
+
+        </div>
+        <div class="article-readmore"><a href="/1/01/some-beautiful-images-from-derek/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
     </section>

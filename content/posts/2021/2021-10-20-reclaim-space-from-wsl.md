@@ -1,6 +1,7 @@
 ---
 title: Note To Self - How to Reclaim Disk Space in a Hurry (Windows 10)
 date: 2021-10-20
+tags: ["sysops"]
 ---
 
 When you suddenly discover that your disk is full, consider doing the following:

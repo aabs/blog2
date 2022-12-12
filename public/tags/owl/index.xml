@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>owl on The Wandering Glitch</title>
+    <link>https://industrialinference.com/tags/owl/</link>
+    <description>Recent content in owl on The Wandering Glitch</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Andrew Matthews</copyright><atom:link href="https://industrialinference.com/tags/owl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OWL2 Snippets for VSCode</title>
+      <link>https://industrialinference.com/1/01/owl2-snippets-for-vscode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/1/01/owl2-snippets-for-vscode/</guid>
+      <description>I put together a list of OWL2 snippets for Visual Studio Code, for use with Turtle ( *.ttl ) files.
+https://github.com/aabs/owl-2-turtle-snippets
+The shortcuts cover most of the OWL2 Reference Card. Enjoy.
+command shortcut
+ class /c  add label rlab  add comment rcom  object property ropr  time value rtime  intersect class rintersect  class intersection /ci  class union /cu  class complement /cc  class enumeration /ce  subclass /csub  equivalent classes /cequ  disjoint classes /cd  pairwise disjoint classes /cda  disjoint union /cdu  universal /pru  existential /pre  individual value /pri  local reflexivity /prx  exact cardinality /prc  qualified exact cardinality /prcqxc  maximum cardinality /prcmax  qualified maximum cardinality /prcqmax  minimum cardinality /prcmin  qualified minimum cardinality /prcqmin  n-ary universal /prdu  n-ary existential /prde  inverse property /pv  data range complement /drc  data range intersection /dri  data range union /dru  literal enumeration /denum  datatype restriction /drs  subproperty /ppsub  chain inclusion /ppch  domain /ppdom  range /ppran  equivalent properties /ppequ  disjoint properties /ppd  all disjoint properties /ppdd  inverse properties /ppinv  functional property /ppfun  inverse functional property /ppinfu  reflexive property /ppref  irreflexive property /ppirref  symmetric property /ppsym  Asymmetric Property /ppasym  Transitive Property /pptrans  equality /aeq  prinequality /ane  individual inequality /aane  assertion /ac  object property assertion /aprop  negative object property assertion /anprop  name //l  comment //c  addition information //ai  agent //da  information //v  deprecation //dep  backwards compatibility //bc  incompatibility //incomp  prior version //pv</description>
+    </item>
+    
+  </channel>
+</rss>

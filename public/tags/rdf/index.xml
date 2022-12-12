@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rdf on The Wandering Glitch</title>
+    <link>https://industrialinference.com/tags/rdf/</link>
+    <description>Recent content in rdf on The Wandering Glitch</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Andrew Matthews</copyright>
+    <lastBuildDate>Thu, 09 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://industrialinference.com/tags/rdf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Memory Mapped Files</title>
+      <link>https://industrialinference.com/2021/12/memory-mapped-files/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/2021/12/memory-mapped-files/</guid>
+      <description>The first thing we need to do to build a database is to find a fast way to read from and write to disk. Whether we are doing I/O on a hard drive or an SSD, the interface to the disk typically works the same. It transfers data into and out of the disk in &amp;lsquo;pages&amp;rsquo; or blocks of data.
+It makes sense to keep data we are likely to access together in the same page so that it is already in memory when we need to access it.</description>
+    </item>
+    
+    <item>
+      <title>Implementing a Triple Store from the Ground Up - Part 1</title>
+      <link>https://industrialinference.com/2021/12/implementing-a-triple-store-from-the-ground-up-part-1/</link>
+      <pubDate>Wed, 08 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/2021/12/implementing-a-triple-store-from-the-ground-up-part-1/</guid>
+      <description>I&amp;rsquo;ve long been fascinated with semantic web technologies, the potential of RDF and understanding how to implement a triple store from the ground up. Databases are one of those technologies - like compilers - that we often take for granted, and yet which beneath the hood employs some very sophisticated algorithms and data structures to achieve acceptable levels of performance.
+In this new article series, I&amp;rsquo;ll implement a triple store using techniques introduced in recent years for efficiently storing and processing indexes on large knowledge graphs.</description>
+    </item>
+    
+    <item>
+      <title>Knowledge Graphs 2 - Playing on the CLI</title>
+      <link>https://industrialinference.com/2019/09/knowledge-graphs-2-playing-on-the-cli/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/2019/09/knowledge-graphs-2-playing-on-the-cli/</guid>
+      <description>Last time I showed how to write RDF in Turtle, and how to make very simple queries in SPARQL. What I didn&amp;rsquo;t show was how to get your hands dirty. Specifically, I want to show you how to try things out on the cheap command line. I will show examples of how to build out your RDF data to more depth using Turtle files, and how to use the Jena framework to create queries against that data, so you can work out ahead of time how to navigate your graph of data.</description>
+    </item>
+    
+    <item>
+      <title>Knowledge Graphs 3 - Using a Triple Store</title>
+      <link>https://industrialinference.com/2019/09/knowledge-graphs-3-using-a-triple-store/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/2019/09/knowledge-graphs-3-using-a-triple-store/</guid>
+      <description>Last time I showed you how to use CLI tools to build out your RDF data to more depth using Turtle files and how to query it using the Apache Jena CLI toolchain using SPARQL Query language. This time I&amp;rsquo;ll show how to insert and retrieve data from a remote triple store. I&amp;rsquo;ll continue using the CLI tools for now.
+ Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using .</description>
+    </item>
+    
+    <item>
+      <title>Knowledge Graphs 101</title>
+      <link>https://industrialinference.com/2019/09/knowledge-graphs-101/</link>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/2019/09/knowledge-graphs-101/</guid>
+      <description>This is the first in a short series introducing Knowledge Graphs. It covers just the basics, showing how to write, store, query and work with graph data using RDF (short for Resource Description Format). I will keep it free of theory and interesting but unnecessary digressions. Let me know in the comments if you find it useful, and also tell me what other Knowledge Graph topics you would like to know more about.</description>
+    </item>
+    
+    <item>
+      <title>Knowledge Graphs 4 - Querying your knowledge graph using .NET</title>
+      <link>https://industrialinference.com/1/01/knowledge-graphs-4-querying-your-knowledge-graph-using-.net/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/1/01/knowledge-graphs-4-querying-your-knowledge-graph-using-.net/</guid>
+      <description>This installment leaves the CLI behind to show how we consume a knowledge graph within our programmatic environments. The framework I use to work with RDF is dotNetRdf.
+This is part 4 of an ongoing series providing a little background on &amp;lsquo;knowledge graphs&amp;rsquo;. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history, just practical knowledge.
+ Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using .</description>
+    </item>
+    
+    <item>
+      <title>Knowledge Graphs 5 - Modelling with RDFS</title>
+      <link>https://industrialinference.com/1/01/knowledge-graphs-5-modelling-with-rdfs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/1/01/knowledge-graphs-5-modelling-with-rdfs/</guid>
+      <description>This installment moves beyond the simple graph model of RDF to introduce the modelling support of RDF Schema. I will go on to show you how using the W3C Standard RDFS imbues your data with another layer of meaning, and makes it easier for you to enrich your raw data with meaning over time.
+This is part 5 of an ongoing series providing a little background on ‘knowledge graphs‘. The aim is to let software developers get up to speed as fast as possible.</description>
+    </item>
+    
+    <item>
+      <title>Knowledge Graphs 6 - Semantics</title>
+      <link>https://industrialinference.com/1/01/knowledge-graphs-6-semantics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/1/01/knowledge-graphs-6-semantics/</guid>
+      <description>With this installment we finally get to the part of knowledge graphs that I personally find really exciting: Semantics. In this installment, I will introduce some of the simple rules of entailment that are a part of the RDFS standard.
+This is part 6 of an ongoing series providing a little background on ‘knowledge graphs‘. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history.</description>
+    </item>
+    
+    <item>
+      <title>Knowledge Graphs 7 - Named Graphs</title>
+      <link>https://industrialinference.com/1/01/knowledge-graphs-7-named-graphs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/1/01/knowledge-graphs-7-named-graphs/</guid>
+      <description>Knowledge Graphs provide a neat and easy way to segment your data, called &amp;lsquo;Named Graphs&amp;rsquo;. This post shows how you access them, and different uses they may be put to.
+This is part 7 of an ongoing series providing a little background on Knowledge Graphs. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history. Just practical knowledge.</description>
+    </item>
+    
+    <item>
+      <title>OWL2 Snippets for VSCode</title>
+      <link>https://industrialinference.com/1/01/owl2-snippets-for-vscode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/1/01/owl2-snippets-for-vscode/</guid>
+      <description>I put together a list of OWL2 snippets for Visual Studio Code, for use with Turtle ( *.ttl ) files.
+https://github.com/aabs/owl-2-turtle-snippets
+The shortcuts cover most of the OWL2 Reference Card. Enjoy.
+command shortcut
+ class /c  add label rlab  add comment rcom  object property ropr  time value rtime  intersect class rintersect  class intersection /ci  class union /cu  class complement /cc  class enumeration /ce  subclass /csub  equivalent classes /cequ  disjoint classes /cd  pairwise disjoint classes /cda  disjoint union /cdu  universal /pru  existential /pre  individual value /pri  local reflexivity /prx  exact cardinality /prc  qualified exact cardinality /prcqxc  maximum cardinality /prcmax  qualified maximum cardinality /prcqmax  minimum cardinality /prcmin  qualified minimum cardinality /prcqmin  n-ary universal /prdu  n-ary existential /prde  inverse property /pv  data range complement /drc  data range intersection /dri  data range union /dru  literal enumeration /denum  datatype restriction /drs  subproperty /ppsub  chain inclusion /ppch  domain /ppdom  range /ppran  equivalent properties /ppequ  disjoint properties /ppd  all disjoint properties /ppdd  inverse properties /ppinv  functional property /ppfun  inverse functional property /ppinfu  reflexive property /ppref  irreflexive property /ppirref  symmetric property /ppsym  Asymmetric Property /ppasym  Transitive Property /pptrans  equality /aeq  prinequality /ane  individual inequality /aane  assertion /ac  object property assertion /aprop  negative object property assertion /anprop  name //l  comment //c  addition information //ai  agent //da  information //v  deprecation //dep  backwards compatibility //bc  incompatibility //incomp  prior version //pv</description>
+    </item>
+    
+  </channel>
+</rss>

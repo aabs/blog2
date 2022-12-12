@@ -11,12 +11,12 @@ One of the current favourite ways to add value to an existing system is through 
   <meta property="og:description" content="[digg=http://www.digg.com/programming/Domain_Modeling_and_Ontology_Engineering] The semantic web is poised to influence us in ways that will be as radical as the early days of the Internet and World Wide Web. For software developers it will involve a paradigm shift, bringing new ways of thinking about the problems that we solve, and more-importantly bringing us new bags of tricks to play with.
 One of the current favourite ways to add value to an existing system is through the application of data mining.">
   <meta name="twitter:description" content="[digg=http://www.digg.com/programming/Domain_Modeling_and_Ontology_Engineering] The semantic web is poised to influence us in ways that will be as radical as the early days of the Internet and World …">
-  <meta name="author" content=""/>
+  <meta name="author" content="Andrew Matthews"/>
   <meta property="og:site_name" content="The Wandering Glitch" />
   <meta property="og:url" content="https://industrialinference.com/1/01/domain-modeling-and-ontology-engineering/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.108.0">
+  <meta name="generator" content="Hugo 0.92.2" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -33,6 +33,10 @@ One of the current favourite ways to add value to an existing system is through 
   <nav class="site-navi">
     <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
     <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
     </ul>
   </nav>
 </header>
@@ -57,7 +61,7 @@ The semantic web is poised to influence us in ways that will be as radical as th
 <p>One of the current favourite ways to add value to an existing system is through the application of data mining. Amazon is a great example of the power of data mining; it can offer you recommendations based on a statistical model of purchasing behaviour that are pretty accurate. It looks at what the other purchasers of a book bought, and uses that as a guide to make further recommendations.</p>
 <p>What if it were able to make suggestions like this: <em>We recommend that you also buy book XYZ because it discusses the same topics but in more depth</em>. That kind of recommendation would be incredible. You would have faith in a recommendation like that, because it wasn&rsquo;t tainted by the thermal noise of purchaser behaviour. I don&rsquo;t know why, but every time I go shopping for books on computer science, Amazon keeps recommending that I buy Star Trek books. It just so happens that programmers are suckers for schlock sci-fi books, so there is always at least one offering amongst the CompSci selections.</p>
 <p>The kind of domain understanding I described above is made possible through the application of <em><strong>Ontology Engineering</strong></em>. Ontology Engineering is nothing new – it has been around for years in one form or another. What makes it new and exciting for me is the work being done by the W3C on semantic web technologies. Tim Berners-Lee has not been resting on his laurels since he invented the World Wide Web. He and his team have been producing a connected set of specifications for the representation, exchange and use of domain models and rules (plus a lot else besides). This excites me, not least because I first got into Computer Science through an interest in philosophy. About 22 years ago, in a Sunday supplement newspaper a correspondent wrote about the wonderful new science of Artificial Intelligence. He described it as a playground of philosophers where for the first time hypotheses about the nature of mind and reality could be made manifest and subjected to the rigours of scientific investigation. That blew my mind – and I have never looked back.</p>
-<p>Which brings us to the present day. Ontology engineering involves the production of ontologies, which are an abstract model of some domain. This is exactly what software developers do for a living, but with a difference. The Resource Description Framework (RDF) and the Web Ontology Language (OWL) are designed to be published and consumed across the web. They are not procedural languages – they describe a domain and its rules in such a way that inference engines can reason about the domain and draw conclusions. In essence the semantic web brings a clean, standardised, web enabled and rich language in which we can share expert systems. The magnitude of what this means is not clear yet but I suspect that it will change [everything]{style=&ldquo;text-decoration:underline;&rdquo;}.</p>
+<p>Which brings us to the present day. Ontology engineering involves the production of ontologies, which are an abstract model of some domain. This is exactly what software developers do for a living, but with a difference. The Resource Description Framework (RDF) and the Web Ontology Language (OWL) are designed to be published and consumed across the web. They are not procedural languages – they describe a domain and its rules in such a way that inference engines can reason about the domain and draw conclusions. In essence the semantic web brings a clean, standardised, web enabled and rich language in which we can share expert systems. The magnitude of what this means is not clear yet but I suspect that it will change [everything]{style=&ldquo;text-decoration:underline;&quot;}.</p>
 <p>The same imperatives that drove the formulation of standards like OWL and RDF are at work in the object domain. A class definition is only meaningful in the sense that it carries data and its name has some meaning to a programmer. There is no inherent meaning in an object graph that can allow an independent software system to draw conclusions from it. Even the natural language labels we apply to classes can be vague or ambiguous. Large systems in complex industries need a way to add meaning to an existing system without breaking backwards compatibility. Semantic web applications will be of great value to the developer community because they will allow us to inject intelligence into our systems.</p>
 <p>The current Web2.0 drive to add value to the user experience will eventually call for more intelligence than can practically be got from our massive OO systems. A market-driven search for competitiveness will drive the software development community to more fully embrace the semantic web as the only easy way to add intelligence to unwieldy systems.</p>
 <p>In many systems the sheer complexity of the problem domain has led software designers to throw up their hands in disgust, and opt for data structures that are catch-all buckets of data. Previously, I have referred to them as <em><strong>untyped associative containers</strong></em> because more often than not the data ends up in a hash table or equivalent data structure. For the developer, the untyped associative container is pure evil on many levels – not least from performance, readability, and type-safety angles. Early attempts to create industry mark-up languages foundered on the same rocks. What was lacking was a common conceptual framework in which to describe an industry. That problem is addressed by ontologies.</p>
@@ -73,6 +77,22 @@ The semantic web is poised to influence us in ways that will be as radical as th
     </article>
 
     
+<ul class="article-share">
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https://industrialinference.com/1/01/domain-modeling-and-ontology-engineering/" target="_blank" rel="noopener" aria-label="Facebook">
+      <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg></div>Facebook</div>
+    </a>
+  </li>
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=Domain%20Modeling%20and%20Ontology%20Engineering%20-%20The%20Wandering%20Glitch&amp;url=https://industrialinference.com/1/01/domain-modeling-and-ontology-engineering/" target="_blank" rel="noopener" aria-label="Twitter">
+      <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg></div>Twitter</div>
+    </a>
+  </li>
+</ul>
 
 
     <ul class="pager article-pager">

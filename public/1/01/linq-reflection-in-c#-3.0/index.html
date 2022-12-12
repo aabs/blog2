@@ -9,12 +9,12 @@
   <meta name="description" content="I posted an article the other day showing you how to exploit the query capabilities of LINQ to do reflection over the attributes on a C# class. I want to show you how to exploit some of the extension methods in System.Query to make the code even cleaner. I used a method called Members that got all of the members in order of member type (i.e. fields first, properties next and so on).">
   <meta property="og:description" content="I posted an article the other day showing you how to exploit the query capabilities of LINQ to do reflection over the attributes on a C# class. I want to show you how to exploit some of the extension methods in System.Query to make the code even cleaner. I used a method called Members that got all of the members in order of member type (i.e. fields first, properties next and so on).">
   <meta name="twitter:description" content="I posted an article the other day showing you how to exploit the query capabilities of LINQ to do reflection over the attributes on a C# class. I want to show you how to exploit some of the extension …">
-  <meta name="author" content=""/>
+  <meta name="author" content="Andrew Matthews"/>
   <meta property="og:site_name" content="The Wandering Glitch" />
   <meta property="og:url" content="https://industrialinference.com/1/01/linq-reflection-in-c#-3.0/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.108.0">
+  <meta name="generator" content="Hugo 0.92.2" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -31,6 +31,10 @@
   <nav class="site-navi">
     <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
     <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
     </ul>
   </nav>
 </header>
@@ -56,7 +60,7 @@ to show you how to exploit some of the extension methods in System.Query to make
 the code even cleaner. I used a method called Members that got all of the
 members in order of member type (i.e. fields first, properties next and so on).
 The code looked like this:</p>
-<p>[]{style=&ldquo;font-size:10pt;font-family:Courier New;&rdquo;}</p>
+<p>[]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;}</p>
 <pre><code>public static IEnumerable&lt;MemberInfo&gt;Members(this Type t)
 {
     foreach (FieldInfo fi in t.GetFields())
@@ -74,7 +78,7 @@ get elements ordered by type. Well System.Query provides a neater way to do this
 sort of thing. As luck would have it, I don&rsquo;t care what order I bring the
 members back in so long as they are grouped by type and then by name. We can use
 the ordering queries in LINQ to do this:</p>
-<p>[]{style=&ldquo;font-size:10pt;font-family:Courier New;&rdquo;}</p>
+<p>[]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;}</p>
 <pre><code>foreach (MemberInfo mi in from m in t.GetMembers() orderby m.GetType().Name, m.Name select m)
 {
     yield return mi;
@@ -83,14 +87,14 @@ the ordering queries in LINQ to do this:</p>
 <p>Much cleaner, and it also grabs the constructors which I forgot to add in the
 previous post! ;-) The query syntax there is equivalent to the following C# 2.0
 syntax:</p>
-<p>[]{style=&ldquo;font-size:10pt;font-family:Courier New;&rdquo;}[]{style=&ldquo;color:blue;&rdquo;}</p>
+<p>[]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;}[]{style=&ldquo;color:blue;&quot;}</p>
 <pre><code>foreach (MemberInfo mi in t.GetMembers().OrderBy(a =&gt; a.GetType().Name).ThenBy(b =&gt; b.Name))
 {
     yield return mi;
 }
 </code></pre>
 <p>I can impose some specific order by using the union method:</p>
-<p>[]{style=&ldquo;font-size:10pt;font-family:Courier New;&rdquo;}[]{style=&ldquo;color:blue;&rdquo;}</p>
+<p>[]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;}[]{style=&ldquo;color:blue;&quot;}</p>
 <pre><code>foreach (MemberInfo mi in t.GetFields().Union&lt;MemberInfo&gt;(t.GetProperties().Union&lt;MemberInfo&gt;(t.GetMethods())))
 {
     yield return mi;
@@ -104,7 +108,7 @@ to find out what&rsquo;s available.</p>
 we often need to recursively enumerate structural elements in assemblies or
 databases. Here is an untyped example of how we can apply these enumerators to
 simply dig through the capabilities of the type:</p>
-<p>[]{style=&ldquo;font-size:10pt;font-family:Courier New;&rdquo;}</p>
+<p>[]{style=&ldquo;font-size:10pt;font-family:Courier New;&quot;}</p>
 <pre><code>public static IEnumerable&lt;object&gt; ParseType(Type t)
 {
     foreach (MemberInfo mi in t.Members())
@@ -124,6 +128,22 @@ object in any way we please.</p>
     </article>
 
     
+<ul class="article-share">
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https://industrialinference.com/1/01/linq-reflection-in-c#-3.0/" target="_blank" rel="noopener" aria-label="Facebook">
+      <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg></div>Facebook</div>
+    </a>
+  </li>
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=LINQ%20&amp;%20Reflection%20in%20C#%203.0%20-%20The%20Wandering%20Glitch&amp;url=https://industrialinference.com/1/01/linq-reflection-in-c#-3.0/" target="_blank" rel="noopener" aria-label="Twitter">
+      <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg></div>Twitter</div>
+    </a>
+  </li>
+</ul>
 
 
     <ul class="pager article-pager">

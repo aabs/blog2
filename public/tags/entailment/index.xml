@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>entailment on The Wandering Glitch</title>
+    <link>https://industrialinference.com/tags/entailment/</link>
+    <description>Recent content in entailment on The Wandering Glitch</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Andrew Matthews</copyright><atom:link href="https://industrialinference.com/tags/entailment/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Knowledge Graphs 6 - Semantics</title>
+      <link>https://industrialinference.com/1/01/knowledge-graphs-6-semantics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/1/01/knowledge-graphs-6-semantics/</guid>
+      <description>With this installment we finally get to the part of knowledge graphs that I personally find really exciting: Semantics. In this installment, I will introduce some of the simple rules of entailment that are a part of the RDFS standard.
+This is part 6 of an ongoing series providing a little background on ‘knowledge graphs‘. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history.</description>
+    </item>
+    
+  </channel>
+</rss>

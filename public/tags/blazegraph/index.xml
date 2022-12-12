@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blazegraph on The Wandering Glitch</title>
+    <link>https://industrialinference.com/tags/blazegraph/</link>
+    <description>Recent content in blazegraph on The Wandering Glitch</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Andrew Matthews</copyright>
+    <lastBuildDate>Fri, 13 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://industrialinference.com/tags/blazegraph/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Knowledge Graphs 3 - Using a Triple Store</title>
+      <link>https://industrialinference.com/2019/09/knowledge-graphs-3-using-a-triple-store/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/2019/09/knowledge-graphs-3-using-a-triple-store/</guid>
+      <description>Last time I showed you how to use CLI tools to build out your RDF data to more depth using Turtle files and how to query it using the Apache Jena CLI toolchain using SPARQL Query language. This time I&amp;rsquo;ll show how to insert and retrieve data from a remote triple store. I&amp;rsquo;ll continue using the CLI tools for now.
+ Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using .</description>
+    </item>
+    
+  </channel>
+</rss>

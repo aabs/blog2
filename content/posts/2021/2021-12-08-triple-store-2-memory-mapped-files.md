@@ -2,7 +2,8 @@
 title: Memory Mapped Files
 subtitle: Implementing a triple store from the ground up - Part 2
 author: Andrew Matthews
-date: 2021-12-08
+date: 2021-12-09
+tags: ["rdf", "rdf databases", "graph databases"]
 ---
 
 The first thing we need to do to build a database is to find a fast way to read

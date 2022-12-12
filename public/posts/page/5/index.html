@@ -6,12 +6,12 @@
   <title>Posts - The Wandering Glitch</title>
   <meta property="og:title" content="Posts - The Wandering Glitch" />
   <meta name="twitter:title" content="Posts - The Wandering Glitch" />
-  <meta name="author" content=""/>
+  <meta name="author" content="Andrew Matthews"/>
   <meta property="og:site_name" content="The Wandering Glitch" />
   <meta property="og:url" content="https://industrialinference.com/posts/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.108.0">
+  <meta name="generator" content="Hugo 0.92.2" />
   <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="The Wandering Glitch" />
   <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="The Wandering Glitch" />
 
@@ -30,6 +30,10 @@
   <nav class="site-navi">
     <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
     <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
     </ul>
   </nav>
 </header>
@@ -41,22 +45,6 @@
   <div class="main" role="main">
     <section class="list section-list">
       <article class="article">
-        <a href="/1/01/and-were-off/" class="article-titles">
-          <h2 class="article-title">And we&#39;re off</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>January 1, 0001</time></li>
-        </ul>
-        <div class="article-content">
-          I have set up the sourceforge project. You can find it here. I&rsquo;ve also classified all of the work, and split it up into releases.
-Here&rsquo;s what will go into release one:
-Configuration Use native .NET configuration Configuration Remove existing config assembly Installers WIX installers Runtime Control Add transactional support from COM+ Runtime Control Extend reverse engineering to examine SPs and create wrappers for them. Runtime Control Configurable ID strategy Runtime Control Configurable transaction isolation policy Templates Move core templates into resource assembly Testing Create a proper test database Runtime Control Divide system between runtime and development projects Runtime Control Standardise all names to CamelCase
-        </div>
-        <div class="article-readmore"><a href="/1/01/and-were-off/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
         <a href="/1/01/announcing-linqtordf-0.3-and-linqtordf-designer-0.3/" class="article-titles">
           <h2 class="article-title">Announcing LinqToRdf 0.3 and LinqToRdf Designer 0.3</h2>
           
@@ -67,7 +55,7 @@ Configuration Use native .NET configuration Configuration Remove existing config
         <div class="article-content">
           The third release of LinqToRdf has been uploaded to GoogleCode. Go to the project web site for links to the latest release.
 LinqToRdf Changes:
-support for SPARQL type casting numerous bug fixes better support for identity projections more SPARQL relational operators latest versions of SemWeb &amp; SPARQL Engine, incorporating recent bug fixes and enhancements of each of them I have also released a new graphical designer to auto-generate C# entity models as well as N3 ontology specifications from UML-like designs.
+ support for SPARQL type casting numerous bug fixes better support for identity projections more SPARQL relational operators latest versions of SemWeb &amp; SPARQL Engine, incorporating recent bug fixes and enhancements of each of them  I have also released a new graphical designer to auto-generate C# entity models as well as N3 ontology specifications from UML-like designs.
         </div>
         <div class="article-readmore"><a href="/1/01/announcing-linqtordf-0.3-and-linqtordf-designer-0.3/">Read more...</a></div>
         <div class="article-floatclear"></div>
@@ -84,7 +72,7 @@ support for SPARQL type casting numerous bug fixes better support for identity p
           []{#msg_06050fdd438f8b01}The fifth release of LinqToRdf has just been uploaded to Google Code.
 Go to http://code.google.com/p/linqtordf for links to the latest MSI installer.
 LinqToRdf Changes:
-Member access projections like this: from a in c select a.Name initial support for Distinct results latest versions of SemWeb &amp; SPARQL Engine, incorporating the new SqlServer store provider updated the DSL tools to compile on RTM version of VS.NET 2008 Please let me know how you get on.
+ Member access projections like this: from a in c select a.Name initial support for Distinct results latest versions of SemWeb &amp; SPARQL Engine, incorporating the new SqlServer store provider updated the DSL tools to compile on RTM version of VS.NET 2008  Please let me know how you get on.
         </div>
         <div class="article-readmore"><a href="/1/01/announcing-linqtordf-v0.5/">Read more...</a></div>
         <div class="article-floatclear"></div>
@@ -100,7 +88,7 @@ Member access projections like this: from a in c select a.Name initial support f
         <div class="article-content">
           I&rsquo;ve just uploaded LinqToRdf v0.6 with improved designer support for Visual Studio .NET 2008.
 The release includes the following high-points:
-LinqToRdf Designer and VS.NET 2008 extension completely rewritten LinqToRdf Installer now includes the installer of LinqToRdf Designer (at no extra cost) Project and Item templates now installed as part of LinqToRdf Designer Generated object and data properties now get their own EntitySet or EntityRef. Generates LINQ to SQL-style DataContext objects to hide query creation.
+ LinqToRdf Designer and VS.NET 2008 extension completely rewritten LinqToRdf Installer now includes the installer of LinqToRdf Designer (at no extra cost) Project and Item templates now installed as part of LinqToRdf Designer Generated object and data properties now get their own EntitySet or EntityRef. Generates LINQ to SQL-style DataContext objects to hide query creation.
         </div>
         <div class="article-readmore"><a href="/1/01/announcing-linqtordf-v0.6/">Read more...</a></div>
         <div class="article-floatclear"></div>
@@ -190,12 +178,26 @@ I just read a very interesting post by Tony Wright, on the relative cost of fixi
           <li class="article-meta-date"><time>January 1, 0001</time></li>
         </ul>
         <div class="article-content">
-          This is a reminder to self, for those times when you just gotta have vim and fishdots on a recent version of fish shell (and someone upstream has completely screwed up the CA certificates so you can&rsquo;t use apt or linux brew because they can&rsquo;t be configured to relax cacert security).
+          This is a reminder to self, for those times when you just gotta have vim and fishdots on a recent version of fish shell (and someone upstream has completely screwed up the CA certificates so you can&rsquo;t use apt or linux brew  because they can&rsquo;t be configured to relax cacert security).
 First, create a place for them to live
 mkdir -p ~/bin; cd /tmp Now get fish shell
 wget --no-check-certificate https://download.
         </div>
         <div class="article-readmore"><a href="/1/01/appimages-on-wsl2/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/1/01/are-we-entering-a-dark-age-or-are-we-already-in-it/" class="article-titles">
+          <h2 class="article-title">Are we entering a dark age, or are we already  in it?</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>January 1, 0001</time></li>
+        </ul>
+        <div class="article-content">
+          This from Eurekalert: You may think that with faster internet connectivity, internet phone calls and iPods, that we&rsquo;re living in a technological nirvana. But according to a new analysis we are fast approaching a new dark age. The results show that the number of technological breakthroughs and patents peaked a century ago and have been falling steadily ever since. But this is a controversial view not held by most futurologists.
+        </div>
+        <div class="article-readmore"><a href="/1/01/are-we-entering-a-dark-age-or-are-we-already-in-it/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
     </section>

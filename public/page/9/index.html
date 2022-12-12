@@ -6,12 +6,21 @@
   <title>The Wandering Glitch</title>
   <meta property="og:title" content="The Wandering Glitch" />
   <meta name="twitter:title" content="The Wandering Glitch" />
-  <meta name="author" content=""/>
+  <meta name="description" content="I offer a range of services to help early adopters get started with Knowledge Graph and Semantic Web technologies. Not sure what you need, or what it costs? I can explain how to start small and gradually expand the intelligence of your systems. Get in touch below.
+::: {.wp-block-spacer .desktop-only style=&ldquo;height:32px;&rdquo; aria-hidden=&ldquo;true&rdquo;} :::
+::: {.wp-block-columns .alignwide .has-3-columns} ::: {.wp-block-column} ::: {.wp-block-image} {.wp-image-7565} :::
+Consulting I have many years of Architecture and Engineering experience, I can guide you on ways to enhance your technology with knowledge graphs, and show the easy path to building it.">
+  <meta property="og:description" content="I offer a range of services to help early adopters get started with Knowledge Graph and Semantic Web technologies. Not sure what you need, or what it costs? I can explain how to start small and gradually expand the intelligence of your systems. Get in touch below.
+::: {.wp-block-spacer .desktop-only style=&ldquo;height:32px;&rdquo; aria-hidden=&ldquo;true&rdquo;} :::
+::: {.wp-block-columns .alignwide .has-3-columns} ::: {.wp-block-column} ::: {.wp-block-image} {.wp-image-7565} :::
+Consulting I have many years of Architecture and Engineering experience, I can guide you on ways to enhance your technology with knowledge graphs, and show the easy path to building it.">
+  <meta name="twitter:description" content="I offer a range of services to help early adopters get started with Knowledge Graph and Semantic Web technologies. Not sure what you need, or what it costs? I can explain how to start small and …">
+  <meta name="author" content="Andrew Matthews"/>
   <meta property="og:site_name" content="The Wandering Glitch" />
   <meta property="og:url" content="https://industrialinference.com/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.108.0">
+  <meta name="generator" content="Hugo 0.92.2" />
   <link href="/index.xml" rel="alternate" type="application/rss+xml" title="The Wandering Glitch" />
   <link href="/index.xml" rel="feed" type="application/rss+xml" title="The Wandering Glitch" />
 
@@ -30,6 +39,10 @@
   <nav class="site-navi">
     <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
     <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
     </ul>
   </nav>
 </header>
@@ -37,50 +50,6 @@
 
   <div class="main" role="main">
     <section class="list home-list">
-      <article class="article">
-        <a href="/1/01/code-generation-patterns-part-2/" class="article-titles">
-          <h2 class="article-title">Code Generation Patterns - Part 2</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>January 1, 0001</time></li>
-        </ul>
-        <div class="article-content">
-          Last time I described typed and un-typed events, and multicasting events to several listeners. One of those listeners would be a code generator. This time I&rsquo;ll go on to describe some of the necessary infrastructure that such a design requires. Generally this information is all about tieing the events together. The context in which an event takes place is as important as the event itself.
-When you&rsquo;re generating code progressively, you need to keep track of what you have done, and what still needs to be done.
-        </div>
-        <div class="article-readmore"><a href="/1/01/code-generation-patterns-part-2/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/1/01/code-generation-patterns-part-3/" class="article-titles">
-          <h2 class="article-title">Code Generation Patterns - Part 3</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>January 1, 0001</time></li>
-        </ul>
-        <div class="article-content">
-          This time I&rsquo;m going to describe the source snippet that I posted last time. In previous posts I showed the implementation that I use of the Observer pattern to fire off events notifying the code generator about code structures that it has found. The code generator was shown last time, and you can see that there are a whole bunch of event handlers that take note of the code structures and perform code generation tasks as required.
-        </div>
-        <div class="article-readmore"><a href="/1/01/code-generation-patterns-part-3/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/1/01/comment-spam/" class="article-titles">
-          <h2 class="article-title">Comment Spam</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>January 1, 0001</time></li>
-        </ul>
-        <div class="article-content">
-          <p>Some swine has started using comments on my blog as a way to spam me. I may soon have to prevent anonymous users from posting comments. I got 104 comments on one of my posts, and it wasn&rsquo;t even that interesting!</p>
-
-        </div>
-        <div class="article-readmore"><a href="/1/01/comment-spam/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
       <article class="article">
         <a href="/1/01/complex-assertions-in-c/" class="article-titles">
           <h2 class="article-title">Complex Assertions in C#</h2>
@@ -120,7 +89,7 @@ public static class Predicates { public static void Assert&lt;T&gt;(this T obj, 
         </ul>
         <div class="article-content">
           Olmo made a very worthwhile suggestion on the LINQ forums recently. His suggestion was for a new operator to be added to the C# language to allow us to do away with the following kind of pesky construct:
-[sourcecode language='csharp']string x; if(a != null &amp;amp;&amp;amp; a.Address != null &amp;amp;&amp;amp; a.Address.FirstLine != null) x = a.Address.FirstLine;[/sourcecode] instead he suggested a new ?. operator so that we could produce something like this:
+ [sourcecode language='csharp']string x; if(a != null &amp;amp;&amp;amp; a.Address != null &amp;amp;&amp;amp; a.Address.FirstLine != null) x = a.Address.FirstLine;[/sourcecode]  instead he suggested a new ?. operator so that we could produce something like this:
         </div>
         <div class="article-readmore"><a href="/1/01/continue-if-not-null-operator-yes-please/">Read more...</a></div>
         <div class="article-floatclear"></div>
@@ -177,10 +146,63 @@ public static class Predicates { public static void Assert&lt;T&gt;(this T obj, 
         </ul>
         <div class="article-content">
           <p><a href="http://www.acorns.com.au/2007/4/19/I+caught+a+live+funnel+web+.aspx"><img src="http://www.acorns.com.au/Attachment.ashx?id=WindowsLiveWriter/Icaughtalivefunnelweb_12CEB/funnelweb_thumb2.jpg" alt=""></a></p>
-<p>[<strong>I doubt he got far with the Austin Powers routine&hellip;</strong>]{style=&ldquo;color:rgb(79, 129, 189);font-size:9pt;&rdquo;}</p>
+<p>[<strong>I doubt he got far with the Austin Powers routine&hellip;</strong>]{style=&ldquo;color:rgb(79, 129, 189);font-size:9pt;&quot;}</p>
 
         </div>
         <div class="article-readmore"><a href="/1/01/corneliu-caught-a-funnel-web-and-persuaded-it-to-do-a-photo-shoot/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/1/01/cowardly-manouver/" class="article-titles">
+          <h2 class="article-title">Cowardly Manouver</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>January 1, 0001</time></li>
+        </ul>
+        <div class="article-content">
+          Well, EDS seemed grim-in-the-extreme, they want someone to spend two months writing some godawful burocratic change request document for some Telstra billing department. I think that my facial expression may have hinted at the miasmic feeling of despondency and depression I felt at the prospect of having to wade neck-deep through so much pointless paper. I doubt I&rsquo;ll hear back from them, especially after asking to see one of their documents to check the level of design they wanted from me - only to discover that there was none!
+        </div>
+        <div class="article-readmore"><a href="/1/01/cowardly-manouver/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/1/01/creating-a-linq-query-provider/" class="article-titles">
+          <h2 class="article-title">Creating A LINQ Query Provider</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>January 1, 0001</time></li>
+        </ul>
+        <div class="article-content">
+          As promised last time, I have extended the query mechanism of my little application with a LINQ Query Provider. I based my initial design on the method published by Bart De Smet, but have extended that framework, cleaned it up and tied it in with the original object deserialiser for SemWeb (a semantic web library by Joshua Tauberer).
+In this post I&rsquo;ll give you some edited highlights of what was involved.
+        </div>
+        <div class="article-readmore"><a href="/1/01/creating-a-linq-query-provider/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/1/01/current-lyric/" class="article-titles">
+          <h2 class="article-title">Current Lyric</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>January 1, 0001</time></li>
+        </ul>
+        <div class="article-content">
+          <p>This what I&rsquo;m hearing as I work:</p>
+<p>&ldquo;<em>It must have emerged on the far side of the galaxy!&quot;</em></p>
+<p>Network received: 174552186 bytes
+Server: SHOUTcast Distributed Network Audio Server/Linux v1.9.2
+Content-Type: audio/mpeg
+Metadata received: 21752 bytes
+Metadata interval: 8192 bytes
+Stream name: HBR1.com - I.D.M. Tranceponder
+Current &mdash;
+title: KahFau in the Mix - The Stars Within Us - CD 2</p>
+
+        </div>
+        <div class="article-readmore"><a href="/1/01/current-lyric/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
     </section>
