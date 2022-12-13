@@ -1,7 +1,7 @@
 ---
 title: South America? Innocent victims in the war on terror!
 date: 2010-03-04 13:11
-author: aabs
+author: Andrew Matthews
 category: humour
 ignored-tags: conspiracies
 slug: south-america-innocent-victims-in-the-war-on-terror

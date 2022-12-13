@@ -1,7 +1,7 @@
 ---
 title: Announcing LinqToRdf v0.6
 date: 2008-05-04 22:54
-author: aabs
+author: Andrew Matthews
 category: .NET, programming, Semantic Web
 ignored-tags: .NET, C#, LinqToRdf
 slug: announcing-linqtordf-v06

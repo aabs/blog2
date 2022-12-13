@@ -1,7 +1,7 @@
 ---
 title: RIP Arnie Humour
 date: 2008-03-12 19:00
-author: aabs
+author: Andrew Matthews
 category: Semantic Web
 slug: rip-arnie-humour
 status: published

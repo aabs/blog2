@@ -1,7 +1,7 @@
 ---
 title: IHttpModule not running after conversion to IIS 7 and .NET 3.5
 date: 2007-11-16 15:18
-author: aabs
+author: Andrew Matthews
 category: .NET
 slug: ihttpmodule-not-running-after-conversion-to-iis-7-and-net-35
 status: published

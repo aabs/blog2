@@ -1,12 +1,13 @@
 ---
 title: Knowledge Graphs 4 - Querying your knowledge graph using .NET
-date: 2019-09-16 12:54
-author: aabs
+date: 2019-09-16
+author: Andrew Matthews
 category: .NET, programming, Semantic Web
 tags: ["rdf", "knowledge graphs", "sparql", ".net"]
 slug: knowledge-graphs-4-querying-your-knowledge-graph-using-net
 status: published
 attachments: 2019/09/jonas-jacobsson-hdjeq7-a-yq-unsplash.jpg
+series: ["Working with Knowledge Graphs"]
 ---
 
 This installment leaves the CLI behind to show how we consume a knowledge graph

@@ -44,99 +44,45 @@
     </item>
     
     <item>
-      <title>blazegraph</title>
-      <link>https://industrialinference.com/tags/blazegraph/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://industrialinference.com/tags/blazegraph/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>knowledge graphs</title>
       <link>https://industrialinference.com/tags/knowledge-graphs/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 06 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/tags/knowledge-graphs/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>sparql</title>
-      <link>https://industrialinference.com/tags/sparql/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://industrialinference.com/tags/sparql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>.net</title>
-      <link>https://industrialinference.com/tags/.net/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://industrialinference.com/tags/.net/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>entailment</title>
-      <link>https://industrialinference.com/tags/entailment/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://industrialinference.com/tags/entailment/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>inference</title>
-      <link>https://industrialinference.com/tags/inference/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://industrialinference.com/tags/inference/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>modelling</title>
       <link>https://industrialinference.com/tags/modelling/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 06 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/tags/modelling/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>sparql</title>
+      <link>https://industrialinference.com/tags/sparql/</link>
+      <pubDate>Wed, 06 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/tags/sparql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>owl</title>
       <link>https://industrialinference.com/tags/owl/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/tags/owl/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>rdfs</title>
-      <link>https://industrialinference.com/tags/rdfs/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://industrialinference.com/tags/rdfs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>semantic web</title>
-      <link>https://industrialinference.com/tags/semantic-web/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://industrialinference.com/tags/semantic-web/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>snippets</title>
       <link>https://industrialinference.com/tags/snippets/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/tags/snippets/</guid>
       <description></description>
@@ -145,9 +91,63 @@
     <item>
       <title>vscode</title>
       <link>https://industrialinference.com/tags/vscode/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://industrialinference.com/tags/vscode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>entailment</title>
+      <link>https://industrialinference.com/tags/entailment/</link>
+      <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/tags/entailment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>inference</title>
+      <link>https://industrialinference.com/tags/inference/</link>
+      <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/tags/inference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rdfs</title>
+      <link>https://industrialinference.com/tags/rdfs/</link>
+      <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/tags/rdfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>semantic web</title>
+      <link>https://industrialinference.com/tags/semantic-web/</link>
+      <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/tags/semantic-web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>.net</title>
+      <link>https://industrialinference.com/tags/.net/</link>
+      <pubDate>Mon, 16 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/tags/.net/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blazegraph</title>
+      <link>https://industrialinference.com/tags/blazegraph/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/tags/blazegraph/</guid>
       <description></description>
     </item>
     

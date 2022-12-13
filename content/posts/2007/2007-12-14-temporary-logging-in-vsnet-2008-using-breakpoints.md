@@ -1,7 +1,7 @@
 ---
 title: Temporary logging in VS.NET 2008 using Tracepoints
 date: 2007-12-14 11:45
-author: aabs
+author: Andrew Matthews
 category: programming
 slug: temporary-logging-in-vsnet-2008-using-breakpoints
 status: published

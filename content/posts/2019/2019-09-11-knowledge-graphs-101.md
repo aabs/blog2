@@ -1,12 +1,13 @@
 ---
 title: Knowledge Graphs 101
-date: 2019-09-12
-author: aabs
+date: 2019-09-11
+author: Andrew Matthews
 category: Semantic Web, SemanticWeb
 tags: ["rdf", "knowledge graphs", "sparql"]
 slug: knowledge-graphs-101
 status: published
 attachments: 2019/09/su-san-lee-vft8w5vfhw8-unsplash.jpg
+series: ["Working with Knowledge Graphs"]
 ---
 
 This is the first in a short series introducing Knowledge Graphs. It covers just the basics, showing how to write, store, query and work with graph data using RDF (short for *Resource Description Format*). I will keep it free of theory and interesting but unnecessary digressions. Let me know in the comments if you find it useful, and also tell me what other Knowledge Graph topics you would like to know more about.

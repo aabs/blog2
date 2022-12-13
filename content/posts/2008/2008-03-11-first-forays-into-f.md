@@ -1,7 +1,7 @@
 ---
 title: First Forays into F#
 date: 2008-03-11 19:00
-author: aabs
+author: Andrew Matthews
 category: SemanticWeb
 slug: first-forays-into-f
 status: published

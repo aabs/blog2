@@ -1,7 +1,7 @@
 ---
 title: Object Orientation? Not as we know it.
 date: 2008-09-23 22:27
-author: aabs
+author: Andrew Matthews
 category: Semantic Web, SemanticWeb
 slug: object-orientation-not-as-we-know-it
 status: published

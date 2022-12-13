@@ -30,7 +30,7 @@
   <nav class="site-navi">
     <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
     <ul class="site-navi-items">
-      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-series"><a href="/series/" title="Series">Series</a></li>
       <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
       <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
       <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
@@ -47,7 +47,7 @@
       <article class="article">
         <a href="/2021/12/memory-mapped-files/" class="article-titles">
           <h2 class="article-title">Memory Mapped Files</h2>
-          <h3 class="article-subtitle">Implementing a triple store from the ground up - Part 2</h3>
+          
         </a>
         <ul class="article-meta">
           <li class="article-meta-date"><time>December 9, 2021</time></li>
@@ -153,12 +153,12 @@ Fish shell plugin providing functions to set up multi-level commands (like git)
         <div class="article-floatclear"></div>
       </article>
       <article class="article">
-        <a href="/2019/09/knowledge-graphs-2-playing-on-the-cli/" class="article-titles">
-          <h2 class="article-title">Knowledge Graphs 2 - Playing on the CLI</h2>
+        <a href="/2019/11/knowledge-graphs-7-named-graphs/" class="article-titles">
+          <h2 class="article-title">Knowledge Graphs 7 - Named Graphs</h2>
           
         </a>
         <ul class="article-meta">
-          <li class="article-meta-date"><time>September 13, 2019</time></li>
+          <li class="article-meta-date"><time>November 6, 2019</time></li>
           <li class="article-meta-tags">
             <a href="/tags/rdf/">
               <i class="fas fa-tag"></i>
@@ -177,11 +177,254 @@ Fish shell plugin providing functions to set up multi-level commands (like git)
               sparql
             </a>&nbsp;
           </li>
+          <li class="article-meta-tags">
+            <a href="/tags/modelling/">
+              <i class="fas fa-tag"></i>
+              modelling
+            </a>&nbsp;
+          </li>
         </ul>
         <div class="article-content">
-          Last time I showed how to write RDF in Turtle, and how to make very simple queries in SPARQL. What I didn&rsquo;t show was how to get your hands dirty. Specifically, I want to show you how to try things out on the cheap command line. I will show examples of how to build out your RDF data to more depth using Turtle files, and how to use the Jena framework to create queries against that data, so you can work out ahead of time how to navigate your graph of data.
+          Knowledge Graphs provide a neat and easy way to segment your data, called &lsquo;Named Graphs&rsquo;. This post shows how you access them, and different uses they may be put to.
+This is part 7 of an ongoing series providing a little background on Knowledge Graphs. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history. Just practical knowledge.
         </div>
-        <div class="article-readmore"><a href="/2019/09/knowledge-graphs-2-playing-on-the-cli/">Read more...</a></div>
+        <div class="article-readmore"><a href="/2019/11/knowledge-graphs-7-named-graphs/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/2019/10/owl2-snippets-for-vscode/" class="article-titles">
+          <h2 class="article-title">OWL2 Snippets for VSCode</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 11, 2019</time></li>
+          <li class="article-meta-tags">
+            <a href="/tags/owl/">
+              <i class="fas fa-tag"></i>
+              owl
+            </a>&nbsp;
+          </li>
+          <li class="article-meta-tags">
+            <a href="/tags/rdf/">
+              <i class="fas fa-tag"></i>
+              RDF
+            </a>&nbsp;
+          </li>
+          <li class="article-meta-tags">
+            <a href="/tags/snippets/">
+              <i class="fas fa-tag"></i>
+              snippets
+            </a>&nbsp;
+          </li>
+          <li class="article-meta-tags">
+            <a href="/tags/vscode/">
+              <i class="fas fa-tag"></i>
+              vscode
+            </a>&nbsp;
+          </li>
+        </ul>
+        <div class="article-content">
+          <p>I put together a list of OWL2 snippets for Visual Studio Code, for use with Turtle ( <code>*.ttl </code>) files.</p>
+<p><a href="https://github.com/aabs/owl-2-turtle-snippets">https://github.com/aabs/owl-2-turtle-snippets</a></p>
+<p>The shortcuts cover most of the OWL2 Reference Card. Enjoy.</p>
+<p>command                              shortcut</p>
+<hr>
+<p>class                                <code>/c </code>
+add label                            <code>rlab </code>
+add comment                          <code>rcom </code>
+object property                      <code>ropr </code>
+time value                           <code>rtime </code>
+intersect class                      <code>rintersect </code>
+class intersection                   <code>/ci </code>
+class union                          <code>/cu </code>
+class complement                     <code>/cc </code>
+class enumeration                    <code>/ce </code>
+subclass                             <code>/csub </code>
+equivalent classes                   <code>/cequ </code>
+disjoint classes                     <code>/cd </code>
+pairwise disjoint classes            <code>/cda </code>
+disjoint union                       <code>/cdu </code>
+universal                            <code>/pru </code>
+existential                          <code>/pre </code>
+individual value                     <code>/pri </code>
+local reflexivity                    <code>/prx </code>
+exact cardinality                    <code>/prc </code>
+qualified exact cardinality          <code>/prcqxc </code>
+maximum cardinality                  <code>/prcmax </code>
+qualified maximum cardinality        <code>/prcqmax </code>
+minimum cardinality                  <code>/prcmin </code>
+qualified minimum cardinality        <code>/prcqmin </code>
+n-ary universal                      <code>/prdu </code>
+n-ary existential                    <code>/prde </code>
+inverse property                     <code>/pv </code>
+data range complement                <code>/drc </code>
+data range intersection              <code>/dri </code>
+data range union                     <code>/dru </code>
+literal enumeration                  <code>/denum </code>
+datatype restriction                 <code>/drs </code>
+subproperty                          <code>/ppsub </code>
+chain inclusion                      <code>/ppch </code>
+domain                               <code>/ppdom </code>
+range                                <code>/ppran </code>
+equivalent properties                <code>/ppequ </code>
+disjoint properties                  <code>/ppd </code>
+all disjoint properties              <code>/ppdd </code>
+inverse properties                   <code>/ppinv </code>
+functional property                  <code>/ppfun </code>
+inverse functional property          <code>/ppinfu </code>
+reflexive property                   <code>/ppref </code>
+irreflexive property                 <code>/ppirref </code>
+symmetric property                   <code>/ppsym </code>
+Asymmetric Property                  <code>/ppasym </code>
+Transitive Property                  <code>/pptrans </code>
+equality                             <code>/aeq </code>
+prinequality                         <code>/ane </code>
+individual inequality                <code>/aane </code>
+assertion                            <code>/ac </code>
+object property assertion            <code>/aprop </code>
+negative object property assertion   <code>/anprop </code>
+name                                 <code>//l </code>
+comment                              <code>//c </code>
+addition information                 <code>//ai </code>
+agent                                <code>//da </code>
+information                          <code>//v </code>
+deprecation                          <code>//dep </code>
+backwards compatibility              <code>//bc </code>
+incompatibility                      <code>//incomp </code>
+prior version                        <code>//pv </code></p>
+
+        </div>
+        <div class="article-readmore"><a href="/2019/10/owl2-snippets-for-vscode/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/2019/10/knowledge-graphs-5-modelling-with-rdfs/" class="article-titles">
+          <h2 class="article-title">Knowledge Graphs 5 - Modelling with RDFS</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 3, 2019</time></li>
+          <li class="article-meta-tags">
+            <a href="/tags/rdf/">
+              <i class="fas fa-tag"></i>
+              rdf
+            </a>&nbsp;
+          </li>
+          <li class="article-meta-tags">
+            <a href="/tags/knowledge-graphs/">
+              <i class="fas fa-tag"></i>
+              knowledge graphs
+            </a>&nbsp;
+          </li>
+          <li class="article-meta-tags">
+            <a href="/tags/sparql/">
+              <i class="fas fa-tag"></i>
+              sparql
+            </a>&nbsp;
+          </li>
+          <li class="article-meta-tags">
+            <a href="/tags/modelling/">
+              <i class="fas fa-tag"></i>
+              modelling
+            </a>&nbsp;
+          </li>
+        </ul>
+        <div class="article-content">
+          This installment moves beyond the simple graph model of RDF to introduce the modelling support of RDF Schema. I will go on to show you how using the W3C Standard RDFS imbues your data with another layer of meaning, and makes it easier for you to enrich your raw data with meaning over time.
+This is part 5 of an ongoing series providing a little background on ‘knowledge graphs‘. The aim is to let software developers get up to speed as fast as possible.
+        </div>
+        <div class="article-readmore"><a href="/2019/10/knowledge-graphs-5-modelling-with-rdfs/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/2019/10/knowledge-graphs-6-semantics/" class="article-titles">
+          <h2 class="article-title">Knowledge Graphs 6 - Semantics</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>October 3, 2019</time></li>
+          <li class="article-meta-tags">
+            <a href="/tags/entailment/">
+              <i class="fas fa-tag"></i>
+              entailment
+            </a>&nbsp;
+          </li>
+          <li class="article-meta-tags">
+            <a href="/tags/inference/">
+              <i class="fas fa-tag"></i>
+              inference
+            </a>&nbsp;
+          </li>
+          <li class="article-meta-tags">
+            <a href="/tags/knowledge-graphs/">
+              <i class="fas fa-tag"></i>
+              knowledge graphs
+            </a>&nbsp;
+          </li>
+          <li class="article-meta-tags">
+            <a href="/tags/rdf/">
+              <i class="fas fa-tag"></i>
+              rdf
+            </a>&nbsp;
+          </li>
+          <li class="article-meta-tags">
+            <a href="/tags/rdfs/">
+              <i class="fas fa-tag"></i>
+              rdfs
+            </a>&nbsp;
+          </li>
+          <li class="article-meta-tags">
+            <a href="/tags/semantic-web/">
+              <i class="fas fa-tag"></i>
+              semantic web
+            </a>&nbsp;
+          </li>
+        </ul>
+        <div class="article-content">
+          With this installment we finally get to the part of knowledge graphs that I personally find really exciting: Semantics. In this installment, I will introduce some of the simple rules of entailment that are a part of the RDFS standard.
+This is part 6 of an ongoing series providing a little background on ‘knowledge graphs‘. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history.
+        </div>
+        <div class="article-readmore"><a href="/2019/10/knowledge-graphs-6-semantics/">Read more...</a></div>
+        <div class="article-floatclear"></div>
+      </article>
+      <article class="article">
+        <a href="/2019/09/knowledge-graphs-4-querying-your-knowledge-graph-using-.net/" class="article-titles">
+          <h2 class="article-title">Knowledge Graphs 4 - Querying your knowledge graph using .NET</h2>
+          
+        </a>
+        <ul class="article-meta">
+          <li class="article-meta-date"><time>September 16, 2019</time></li>
+          <li class="article-meta-tags">
+            <a href="/tags/rdf/">
+              <i class="fas fa-tag"></i>
+              rdf
+            </a>&nbsp;
+          </li>
+          <li class="article-meta-tags">
+            <a href="/tags/knowledge-graphs/">
+              <i class="fas fa-tag"></i>
+              knowledge graphs
+            </a>&nbsp;
+          </li>
+          <li class="article-meta-tags">
+            <a href="/tags/sparql/">
+              <i class="fas fa-tag"></i>
+              sparql
+            </a>&nbsp;
+          </li>
+          <li class="article-meta-tags">
+            <a href="/tags/.net/">
+              <i class="fas fa-tag"></i>
+              .net
+            </a>&nbsp;
+          </li>
+        </ul>
+        <div class="article-content">
+          This installment leaves the CLI behind to show how we consume a knowledge graph within our programmatic environments. The framework I use to work with RDF is dotNetRdf.
+This is part 4 of an ongoing series providing a little background on &lsquo;knowledge graphs&rsquo;. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history, just practical knowledge.
+ Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using .
+        </div>
+        <div class="article-readmore"><a href="/2019/09/knowledge-graphs-4-querying-your-knowledge-graph-using-.net/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
       <article class="article">
@@ -221,80 +464,6 @@ Fish shell plugin providing functions to set up multi-level commands (like git)
  Knowledge Graphs 101 Knowledge Graphs 2 – Playing on the CLI Knowledge Graphs 3 – Using a Triple Store Knowledge Graphs 4 – Querying your knowledge graph using .
         </div>
         <div class="article-readmore"><a href="/2019/09/knowledge-graphs-3-using-a-triple-store/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/2019/09/knowledge-graphs-101/" class="article-titles">
-          <h2 class="article-title">Knowledge Graphs 101</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>September 12, 2019</time></li>
-          <li class="article-meta-tags">
-            <a href="/tags/rdf/">
-              <i class="fas fa-tag"></i>
-              rdf
-            </a>&nbsp;
-          </li>
-          <li class="article-meta-tags">
-            <a href="/tags/knowledge-graphs/">
-              <i class="fas fa-tag"></i>
-              knowledge graphs
-            </a>&nbsp;
-          </li>
-          <li class="article-meta-tags">
-            <a href="/tags/sparql/">
-              <i class="fas fa-tag"></i>
-              sparql
-            </a>&nbsp;
-          </li>
-        </ul>
-        <div class="article-content">
-          This is the first in a short series introducing Knowledge Graphs. It covers just the basics, showing how to write, store, query and work with graph data using RDF (short for Resource Description Format). I will keep it free of theory and interesting but unnecessary digressions. Let me know in the comments if you find it useful, and also tell me what other Knowledge Graph topics you would like to know more about.
-        </div>
-        <div class="article-readmore"><a href="/2019/09/knowledge-graphs-101/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/2005/03/welcome-to-my-blog/" class="article-titles">
-          <h2 class="article-title">Welcome to my blog</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>March 15, 2005</time></li>
-        </ul>
-        <div class="article-content">
-          Well there is so much to write about, that I thought it was about time I jumped onto the wagon, and told the world what&rsquo;s going on in my life, and in my head. As the saying goes, the more that things change, the more they stay the same. And that&rsquo;s certainly been true for me during the last few years. Change is the only constrant in my life lately (except for Kerry - Oh, and Mosquitoes).
-        </div>
-        <div class="article-readmore"><a href="/2005/03/welcome-to-my-blog/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/1/01/2000-year-old-computer-recreated/" class="article-titles">
-          <h2 class="article-title">2000 Year Old Computer Recreated</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>January 1, 0001</time></li>
-        </ul>
-        <div class="article-content">
-          [digg=http://digg.com/general_sciences/2000_Year_Old_Computer_Recreated]Archaeologists from the University of Cardiff have finally worked out how to put together a complex mechanism that was found in the 2000 year old ruins of a sunken boat off the coast of Greece. The announcement was impressive because this mechanical calculating device had defied researcher&rsquo;s attempts to understand it for over a hundred years. The device was used to calculate the position of both the moon and the sun during their orbit, and to calculate eclipses with remarkable accuracy.
-        </div>
-        <div class="article-readmore"><a href="/1/01/2000-year-old-computer-recreated/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/1/01/drool-nanotube-muscle-fibres-create-superhuman-strength/" class="article-titles">
-          <h2 class="article-title">[drool] Nanotube Muscle Fibres Create Superhuman Strength</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>January 1, 0001</time></li>
-        </ul>
-        <div class="article-content">
-          Researchers at the University of Texas have developed a technique to create artificial muscle fibres using Carbon Nanotubes woven into a yarn a mere 2 microns thick. Each fibre has a strength equal to 100 times that of equivalent human muscle fibres. It is a expected that there will have revolutionary consequences for the prosthetic limb and robotics fields. I wonder whether the long-term outlook will be for elective muscular enhancement.
-        </div>
-        <div class="article-readmore"><a href="/1/01/drool-nanotube-muscle-fibres-create-superhuman-strength/">Read more...</a></div>
         <div class="article-floatclear"></div>
       </article>
     </section>

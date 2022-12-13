@@ -1,7 +1,7 @@
 ---
 title: Bush a Holocaust Denier?
 date: 2007-10-10 19:25
-author: aabs
+author: Andrew Matthews
 ignored-tags: armenian massacre, george w. bush, holocaust, iraq, politics
 slug: bush-a-holocaust-denier
 status: published

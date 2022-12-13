@@ -1,7 +1,7 @@
 ---
 title: Quote of the Day - Chris Sells on Cocktail Parties
 date: 2009-03-20 08:52
-author: aabs
+author: Andrew Matthews
 category: SemanticWeb
 slug: quote-of-the-day-chris-sells-on-cocktail-parties
 status: published

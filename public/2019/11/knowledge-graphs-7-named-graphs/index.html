@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Knowledge Graphs 7 - Named Graphs - The Wandering Glitch</title>
+  <meta property="og:title" content="Knowledge Graphs 7 - Named Graphs - The Wandering Glitch" />
+  <meta name="twitter:title" content="Knowledge Graphs 7 - Named Graphs - The Wandering Glitch" />
+  <meta name="description" content="Knowledge Graphs provide a neat and easy way to segment your data, called &lsquo;Named Graphs&rsquo;. This post shows how you access them, and different uses they may be put to.
+This is part 7 of an ongoing series providing a little background on Knowledge Graphs. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history. Just practical knowledge.">
+  <meta property="og:description" content="Knowledge Graphs provide a neat and easy way to segment your data, called &lsquo;Named Graphs&rsquo;. This post shows how you access them, and different uses they may be put to.
+This is part 7 of an ongoing series providing a little background on Knowledge Graphs. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history. Just practical knowledge.">
+  <meta name="twitter:description" content="Knowledge Graphs provide a neat and easy way to segment your data, called &lsquo;Named Graphs&rsquo;. This post shows how you access them, and different uses they may be put to.
+This is part 7 of an …">
+  <meta name="author" content="Andrew Matthews"/>
+  <meta property="og:site_name" content="The Wandering Glitch" />
+  <meta property="og:url" content="https://industrialinference.com/2019/11/knowledge-graphs-7-named-graphs/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.92.2" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-series"><a href="/series/" title="Series">Series</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      <p class="article-title-series"><a href="/series/working-with-knowledge-graphs/">Working with Knowledge Graphs</a>&nbsp;/</p>
+      <h1 class="article-title">Knowledge Graphs 7 - Named Graphs</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>November 6, 2019</time></li>
+        <li class="article-meta-tags">
+          <a href="/tags/rdf/">
+            <i class="fas fa-tag"></i>
+            rdf
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/knowledge-graphs/">
+            <i class="fas fa-tag"></i>
+            knowledge graphs
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/sparql/">
+            <i class="fas fa-tag"></i>
+            sparql
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/modelling/">
+            <i class="fas fa-tag"></i>
+            modelling
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#inserting-data-into-a-named-graph">Inserting data into a NAMED GRAPH</a></li>
+    <li><a href="#finding-graphs-and-their-data">Finding Graphs and Their Data</a>
+      <ul>
+        <li><a href="#everything-everything">Everything everything</a></li>
+        <li><a href="#another-way-to-pull-from-a-named-graph">Another way to pull from a named graph</a></li>
+      </ul>
+    </li>
+    <li><a href="#common-uses-for-named-graphs">Common Uses for Named Graphs</a>
+      <ul>
+        <li><a href="#bulk-retrieval">Bulk Retrieval</a></li>
+        <li><a href="#tracking-where-data-came-from">Tracking Where Data Came From</a></li>
+        <li><a href="#replicate-the-data-in-a-graph">Replicate the data in a Graph</a></li>
+        <li><a href="#tracking-data-versions-and-updates">Tracking data versions and updates</a></li>
+        <li><a href="#control-access-to-data">Control Access to data</a></li>
+        <li><a href="#attach-metadata-to-the-graph-rather-than-its-contents">Attach Metadata to the graph rather than its contents</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+</aside>
+      <p>Knowledge Graphs provide a neat and easy way to segment your data, called
+&lsquo;<em>Named Graphs</em>&rsquo;. This post shows how you access them, and different uses they
+may be put to.</p>
+<p>This is part 7 of an ongoing series providing a little background on <em>Knowledge Graphs</em>. The aim is to let software developers get up to speed as fast as possible. No theory, no digressions, and no history. Just practical knowledge.</p>
+<ul>
+<li><a href="https://andrewmatthews.blog/2019/09/12/knowledge-graphs-101/">Knowledge Graphs 101</a></li>
+<li><a href="https://andrewmatthews.blog/2019/09/13/knowledge-graphs-2-playing-on-the-cli/">Knowledge Graphs 2 – Playing on the CLI</a></li>
+<li><a href="https://andrewmatthews.blog/2019/09/13/knowledge-graphs-3-using-a-triple-store/">Knowledge Graphs 3 – Using a Triple Store</a></li>
+<li><a href="https://andrewmatthews.blog/2019/09/16/knowledge-graphs-4-querying-your-knowledge-graph-using-net/">Knowledge Graphs 4 – Querying your knowledge graph using .NET</a></li>
+<li><a href="https://andrewmatthews.blog/2019/10/03/knowledge-graphs-5-modelling-with-rdfs/">Knowledge Graphs 5 – Modelling with RDFS</a></li>
+<li><a href="https://andrewmatthews.blog/2019/10/03/knowledge-graphs-6-semantics/">Knowledge Graphs 6 - Semantics</a></li>
+<li><a href="https://aabs.wordpress.com/2019/11/06/knowledge-graphs-7-named-graphs/">Knowledge Graphs 7 - Named graphs</a></li>
+</ul>
+<p>Named graphs are a useful feature, providing ways to segregate and independently managed subsets of the data. At first glance they seem akin to tables in SQL. But they TOTALLY AREN&rsquo;T. Let&rsquo;s take a look at what they are, and how different folks use them.</p>
+<h2 id="inserting-data-into-a-named-graph">Inserting data into a NAMED GRAPH</h2>
+<p>Inserting data into a named graph is easy - you enclose the triples you wish to create in a graph block:</p>
+<pre tabindex="0"><code>PREFIX s: &lt;http://tempuri.com/soccer/&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+INSERT DATA {
+    GRAPH s:ArsenalFC {
+        s:ArsenalFC a s:Team;
+            s:homeCity s:London;
+            rdfs:label &quot;Arsenal F.C.&quot; .
+    }
+
+    GRAPH s:ChelseaFC {
+        s:ChelseaFC a s:Team;
+            s:homeCity s:London;
+            rdfs:label &quot;Chelsea F.C.&quot; .
+    }
+
+    GRAPH s:LiverpoolFC {
+        s:LiverpoolFC a s:Team;
+            s:homeCity s:Liverpool;
+            rdfs:label &quot;Liverpool F.C.&quot; .
+    }
+}
+</code></pre><p>This creates three graphs (or adds to them if they already existed) with subsets of the data. Here, we are putting  <code>s:ArsenalFC</code> data just in the graph of the same name. That&rsquo;s convenient, because you only need to know the name of the team to know what graph its data is stored in.</p>
+<h2 id="finding-graphs-and-their-data">Finding Graphs and Their Data</h2>
+<p>You can query for the graph URI at the same time as binding any other variable in the data. Here, I will get the team data and the graph URI out together:</p>
+<pre tabindex="0"><code>PREFIX s: &lt;http://tempuri.com/soccer/&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT *
+WHERE {
+    GRAPH ?graph {
+        ?team a s:Team;
+            s:homeCity ?city;
+            rdfs:label ?name .
+    }
+}
+</code></pre><p>which gives us</p>
+<pre tabindex="0"><code>------------------------------------------------------------------
+| team          | graph         | city        | name             |
+==================================================================
+| s:ArsenalFC   | s:ArsenalFC   | s:London    | &quot;Arsenal F.C.&quot;   |
+| s:ChelseaFC   | s:ChelseaFC   | s:London    | &quot;Chelsea F.C.&quot;   |
+| s:LiverpoolFC | s:LiverpoolFC | s:Liverpool | &quot;Liverpool F.C.&quot; |
+------------------------------------------------------------------
+</code></pre><p>So, quite naturally, if I wanted to restrict myself to everything we know about Arsenal, that&rsquo;s quite easy:</p>
+<pre tabindex="0"><code>PREFIX s: &lt;http://tempuri.com/soccer/&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT *
+WHERE {
+    GRAPH s:ArsenalFC {
+        ?s ?p ?o .
+    }
+}
+</code></pre><p>giving us</p>
+<pre tabindex="0"><code>---------------------------------------------
+| s           | p          | o              |
+=============================================
+| s:ArsenalFC | s:homeCity | s:London       |
+| s:ArsenalFC | rdf:type   | s:Team         |
+| s:ArsenalFC | rdfs:label | &quot;Arsenal F.C.&quot; |
+---------------------------------------------
+</code></pre><h3 id="everything-everything">Everything everything</h3>
+<p>If you want to get everything back from your triple store, and this varies somewhat between triple stores, then you need to get the union of named graphs combined with the <strong>default graph</strong>.</p>
+<pre tabindex="0"><code>PREFIX s:
+PREFIX rdfs:
+
+SELECT *
+WHERE {
+  {
+    GRAPH ?g {
+        ?s ?p ?o .
+    }
+  }
+  UNION
+  {
+    ?s ?p ?o .
+  }
+}
+</code></pre><p>The way this works is defined in the [SPARQL spec](<a href="https://www.w3.org/TR/sparql11-query/">https://www.w3.org/TR/sparql11-query/</a>#queryDataset), but there still seems to be some variance in implementations between vendors. For example, we see [this](<a href="https://docs.aws.amazon.com/neptune/latest/userguide/best-practices-sparql-query.html">https://docs.aws.amazon.com/neptune/latest/userguide/best-practices-sparql-query.html</a>) guidance from Amazon. They have chosen to return the  <code>RDF Merge </code>of all named graphs in addition to the default graph.</p>
+<h3 id="another-way-to-pull-from-a-named-graph">Another way to pull from a named graph</h3>
+<p>Another convenient syntax for pulling from a specific named graph is shown here. Let&rsquo;s get back everything from Liverpool this time:</p>
+<pre tabindex="0"><code>PREFIX s: &lt;http://tempuri.com/soccer/&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT *
+FROM s:LiverpoolFC
+WHERE {
+  ?s ?p ?o .
+}
+</code></pre><pre tabindex="0"><code>-------------------------------------------------
+| s             | p          | o                |
+=================================================
+| s:LiverpoolFC | s:homeCity | s:Liverpool      |
+| s:LiverpoolFC | rdf:type   | s:Team           |
+| s:LiverpoolFC | rdfs:label | &quot;Liverpool F.C.&quot; |
+-------------------------------------------------
+</code></pre><p>This approach to pulling all the data back from a graph is one of several approaches to <em>bulk retrieval</em>. This is a convenient way to perform local analysis or processing on a cohesive subset of the data.</p>
+<h2 id="common-uses-for-named-graphs">Common Uses for Named Graphs</h2>
+<p>Now we&rsquo;ve seen a few different ways to insert and retrieve data from a named graph, let&rsquo;s take a brief, non-judgemental, looks at the various ways that people use the named graph feature.</p>
+<h3 id="bulk-retrieval">Bulk Retrieval</h3>
+<p>One simple purpose to named graphs is to lump together a bunch of data that you are likely to want to get back at the same time. SPARQL 1.1 Query standard provides a simple RESTful mechanism to pull the entire contents of a graph in one pass.</p>
+<pre tabindex="0"><code>GET /rdf-graph-store?graph=http%3A//www.example.com/other/graph HTTP/1.1
+   Host: example.com
+   Accept: text/turtle; charset=utf-8
+</code></pre><p>This is particularly useful if you want to be able to dynamically process the contents of the graph by walking it locally. It allows you to employ graph algorithms that would be prohibitively expensive if you had to factor in network latency for walking each edge of the graph.</p>
+<h3 id="tracking-where-data-came-from">Tracking Where Data Came From</h3>
+<p>If you can provide information, such as as a URL, to identify where the contents of a graph came from, then it can often be useful to keep track of that for provenance purposes. Many common frameworks will load incoming data from a file loader into a named graph where the URI of the graph identifies where the data came from. This is popular in the Linked Data community, where the gathering and merging of data from multiple sources means the provenance and trustworthiness of data sources must be tracked, in case of disputed conclusions.</p>
+<h3 id="replicate-the-data-in-a-graph">Replicate the data in a Graph</h3>
+<p>Another way to use a named graph is as a temporary storage mechanism, allowing the state of the graph to be captured, duplicated or transmitted. This might be done to allow in-place modifications with the option of rollback.</p>
+<h3 id="tracking-data-versions-and-updates">Tracking data versions and updates</h3>
+<p>Similarly, one might systematically label duplicate copies of data to allow the tracking of how the data changed over time. This is similar to approach above.</p>
+<h3 id="control-access-to-data">Control Access to data</h3>
+<p>Some triple store platforms allow the definition of security access controls on a per-graph basis. In that case the named graph can be used to support mechanisms like tenancy and ownership of data.</p>
+<h3 id="attach-metadata-to-the-graph-rather-than-its-contents">Attach Metadata to the graph rather than its contents</h3>
+<p>Lastly, the cool thing about having all your data in a graph identified by a URI is that you can then make a whole bunch of statements about that graph.</p>
+<pre tabindex="0"><code>PREFIX s: &lt;http://tempuri.com/soccer/&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX staff: &lt;http://industrialinference.com/staff/&gt;
+
+INSERT DATA {
+    GRAPH s:ArsenalFC_Imported {
+        s:ArsenalFC a s:Team;
+            s:homeCity s:London;
+            rdfs:label &quot;Arsenal F.C.&quot; .
+        # etc etc etc
+    }
+    # . . .
+    GRAPH s:Stats_Import_Metadata {
+        s:ArsenalFC_Imported a :Graph;
+            s:statsKind &quot;Goal Averages&quot;;
+            s:keyEntityDescribed s:ArsenalFC;
+            dc:creator staff:andrewm;
+            dc:publisher &quot;Football Association&quot;;
+            dc:date  &quot;2017-01-07&quot;;
+            dc:title &quot;Arsenal Stats&quot;;
+            dc:description &quot;Arsenal Stats from FA site&quot; ;
+            dc:language &quot;en&quot; .
+        # etc etc etc
+    }
+}
+</code></pre><p>The potential for this kind of easily augmented and expanded metadata is limitless. There&rsquo;s a single place to go for all the metadata, and it can tell you with a short query what kinds of data we have in graphs. Let&rsquo;s see what Goal Averages stats we have on Arsenal:</p>
+<pre tabindex="0"><code>PREFIX s: &lt;http://tempuri.com/soccer/&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+
+SELECT *
+WHERE {
+    GRAPH s:Stats_Import_Metadata {
+        ?statsDataSet
+            s:statsKind &quot;Goal Averages&quot;;
+            s:keyEntityDescribed s:ArsenalFC;
+            dc:creator ?creator;
+            dc:publisher ?publisher;
+            dc:date ?creationDate;
+            dc:title ?title;
+            dc:description ?description .
+    }
+}
+</code></pre><h2 id="summary">Summary</h2>
+<p>In this installment, I showed you Named Graphs, how to insert data into them, how to get it back out, then mentioned a few cool ways to use them to help organise your data.</p>
+<p>There&rsquo;s surely a lot more to say about this topic, but I was in danger of getting writer&rsquo;s block. Instead, please let me know what topics you are interested in so I can cover them at some point.</p>
+<p>Next time, I hope to investigate the topic of inference, showing a few ways this can be done, and introducing you to a little side project I have been working on that might one day yield a useful inference engine in .NET.</p>
+
+    </article>
+    <section class="article-series">
+      <h2 class="series-title"><a href="/series/working-with-knowledge-graphs/"><i class="fas fa-book"></i>&nbsp;Working with Knowledge Graphs</a></h2>
+      <ol reversed="reversed" class="series">
+        <li class="active">Knowledge Graphs 7 - Named Graphs</li>
+        <li><a href="/2019/10/knowledge-graphs-6-semantics/">Knowledge Graphs 6 - Semantics</a></li>
+        <li><a href="/2019/10/knowledge-graphs-5-modelling-with-rdfs/">Knowledge Graphs 5 - Modelling with RDFS</a></li>
+        <li><a href="/2019/09/knowledge-graphs-4-querying-your-knowledge-graph-using-.net/">Knowledge Graphs 4 - Querying your knowledge graph using .NET</a></li>
+        <li><a href="/2019/09/knowledge-graphs-3-using-a-triple-store/">Knowledge Graphs 3 - Using a Triple Store</a></li>
+        <li><a href="/2019/09/knowledge-graphs-2-playing-on-the-cli/">Knowledge Graphs 2 - Playing on the CLI</a></li>
+        <li><a href="/2019/09/knowledge-graphs-101/">Knowledge Graphs 101</a></li>
+      </ol>
+    </section>
+
+    
+<ul class="article-share">
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https://industrialinference.com/2019/11/knowledge-graphs-7-named-graphs/" target="_blank" rel="noopener" aria-label="Facebook">
+      <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg></div>Facebook</div>
+    </a>
+  </li>
+  <li>
+    
+    <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=Knowledge%20Graphs%207%20-%20Named%20Graphs%20-%20The%20Wandering%20Glitch&amp;url=https://industrialinference.com/2019/11/knowledge-graphs-7-named-graphs/" target="_blank" rel="noopener" aria-label="Twitter">
+      <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--medium"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg></div>Twitter</div>
+    </a>
+  </li>
+</ul>
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/2020/07/fishdots-plugins-get-a-new-lease-of-life/" data-toggle="tooltip" data-placement="top" title="Fishdots plugins get a new lease of life">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/2019/10/owl2-snippets-for-vscode/" data-toggle="tooltip" data-placement="top" title="OWL2 Snippets for VSCode">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+
+<div class="site-footer">
+  <div class="copyright">Andrew Matthews</div>
+  <ul class="site-footer-items">
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+
+
+</body>
+</html>

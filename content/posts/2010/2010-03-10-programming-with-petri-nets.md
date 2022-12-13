@@ -1,7 +1,7 @@
 ---
 title: Automata-Based Programming With Petri Nets - Part 1
 date: 2010-03-10 21:11
-author: aabs
+author: Andrew Matthews
 category: SemanticWeb
 ignored-tags: CompSci, Computer Science, Petri Nets, programming
 slug: programming-with-petri-nets

@@ -1,7 +1,7 @@
 ---
 title: Australian Port – a new WMD?
 date: 2009-02-27 09:27
-author: aabs
+author: Andrew Matthews
 category: SemanticWeb
 slug: australian-port-a-new-wmd
 status: published

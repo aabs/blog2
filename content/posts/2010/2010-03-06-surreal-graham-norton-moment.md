@@ -1,7 +1,7 @@
 ---
 title: Surreal Graham Norton Moment
 date: 2010-03-06 20:15
-author: aabs
+author: Andrew Matthews
 category: humour
 ignored-tags: weird
 slug: surreal-graham-norton-moment

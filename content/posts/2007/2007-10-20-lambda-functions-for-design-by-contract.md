@@ -1,7 +1,7 @@
 ---
 title: Lambda Functions for Design By Contract
 date: 2007-10-20 22:35
-author: aabs
+author: Andrew Matthews
 slug: lambda-functions-for-design-by-contract
 status: published
 ---

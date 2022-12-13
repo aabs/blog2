@@ -1,7 +1,7 @@
 ---
 title: Look at this pretty picture!
 date: 2008-05-15 21:29
-author: aabs
+author: Andrew Matthews
 category: SemanticWeb
 slug: look-at-this-pretty-picture
 status: published

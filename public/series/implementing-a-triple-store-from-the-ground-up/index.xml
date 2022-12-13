@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Implementing a triple store from the ground up on The Wandering Glitch</title>
+    <link>https://industrialinference.com/series/implementing-a-triple-store-from-the-ground-up/</link>
+    <description>Recent content in Implementing a triple store from the ground up on The Wandering Glitch</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Andrew Matthews</copyright>
+    <lastBuildDate>Thu, 09 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://industrialinference.com/series/implementing-a-triple-store-from-the-ground-up/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Memory Mapped Files</title>
+      <link>https://industrialinference.com/2021/12/memory-mapped-files/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/2021/12/memory-mapped-files/</guid>
+      <description>The first thing we need to do to build a database is to find a fast way to read from and write to disk. Whether we are doing I/O on a hard drive or an SSD, the interface to the disk typically works the same. It transfers data into and out of the disk in &amp;lsquo;pages&amp;rsquo; or blocks of data.
+It makes sense to keep data we are likely to access together in the same page so that it is already in memory when we need to access it.</description>
+    </item>
+    
+    <item>
+      <title>Implementing a Triple Store from the Ground Up - Part 1</title>
+      <link>https://industrialinference.com/2021/12/implementing-a-triple-store-from-the-ground-up-part-1/</link>
+      <pubDate>Wed, 08 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://industrialinference.com/2021/12/implementing-a-triple-store-from-the-ground-up-part-1/</guid>
+      <description>I&amp;rsquo;ve long been fascinated with semantic web technologies, the potential of RDF and understanding how to implement a triple store from the ground up. Databases are one of those technologies - like compilers - that we often take for granted, and yet which beneath the hood employs some very sophisticated algorithms and data structures to achieve acceptable levels of performance.
+In this new article series, I&amp;rsquo;ll implement a triple store using techniques introduced in recent years for efficiently storing and processing indexes on large knowledge graphs.</description>
+    </item>
+    
+  </channel>
+</rss>

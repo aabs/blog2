@@ -1,7 +1,7 @@
 ---
 title: Less Intrusive Visitors
 date: 2010-01-27 19:00
-author: aabs
+author: Andrew Matthews
 category: .NET, programming
 slug: less-intrusive-visitors
 status: published

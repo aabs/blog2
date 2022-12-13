@@ -49,9 +49,9 @@ taxonomies:
 # Header Menu
 menu:
   main:
-  - name: "Categories"
-    identifier: "categories"
-    url: "/categories/"
+  - name: "Series"
+    identifier: "series"
+    url: "/series/"
     weight: 1
   - name: "Tags"
     identifier: "tags"

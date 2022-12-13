@@ -1,12 +1,13 @@
 ---
 title: Knowledge Graphs 5 - Modelling with RDFS
-date: 2019-10-03 12:02
-author: aabs
+date: 2019-10-03
+author: Andrew Matthews
 category: programming
 tags: ["rdf", "knowledge graphs", "sparql", "modelling"]
 slug: knowledge-graphs-5-modelling-with-rdfs
 status: published
 attachments: 2019/10/edvard-alexander-rolvaag-e75zuaipczo-unsplash.jpg
+series: ["Working with Knowledge Graphs"]
 ---
 
 This installment moves beyond the simple graph model of RDF to introduce the

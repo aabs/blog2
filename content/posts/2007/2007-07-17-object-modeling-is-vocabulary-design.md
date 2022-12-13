@@ -1,7 +1,7 @@
 ---
 title: Object Modeling is Vocabulary Design
 date: 2007-07-17 22:53
-author: aabs
+author: Andrew Matthews
 ignored-tags: Computer Science, programming, science
 slug: object-modeling-is-vocabulary-design
 status: published

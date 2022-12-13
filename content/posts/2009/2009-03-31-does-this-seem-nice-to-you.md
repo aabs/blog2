@@ -1,7 +1,7 @@
 ---
 title: Does this seem nice to you?
 date: 2009-03-31 15:58
-author: aabs
+author: Andrew Matthews
 category: .NET, humour, programming
 slug: does-this-seem-nice-to-you
 status: published

@@ -2,7 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://industrialinference.com/series/</loc>
+    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url><url>
     <loc>https://industrialinference.com/tags/graph-databases/</loc>
+    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/series/implementing-a-triple-store/</loc>
     <lastmod>2021-12-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://industrialinference.com/2021/12/memory-mapped-files/</loc>
@@ -32,34 +39,77 @@
     <loc>https://industrialinference.com/2020/07/fishdots-plugins-get-a-new-lease-of-life/</loc>
     <lastmod>2020-07-25T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://industrialinference.com/tags/knowledge-graphs/</loc>
+    <lastmod>2019-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/2019/11/knowledge-graphs-7-named-graphs/</loc>
+    <lastmod>2019-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/tags/modelling/</loc>
+    <lastmod>2019-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/tags/sparql/</loc>
+    <lastmod>2019-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/series/working-with-knowledge-graphs/</loc>
+    <lastmod>2019-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/tags/owl/</loc>
+    <lastmod>2019-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/2019/10/owl2-snippets-for-vscode/</loc>
+    <lastmod>2019-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/tags/snippets/</loc>
+    <lastmod>2019-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/tags/vscode/</loc>
+    <lastmod>2019-10-11T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://industrialinference.com/</loc>
     <lastmod>2019-10-07T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://industrialinference.com/tags/entailment/</loc>
+    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/tags/inference/</loc>
+    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/2019/10/knowledge-graphs-5-modelling-with-rdfs/</loc>
+    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/2019/10/knowledge-graphs-6-semantics/</loc>
+    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/tags/rdfs/</loc>
+    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/tags/semantic-web/</loc>
+    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/tags/.net/</loc>
+    <lastmod>2019-09-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://industrialinference.com/2019/09/knowledge-graphs-4-querying-your-knowledge-graph-using-.net/</loc>
+    <lastmod>2019-09-16T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://industrialinference.com/tags/blazegraph/</loc>
-    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://industrialinference.com/tags/knowledge-graphs/</loc>
-    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://industrialinference.com/2019/09/knowledge-graphs-2-playing-on-the-cli/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://industrialinference.com/2019/09/knowledge-graphs-3-using-a-triple-store/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://industrialinference.com/tags/sparql/</loc>
-    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+    <loc>https://industrialinference.com/2019/09/knowledge-graphs-2-playing-on-the-cli/</loc>
+    <lastmod>2019-09-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://industrialinference.com/2019/09/knowledge-graphs-101/</loc>
-    <lastmod>2019-09-12T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://industrialinference.com/2005/03/welcome-to-my-blog/</loc>
     <lastmod>2005-03-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://industrialinference.com/archives/</loc>
     <priority>0</priority>
-  </url><url>
-    <loc>https://industrialinference.com/tags/.net/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/2000-year-old-computer-recreated/</loc>
   </url><url>
@@ -291,8 +341,6 @@
   </url><url>
     <loc>https://industrialinference.com/1/01/emily-took-her-first-steps-yesterday/</loc>
   </url><url>
-    <loc>https://industrialinference.com/tags/entailment/</loc>
-  </url><url>
     <loc>https://industrialinference.com/1/01/erik-werenskiold/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/excellent-article-on-the-concepts-behind-c#-3.0/</loc>
@@ -423,8 +471,6 @@
   </url><url>
     <loc>https://industrialinference.com/1/01/in-case-you-wondered.../</loc>
   </url><url>
-    <loc>https://industrialinference.com/tags/inference/</loc>
-  </url><url>
     <loc>https://industrialinference.com/1/01/insight-into-the-mind-of-a-savant/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/interesting-stats/</loc>
@@ -452,14 +498,6 @@
     <loc>https://industrialinference.com/1/01/kerry-has-a-blog-or-two/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/kerry-smells-or-at-least-i-hope-so/</loc>
-  </url><url>
-    <loc>https://industrialinference.com/1/01/knowledge-graphs-4-querying-your-knowledge-graph-using-.net/</loc>
-  </url><url>
-    <loc>https://industrialinference.com/1/01/knowledge-graphs-5-modelling-with-rdfs/</loc>
-  </url><url>
-    <loc>https://industrialinference.com/1/01/knowledge-graphs-6-semantics/</loc>
-  </url><url>
-    <loc>https://industrialinference.com/1/01/knowledge-graphs-7-named-graphs/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/lambda-functions-for-design-by-contract/</loc>
   </url><url>
@@ -516,8 +554,6 @@
     <loc>https://industrialinference.com/1/01/may-was-a-quiet-month/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/meta-evolution-evolving-the-capacity-to-learn/</loc>
-  </url><url>
-    <loc>https://industrialinference.com/tags/modelling/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/moderate-drinking-can-improve-memory/</loc>
   </url><url>
@@ -603,10 +639,6 @@
   </url><url>
     <loc>https://industrialinference.com/1/01/orcas-beta-2-features-split-view/</loc>
   </url><url>
-    <loc>https://industrialinference.com/tags/owl/</loc>
-  </url><url>
-    <loc>https://industrialinference.com/1/01/owl2-snippets-for-vscode/</loc>
-  </url><url>
     <loc>https://industrialinference.com/1/01/page-rank-1-for-linq/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/patently-absurd/</loc>
@@ -661,8 +693,6 @@
   </url><url>
     <loc>https://industrialinference.com/1/01/quote-of-the-day-chris-sells-on-cocktail-parties/</loc>
   </url><url>
-    <loc>https://industrialinference.com/tags/rdfs/</loc>
-  </url><url>
     <loc>https://industrialinference.com/1/01/relational-modeling-not-as-we-know-it/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/rip-arnie-humour/</loc>
@@ -681,13 +711,9 @@
   </url><url>
     <loc>https://industrialinference.com/1/01/semantic-overflow-highlights-i/</loc>
   </url><url>
-    <loc>https://industrialinference.com/tags/semantic-web/</loc>
-  </url><url>
     <loc>https://industrialinference.com/1/01/semantic-web-visual-designer-for-visual-studio-.net/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/sequential-script-loading-on-demand/</loc>
-  </url><url>
-    <loc>https://industrialinference.com/series/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/setting-up-sdb-on-sql-server-2005/</loc>
   </url><url>
@@ -698,8 +724,6 @@
     <loc>https://industrialinference.com/1/01/singleton-the-most-overused-pattern./</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/small-child-wreaks-havoc.-again./</loc>
-  </url><url>
-    <loc>https://industrialinference.com/tags/snippets/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/so-much-froth/</loc>
   </url><url>
@@ -794,8 +818,6 @@
     <loc>https://industrialinference.com/1/01/using-task-scheduler-for-gtd-with-onenote-2007/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/virtualization-good-or-bad/</loc>
-  </url><url>
-    <loc>https://industrialinference.com/tags/vscode/</loc>
   </url><url>
     <loc>https://industrialinference.com/1/01/wanky-statement-of-the-day/</loc>
   </url><url>

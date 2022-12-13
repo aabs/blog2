@@ -1,7 +1,7 @@
 ---
 title: Telepathy - Fantasy or nearly Reality?
 date: 2017-05-22 12:00
-author: aabs
+author: Andrew Matthews
 category: ideas, science
 slug: telepathy-fantasy-or-nearly-reality
 status: published

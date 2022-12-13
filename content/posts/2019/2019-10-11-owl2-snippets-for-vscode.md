@@ -1,7 +1,7 @@
 ---
 title: OWL2 Snippets for VSCode
-date: 2019-10-11 10:00
-author: aabs
+date: 2019-10-11
+author: Andrew Matthews
 category: Semantic Web
 tags: ["owl", "RDF", "snippets", "vscode"]
 slug: owl2-snippets-for-vscode

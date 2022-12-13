@@ -1,7 +1,7 @@
 ---
 title: AppImages on WSL2
 date: 2020-03-04 13:31
-author: aabs
+author: Andrew Matthews
 category: Semantic Web
 slug: appimages-on-wsl2
 status: published

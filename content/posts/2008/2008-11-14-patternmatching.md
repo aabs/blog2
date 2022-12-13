@@ -1,7 +1,7 @@
 ---
 title: Pattern Matching in C#
 date: 2008-11-14 08:46
-author: aabs
+author: Andrew Matthews
 category: SemanticWeb
 slug: patternmatching
 status: published

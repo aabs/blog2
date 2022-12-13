@@ -1,7 +1,7 @@
 ---
 title: Orcas Beta 2 Features - Split View
 date: 2007-07-30 15:39
-author: aabs
+author: Andrew Matthews
 ignored-tags: ASP.NET
 slug: orcas-beta-2-features-split-view
 status: published

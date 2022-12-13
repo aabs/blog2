@@ -1,7 +1,7 @@
 ---
 title: "Wanted: Volunteers for .NET semantic web framework project"
 date: 2008-08-02 08:34
-author: aabs
+author: Andrew Matthews
 category: .NET, programming, Semantic Web
 ignored-tags: .NET, FOSS, help, LINQ, LinqToRdf, open source, RDF, SemanticWeb, web3, web3.0
 slug: wanted-volunteers-for-net-semantic-web-framework-project

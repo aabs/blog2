@@ -1,7 +1,7 @@
 ---
 title: Semantic Web Visual Designer for Visual Studio .NET
 date: 2007-10-24 00:48
-author: aabs
+author: Andrew Matthews
 category: .NET, programming, Semantic Web
 slug: semantic-web-visual-designer-for-visual-studio-net
 status: published

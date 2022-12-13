@@ -1,7 +1,7 @@
 ---
 title: Ubuntist deviant atones for sins
 date: 2007-06-25 20:42
-author: aabs
+author: Andrew Matthews
 ignored-tags: humour, Other Blogs, software
 slug: ubuntist-deviant-atones-for-sins
 status: published

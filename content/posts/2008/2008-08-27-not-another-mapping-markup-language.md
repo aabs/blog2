@@ -1,7 +1,7 @@
 ---
 title: Not another mapping markup language!
 date: 2008-08-27 14:03
-author: aabs
+author: Andrew Matthews
 category: .NET, programming, Semantic Web
 ignored-tags: C#, databases, Java, LINQ, LinqToRdf, mapping, mashups, ORM, RDB2RDF, SemanticWeb, semweb, web3.0
 slug: not-another-mapping-markup-language

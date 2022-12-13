@@ -1,7 +1,7 @@
 ---
 title: An Introduction to LINQ at Victoria.NET Dev SIG Tonight!
 date: 2007-12-17 08:44
-author: aabs
+author: Andrew Matthews
 category: .NET, programming
 slug: an-introduction-to-linq-at-victorianet-dev-sig-tonight
 status: published

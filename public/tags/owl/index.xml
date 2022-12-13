@@ -5,13 +5,14 @@
     <link>https://industrialinference.com/tags/owl/</link>
     <description>Recent content in owl on The Wandering Glitch</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>Andrew Matthews</copyright><atom:link href="https://industrialinference.com/tags/owl/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Andrew Matthews</copyright>
+    <lastBuildDate>Fri, 11 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://industrialinference.com/tags/owl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OWL2 Snippets for VSCode</title>
-      <link>https://industrialinference.com/1/01/owl2-snippets-for-vscode/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <link>https://industrialinference.com/2019/10/owl2-snippets-for-vscode/</link>
+      <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://industrialinference.com/1/01/owl2-snippets-for-vscode/</guid>
+      <guid>https://industrialinference.com/2019/10/owl2-snippets-for-vscode/</guid>
       <description>I put together a list of OWL2 snippets for Visual Studio Code, for use with Turtle ( *.ttl ) files.
 https://github.com/aabs/owl-2-turtle-snippets
 The shortcuts cover most of the OWL2 Reference Card. Enjoy.

@@ -1,7 +1,7 @@
 ---
 title: Weird Wired Clouds
 date: 2009-09-30 10:44
-author: aabs
+author: Andrew Matthews
 category: science
 slug: weird-wired-clouds
 status: published

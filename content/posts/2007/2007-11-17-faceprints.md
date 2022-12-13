@@ -1,7 +1,7 @@
 ---
 title: Faceprints
 date: 2007-11-17 22:26
-author: aabs
+author: Andrew Matthews
 category: SemanticWeb
 slug: faceprints
 status: published

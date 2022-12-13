@@ -1,7 +1,7 @@
 ---
 title: SPARQL Tutorial Just Published On DeveloperWorks
 date: 2008-04-23 20:22
-author: aabs
+author: Andrew Matthews
 category: programming, Semantic Web
 slug: sparql-tutorial-just-published-on-developerworks
 status: published

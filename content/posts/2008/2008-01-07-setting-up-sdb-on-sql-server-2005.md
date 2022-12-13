@@ -1,7 +1,7 @@
 ---
 title: Setting up SDB on SQL Server 2005
 date: 2008-01-07 14:59
-author: aabs
+author: Andrew Matthews
 category: .NET, programming, Semantic Web
 slug: setting-up-sdb-on-sql-server-2005
 status: published

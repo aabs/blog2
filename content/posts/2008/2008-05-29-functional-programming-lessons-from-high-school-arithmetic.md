@@ -1,7 +1,7 @@
 ---
 title: Functional Programming - lessons from high-school arithmetic
 date: 2008-05-29 21:49
-author: aabs
+author: Andrew Matthews
 category: .NET, functional programming, programming
 ignored-tags: LINQ
 slug: functional-programming-lessons-from-high-school-arithmetic

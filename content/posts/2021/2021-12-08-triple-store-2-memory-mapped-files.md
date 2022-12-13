@@ -1,6 +1,6 @@
 ---
 title: Memory Mapped Files
-subtitle: Implementing a triple store from the ground up - Part 2
+series: ["Implementing A Triple Store"]
 author: Andrew Matthews
 date: 2021-12-09
 tags: ["rdf", "rdf databases", "graph databases"]

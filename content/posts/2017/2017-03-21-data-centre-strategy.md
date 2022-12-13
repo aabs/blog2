@@ -1,7 +1,7 @@
 ---
 title: Data Centre Strategy
 date: 2017-03-21 13:22
-author: aabs
+author: Andrew Matthews
 category: strategy
 slug: data-centre-strategy
 status: published

@@ -1,12 +1,13 @@
 ---
 title: Knowledge Graphs 7 - Named Graphs
-date: 2019-11-06 14:08
-author: aabs
+date: 2019-11-06
+author: Andrew Matthews
 category: Semantic Web
 tags: ["rdf", "knowledge graphs", "sparql", "modelling"]
 slug: knowledge-graphs-7-named-graphs
 status: published
 attachments: 2019/11/kamen-atanassov-xhqhvakoazg-unsplash.jpg
+series: ["Working with Knowledge Graphs"]
 ---
 
 Knowledge Graphs provide a neat and easy way to segment your data, called

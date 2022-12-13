@@ -1,7 +1,7 @@
 ---
 title: What I'm gonna cover
 date: 2005-03-15 13:51
-author: aabs
+author: Andrew Matthews
 ignored-tags: DBC
 slug: what-im-gonna-cover-2
 status: published

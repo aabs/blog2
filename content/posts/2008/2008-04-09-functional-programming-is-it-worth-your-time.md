@@ -1,7 +1,7 @@
 ---
 title: Functional programming - Is it worth your time?
 date: 2008-04-09 22:18
-author: aabs
+author: Andrew Matthews
 category: .NET, programming
 ignored-tags: .NET 3.5, C#, C# 3.0, functional programming
 slug: functional-programming-is-it-worth-your-time

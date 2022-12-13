@@ -1,7 +1,7 @@
 ---
 title: Using Task Scheduler For GTD with OneNote 2007
 date: 2008-02-12 08:37
-author: aabs
+author: Andrew Matthews
 category: SemanticWeb
 slug: using-task-scheduler-for-gtd-with-onenote-2007
 status: published

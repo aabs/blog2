@@ -1,7 +1,7 @@
 ---
 title: LinqToRdf v0.7.1 and RdfMetal
 date: 2008-06-09 22:20
-author: aabs
+author: Andrew Matthews
 category: .NET, programming, science, Semantic Web, SemanticWeb
 slug: linqtordf-v071-and-rdfmetal
 status: published

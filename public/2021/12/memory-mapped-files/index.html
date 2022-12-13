@@ -6,9 +6,11 @@
   <title>Memory Mapped Files - The Wandering Glitch</title>
   <meta property="og:title" content="Memory Mapped Files - The Wandering Glitch" />
   <meta name="twitter:title" content="Memory Mapped Files - The Wandering Glitch" />
-  <meta name="description" content="Implementing a triple store from the ground up - Part 2">
-  <meta property="og:description" content="Implementing a triple store from the ground up - Part 2">
-  <meta name="twitter:description" content="Implementing a triple store from the ground up - Part 2">
+  <meta name="description" content="The first thing we need to do to build a database is to find a fast way to read from and write to disk. Whether we are doing I/O on a hard drive or an SSD, the interface to the disk typically works the same. It transfers data into and out of the disk in &lsquo;pages&rsquo; or blocks of data.
+It makes sense to keep data we are likely to access together in the same page so that it is already in memory when we need to access it.">
+  <meta property="og:description" content="The first thing we need to do to build a database is to find a fast way to read from and write to disk. Whether we are doing I/O on a hard drive or an SSD, the interface to the disk typically works the same. It transfers data into and out of the disk in &lsquo;pages&rsquo; or blocks of data.
+It makes sense to keep data we are likely to access together in the same page so that it is already in memory when we need to access it.">
+  <meta name="twitter:description" content="The first thing we need to do to build a database is to find a fast way to read from and write to disk. Whether we are doing I/O on a hard drive or an SSD, the interface to the disk typically works …">
   <meta name="author" content="Andrew Matthews"/>
   <meta property="og:site_name" content="The Wandering Glitch" />
   <meta property="og:url" content="https://industrialinference.com/2021/12/memory-mapped-files/" />
@@ -31,7 +33,7 @@
   <nav class="site-navi">
     <h1 class="site-title"><a href="/">The Wandering Glitch</a></h1>
     <ul class="site-navi-items">
-      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-series"><a href="/series/" title="Series">Series</a></li>
       <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
       <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
       <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
@@ -43,9 +45,9 @@
   <div class="main" role="main">
     <article class="article">
       
-      
+      <p class="article-title-series"><a href="/series/implementing-a-triple-store/">Implementing A Triple Store</a>&nbsp;/</p>
       <h1 class="article-title">Memory Mapped Files</h1>
-      <h2 class="article-subtitle">Implementing a triple store from the ground up - Part 2</h2>
+      
       <hr class="article-title-bottom">
       <ul class="article-meta">
         <li class="article-meta-date"><time>December 9, 2021</time></li>
@@ -215,6 +217,13 @@ it.  Next time I&rsquo;ll show how we might start to implement a rudimentary Sto
 Engine for the triple store.</p>
 
     </article>
+    <section class="article-series">
+      <h2 class="series-title"><a href="/series/implementing-a-triple-store/"><i class="fas fa-book"></i>&nbsp;Implementing A Triple Store</a></h2>
+      <ol reversed="reversed" class="series">
+        <li class="active">Memory Mapped Files</li>
+        <li><a href="/2021/12/implementing-a-triple-store-from-the-ground-up-part-1/">Implementing a Triple Store from the Ground Up - Part 1</a></li>
+      </ol>
+    </section>
 
     
 <ul class="article-share">

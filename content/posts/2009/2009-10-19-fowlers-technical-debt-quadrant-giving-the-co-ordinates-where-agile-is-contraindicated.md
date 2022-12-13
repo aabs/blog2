@@ -1,7 +1,7 @@
 ---
 title: Fowler's Technical Debt Quadrant - Giving the co-ordinates where Agile is contraindicated.
 date: 2009-10-19 08:39
-author: aabs
+author: Andrew Matthews
 category: programming
 ignored-tags: agile, design, martin fowler, methodology, technical debt
 slug: fowlers-technical-debt-quadrant-giving-the-co-ordinates-where-agile-is-contraindicated

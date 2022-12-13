@@ -1,5 +1,6 @@
 ---
 title: Implementing a Triple Store from the Ground Up - Part 1
+series: ["Implementing A Triple Store"]
 author: Andrew Matthews
 date: 2021-12-08
 tags: ["rdf", "rdf databases", "graph databases"]
@@ -24,10 +25,3 @@ and what I hope to cover.  Since the implementation of databases is a very low
 level task, I'll be working from the bottom up and moving to progressively more
 usable code as I go.
 
-* [Using Memory Mapped Files in .NET 6](posts/2021-12-08-triple-store-2-memory-mapped-files.html)
-* Implementing an B+ Tree on a memory mapped file.
-* Indexes used in a triple store.
-* Encoding and decoding of IRIs and triples.
-* Storing an RDF index on a B+ Tree.
-* Storing triples and literals on a B+ Tree.
-* Creating an RDF query engine.

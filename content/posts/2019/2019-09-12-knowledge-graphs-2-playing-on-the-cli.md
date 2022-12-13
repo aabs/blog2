@@ -1,8 +1,9 @@
 ---
 title: "Knowledge Graphs 2 - Playing on the CLI"
-date: 2019-09-13
+date: 2019-09-12
 author: Andrew Matthews
 tags: ["rdf", "knowledge graphs", "sparql"]
+series: ["Working with Knowledge Graphs"]
 ---
 
 Last time I showed how to write RDF in Turtle, and how to make very simple queries in SPARQL. What I didn't show was how to get your hands dirty. Specifically, I want to show you how to try things out on the ~~cheap~~ command line. I will show examples of how to build out your RDF data to more depth using Turtle files, and how to use the Jena framework to create queries against that data, so you can work out ahead of time how to navigate your graph of data.

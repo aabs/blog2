@@ -1,7 +1,7 @@
 ---
 title: Securing a WCF service with Certificates
 date: 2007-10-31 15:03
-author: aabs
+author: Andrew Matthews
 category: programming
 slug: securing-a-wcf-service-with-certificates
 status: published
