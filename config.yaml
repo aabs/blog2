@@ -1,14 +1,11 @@
 
 baseURL: https://industrialinference.com
-title: The Wandering Glitch
+title: Industrial Inference
 theme: whiteplain
 params:
   author:
     name: "Andrew Matthews"
-    # Gravatar or Abatar image
     gravatar: "matthews.andrew@gmail.com"
-    #avatar: "/path/to/avatar"
-
     twitter: "aabs"
     facebook: "aabsinoz"
     googleplus: "matthews.andrew"
@@ -28,21 +25,11 @@ params:
   showShareIcons: true
   dateFormat: "January 2, 2006"
   SidebarRecentLimit: 5
-  Subtitle: All the amusing things...
-  ananke_socials:
-  - name: twitter
-    url: https://twitter.com/aabs
-  - name: github
-    url: https://github.com/aabs
-  - name: mastadon
-    url: https://techhub.social/@aabs
-    rel: me noopener
 permalinks:
   posts: /:year/:month/:title/
 copyright: Andrew Matthews
 
 taxonomies:
-  category: "categories"
   tag: "tags"
   series: "series"
 
