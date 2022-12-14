@@ -14,7 +14,7 @@ The designer uses Microsoft's [DSL tools](http://msdn2.microsoft.com/en-au/libra
 
 [![image]({static}2007/10/image-thumb.png){width="553" height="502"}]({static}2007/10/image.png)
 
-So far, I've got it producing [N3 notation](http://aabs.wordpress.com/semantic-web/the-n3-cheat-sheet/) from models, like so:
+So far, I've got it producing [N3 notation](http://industrialinference.com/semantic-web/the-n3-cheat-sheet/) from models, like so:
 
     @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
     @prefix daml: <http://www.daml.org/2001/03/daml+oil#> .

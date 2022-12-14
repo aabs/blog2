@@ -117,7 +117,7 @@ Example 5
 
     }
 
-You can see that the query has been transformed into the code needed to test whether elements coming from an enumerator are less than 11. My previous [post](http://aabs.wordpress.com/2006/11/14/how-linq-works-%e2%80%93-where/) explains what happens inside of the call to [Where]{style="font-size:9pt;font-family:courier new;"} (It's a call to the static extension method [Sequence.Where]{style="font-size:9pt;font-family:courier new;"}(this [IEnumerable]{style="font-size:9pt;font-family:courier new;"}\<[T]{style="font-size:9pt;font-family:courier new;"}\>)).
+You can see that the query has been transformed into the code needed to test whether elements coming from an enumerator are less than 11. My previous [post](http://industrialinference.com/2006/11/14/how-linq-works-%e2%80%93-where/) explains what happens inside of the call to [Where]{style="font-size:9pt;font-family:courier new;"} (It's a call to the static extension method [Sequence.Where]{style="font-size:9pt;font-family:courier new;"}(this [IEnumerable]{style="font-size:9pt;font-family:courier new;"}\<[T]{style="font-size:9pt;font-family:courier new;"}\>)).
 
 ### Querying a SequenceQuery
 
@@ -149,7 +149,7 @@ Example 6
 
     }
 
-I converted the array of integers into an\` IQueryable\<int\> using the extension method ToQueryable(). This extension method is fairly simple, it creates a SequenceQuery out of the enumerator it got from the array. I cover some of the capabilities of the SequenceQuery in [this](http://aabs.wordpress.com/2006/11/14/how-linq-works-%e2%80%93-where/) post. This is what the test method looks like now:
+I converted the array of integers into an\` IQueryable\<int\> using the extension method ToQueryable(). This extension method is fairly simple, it creates a SequenceQuery out of the enumerator it got from the array. I cover some of the capabilities of the SequenceQuery in [this](http://industrialinference.com/2006/11/14/how-linq-works-%e2%80%93-where/) post. This is what the test method looks like now:
 
 Example 7
 
@@ -180,7 +180,7 @@ Example 7
 
     }
 
-Quite a difference in the outputs! The call to ToQueryable has led the compiler to generate altogether different output. It inlined the primes collection, converted smallPrimes into a SequenceQuery and created a Lambda Expression containing a BinaryExpression for the less-than comparison rather than a simple anonymous delegate. As we know from the outline in this [post](http://aabs.wordpress.com/2006/11/18/how-linq-works-iqueryable/), the Expression will eventually get converted into an anonymous delegate through a call to System.Reflection.Emit.DynamicMethod. That bit happens later on when the IEnumerator\<T\> is requested in a call to GetEnumerator on smallPrimes (in the foreach command).
+Quite a difference in the outputs! The call to ToQueryable has led the compiler to generate altogether different output. It inlined the primes collection, converted smallPrimes into a SequenceQuery and created a Lambda Expression containing a BinaryExpression for the less-than comparison rather than a simple anonymous delegate. As we know from the outline in this [post](http://industrialinference.com/2006/11/18/how-linq-works-iqueryable/), the Expression will eventually get converted into an anonymous delegate through a call to System.Reflection.Emit.DynamicMethod. That bit happens later on when the IEnumerator\<T\> is requested in a call to GetEnumerator on smallPrimes (in the foreach command).
 
 
 
@@ -369,4 +369,4 @@ Some might argue that since C\# 3.0 concepts can be turned into C\# 2.0 easily 
 
 BTW: I tried valiantly to get a peek at the original source for LINQ, but the LINQ team are holding their cards very close to their chests at the moment, so no dice. Consequently, this article is my best guess, and should be taken under advisement that the source may change prior to release, and the abstractions may have clouded my view of the mechanism at work.
 
-[![kick it on DotNetKicks.com](http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http://aabs.wordpress.com/2006/12/15/how-linq-works-%e2%80%93-creating-queries/)](http://www.dotnetkicks.com/kick/?url=http://aabs.wordpress.com/2006/12/15/how-linq-works-%e2%80%93-creating-queries/)
+[![kick it on DotNetKicks.com](http://www.dotnetkicks.com/Services/Images/KickItImageGenerator.ashx?url=http://industrialinference.com/2006/12/15/how-linq-works-%e2%80%93-creating-queries/)](http://www.dotnetkicks.com/kick/?url=http://industrialinference.com/2006/12/15/how-linq-works-%e2%80%93-creating-queries/)

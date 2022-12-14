@@ -8,7 +8,7 @@ slug: relational-modeling-not-as-we-know-it
 status: published
 ---
 
-Marcello Cantos commented on my [recent post](http://aabs.wordpress.com/2008/09/23/object-orientation-not-as-we-know-it/) about the ways in which RDF can transcend the object-oriented model. He posed the question of what things RDF can represent more easily than the relational model. I know Marcello is a very high calibre software engineer, so it's not just an idle question from a relational dinosaur, but a serious question from someone who can push the envelope far with a relational database.
+Marcello Cantos commented on my [recent post](http://industrialinference.com/2008/09/23/object-orientation-not-as-we-know-it/) about the ways in which RDF can transcend the object-oriented model. He posed the question of what things RDF can represent more easily than the relational model. I know Marcello is a very high calibre software engineer, so it's not just an idle question from a relational dinosaur, but a serious question from someone who can push the envelope far with a relational database.
 
 Since an ontology is most frequently defined (in compsci) as a [specification of a conceptualization](http://www-ksl.stanford.edu/kst/what-is-an-ontology.html), a relational model is a kind of ontology. That means a relational model is by definition a knowledge representation system. That'd be my answer if I just wanted to sidestep the real thrust of his question; *Is the relational model adequate to do what can be done by RDF*?
 

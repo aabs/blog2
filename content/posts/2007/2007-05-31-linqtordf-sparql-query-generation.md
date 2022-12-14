@@ -59,7 +59,7 @@ as you can see, the query is fairly close. I just have to:
 
 I also need to find a *fast* back-end SPARQL enabled triple store that I can
 start to run these queries against. A month or two ago I did a
-[.NET conversion of Jena](http://aabs.wordpress.com/2007/03/23/converting-jena-to-net/)
+[.NET conversion of Jena](http://industrialinference.com/2007/03/23/converting-jena-to-net/)
 using IKVM. I may end up going back to that. Any other suggestions would be
 welcome.
 

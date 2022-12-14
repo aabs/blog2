@@ -2,9 +2,8 @@
 title: State Machines in C# 3.0 using T4 Templates
 date: 2008-06-26
 author: Andrew Matthews
-category: .NET, functional programming, programming
-ignored-tags: .NET, C#, DFT, FSA, lambda, NDFA, partial classes, partial methods, T4, VS2008
-slug: state-machines-in-c-30-using-t4-templates
+tags: [".NET", "C#", "DFT", "FSA", "lambda", "NDFA", "partial classes", "partial methods", "T4", "VS2008"]
+series: ["Automata driven development"]
 status: published
 ---
 
@@ -12,7 +11,7 @@ status: published
 
 ------------------------------------------------------------------------
 
-Some time back I [wrote](http://aabs.wordpress.com/2007/01/16/342/) about techniques for implementing non-deterministic finite automata (NDFAs) using some of the new features of C\# 3.0. Recently I've had a need to revisit that work to provide a client with a means to generate a bunch of really complex state machines in a lightweight, extensible and easily understood model. VS 2008 and C\# 3.0 are pretty much the perfect platform for the job - they combine partial classes and methods, lambda functions and T4 templates making it a total walk in the park. This post will look at the prototype system I put together. This is a very code intensive post - sorry about that, but it's late and apparently my eyes are very red, puffy and panda like.
+Some time back I [wrote](http://industrialinference.com/2007/01/16/342/) about techniques for implementing non-deterministic finite automata (NDFAs) using some of the new features of C\# 3.0. Recently I've had a need to revisit that work to provide a client with a means to generate a bunch of really complex state machines in a lightweight, extensible and easily understood model. VS 2008 and C\# 3.0 are pretty much the perfect platform for the job - they combine partial classes and methods, lambda functions and T4 templates making it a total walk in the park. This post will look at the prototype system I put together. This is a very code intensive post - sorry about that, but it's late and apparently my eyes are very red, puffy and panda like.
 
 State machines are the core of many applications - yet we often find people hand coding them with nested switch statements and grizzly mixtures of state control and business logic. It's a nightmare scenario making code completely unmaintainable for anything but the most trivial applications.
 

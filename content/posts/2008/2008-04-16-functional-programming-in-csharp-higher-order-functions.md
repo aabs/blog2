@@ -9,8 +9,8 @@ status: published
 attachments: 2008/04/clip-image001-thumb.png, 2008/04/clip-image0015.png, 2008/04/clip-image0015-thumb.png, 2008/04/clip-image001.png
 ---
 
-1.  [Functional Programming - Is it worth your time?](http://aabs.wordpress.com/2008/04/09/functional-programming-is-it-worth-your-time/ "Functional Programming - Is it worth your time?")
-2.  [Functional Programming in C\# - Higher-Order Functions](http://aabs.wordpress.com/2008/04/16/unctional-programming-in-csharp-higher-order-functions/)
+1.  [Functional Programming - Is it worth your time?](http://industrialinference.com/2008/04/09/functional-programming-is-it-worth-your-time/ "Functional Programming - Is it worth your time?")
+2.  [Functional Programming in C\# - Higher-Order Functions](http://industrialinference.com/2008/04/16/unctional-programming-in-csharp-higher-order-functions/)
 
 This is the second in a series on the basics of functional programming using C\#. My topic today is one I touched on last time, when I described the rights and privileges of a function as a first class citizen. I'm going to explore Higher-Order Functions this time. Higher-Order Functions are functions that themselves take or return functions. Meta-functions, if you like.
 
