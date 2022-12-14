@@ -37,7 +37,7 @@ This has the added benefit of slightly increasing the perceived size of the text
 
 And here is what you get:
 
-![x](/static/2011/05/photo_71194a6e-bfd5-cb24-6596-08771504c330.jpg)
+![x](2011/05/photo_71194a6e-bfd5-cb24-6596-08771504c330.jpg)
 
 Since both gutenmark and pdflatex are command line tools, we can script the conversion process. The editing is done with [Sed](http://www.grymoire.com/Unix/Sed.html) (*the* stream editor). I get mine from [cygwin](http://www.cygwin.com), though there are plenty of ways to get the Gnu toolset onto a windows machine these days.
 
