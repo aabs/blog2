@@ -1,6 +1,6 @@
 ---
 title: Code Generation Patterns - Part 3
-date: 2005-04-12 17:00
+date: 2005-04-12
 author: Andrew Matthews
 ignored-tags: Code Generation, programming
 slug: code-generation-patterns-part-3-3

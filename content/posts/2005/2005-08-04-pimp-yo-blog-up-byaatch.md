@@ -1,6 +1,6 @@
 ---
 title: Pimp yo blog up byaatch!
-date: 2005-08-04 16:45
+date: 2005-08-04
 author: Andrew Matthews
 ignored-tags: humour, Web2.0
 slug: pimp-yo-blog-up-byaatch

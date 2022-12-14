@@ -1,6 +1,6 @@
 ---
 title: Some new themes.
-date: 2006-03-30 04:55
+date: 2006-03-30
 author: Andrew Matthews
 ignored-tags: misc
 slug: some-new-themes

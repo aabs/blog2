@@ -1,6 +1,6 @@
 ---
 title: And another thing...
-date: 2005-07-04 09:47
+date: 2005-07-04
 author: Andrew Matthews
 ignored-tags: artificial intelligence, Computer Science, programming, Work
 slug: and-another-thing

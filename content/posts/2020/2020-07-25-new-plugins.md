@@ -2,6 +2,8 @@
 title: Fishdots plugins get a new lease of life
 author: Andrew Matthews
 date: 2020-07-25
+tags: ["fishdots"]
+series: ["A Fish shell based dotfiles management framework"]
 ---
 
 Last week I mentioned that I was starting a rewrite of Fishdots. Well, a few of the plugins have now been ported over to the new instance of FD, which from now on I will call fd2.

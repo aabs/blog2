@@ -1,6 +1,6 @@
 ---
 title: What's making me [drool] today?
-date: 2005-07-06 09:30
+date: 2005-07-06
 author: Andrew Matthews
 ignored-tags: cool, software
 slug: whats-making-me-drool-today

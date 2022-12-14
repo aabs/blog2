@@ -1,6 +1,6 @@
 ---
 title: A new end/beginning
-date: 2006-04-11 00:40
+date: 2006-04-11
 author: Andrew Matthews
 ignored-tags: misc
 slug: a-new-endbeginning

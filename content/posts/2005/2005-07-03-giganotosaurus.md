@@ -1,6 +1,6 @@
 ---
 title: Giganotosaurus
-date: 2005-07-03 16:26
+date: 2005-07-03
 author: Andrew Matthews
 ignored-tags: photography, science
 slug: giganotosaurus

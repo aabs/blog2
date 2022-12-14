@@ -1,6 +1,6 @@
 ---
 title: Darth Vader never had to put up with this!
-date: 2008-04-10 12:14
+date: 2008-04-10
 author: Andrew Matthews
 category: SemanticWeb
 slug: darth-vader-never-had-to-put-up-with-this

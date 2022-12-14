@@ -1,6 +1,6 @@
 ---
 title: Electroconvulsive Therapy
-date: 2006-01-29 09:08
+date: 2006-01-29
 author: Andrew Matthews
 ignored-tags: humour
 slug: electroconvulsive-therapy-2

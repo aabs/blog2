@@ -1,6 +1,6 @@
 ---
 title: Announcing LinqToRdf v0.8
-date: 2008-08-01 23:04
+date: 2008-08-01
 author: Andrew Matthews
 category: .NET, programming, Semantic Web
 ignored-tags: .NET, C#, LinqToRdf, RDF, SemanticWeb, semweb, web3, web3.0

@@ -1,6 +1,6 @@
 ---
 title: Dig (in My Pictures) for Victory
-date: 2005-04-14 09:17
+date: 2005-04-14
 author: Andrew Matthews
 ignored-tags: humour, photography
 slug: dig-in-my-pictures-for-victory

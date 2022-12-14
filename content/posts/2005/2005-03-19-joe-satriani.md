@@ -1,6 +1,6 @@
 ---
 title: Joe Satriani
-date: 2005-03-19 10:09
+date: 2005-03-19
 author: Andrew Matthews
 ignored-tags: art
 slug: joe-satriani

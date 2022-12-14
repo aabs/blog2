@@ -1,6 +1,6 @@
 ---
 title: Which codegen technique?
-date: 2005-03-18 15:53
+date: 2005-03-18
 author: Andrew Matthews
 ignored-tags: DBC
 slug: which-codegen-technique-2

@@ -1,5 +1,7 @@
 ---
 title: A GitHub repo template for creating Fisher plugins
+tags: ["fishdots"]
+series: ["A Fish shell based dotfiles management framework"]
 ---
 
 Fishdots has grown so much that it's taking up too much space, and shell load

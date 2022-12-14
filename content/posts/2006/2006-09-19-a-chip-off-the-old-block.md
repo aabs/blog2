@@ -1,6 +1,6 @@
 ---
 title: A chip off the old block
-date: 2006-09-19 14:16
+date: 2006-09-19
 author: Andrew Matthews
 ignored-tags: family, humour
 slug: a-chip-off-the-old-block

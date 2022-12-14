@@ -1,6 +1,6 @@
 ---
 title: A moment of nostalgia
-date: 2005-06-28 15:11
+date: 2005-06-28
 author: Andrew Matthews
 ignored-tags: photography
 slug: a-moment-of-nostalgia

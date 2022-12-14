@@ -1,6 +1,6 @@
 ---
 title: Why type safety in configuration is a good thing
-date: 2006-11-01 16:39
+date: 2006-11-01
 author: Andrew Matthews
 ignored-tags: C#, Computer Science, Configuration
 slug: why-type-safety-in-configuration-is-a-good-thing

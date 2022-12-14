@@ -1,6 +1,6 @@
 ---
 title: Singleton – the most overused pattern.
-date: 2007-03-08 22:24
+date: 2007-03-08
 author: Andrew Matthews
 ignored-tags: C#, Computer Science, programming
 slug: singleton-%e2%80%93-the-most-overused-pattern

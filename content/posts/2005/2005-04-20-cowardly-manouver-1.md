@@ -1,6 +1,6 @@
 ---
 title: Cowardly Manouver #1
-date: 2005-04-20 12:16
+date: 2005-04-20
 author: Andrew Matthews
 ignored-tags: misc, programming
 slug: cowardly-manouver-1

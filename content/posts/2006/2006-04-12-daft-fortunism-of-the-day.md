@@ -1,6 +1,6 @@
 ---
 title: Daft fortunism of the day
-date: 2006-04-12 01:04
+date: 2006-04-12
 author: Andrew Matthews
 ignored-tags: humour, misc
 slug: daft-fortunism-of-the-day

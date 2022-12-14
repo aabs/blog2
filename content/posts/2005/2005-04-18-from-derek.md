@@ -1,6 +1,6 @@
 ---
 title: From Derek...
-date: 2005-04-18 21:34
+date: 2005-04-18
 author: Andrew Matthews
 ignored-tags: froth, misc
 slug: from-derek

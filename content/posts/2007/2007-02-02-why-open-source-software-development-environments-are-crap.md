@@ -1,6 +1,6 @@
 ---
 title: Why open-source software development environments are crap
-date: 2007-02-02 14:21
+date: 2007-02-02
 author: Andrew Matthews
 ignored-tags: programming
 slug: why-open-source-software-development-environments-are-crap

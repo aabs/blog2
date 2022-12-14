@@ -1,6 +1,6 @@
 ---
 title: It's foggy in Melbourne today
-date: 2005-06-29 18:31
+date: 2005-06-29
 author: Andrew Matthews
 ignored-tags: art, photography
 slug: its-foggy-in-melbourne-today

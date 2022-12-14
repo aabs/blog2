@@ -1,6 +1,6 @@
 ---
 title: Dad looking cheerful
-date: 2005-08-13 11:25
+date: 2005-08-13
 author: Andrew Matthews
 ignored-tags: humour, misc, photography
 slug: dad-looking-cheerful

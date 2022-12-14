@@ -1,6 +1,6 @@
 ---
 title: Accupuncture
-date: 2005-05-04 10:25
+date: 2005-05-04
 author: Andrew Matthews
 ignored-tags: humour, medicine
 slug: accupuncture

@@ -1,6 +1,6 @@
 ---
 title: Straw Poll
-date: 2005-04-28 14:07
+date: 2005-04-28
 author: Andrew Matthews
 ignored-tags: gadgets, misc
 slug: straw-poll

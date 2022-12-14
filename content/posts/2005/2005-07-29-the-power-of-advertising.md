@@ -1,6 +1,6 @@
 ---
 title: The power of advertising
-date: 2005-07-29 21:19
+date: 2005-07-29
 author: Andrew Matthews
 ignored-tags: humour, photography
 slug: the-power-of-advertising

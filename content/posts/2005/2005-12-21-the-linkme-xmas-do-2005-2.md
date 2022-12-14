@@ -1,6 +1,6 @@
 ---
 title: The LinkMe Xmas Do 2005
-date: 2005-12-21 13:39
+date: 2005-12-21
 author: Andrew Matthews
 ignored-tags: misc, Work
 slug: the-linkme-xmas-do-2005-2

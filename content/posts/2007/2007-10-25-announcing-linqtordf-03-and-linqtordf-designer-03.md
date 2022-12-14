@@ -1,6 +1,6 @@
 ---
 title: Announcing LinqToRdf 0.3 and LinqToRdf Designer 0.3
-date: 2007-10-25 20:36
+date: 2007-10-25
 author: Andrew Matthews
 category: .NET, Semantic Web
 ignored-tags: .NET, C#, DSL, LINQ, LinqToRdf, N3, SemanticWeb, semweb

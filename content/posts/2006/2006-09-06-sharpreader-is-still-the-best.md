@@ -1,6 +1,6 @@
 ---
 title: SharpReader is still the best
-date: 2006-09-06 15:08
+date: 2006-09-06
 author: Andrew Matthews
 ignored-tags: Web2.0
 slug: sharpreader-is-still-the-best

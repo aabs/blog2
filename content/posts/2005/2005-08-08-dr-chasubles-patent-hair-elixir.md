@@ -1,6 +1,6 @@
 ---
 title: Dr Chasuble's Patent Hair Elixir
-date: 2005-08-08 09:15
+date: 2005-08-08
 author: Andrew Matthews
 ignored-tags: art, humour
 slug: dr-chasubles-patent-hair-elixir

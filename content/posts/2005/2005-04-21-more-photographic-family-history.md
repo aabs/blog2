@@ -1,6 +1,6 @@
 ---
 title: More photographic family history
-date: 2005-04-21 20:32
+date: 2005-04-21
 author: Andrew Matthews
 ignored-tags: misc, photography
 slug: more-photographic-family-history

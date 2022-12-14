@@ -1,6 +1,6 @@
 ---
 title: New LINQ Wiki Site Started
-date: 2007-01-02 10:03
+date: 2007-01-02
 author: Andrew Matthews
 ignored-tags: C#, LINQ
 slug: new-linq-wiki-site-started

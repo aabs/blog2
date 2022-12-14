@@ -1,6 +1,6 @@
 ---
 title: Derek's Picture of the day
-date: 2006-03-22 23:32
+date: 2006-03-22
 author: Andrew Matthews
 ignored-tags: art, photography
 slug: dereks-picture-of-the-day

@@ -1,6 +1,6 @@
 ---
 title: Contractual Contraction
-date: 2005-04-09 20:31
+date: 2005-04-09
 author: Andrew Matthews
 ignored-tags: Work
 slug: contractual-contraction

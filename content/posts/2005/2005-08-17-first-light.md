@@ -1,6 +1,6 @@
 ---
 title: First Light!!!!!!!!
-date: 2005-08-17 20:07
+date: 2005-08-17
 author: Andrew Matthews
 ignored-tags: ORM
 slug: first-light

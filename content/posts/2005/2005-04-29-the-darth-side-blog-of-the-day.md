@@ -1,6 +1,6 @@
 ---
 title: "The Darth Side: Blog of the day"
-date: 2005-04-29 11:54
+date: 2005-04-29
 author: Andrew Matthews
 ignored-tags: misc, Web2.0
 slug: the-darth-side-blog-of-the-day

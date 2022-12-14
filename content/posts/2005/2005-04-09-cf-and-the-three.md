@@ -1,6 +1,6 @@
 ---
 title: CF and The Three
-date: 2005-04-09 21:15
+date: 2005-04-09
 author: Andrew Matthews
 ignored-tags: medicine, misc
 slug: cf-and-the-three

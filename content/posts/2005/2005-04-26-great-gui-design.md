@@ -1,6 +1,6 @@
 ---
 title: Great GUI Design
-date: 2005-04-26 17:25
+date: 2005-04-26
 author: Andrew Matthews
 ignored-tags: programming
 slug: great-gui-design

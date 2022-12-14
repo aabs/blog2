@@ -1,6 +1,6 @@
 ---
 title: Linguistic Development
-date: 2005-04-14 09:27
+date: 2005-04-14
 author: Andrew Matthews
 ignored-tags: linguistics
 slug: linguistic-development

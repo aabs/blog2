@@ -1,6 +1,6 @@
 ---
 title: The latest inspiring hard-AI quote from Kurzweil
-date: 2005-08-11 12:28
+date: 2005-08-11
 author: Andrew Matthews
 ignored-tags: Computer Science
 slug: the-latest-inspiring-hard-ai-quote-from-kurzweil

@@ -1,6 +1,6 @@
 ---
 title: Google Space Imagery Coup – From KurzweilAI
-date: 2006-12-19 09:17
+date: 2006-12-19
 author: Andrew Matthews
 ignored-tags: cool, science
 slug: google-space-imagery-coup-%e2%80%93-from-kurzweilai

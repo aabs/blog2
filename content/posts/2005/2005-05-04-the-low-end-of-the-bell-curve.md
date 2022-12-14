@@ -1,6 +1,6 @@
 ---
 title: The low end of the bell curve
-date: 2005-05-04 10:38
+date: 2005-05-04
 author: Andrew Matthews
 ignored-tags: humour, Web2.0
 slug: the-low-end-of-the-bell-curve

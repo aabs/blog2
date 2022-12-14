@@ -1,6 +1,6 @@
 ---
 title: Data Centre Strategy
-date: 2017-03-21 13:22
+date: 2017-03-21
 author: Andrew Matthews
 category: strategy
 slug: data-centre-strategy

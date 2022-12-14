@@ -1,6 +1,6 @@
 ---
 title: Gross quote of the day
-date: 2005-04-27 08:59
+date: 2005-04-27
 author: Andrew Matthews
 ignored-tags: humour
 slug: gross-quote-of-the-day

@@ -1,6 +1,6 @@
 ---
 title: Arvo Part - Songs of Repentance
-date: 2005-09-29 09:46
+date: 2005-09-29
 author: Andrew Matthews
 ignored-tags: art
 slug: arvo-part-songs-of-repentance

@@ -1,6 +1,6 @@
 ---
 title: Feverish Gibbering
-date: 2006-12-21 08:22
+date: 2006-12-21
 author: Andrew Matthews
 ignored-tags: humour, psychology
 slug: feverish-gibbering

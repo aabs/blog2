@@ -1,6 +1,6 @@
 ---
 title: From Kurtzweil AI - Refocusable pictures
-date: 2005-11-23 10:14
+date: 2005-11-23
 author: Andrew Matthews
 slug: from-kurtzweil-ai-refocusable-pictures-2
 status: published

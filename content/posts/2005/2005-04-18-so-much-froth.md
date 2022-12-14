@@ -1,6 +1,6 @@
 ---
 title: So much froth
-date: 2005-04-18 21:28
+date: 2005-04-18
 author: Andrew Matthews
 ignored-tags: froth, misc
 slug: so-much-froth

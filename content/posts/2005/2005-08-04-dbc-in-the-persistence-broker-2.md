@@ -1,6 +1,6 @@
 ---
 title: Dbc in the persistence broker
-date: 2005-08-04 20:22
+date: 2005-08-04
 author: Andrew Matthews
 ignored-tags: DBC, ORM
 slug: dbc-in-the-persistence-broker-2

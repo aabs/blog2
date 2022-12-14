@@ -1,6 +1,6 @@
 ---
 title: A Speculative Notation
-date: 2006-11-21 17:58
+date: 2006-11-21
 author: Andrew Matthews
 ignored-tags: philosophy
 slug: a-speculative-notation

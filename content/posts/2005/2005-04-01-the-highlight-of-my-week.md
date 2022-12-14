@@ -1,6 +1,6 @@
 ---
 title: The highlight of my week
-date: 2005-04-01 13:12
+date: 2005-04-01
 author: Andrew Matthews
 ignored-tags: humour
 slug: the-highlight-of-my-week

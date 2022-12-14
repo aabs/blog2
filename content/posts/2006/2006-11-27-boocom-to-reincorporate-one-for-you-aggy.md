@@ -1,6 +1,6 @@
 ---
 title: "Boo.com to reincorporate: one for you Aggy"
-date: 2006-11-27 13:20
+date: 2006-11-27
 author: Andrew Matthews
 ignored-tags: humour, photography, Web2.0
 slug: boocom-to-reincorporate-one-for-you-aggy

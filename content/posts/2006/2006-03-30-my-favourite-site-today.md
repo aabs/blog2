@@ -1,6 +1,6 @@
 ---
 title: My favourite site today
-date: 2006-03-30 00:44
+date: 2006-03-30
 author: Andrew Matthews
 ignored-tags: misc
 slug: my-favourite-site-today

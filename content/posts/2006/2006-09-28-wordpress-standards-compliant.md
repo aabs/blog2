@@ -1,6 +1,6 @@
 ---
 title: WordPress Standards Compliant
-date: 2006-09-28 14:50
+date: 2006-09-28
 author: Andrew Matthews
 ignored-tags: Web2.0
 slug: wordpress-standards-compliant

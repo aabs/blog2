@@ -1,6 +1,6 @@
 ---
 title: Policy and Configuration II
-date: 2006-10-20 09:36
+date: 2006-10-20
 author: Andrew Matthews
 ignored-tags: programming, software
 slug: policy-and-configuration-ii

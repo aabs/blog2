@@ -1,6 +1,6 @@
 ---
 title: From the journal of Neuroscience - An excuse for cultural stereotyping and rampant sexism!!! Yay!
-date: 2005-07-05 14:42
+date: 2005-07-05
 author: Andrew Matthews
 ignored-tags: humour, medicine, science
 slug: from-the-journal-of-neuroscience-an-excuse-for-cultural-stereotyping-and-rampant-sexism-yay

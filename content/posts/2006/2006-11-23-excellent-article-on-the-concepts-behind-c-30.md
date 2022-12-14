@@ -1,6 +1,6 @@
 ---
 title: Excellent Article on the Concepts behind C# 3.0
-date: 2006-11-23 11:02
+date: 2006-11-23
 author: Andrew Matthews
 ignored-tags: C#, LINQ
 slug: excellent-article-on-the-concepts-behind-c-30

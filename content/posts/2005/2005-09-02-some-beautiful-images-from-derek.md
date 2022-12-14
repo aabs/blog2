@@ -1,6 +1,6 @@
 ---
 title: Some beautiful images from Derek
-date: 2005-09-02 16:18
+date: 2005-09-02
 author: Andrew Matthews
 ignored-tags: art, photography
 slug: some-beautiful-images-from-derek

@@ -1,6 +1,6 @@
 ---
 title: First Task - What to do?
-date: 2005-07-16 06:54
+date: 2005-07-16
 author: Andrew Matthews
 ignored-tags: ORM
 slug: first-task-what-to-do-2

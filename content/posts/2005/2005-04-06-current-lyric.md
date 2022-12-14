@@ -1,6 +1,6 @@
 ---
 title: Current Lyric
-date: 2005-04-06 14:10
+date: 2005-04-06
 author: Andrew Matthews
 ignored-tags: misc
 slug: current-lyric

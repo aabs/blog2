@@ -1,6 +1,6 @@
 ---
 title: You know you’re in another country when…
-date: 2006-12-20 10:09
+date: 2006-12-20
 author: Andrew Matthews
 slug: you-know-you%e2%80%99re-in-another-country-when%e2%80%a6
 status: published

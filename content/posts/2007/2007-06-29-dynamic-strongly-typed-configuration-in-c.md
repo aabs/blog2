@@ -1,6 +1,6 @@
 ---
 title: Dynamic Strongly-Typed Configuration in C#
-date: 2007-06-29 07:33
+date: 2007-06-29
 author: Andrew Matthews
 ignored-tags: C#, Configuration, programming
 slug: dynamic-strongly-typed-configuration-in-c

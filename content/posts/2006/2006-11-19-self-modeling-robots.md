@@ -1,6 +1,6 @@
 ---
 title: Self Modeling Robots
-date: 2006-11-19 19:34
+date: 2006-11-19
 author: Andrew Matthews
 ignored-tags: science
 slug: self-modeling-robots

@@ -1,6 +1,6 @@
 ---
 title: I'm still coming to the aid of the unlucky (and cancerous)
-date: 2005-08-03 10:29
+date: 2005-08-03
 author: Andrew Matthews
 ignored-tags: humour
 slug: im-still-coming-to-the-aid-of-the-unlucky-and-cancerous

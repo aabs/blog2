@@ -1,6 +1,6 @@
 ---
 title: Linguistic development
-date: 2007-03-16 16:21
+date: 2007-03-16
 author: Andrew Matthews
 ignored-tags: family, linguistics, philosophy, psychology
 slug: linguistic-development-2

@@ -1,6 +1,6 @@
 ---
 title: Sorry to waste your time
-date: 2006-08-30 18:00
+date: 2006-08-30
 author: Andrew Matthews
 ignored-tags: Web2.0
 slug: sorry-to-waste-your-time

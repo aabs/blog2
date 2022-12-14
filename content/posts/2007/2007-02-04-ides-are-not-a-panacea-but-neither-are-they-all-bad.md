@@ -1,6 +1,6 @@
 ---
 title: IDEs are not a panacea, but neither are they all bad
-date: 2007-02-04 20:57
+date: 2007-02-04
 author: Andrew Matthews
 ignored-tags: programming
 slug: ides-are-not-a-panacea-but-neither-are-they-all-bad

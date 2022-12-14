@@ -1,6 +1,6 @@
 ---
 title: Now here's something I'd trade in the Hyundai to own
-date: 2005-09-02 11:22
+date: 2005-09-02
 author: Andrew Matthews
 ignored-tags: cool, gadgets
 slug: now-heres-something-id-trade-in-the-hyundai-to-own

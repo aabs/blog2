@@ -1,6 +1,6 @@
 ---
 title: Small Child Wreaks Havoc. Again.
-date: 2007-08-29 10:13
+date: 2007-08-29
 author: Andrew Matthews
 slug: small-child-wreaks-havoc-again
 status: published

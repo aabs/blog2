@@ -1,6 +1,6 @@
 ---
 title: Generic Algorithms in C#
-date: 2006-10-05 14:12
+date: 2006-10-05
 author: Andrew Matthews
 ignored-tags: C#
 slug: generic-algorithms-in-c

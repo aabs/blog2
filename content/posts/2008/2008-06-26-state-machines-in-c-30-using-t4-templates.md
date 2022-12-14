@@ -1,6 +1,6 @@
 ---
 title: State Machines in C# 3.0 using T4 Templates
-date: 2008-06-26 00:07
+date: 2008-06-26
 author: Andrew Matthews
 category: .NET, functional programming, programming
 ignored-tags: .NET, C#, DFT, FSA, lambda, NDFA, partial classes, partial methods, T4, VS2008

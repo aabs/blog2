@@ -1,6 +1,6 @@
 ---
 title: grammatical ponderings
-date: 2005-06-24 18:37
+date: 2005-06-24
 author: Andrew Matthews
 ignored-tags: linguistics
 slug: grammatical-ponderings

@@ -1,6 +1,6 @@
 ---
 title: In case you wondered...
-date: 2006-04-09 23:36
+date: 2006-04-09
 author: Andrew Matthews
 ignored-tags: cool, Web2.0
 slug: in-case-you-wondered

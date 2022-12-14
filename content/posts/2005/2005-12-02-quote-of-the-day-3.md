@@ -1,6 +1,6 @@
 ---
 title: Quote of the day
-date: 2005-12-02 13:47
+date: 2005-12-02
 author: Andrew Matthews
 ignored-tags: humour
 slug: quote-of-the-day-3

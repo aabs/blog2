@@ -1,6 +1,6 @@
 ---
 title: Big Business and the Semantic Web
-date: 2007-08-14 22:57
+date: 2007-08-14
 author: Andrew Matthews
 slug: big-business-and-the-semantic-web
 status: published

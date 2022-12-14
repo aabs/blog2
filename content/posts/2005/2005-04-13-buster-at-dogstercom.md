@@ -1,6 +1,6 @@
 ---
 title: Buster at dogster.com
-date: 2005-04-13 12:06
+date: 2005-04-13
 author: Andrew Matthews
 ignored-tags: cool, Web2.0
 slug: buster-at-dogstercom

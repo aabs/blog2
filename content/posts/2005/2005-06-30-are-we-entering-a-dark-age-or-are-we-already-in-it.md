@@ -1,6 +1,6 @@
 ---
 title: Are we entering a dark age, or are we already  in it?
-date: 2005-06-30 08:51
+date: 2005-06-30
 author: Andrew Matthews
 ignored-tags: artificial intelligence, science
 slug: are-we-entering-a-dark-age-or-are-we-already-in-it

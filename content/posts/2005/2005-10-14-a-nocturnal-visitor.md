@@ -1,6 +1,6 @@
 ---
 title: A nocturnal visitor
-date: 2005-10-14 03:09
+date: 2005-10-14
 author: Andrew Matthews
 ignored-tags: photography, wildlife
 slug: a-nocturnal-visitor

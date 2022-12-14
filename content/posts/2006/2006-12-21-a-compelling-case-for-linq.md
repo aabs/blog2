@@ -1,6 +1,6 @@
 ---
 title: A compelling case for LINQ
-date: 2006-12-21 14:47
+date: 2006-12-21
 author: Andrew Matthews
 ignored-tags: LINQ
 slug: a-compelling-case-for-linq

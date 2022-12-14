@@ -1,6 +1,6 @@
 ---
 title: Why is consciousness so hard to think about?
-date: 2005-07-04 09:32
+date: 2005-07-04
 author: Andrew Matthews
 ignored-tags: artificial intelligence, Computer Science
 slug: why-is-consciousness-so-hard-to-think-about

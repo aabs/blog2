@@ -1,6 +1,6 @@
 ---
 title: Homespun Wisdom
-date: 2005-03-19 10:08
+date: 2005-03-19
 author: Andrew Matthews
 ignored-tags: humour
 slug: homespun-wisdom

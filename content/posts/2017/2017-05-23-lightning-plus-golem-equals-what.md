@@ -1,6 +1,6 @@
 ---
 title: Lightning + Golem = Pay per lambda?
-date: 2017-05-23 14:59
+date: 2017-05-23
 author: Andrew Matthews
 category: architecture, blockchain, ideas
 slug: lightning-plus-golem-equals-what

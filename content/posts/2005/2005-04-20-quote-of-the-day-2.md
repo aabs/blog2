@@ -1,6 +1,6 @@
 ---
 title: Quote of the day
-date: 2005-04-20 13:00
+date: 2005-04-20
 author: Andrew Matthews
 ignored-tags: Computer Science
 slug: quote-of-the-day-2

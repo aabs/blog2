@@ -1,6 +1,6 @@
 ---
 title: Moderate drinking can improve memory
-date: 2006-10-26 12:26
+date: 2006-10-26
 author: Andrew Matthews
 ignored-tags: medicine, psychology
 slug: moderate-drinking-can-improve-memory

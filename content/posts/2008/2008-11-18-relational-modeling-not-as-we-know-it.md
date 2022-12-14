@@ -1,6 +1,6 @@
 ---
 title: Relational Modeling? Not as we know it!
-date: 2008-11-18 21:11
+date: 2008-11-18
 author: Andrew Matthews
 category: programming, Semantic Web
 ignored-tags: databases, SemanticWeb, semweb

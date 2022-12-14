@@ -1,6 +1,6 @@
 ---
 title: Agile – what happens if you don’t think ahead?
-date: 2007-01-24 09:30
+date: 2007-01-24
 author: Andrew Matthews
 ignored-tags: programming
 slug: agile-%e2%80%93-what-happens-if-you-don%e2%80%99t-think-ahead

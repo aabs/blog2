@@ -1,6 +1,6 @@
 ---
 title: The pinnacle of frustration
-date: 2005-06-11 17:17
+date: 2005-06-11
 author: Andrew Matthews
 slug: the-pinnacle-of-frustration
 status: published

@@ -1,6 +1,6 @@
 ---
 title: Emily Took her First Steps Yesterday
-date: 2006-11-09 13:53
+date: 2006-11-09
 author: Andrew Matthews
 ignored-tags: family
 slug: emily-took-her-first-steps-yesterday

@@ -1,6 +1,6 @@
 ---
 title: Wish Me Luck
-date: 2005-04-19 09:55
+date: 2005-04-19
 author: Andrew Matthews
 ignored-tags: misc, programming
 slug: wish-me-luck

@@ -1,6 +1,6 @@
 ---
 title: On God and other weird ideas
-date: 2005-04-18 21:29
+date: 2005-04-18
 author: Andrew Matthews
 ignored-tags: froth, misc, philosophy
 slug: on-god-and-other-weird-ideas

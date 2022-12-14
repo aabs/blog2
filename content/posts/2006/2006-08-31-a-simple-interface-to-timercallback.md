@@ -1,6 +1,6 @@
 ---
 title: A Simple Interface to TimerCallback
-date: 2006-08-31 05:56
+date: 2006-08-31
 author: Andrew Matthews
 ignored-tags: programming
 slug: a-simple-interface-to-timercallback

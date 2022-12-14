@@ -1,6 +1,6 @@
 ---
 title: First Forays into F#
-date: 2008-03-11 19:00
+date: 2008-03-11
 author: Andrew Matthews
 category: SemanticWeb
 slug: first-forays-into-f

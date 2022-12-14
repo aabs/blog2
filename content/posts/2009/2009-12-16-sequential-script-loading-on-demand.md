@@ -1,6 +1,6 @@
 ---
 title: Sequential script loading on demand
-date: 2009-12-16 10:26
+date: 2009-12-16
 author: Andrew Matthews
 category: functional programming, programming
 ignored-tags: functional programming, javascript, jquery

@@ -1,6 +1,6 @@
 ---
 title: Dodgy theory of the week
-date: 2006-12-14 12:29
+date: 2006-12-14
 author: Andrew Matthews
 ignored-tags: medicine, psychology
 slug: dodgy-theory-of-the-week

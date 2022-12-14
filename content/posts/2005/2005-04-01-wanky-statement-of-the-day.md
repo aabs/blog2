@@ -1,6 +1,6 @@
 ---
 title: Wanky statement of the day
-date: 2005-04-01 14:27
+date: 2005-04-01
 author: Andrew Matthews
 ignored-tags: humour, programming
 slug: wanky-statement-of-the-day

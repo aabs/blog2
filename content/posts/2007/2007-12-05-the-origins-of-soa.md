@@ -1,6 +1,6 @@
 ---
 title: The Origins of SOA
-date: 2007-12-05 21:50
+date: 2007-12-05
 author: Andrew Matthews
 category: SemanticWeb
 slug: the-origins-of-soa

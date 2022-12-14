@@ -1,6 +1,6 @@
 ---
 title: Why I'm looking forward to Longhorn
-date: 2005-07-14 10:32
+date: 2005-07-14
 author: Andrew Matthews
 ignored-tags: cool, software
 slug: why-im-looking-forward-to-longhorn

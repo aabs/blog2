@@ -1,6 +1,6 @@
 ---
 title: And we're off
-date: 2005-07-19 16:04
+date: 2005-07-19
 author: Andrew Matthews
 ignored-tags: DBC
 slug: and-were-off-2

@@ -1,6 +1,6 @@
 ---
 title: LinqToRdf - Designing a Query Provider
-date: 2007-06-05 10:04
+date: 2007-06-05
 author: Andrew Matthews
 ignored-tags: C#, Computer Science, LINQ, programming
 slug: linqtordf-designing-a-query-provider

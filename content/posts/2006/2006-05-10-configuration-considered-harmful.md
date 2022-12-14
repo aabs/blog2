@@ -1,6 +1,6 @@
 ---
 title: Configuration considered harmful
-date: 2006-05-10 11:00
+date: 2006-05-10
 author: Andrew Matthews
 ignored-tags: Computer Science, programming
 slug: configuration-considered-harmful

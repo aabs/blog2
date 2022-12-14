@@ -1,6 +1,6 @@
 ---
 title: Lost Weekends?
-date: 2005-04-11 09:25
+date: 2005-04-11
 author: Andrew Matthews
 ignored-tags: misc
 slug: lost-weekends

@@ -1,6 +1,6 @@
 ---
 title: Australian Port – a new WMD?
-date: 2009-02-27 09:27
+date: 2009-02-27
 author: Andrew Matthews
 category: SemanticWeb
 slug: australian-port-a-new-wmd

@@ -1,6 +1,6 @@
 ---
 title: Well, here goes nothing II - Revenge of the brill-o pads
-date: 2005-05-29 14:40
+date: 2005-05-29
 author: Andrew Matthews
 ignored-tags: gadgets, humour, misc
 slug: well-here-goes-nothing-ii-revenge-of-the-brill-o-pads

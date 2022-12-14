@@ -1,6 +1,6 @@
 ---
 title: Is it really impossible to choose between LINQ and Stored Procedures?
-date: 2007-03-30 20:58
+date: 2007-03-30
 author: Andrew Matthews
 ignored-tags: Computer Science, databases, LINQ, ORM, philosophy, programming, science, Work
 slug: is-it-really-impossible-to-choose-between-linq-and-stored-procedures

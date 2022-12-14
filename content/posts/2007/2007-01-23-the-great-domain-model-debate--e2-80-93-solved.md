@@ -1,6 +1,6 @@
 ---
 title: The Great Domain Model Debate – Solved!
-date: 2007-01-23 10:24
+date: 2007-01-23
 author: Andrew Matthews
 ignored-tags: Computer Science, programming
 slug: the-great-domain-model-debate-%e2%80%93-solved

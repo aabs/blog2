@@ -1,6 +1,6 @@
 ---
 title: Do legislators have a performance related pay scheme, or what?
-date: 2006-11-19 19:59
+date: 2006-11-19
 author: Andrew Matthews
 slug: do-legislators-have-a-performance-related-pay-scheme-or-what
 status: published

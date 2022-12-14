@@ -1,6 +1,6 @@
 ---
 title: LinqToRdf - Progress Update 2007-06-05
-date: 2007-06-05 09:57
+date: 2007-06-05
 author: Andrew Matthews
 ignored-tags: C#, LINQ, programming
 slug: linqtordf-progress-update-2007-06-05

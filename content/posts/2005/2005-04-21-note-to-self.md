@@ -1,6 +1,6 @@
 ---
 title: Note to self
-date: 2005-04-21 13:14
+date: 2005-04-21
 author: Andrew Matthews
 ignored-tags: gadgets, misc
 slug: note-to-self

@@ -1,6 +1,6 @@
 ---
 title: Traumatizing the Kids
-date: 2006-09-27 16:54
+date: 2006-09-27
 author: Andrew Matthews
 ignored-tags: family, humour
 slug: traumatizing-the-kids

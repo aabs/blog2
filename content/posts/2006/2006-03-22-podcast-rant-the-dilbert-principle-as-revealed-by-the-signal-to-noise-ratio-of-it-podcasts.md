@@ -1,6 +1,6 @@
 ---
 title: Podcast rant - the Dilbert Principle as revealed by the signal to noise ratio of IT podcasts
-date: 2006-03-22 02:43
+date: 2006-03-22
 author: Andrew Matthews
 ignored-tags: Web2.0
 slug: podcast-rant-the-dilbert-principle-as-revealed-by-the-signal-to-noise-ratio-of-it-podcasts

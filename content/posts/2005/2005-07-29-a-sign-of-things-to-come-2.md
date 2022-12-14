@@ -1,6 +1,6 @@
 ---
 title: A sign of things to come...
-date: 2005-07-29 21:39
+date: 2005-07-29
 author: Andrew Matthews
 ignored-tags: humour, misc, photography
 slug: a-sign-of-things-to-come-2

@@ -1,6 +1,6 @@
 ---
 title: Søren on DBC
-date: 2008-05-05 21:27
+date: 2008-05-05
 author: Andrew Matthews
 category: .NET, functional programming, programming
 ignored-tags: .NET, DBC

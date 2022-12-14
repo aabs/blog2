@@ -1,6 +1,6 @@
 ---
 title: Semantic Development Environments
-date: 2008-08-22 21:06
+date: 2008-08-22
 author: Andrew Matthews
 category: .NET, Semantic Web
 ignored-tags: GGG, ideas, lintordf, programming, SemanticWeb, venture altruism, web3.0

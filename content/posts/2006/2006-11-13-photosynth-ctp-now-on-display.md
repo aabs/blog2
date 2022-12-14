@@ -1,6 +1,6 @@
 ---
 title: Photosynth CTP now on display
-date: 2006-11-13 09:05
+date: 2006-11-13
 author: Andrew Matthews
 ignored-tags: cool, photography, software, Web2.0
 slug: photosynth-ctp-now-on-display

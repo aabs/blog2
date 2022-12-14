@@ -1,6 +1,6 @@
 ---
 title: For the budding author...
-date: 2005-04-09 21:44
+date: 2005-04-09
 author: Andrew Matthews
 ignored-tags: humour, poetry
 slug: for-the-budding-author

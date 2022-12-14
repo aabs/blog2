@@ -1,6 +1,6 @@
 ---
 title: I saw a wombat...
-date: 2005-04-09 21:08
+date: 2005-04-09
 author: Andrew Matthews
 ignored-tags: humour, poetry
 slug: i-saw-a-wombat

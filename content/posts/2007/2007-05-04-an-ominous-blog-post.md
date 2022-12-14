@@ -1,6 +1,6 @@
 ---
 title: An Ominous Blog Post
-date: 2007-05-04 10:46
+date: 2007-05-04
 author: Andrew Matthews
 ignored-tags: gadgets, medicine, science
 slug: an-ominous-blog-post

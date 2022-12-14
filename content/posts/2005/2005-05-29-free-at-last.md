@@ -1,6 +1,6 @@
 ---
 title: Free at last...
-date: 2005-05-29 14:10
+date: 2005-05-29
 author: Andrew Matthews
 ignored-tags: misc, programming
 slug: free-at-last

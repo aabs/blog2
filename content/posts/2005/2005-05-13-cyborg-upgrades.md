@@ -1,6 +1,6 @@
 ---
 title: Cyborg Upgrades
-date: 2005-05-13 09:33
+date: 2005-05-13
 author: Andrew Matthews
 ignored-tags: cool, gadgets, medicine, science
 slug: cyborg-upgrades

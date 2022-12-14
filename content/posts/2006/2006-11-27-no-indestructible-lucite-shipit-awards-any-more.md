@@ -1,6 +1,6 @@
 ---
 title: No indestructible Lucite Shipit Awards any More?
-date: 2006-11-27 21:15
+date: 2006-11-27
 author: Andrew Matthews
 ignored-tags: humour
 slug: no-indestructible-lucite-shipit-awards-any-more

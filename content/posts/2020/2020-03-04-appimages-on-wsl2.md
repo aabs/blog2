@@ -1,8 +1,9 @@
 ---
 title: AppImages on WSL2
-date: 2020-03-04 13:31
+date: 2020-03-04
 author: Andrew Matthews
-category: Semantic Web
+tags: ["sysops"]
+series: ["A Fish shell based dotfiles management framework"]
 slug: appimages-on-wsl2
 status: published
 attachments: 2020/03/fish-logo.png

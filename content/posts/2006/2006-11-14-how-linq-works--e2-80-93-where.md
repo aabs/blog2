@@ -1,6 +1,6 @@
 ---
 title: How LINQ Works – Where
-date: 2006-11-14 08:35
+date: 2006-11-14
 author: Andrew Matthews
 ignored-tags: C#
 slug: how-linq-works-%e2%80%93-where

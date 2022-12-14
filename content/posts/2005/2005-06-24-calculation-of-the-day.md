@@ -1,6 +1,6 @@
 ---
 title: Calculation of the day
-date: 2005-06-24 18:34
+date: 2005-06-24
 author: Andrew Matthews
 ignored-tags: calculations, humour
 slug: calculation-of-the-day

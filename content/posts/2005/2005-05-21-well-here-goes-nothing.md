@@ -1,6 +1,6 @@
 ---
 title: Well, here goes nothing...
-date: 2005-05-21 17:20
+date: 2005-05-21
 author: Andrew Matthews
 ignored-tags: gadgets, misc
 slug: well-here-goes-nothing

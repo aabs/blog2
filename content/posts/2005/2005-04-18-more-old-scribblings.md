@@ -1,6 +1,6 @@
 ---
 title: More old scribblings
-date: 2005-04-18 22:21
+date: 2005-04-18
 author: Andrew Matthews
 ignored-tags: Computer Science, programming
 slug: more-old-scribblings

@@ -1,6 +1,6 @@
 ---
 title: The first sample
-date: 2005-08-29 11:10
+date: 2005-08-29
 author: Andrew Matthews
 ignored-tags: art, gadgets, photography
 slug: the-first-sample

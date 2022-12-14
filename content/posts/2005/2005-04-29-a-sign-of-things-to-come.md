@@ -1,6 +1,6 @@
 ---
 title: A sign of things to come?
-date: 2005-04-29 09:26
+date: 2005-04-29
 author: Andrew Matthews
 ignored-tags: misc, philosophy
 slug: a-sign-of-things-to-come

@@ -1,6 +1,6 @@
 ---
 title: Somebody else who despises pencil-neck double-talk...
-date: 2006-04-05 02:52
+date: 2006-04-05
 author: Andrew Matthews
 ignored-tags: conspiracies, humour
 slug: somebody-else-who-despises-pencil-neck-double-talk

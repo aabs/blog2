@@ -1,6 +1,6 @@
 ---
 title: Announcing LinqToRdf v0.7
-date: 2008-05-25 23:34
+date: 2008-05-25
 author: Andrew Matthews
 category: Semantic Web, SemanticWeb
 slug: announcing-linqtordf-v07

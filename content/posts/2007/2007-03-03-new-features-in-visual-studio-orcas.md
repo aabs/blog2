@@ -1,6 +1,6 @@
 ---
 title: New Features in Visual Studio Orcas
-date: 2007-03-03 21:38
+date: 2007-03-03
 author: Andrew Matthews
 ignored-tags: cool, programming, software
 slug: new-features-in-visual-studio-orcas

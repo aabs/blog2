@@ -1,6 +1,6 @@
 ---
 title: My OPML file
-date: 2005-08-18 12:14
+date: 2005-08-18
 author: Andrew Matthews
 ignored-tags: Web2.0
 slug: my-opml-file

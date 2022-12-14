@@ -1,6 +1,6 @@
 ---
 title: Complex Assertions in C#
-date: 2008-01-16 13:44
+date: 2008-01-16
 author: Andrew Matthews
 category: .NET, programming
 slug: complex-assertions-using-c-30

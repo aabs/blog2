@@ -1,6 +1,6 @@
 ---
 title: BDALAP - Silver bullet for post-agile architect
-date: 2008-05-27 10:39
+date: 2008-05-27
 author: Andrew Matthews
 category: SemanticWeb
 slug: bdalap-silver-bullet-for-post-agile-architect

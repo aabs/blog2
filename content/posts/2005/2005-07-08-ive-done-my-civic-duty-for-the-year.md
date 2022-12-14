@@ -1,6 +1,6 @@
 ---
 title: I've done my civic duty for the year...
-date: 2005-07-08 13:50
+date: 2005-07-08
 author: Andrew Matthews
 ignored-tags: DBC
 slug: ive-done-my-civic-duty-for-the-year

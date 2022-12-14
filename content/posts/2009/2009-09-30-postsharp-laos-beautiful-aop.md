@@ -1,6 +1,6 @@
 ---
 title: PostSharp Laos - Beautiful AOP.
-date: 2009-09-30 12:39
+date: 2009-09-30
 author: Andrew Matthews
 category: .NET, functional programming, programming
 ignored-tags: .NET, AOP, functional programming, postsharp, pure functions

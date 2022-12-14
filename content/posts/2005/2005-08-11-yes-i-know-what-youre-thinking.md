@@ -1,6 +1,6 @@
 ---
 title: Yes I know what you're thinking...
-date: 2005-08-11 13:19
+date: 2005-08-11
 author: Andrew Matthews
 ignored-tags: humour, misc, Web2.0
 slug: yes-i-know-what-youre-thinking

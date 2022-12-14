@@ -1,6 +1,6 @@
 ---
 title: Mulder and Sculley
-date: 2005-04-18 21:25
+date: 2005-04-18
 author: Andrew Matthews
 ignored-tags: froth, misc
 slug: mulder-and-sculley

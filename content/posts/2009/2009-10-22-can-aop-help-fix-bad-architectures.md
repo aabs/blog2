@@ -1,6 +1,6 @@
 ---
 title: Can AOP help fix bad architectures?
-date: 2009-10-22 08:55
+date: 2009-10-22
 author: Andrew Matthews
 category: .NET, programming
 ignored-tags: .NET, AOP, Aspect Oriented Programming, postsharp, SOA

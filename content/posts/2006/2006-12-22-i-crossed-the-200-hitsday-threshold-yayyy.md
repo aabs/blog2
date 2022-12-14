@@ -1,6 +1,6 @@
 ---
 title: I Crossed the 200 Hits/Day Threshold! Yayyy!!!!
-date: 2006-12-22 10:31
+date: 2006-12-22
 author: Andrew Matthews
 ignored-tags: cool, Web2.0
 slug: i-crossed-the-200-hitsday-threshold-yayyy

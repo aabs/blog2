@@ -1,6 +1,6 @@
 ---
 title: Here is your enemy…
-date: 2007-03-09 10:42
+date: 2007-03-09
 author: Andrew Matthews
 ignored-tags: conspiracies, humour
 slug: here-is-your-enemy%e2%80%a6

@@ -1,6 +1,6 @@
 ---
 title: My new favourite DJ - David Emonin
-date: 2005-05-10 13:21
+date: 2005-05-10
 author: Andrew Matthews
 ignored-tags: cool, misc
 slug: my-new-favourite-dj-david-emonin

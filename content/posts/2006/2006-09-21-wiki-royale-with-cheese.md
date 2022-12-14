@@ -1,6 +1,6 @@
 ---
 title: Wiki Royale with Cheese
-date: 2006-09-21 23:36
+date: 2006-09-21
 author: Andrew Matthews
 ignored-tags: froth, humour, Web2.0
 slug: wiki-royale-with-cheese

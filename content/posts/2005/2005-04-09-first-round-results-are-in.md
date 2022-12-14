@@ -1,6 +1,6 @@
 ---
 title: First round results are in...
-date: 2005-04-09 21:49
+date: 2005-04-09
 author: Andrew Matthews
 ignored-tags: humour
 slug: first-round-results-are-in

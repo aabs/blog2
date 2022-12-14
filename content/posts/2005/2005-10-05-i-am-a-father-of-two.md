@@ -1,6 +1,6 @@
 ---
 title: I am a father - of two.
-date: 2005-10-05 17:37
+date: 2005-10-05
 author: Andrew Matthews
 ignored-tags: family, misc
 slug: i-am-a-father-of-two

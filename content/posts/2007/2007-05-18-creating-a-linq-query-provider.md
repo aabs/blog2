@@ -1,6 +1,6 @@
 ---
 title: Creating A LINQ Query Provider
-date: 2007-05-18 09:20
+date: 2007-05-18
 author: Andrew Matthews
 ignored-tags: artificial intelligence, C#, Computer Science, databases, LINQ, ORM, programming, software
 slug: creating-a-linq-query-provider

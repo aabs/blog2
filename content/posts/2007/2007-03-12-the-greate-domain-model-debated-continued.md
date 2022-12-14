@@ -1,6 +1,6 @@
 ---
 title: The Greate Domain Model Debated - Continued.
-date: 2007-03-12 09:31
+date: 2007-03-12
 author: Andrew Matthews
 ignored-tags: Computer Science, programming
 slug: the-greate-domain-model-debated-continued

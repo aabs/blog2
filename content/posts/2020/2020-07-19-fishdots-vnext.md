@@ -1,5 +1,7 @@
 ---
 title: Fishdots Rewritten
+tags: ["fishdots"]
+series: ["A Fish shell based dotfiles management framework"]
 ---
 
 Fishdots v1 and its plugins were groaning under their own weight. It's in-memory

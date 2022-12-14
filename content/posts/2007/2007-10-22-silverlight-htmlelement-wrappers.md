@@ -1,6 +1,6 @@
 ---
 title: Silverlight HtmlElement wrappers
-date: 2007-10-22 14:56
+date: 2007-10-22
 author: Andrew Matthews
 category: programming
 slug: silverlight-htmlelement-wrappers

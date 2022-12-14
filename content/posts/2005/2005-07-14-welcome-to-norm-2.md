@@ -1,6 +1,6 @@
 ---
 title: Welcome to nORM
-date: 2005-07-14 04:50
+date: 2005-07-14
 author: Andrew Matthews
 ignored-tags: ORM, Web2.0
 slug: welcome-to-norm-2

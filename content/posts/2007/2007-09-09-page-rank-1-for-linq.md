@@ -1,6 +1,6 @@
 ---
 title: Page Rank 1 for LINQ
-date: 2007-09-09 21:00
+date: 2007-09-09
 author: Andrew Matthews
 ignored-tags: LINQ
 slug: page-rank-1-for-linq

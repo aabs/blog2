@@ -1,6 +1,6 @@
 ---
 title: Functional Programming in C# - Higher-Order Functions
-date: 2008-04-16 20:58
+date: 2008-04-16
 author: Andrew Matthews
 category: .NET, functional programming, programming
 ignored-tags: .NET 3.5, C#, Computer Science, functional programming

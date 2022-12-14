@@ -1,6 +1,6 @@
 ---
 title: www.SemanticOverflow.com - the Web 2.0 Q&A site for all things Web 3.0.
-date: 2009-10-27 21:32
+date: 2009-10-27
 author: Andrew Matthews
 category: Semantic Web, SemanticWeb
 slug: www-semanticoverflow-com-the-web-2-0-qa-site-for-all-things-web-3-0

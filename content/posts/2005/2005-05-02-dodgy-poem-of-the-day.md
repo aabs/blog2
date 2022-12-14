@@ -1,6 +1,6 @@
 ---
 title: Dodgy poem of the day
-date: 2005-05-02 08:48
+date: 2005-05-02
 author: Andrew Matthews
 ignored-tags: humour, poetry
 slug: dodgy-poem-of-the-day

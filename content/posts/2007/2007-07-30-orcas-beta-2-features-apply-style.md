@@ -1,6 +1,6 @@
 ---
 title: Orcas Beta 2 Features - Apply Style
-date: 2007-07-30 14:29
+date: 2007-07-30
 author: Andrew Matthews
 ignored-tags: cool
 slug: orcas-beta-2-features-apply-style

@@ -1,6 +1,6 @@
 ---
 title: Another reason I'm looking forward to Vista
-date: 2005-07-27 13:20
+date: 2005-07-27
 author: Andrew Matthews
 ignored-tags: cool, software
 slug: another-reason-im-looking-forward-to-vista

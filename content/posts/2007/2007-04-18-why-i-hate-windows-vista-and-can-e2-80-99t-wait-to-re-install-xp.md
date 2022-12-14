@@ -1,6 +1,6 @@
 ---
 title: Why I hate Windows Vista (and can’t wait to re-install XP)
-date: 2007-04-18 14:42
+date: 2007-04-18
 author: Andrew Matthews
 Category: SemanticWeb
 ignored-tags: froth, humour, software

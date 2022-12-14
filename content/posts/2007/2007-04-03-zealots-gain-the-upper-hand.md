@@ -1,6 +1,6 @@
 ---
 title: Zealots gain the upper hand
-date: 2007-04-03 10:59
+date: 2007-04-03
 author: Andrew Matthews
 ignored-tags: conspiracies, froth, science
 slug: zealots-gain-the-upper-hand

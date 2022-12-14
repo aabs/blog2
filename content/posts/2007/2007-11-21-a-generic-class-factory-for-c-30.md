@@ -1,6 +1,6 @@
 ---
 title: A Generic Class Factory for C# 3.0
-date: 2007-11-21 22:02
+date: 2007-11-21
 author: Andrew Matthews
 category: .NET, programming
 slug: a-generic-class-factory-for-c-30

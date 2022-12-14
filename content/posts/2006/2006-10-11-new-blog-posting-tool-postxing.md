@@ -1,6 +1,6 @@
 ---
 title: "New Blog Posting Tool: PostXING"
-date: 2006-10-11 03:21
+date: 2006-10-11
 author: Andrew Matthews
 ignored-tags: programming, Web2.0
 slug: new-blog-posting-tool-postxing

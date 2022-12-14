@@ -1,6 +1,6 @@
 ---
 title: POTD - Australian Landscape
-date: 2006-11-23 09:18
+date: 2006-11-23
 author: Andrew Matthews
 ignored-tags: art, photography
 slug: potd-australian-landscape

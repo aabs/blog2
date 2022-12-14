@@ -1,6 +1,6 @@
 ---
 title: Blissful Relief
-date: 2005-06-17 08:57
+date: 2005-06-17
 author: Andrew Matthews
 ignored-tags: misc, Work
 slug: blissful-relief

@@ -1,6 +1,6 @@
 ---
 title: The Indians are busy
-date: 2006-05-22 14:57
+date: 2006-05-22
 author: Andrew Matthews
 ignored-tags: programming, Work
 slug: the-indians-are-busy

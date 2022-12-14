@@ -1,6 +1,6 @@
 ---
 title: Are You Sublime or Ridiculous?
-date: 2007-03-22 21:54
+date: 2007-03-22
 author: Andrew Matthews
 ignored-tags: calculations, humour, psychology
 slug: are-you-a-meaty-algorithm

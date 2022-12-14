@@ -1,6 +1,6 @@
 ---
 title: Windows Live Writer Beta 2, VS Paste and Wordpress
-date: 2007-05-31 15:24
+date: 2007-05-31
 author: Andrew Matthews
 slug: windows-live-writer-beta-2-vs-paste-and-wordpress
 status: published

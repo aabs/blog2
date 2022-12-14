@@ -1,6 +1,6 @@
 ---
 title: An unfortunate hereditary affliction
-date: 2005-10-14 22:39
+date: 2005-10-14
 author: Andrew Matthews
 ignored-tags: humour, photography
 slug: an-unfortunate-hereditary-affliction

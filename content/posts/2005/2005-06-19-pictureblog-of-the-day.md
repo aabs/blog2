@@ -1,6 +1,6 @@
 ---
 title: Picture/Blog of the day
-date: 2005-06-19 08:23
+date: 2005-06-19
 author: Andrew Matthews
 ignored-tags: art, humour
 slug: pictureblog-of-the-day

@@ -1,6 +1,6 @@
 ---
 title: Semantic Overflow Highlights I
-date: 2009-11-13 07:47
+date: 2009-11-13
 author: Andrew Matthews
 category: Semantic Web
 ignored-tags: semantic-overflow, SemanticWeb, web3.0

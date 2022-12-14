@@ -1,6 +1,6 @@
 ---
 title: Not Exactly Whacked
-date: 2005-04-06 14:27
+date: 2005-04-06
 author: Andrew Matthews
 ignored-tags: humour, Web2.0
 slug: not-exactly-whacked

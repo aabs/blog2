@@ -1,6 +1,6 @@
 ---
 title: Let the Flame Wars Begin…
-date: 2006-12-06 10:31
+date: 2006-12-06
 author: Andrew Matthews
 ignored-tags: humour, psychology, Work
 slug: let-the-flame-wars-begin%e2%80%a6

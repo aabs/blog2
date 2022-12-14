@@ -1,6 +1,6 @@
 ---
 title: Dodgy Postmodernist Analysis
-date: 2006-12-05 12:53
+date: 2006-12-05
 author: Andrew Matthews
 ignored-tags: humour, psychology
 slug: dodgy-postmodernist-analysis

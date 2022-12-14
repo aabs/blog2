@@ -1,6 +1,6 @@
 ---
 title: Insight into the mind of a savant
-date: 2005-05-10 16:19
+date: 2005-05-10
 author: Andrew Matthews
 ignored-tags: misc, psychology
 slug: insight-into-the-mind-of-a-savant

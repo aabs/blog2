@@ -1,6 +1,6 @@
 ---
 title: Kerry smells - or at least I hope so!!!
-date: 2005-07-07 09:27
+date: 2005-07-07
 author: Andrew Matthews
 ignored-tags: humour, medicine
 slug: kerry-smells-or-at-least-i-hope-so

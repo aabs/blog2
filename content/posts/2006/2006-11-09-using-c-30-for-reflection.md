@@ -1,6 +1,6 @@
 ---
 title: Using C# 3.0 For Reflection
-date: 2006-11-09 13:26
+date: 2006-11-09
 author: Andrew Matthews
 ignored-tags: C#, Code Generation
 slug: using-c-30-for-reflection

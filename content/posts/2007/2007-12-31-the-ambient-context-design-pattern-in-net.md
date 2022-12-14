@@ -1,6 +1,6 @@
 ---
 title: The Ambient Context Design Pattern in .NET
-date: 2007-12-31 11:14
+date: 2007-12-31
 author: Andrew Matthews
 category: .NET, programming
 slug: the-ambient-context-design-pattern-in-net

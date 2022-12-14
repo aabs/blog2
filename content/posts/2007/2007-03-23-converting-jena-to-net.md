@@ -1,6 +1,6 @@
 ---
 title: Converting Jena to .NET
-date: 2007-03-23 23:51
+date: 2007-03-23
 author: Andrew Matthews
 ignored-tags: artificial intelligence, cool, programming
 slug: converting-jena-to-net

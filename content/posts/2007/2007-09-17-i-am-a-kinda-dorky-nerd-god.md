@@ -1,6 +1,6 @@
 ---
 title: I am a Kinda Dorky Nerd God!!
-date: 2007-09-17 21:07
+date: 2007-09-17
 author: Andrew Matthews
 ignored-tags: calculations, humour
 slug: i-am-a-kinda-dorky-nerd-god

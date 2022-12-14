@@ -1,6 +1,6 @@
 ---
 title: I could tell you some stories
-date: 2005-04-09 21:05
+date: 2005-04-09
 author: Andrew Matthews
 ignored-tags: humour
 slug: i-could-tell-you-some-stories

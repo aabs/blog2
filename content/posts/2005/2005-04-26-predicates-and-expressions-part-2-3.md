@@ -1,6 +1,6 @@
 ---
 title: Predicates and Expressions - Part 2
-date: 2005-04-26 16:24
+date: 2005-04-26
 author: Andrew Matthews
 ignored-tags: DBC
 slug: predicates-and-expressions-part-2-3

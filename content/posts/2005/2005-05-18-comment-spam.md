@@ -1,6 +1,6 @@
 ---
 title: Comment Spam
-date: 2005-05-18 10:08
+date: 2005-05-18
 author: Andrew Matthews
 ignored-tags: misc, Web2.0
 slug: comment-spam

@@ -1,6 +1,6 @@
 ---
 title: Cord blood yields 'ethical' embryonic stem cells
-date: 2005-08-19 14:22
+date: 2005-08-19
 author: Andrew Matthews
 ignored-tags: medicine
 slug: cord-blood-yields-ethical-embryonic-stem-cells

@@ -1,6 +1,6 @@
 ---
 title: PowerShell NOT inferior to Cygwin
-date: 2007-02-04 21:52
+date: 2007-02-04
 author: Andrew Matthews
 ignored-tags: software
 slug: powershell-not-inferior-to-cygwin

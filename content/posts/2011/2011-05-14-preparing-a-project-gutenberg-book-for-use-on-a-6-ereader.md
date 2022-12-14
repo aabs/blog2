@@ -1,6 +1,6 @@
 ---
 title: Preparing a Project Gutenberg ebook for use on a 6" ereader
-date: 2011-05-14 16:49
+date: 2011-05-14
 author: Andrew Matthews
 category: SemanticWeb
 ignored-tags: bebook, gutenberg, gutenmark, LaTeX

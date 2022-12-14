@@ -1,6 +1,6 @@
 ---
 title: Using RDF and C# to create an MP3 Manager - Part 3
-date: 2007-05-08 09:07
+date: 2007-05-08
 author: Andrew Matthews
 ignored-tags: C#, Computer Science, LINQ, programming, software
 slug: using-rdf-and-c-to-create-an-mp3-manager-part-3

@@ -1,6 +1,6 @@
 ---
 title: Flat-earth Society
-date: 2005-08-04 11:39
+date: 2005-08-04
 author: Andrew Matthews
 ignored-tags: conspiracies, humour
 slug: flat-earth-society

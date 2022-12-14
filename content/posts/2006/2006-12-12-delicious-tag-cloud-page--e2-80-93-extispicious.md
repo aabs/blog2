@@ -1,6 +1,6 @@
 ---
 title: Del.icio.us  tag cloud page – extisp.icio.us
-date: 2006-12-12 13:32
+date: 2006-12-12
 author: Andrew Matthews
 ignored-tags: cool, Web2.0
 slug: delicious-tag-cloud-page-%e2%80%93-extispicious

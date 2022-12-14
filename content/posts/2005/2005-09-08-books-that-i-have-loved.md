@@ -1,6 +1,6 @@
 ---
 title: Books that I have loved.
-date: 2005-09-08 17:15
+date: 2005-09-08
 author: Andrew Matthews
 ignored-tags: Computer Science, philosophy, programming, science
 slug: books-that-i-have-loved

@@ -1,6 +1,6 @@
 ---
 title: What to expect from a DBC framework
-date: 2005-03-17 14:07
+date: 2005-03-17
 author: Andrew Matthews
 ignored-tags: DBC
 slug: what-to-expect-from-a-dbc-framework-2

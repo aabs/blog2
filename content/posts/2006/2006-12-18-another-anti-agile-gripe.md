@@ -1,6 +1,6 @@
 ---
 title: Another Anti-Agile Gripe
-date: 2006-12-18 10:26
+date: 2006-12-18
 author: Andrew Matthews
 ignored-tags: programming
 slug: another-anti-agile-gripe

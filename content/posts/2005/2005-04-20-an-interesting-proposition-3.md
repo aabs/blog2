@@ -1,6 +1,6 @@
 ---
 title: An interesting proposition
-date: 2005-04-20 03:04
+date: 2005-04-20
 author: Andrew Matthews
 ignored-tags: Code Generation, DBC
 slug: an-interesting-proposition-3

@@ -1,6 +1,6 @@
 ---
 title: "C# Automatic Properties: Semantic changes to help cope with poor syntax?"
-date: 2007-01-29 13:37
+date: 2007-01-29
 author: Andrew Matthews
 slug: c-automatic-properties-semantic-changes-to-help-cope-with-poor-syntax
 status: published

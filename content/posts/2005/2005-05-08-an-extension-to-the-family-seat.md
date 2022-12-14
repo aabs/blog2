@@ -1,6 +1,6 @@
 ---
 title: An extension to the family seat
-date: 2005-05-08 17:58
+date: 2005-05-08
 author: Andrew Matthews
 ignored-tags: misc
 slug: an-extension-to-the-family-seat

@@ -1,6 +1,6 @@
 ---
 title: Some pictures of Carlton Gardens
-date: 2011-04-11 09:43
+date: 2011-04-11
 author: Andrew Matthews
 category: SemanticWeb
 slug: some-pictures-of-carlton-gardens

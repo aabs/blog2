@@ -1,6 +1,6 @@
 ---
 title: C# puzzle of the day
-date: 2006-11-05 07:50
+date: 2006-11-05
 author: Andrew Matthews
 ignored-tags: Computer Science
 slug: c-puzzle-of-the-day

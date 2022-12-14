@@ -1,6 +1,6 @@
 ---
 title: Keeping up
-date: 2007-04-16 13:01
+date: 2007-04-16
 author: Andrew Matthews
 ignored-tags: family
 slug: keeping-up

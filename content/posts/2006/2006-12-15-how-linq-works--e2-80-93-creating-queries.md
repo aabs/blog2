@@ -1,6 +1,6 @@
 ---
 title: How LINQ Works – Creating Queries
-date: 2006-12-15 09:13
+date: 2006-12-15
 author: Andrew Matthews
 ignored-tags: C#, LINQ, ORM
 slug: how-linq-works-%e2%80%93-creating-queries

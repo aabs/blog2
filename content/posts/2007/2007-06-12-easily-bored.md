@@ -1,6 +1,6 @@
 ---
 title: Easily Bored?
-date: 2007-06-12 22:24
+date: 2007-06-12
 author: Andrew Matthews
 ignored-tags: programming, Work
 slug: easily-bored

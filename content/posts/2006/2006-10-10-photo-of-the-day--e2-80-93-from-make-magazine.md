@@ -1,6 +1,6 @@
 ---
 title: Photo of the day – from Make magazine
-date: 2006-10-10 16:11
+date: 2006-10-10
 author: Andrew Matthews
 ignored-tags: photography
 slug: photo-of-the-day-%e2%80%93-from-make-magazine

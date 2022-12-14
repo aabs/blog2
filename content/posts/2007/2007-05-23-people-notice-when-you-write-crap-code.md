@@ -1,6 +1,6 @@
 ---
 title: People notice when you write crap code
-date: 2007-05-23 12:38
+date: 2007-05-23
 author: Andrew Matthews
 slug: people-notice-when-you-write-crap-code
 status: published

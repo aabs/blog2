@@ -1,6 +1,6 @@
 ---
 title: Erik Werenskiold
-date: 2005-08-03 15:31
+date: 2005-08-03
 author: Andrew Matthews
 ignored-tags: art
 slug: erik-werenskiold

@@ -1,6 +1,6 @@
 ---
 title: How LINQ Works - IQueryable
-date: 2006-11-18 23:07
+date: 2006-11-18
 author: Andrew Matthews
 ignored-tags: C#
 slug: how-linq-works-iqueryable

@@ -1,6 +1,6 @@
 ---
 title: Gorgeous Work
-date: 2006-04-04 01:40
+date: 2006-04-04
 author: Andrew Matthews
 ignored-tags: art, cool, misc
 slug: gorgeous-work

@@ -1,6 +1,6 @@
 ---
 title: Problems with Virtual Server on Vista
-date: 2006-12-12 16:40
+date: 2006-12-12
 author: Andrew Matthews
 ignored-tags: programming
 slug: problems-with-virtual-server-on-vista

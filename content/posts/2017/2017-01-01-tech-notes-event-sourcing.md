@@ -1,6 +1,6 @@
 ---
 title: "Tech Notes:  Event Sourcing"
-date: 2017-01-01 13:33
+date: 2017-01-01
 author: Andrew Matthews
 category: architecture, functional programming, programming
 slug: tech-notes-event-sourcing

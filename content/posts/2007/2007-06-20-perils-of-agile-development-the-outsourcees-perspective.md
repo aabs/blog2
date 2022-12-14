@@ -1,6 +1,6 @@
 ---
 title: Perils of Agile development - the outsourcee's perspective
-date: 2007-06-20 09:37
+date: 2007-06-20
 author: Andrew Matthews
 slug: perils-of-agile-development-the-outsourcees-perspective
 status: published

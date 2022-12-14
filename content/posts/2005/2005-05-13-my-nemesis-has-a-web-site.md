@@ -1,6 +1,6 @@
 ---
 title: My nemesis has a web site
-date: 2005-05-13 09:24
+date: 2005-05-13
 author: Andrew Matthews
 slug: my-nemesis-has-a-web-site
 status: published

@@ -1,6 +1,6 @@
 ---
 title: Look at this pretty picture!
-date: 2008-05-15 21:29
+date: 2008-05-15
 author: Andrew Matthews
 category: SemanticWeb
 slug: look-at-this-pretty-picture

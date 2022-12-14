@@ -1,6 +1,6 @@
 ---
 title: A simple semantic web application in C#
-date: 2007-04-13 16:37
+date: 2007-04-13
 author: Andrew Matthews
 ignored-tags: C#, Computer Science, programming
 slug: a-simple-semantic-web-application-in-c

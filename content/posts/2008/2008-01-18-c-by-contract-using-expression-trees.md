@@ -1,6 +1,6 @@
 ---
 title: C# by Contract - Using Expression Trees
-date: 2008-01-18 16:00
+date: 2008-01-18
 author: Andrew Matthews
 category: SemanticWeb
 slug: c-by-contract-using-expression-trees

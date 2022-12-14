@@ -1,6 +1,6 @@
 ---
 title: Lambda Functions in Multi-threaded Development
-date: 2007-10-20 21:47
+date: 2007-10-20
 author: Andrew Matthews
 slug: lambda-functions-in-multi-threaded-development
 status: published

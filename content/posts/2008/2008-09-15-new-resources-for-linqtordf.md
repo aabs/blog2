@@ -1,6 +1,6 @@
 ---
 title: New Resources for LinqToRdf
-date: 2008-09-15 13:10
+date: 2008-09-15
 author: Andrew Matthews
 category: .NET, programming, Semantic Web
 ignored-tags: articles, LinqToRdf, RDF, SemanticWeb, semweb

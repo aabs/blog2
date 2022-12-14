@@ -1,6 +1,6 @@
 ---
 title: Truly google whacked
-date: 2005-11-10 11:18
+date: 2005-11-10
 author: Andrew Matthews
 slug: truly-google-whacked
 status: published

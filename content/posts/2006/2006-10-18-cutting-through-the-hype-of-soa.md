@@ -1,6 +1,6 @@
 ---
 title: Cutting through the hype of SOA
-date: 2006-10-18 17:13
+date: 2006-10-18
 author: Andrew Matthews
 ignored-tags: Computer Science
 slug: cutting-through-the-hype-of-soa

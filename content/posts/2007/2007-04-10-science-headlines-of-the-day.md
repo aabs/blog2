@@ -1,6 +1,6 @@
 ---
 title: Science Headlines of the Day
-date: 2007-04-10 22:06
+date: 2007-04-10
 author: Andrew Matthews
 ignored-tags: science
 slug: science-headlines-of-the-day

@@ -1,6 +1,6 @@
 ---
 title: Typoglycemia
-date: 2006-01-05 11:48
+date: 2006-01-05
 author: Andrew Matthews
 ignored-tags: science
 slug: typoglycemia-2

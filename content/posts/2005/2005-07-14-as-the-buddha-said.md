@@ -1,6 +1,6 @@
 ---
 title: As the Buddha said...
-date: 2005-07-14 09:39
+date: 2005-07-14
 author: Andrew Matthews
 ignored-tags: medicine, misc
 slug: as-the-buddha-said
